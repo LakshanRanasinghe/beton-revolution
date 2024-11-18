@@ -36,6 +36,15 @@
 .text-18{
     font-size: 18px;
 }
+.text-20{
+    font-size: 20px;
+}
+.text-56{
+    font-size: 56px;
+}
+.text-76{
+    font-size: 76px;
+}
 a {
    text-decoration: none;
 }
@@ -63,3 +72,11 @@ a {
 .w-full {
    width: 100%;
 }
+.bg-orange {
+   background-color: var(--orange);
+}
+.border-orange {
+   border-color: var(--orange);
+}
+
+
