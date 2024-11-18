@@ -34,6 +34,27 @@ get_header();
     </div>
 </div>
 
+<div class="bg-dark-blue w-100 px-5">
+    <div class="container d-flex align-items-center w-100 gap-5">
+        <div class="row border-5 border-end d-block w-30" style="border-color: #ff6400 !important;">
+            <h2 class="oswald-500 text-42 text-white py-5">Calculate <br> Concrete price</h2>
+        </div>
+        <div class="d-flex align-items-center gap-2 w-70 py-5">
+            <input type="text" class="home-input ps-4 rounded-0" placeholder="Zip Code or City" aria-label="Recipient's username">
+            <input type="text" class="home-input ps-4 rounded-0" placeholder="Number of M" aria-label="Recipient's username">
+            <button class="oswald-600 text-20 text-white text-uppercase border-2 border-orange bg-orange rounded-0 px-6 py-3 w-215">Calculate Price</button>
+        </div>
+    </div>
+</div>
+
+<div class="bg-white w-100">
+    <div>
+        <div class="z-1 position-relative p-2 w-100 mb-2" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
+            <h1 class="oswald-500 display-3 text-40 m-0 text-black text-uppercase">How do you pour concrete</h1>
+            <div style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%); height: 8px; width: 100%;"></div>
+        </div>
+    </div>
+</div>
 <?php
 get_footer();
 ?>
