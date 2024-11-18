@@ -33,6 +33,12 @@
    font-weight: 700;
    font-style: normal;
 }
+.poppins-400 {
+    font-family: "Poppins", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
 .text-18{
     font-size: 18px;
 }
@@ -72,7 +78,18 @@ a {
 .w-full {
    width: 100%;
 }
-.bg-orange {
+.yellow-gradient {
+    background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);
+}
+.pixel-p-2 {
+    padding: 2px;
+}
+.text-20 {
+    font-size: 20px;
+}
+.text-15 {
+    font-size: 15px;
+}.bg-orange {
    background-color: var(--orange);
 }
 .border-orange {
