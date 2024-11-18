@@ -24,3 +24,9 @@ a{
 .btn-bg-opacity-10{
     background-color: #ffffff22;
 }
+.site-branding .custom-logo{
+    max-width: 278px;
+}
+.w-full{
+    width: 100%;
+}
