@@ -1,7 +1,11 @@
 :root {
+   --darker-blue: #00062f;
    --dark-blue: #040e56;
+   --light-blue: #B9C2FF;
    --orange: #ff6400;
    --yellow: #fdd401;
+   --gray: #DEDEDE4D;
+
 }
 .oswald-200 {
    font-family: "Oswald", sans-serif;
@@ -54,6 +58,9 @@ a {
 .dark-blue {
    background-color: var(--dark-blue);
 }
+.darker-blue {
+   background-color: var(--darker-blue);
+}
 .text-white {
    color: #fff;
 }
@@ -72,12 +79,55 @@ a {
 .yellow-gradient {
     background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);
 }
-.pixel-p-2 {
-    padding: 2px;
+.pixel-p-1 {
+    padding: 1px;
 }
 .text-20 {
     font-size: 20px;
 }
 .text-15 {
     font-size: 15px;
+}
+.no-border-top {
+    border-top: none;
+}
+.border-top-gray {
+    border-top: 1px solid;
+    border-color: var(--gray);
+ }
+.width-30 {
+    width: 30px;
+}
+.width-219 {
+    width: 219px;
+}
+.light-blue {
+    color: var(--light-blue) !important;
+}
+.link-hover:hover {
+    color: var(--light-blue);
+}
+.link-hover-2:hover {
+    color: white;
+}
+.underline {
+    text-decoration: underline;
+}
+.list-style-none {
+    list-style: none;
+}
+#menu-footer-menu-01, #menu-footer-menu-02 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-top: 0.5rem;
+}
+#menu-footer-menu-01 li a, #menu-footer-menu-02 li a{
+    color: white;
+    margin-bottom: 0.5rem;
+    font-family: "Oswald", sans-serif;
+    font-weight: 400;
+}
+#menu-footer-menu-01 li, #menu-footer-menu-02 li{
+    margin-bottom: 0.5rem;
 }
