@@ -1,32 +1,65 @@
-:root{
-    --dark-blue: #040E56;
-    --orange: #FF6400;
-    --yellow: #FDD401;
+:root {
+   --dark-blue: #040e56;
+   --orange: #ff6400;
+   --yellow: #fdd401;
 }
-a{
-    text-decoration: none;
+.oswald-200 {
+   font-family: "Oswald", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 200;
+   font-style: normal;
 }
-.uppercase{
-    text-transform: uppercase;
+.oswald-400 {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+ }
+.oswald-500 {
+   font-family: "Oswald", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 500;
+   font-style: normal;
 }
-.text-sm{
-    font-size: small;
+.oswald-600 {
+   font-family: "Oswald", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 600;
+   font-style: normal;
 }
-.dark-blue{
-    background-color: var(--dark-blue);
+.oswald-700 {
+   font-family: "Oswald", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 700;
+   font-style: normal;
 }
-.text-white{
-    color: #fff;
+.text-18{
+    font-size: 18px;
 }
-.text-yellow{
-    color: var(--yellow);
+a {
+   text-decoration: none;
 }
-.btn-bg-opacity-10{
-    background-color: #ffffff22;
+.uppercase {
+   text-transform: uppercase;
 }
-.site-branding .custom-logo{
-    max-width: 278px;
+.text-sm {
+   font-size: small;
 }
-.w-full{
-    width: 100%;
+.dark-blue {
+   background-color: var(--dark-blue);
+}
+.text-white {
+   color: #fff;
+}
+.text-yellow {
+   color: var(--yellow);
+}
+.btn-bg-opacity-10 {
+   background-color: #ffffff22;
+}
+.site-branding .custom-logo {
+   max-width: 278px;
+}
+.w-full {
+   width: 100%;
 }

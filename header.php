@@ -34,20 +34,20 @@
 						<div class="col">
 							<div class="row gx-3 row-cols-auto">
 								<div class="col">
-									<a href="#" class="btn-bg-opacity-10 px-3 py-1 text-yellow uppercase text-sm"><i class="bi bi-lightning-charge-fill text-white"></i> Superfast Service!</a>
+									<a href="#" class="btn-bg-opacity-10 px-3 py-1 text-yellow uppercase text-sm oswald-400"><i class="bi bi-lightning-charge-fill text-white"></i> <?php _e('Superfast Service', 'beton') ?>!</a>
 								</div>
 								<div class="col">
-									<a href="#" class="btn-bg-opacity-10 px-3 py-1 text-yellow uppercase text-sm"><i class="bi bi-lightning-charge-fill text-white"></i> Always Nearby!</a>
+									<a href="#" class="btn-bg-opacity-10 px-3 py-1 text-yellow uppercase text-sm oswald-400"><i class="bi bi-lightning-charge-fill text-white"></i> <?php _e('Always Nearby', 'beton'); ?>!</a>
 								</div>
 							</div>
 						</div>
 						<div class="col">
 							<div class="row gx-4 row-cols-auto">
 								<div class="col">
-									<a href="tel:00000000000" class="text-white uppercase text-sm"><i class="bi bi-phone"></i> Call: 06-27016082</a>
+									<a href="tel:00000000000" class="text-white uppercase text-sm oswald-400"><i class="bi bi-phone"></i> <?php _e('Call', 'beton'); ?>: 06-27016082</a>
 								</div>
 								<div class="col">
-									<a href="mailto:info@betonstorten.nl" class="text-white uppercase text-sm"><i class="bi bi-envelope"></i> E-mail: info@betonstorten.nl</a>
+									<a href="mailto:info@betonstorten.nl" class="text-white uppercase text-sm oswald-400"><i class="bi bi-envelope"></i> <?php _e('E-mail', 'beton'); ?>: info@betonstorten.nl</a>
 								</div>
 							</div>
 						</div>
@@ -79,7 +79,7 @@
 									'container' => false,
 									'menu_class' => '',
 									'fallback_cb' => '__return_false',
-									'items_wrap' => '<ul id="%1$s" class="navbar-nav me-auto mb-2 mb-md-0 justify-content-between w-full %2$s">%3$s</ul>',
+									'items_wrap' => '<ul id="%1$s" class="navbar-nav me-auto mb-2 mb-md-0 justify-content-between w-full oswald-400 text-18 uppercase %2$s">%3$s</ul>',
 									'depth' => 2,
 									'walker' => new bootstrap_5_wp_nav_menu_walker()
 								));
