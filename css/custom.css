@@ -1,0 +1,26 @@
+:root{
+    --dark-blue: #040E56;
+    --orange: #FF6400;
+    --yellow: #FDD401;
+}
+a{
+    text-decoration: none;
+}
+.uppercase{
+    text-transform: uppercase;
+}
+.text-sm{
+    font-size: small;
+}
+.dark-blue{
+    background-color: var(--dark-blue);
+}
+.text-white{
+    color: #fff;
+}
+.text-yellow{
+    color: var(--yellow);
+}
+.btn-bg-opacity-10{
+    background-color: #ffffff22;
+}
