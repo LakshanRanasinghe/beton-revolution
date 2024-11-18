@@ -4,8 +4,8 @@
 get_header(); 
 ?>
 
-<div class="bg-image w-100 object-fit-cover position-relative" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); height: 90vh;">
-    <div class="z-0 hero-section-overlay position-absolute h-100 w-100 bg-black bg-opacity-50 top-0 left-0"></div>
+<div class="bg-image container-fluid object-fit-cover position-relative p-0" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); height: 90vh;">
+    <div class="z-0 hero-section-overlay position-absolute h-100 container-fluid bg-black bg-opacity-50 top-0 left-0 p-0"></div>
     <div class="container h-100 d-flex flex-column justify-content-center">
         <div class="z-1 position-relative p-2 d-flex mb-2" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A; width: 300px;">
             <div class="container d-flex flex-row align-items-center gap-2 w-auto">
@@ -34,7 +34,7 @@ get_header();
     </div>
 </div>
 
-<div class="bg-dark-blue w-100 px-5">
+<div class="bg-dark-blue container-fluid px-5">
     <div class="container d-flex align-items-center w-100 gap-5">
         <div class="row border-5 border-end d-block w-30" style="border-color: #ff6400 !important;">
             <h2 class="oswald-500 text-42 text-white py-5">Calculate <br> Concrete price</h2>
@@ -47,11 +47,52 @@ get_header();
     </div>
 </div>
 
-<div class="bg-white w-100">
-    <div>
-        <div class="z-1 position-relative p-2 w-100 mb-2" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
-            <h1 class="oswald-500 display-3 text-40 m-0 text-black text-uppercase">How do you pour concrete</h1>
-            <div style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%); height: 8px; width: 100%;"></div>
+<div class="bg-white container-fluid py-5 px-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 z-1 position-relative p-2 mb-2" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
+                <h1 class="oswald-500 display-3 text-40 m-0 text-black text-uppercase">How do you pour concrete</h1>
+                <div style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%); height: 8px; width: 100%;"></div>
+
+                <p>Pouring concrete yourself can result in a nice cost saving, but can also be a big failure. In the article how do I pour concrete? we show you the best method with the necessary tools.  Are you going  to pour concrete, order concrete or have concrete poured ? For example, for a renovation of your house for an extension, garage , garden shed, fence, you name it, then a foundation is often needed. This foundation is generally made of concrete. For a real "do-it-yourselfer" the question immediately follows: am I going to order concrete and pour concrete myself or am I going to have concrete poured ? What should I pay attention to when ordering concrete? What is involved? Pouring concrete, how do you do that? A number of things are important, such as the thickness of the concrete floor  and the drying time of concrete . On BetonStorten.nl you will find all information about ordering concrete and pouring your concrete. From  price  to execution. We are happy to provide you with the necessary information to determine whether you are going to pour your own concrete and how you can best do that.</p>
+            </div>
+            <div class="col-4">
+                <img class="image-fluid" src="https://images.unsplash.com/photo-1672748341520-6a839e6c05bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                <div class="bg-orange p-4">
+                    <h4 class="oswald-600 text-26 text-white m-0">CALL: 06-27016082</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-4">
+                <img class="image-fluid" src="https://images.unsplash.com/photo-1603814929895-f68fc3d4c89d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                <div class="bg-orange p-4">
+                    <h4 class="oswald-600 text-26 text-white m-0">CALL: 06-27016082</h4>
+                </div>
+            </div>
+            <div class="col-8 z-1 position-relative p-2 mb-2" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
+                <h1 class="oswald-500 display-3 text-40 m-0 text-black text-uppercase">Can't see yourself  pouring concrete yet ? </h1>
+                <div style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%); height: 8px; width: 100%;"></div>
+
+                <p>Can't see yourself pouring concrete yet ? No problem! For a sleek end result, you can opt for an all-in concrete pour. In that case, we take care of the entire pouring process. And you are assured of a successful concrete pour. At Betonstorten.nl you save tens of euros on your concrete pour, because we have short lines with concrete plants and therefore offer concrete for the best price and against the best quality. Benefit from our low concrete prices? Then request a free quote , or calculate your concrete price . Do you want to rent a concrete pump  Or order concrete with pump? Calculate your price easily with our concrete calculator .</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-dark-blue container-fluid py-5 px-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <h1 class="oswald-500 display-3 text-64 m-0 text-white text-uppercase">Testimonials</h1>
+                <div style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%); height: 8px; width: 100%;"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3"></div>
         </div>
     </div>
 </div>
