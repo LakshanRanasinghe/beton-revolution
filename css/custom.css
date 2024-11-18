@@ -46,6 +46,21 @@
 .text-18{
     font-size: 18px;
 }
+.text-20{
+    font-size: 20px;
+}
+.text-26{
+    font-size: 26px;
+}
+.text-40{
+    font-size: 40px;
+}
+.text-56{
+    font-size: 56px;
+}
+.text-76{
+    font-size: 76px;
+}
 a {
    text-decoration: none;
 }
@@ -87,6 +102,37 @@ a {
 }
 .text-15 {
     font-size: 15px;
+}.bg-orange {
+   background-color: var(--orange);
+}
+.border-orange {
+   border-color: var(--orange) !important;
+}
+.bg-dark-blue{
+    background-color: var(--dark-blue);
+}
+.text-42 {
+   font-size: 42px;
+}
+
+.w-30{
+   width: 30%;
+}
+.w-70{
+   width: 70%;
+}
+
+.home-input{
+   width: 40%;
+   height: 65px;
+}
+
+.w-215{
+   width: 215px !important;
+}
+
+.text-64{
+   font-size: 64px;
 }
 .no-border-top {
     border-top: none;
