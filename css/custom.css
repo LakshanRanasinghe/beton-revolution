@@ -72,3 +72,12 @@ a {
 .yellow-gradient {
     background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);
 }
+.pixel-p-2 {
+    padding: 2px;
+}
+.text-20 {
+    font-size: 20px;
+}
+.text-15 {
+    font-size: 15px;
+}

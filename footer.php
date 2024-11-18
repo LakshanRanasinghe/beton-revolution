@@ -11,29 +11,32 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="beton-footer-wrapper dark-blue container">
+	<footer id="colophon" class="site-footer dark-blue">
+		<div class="beton-footer-wrapper container text-white">
+			<div class="footer-logo">
+				<a></a>
+			</div>
 			<div class="footer-top d-flex">
-				<div class="footer-section">
-					<P class="oswald-500 text-uppercase">About us</P>
-					<hr class="border yellow-gradient border-1">
+				<div class="footer-section col w-25 pe-5">
+					<P class="oswald-500 text-uppercase text-20">About us</P>
+					<hr class="border yellow-gradient pixel-p-2">
 					<div class="footer-section-content">
-						<p class="poppins-400">
+						<p class="poppins-400 text-15">
 						Want to have concrete poured cheaply or order concrete online? Then you should go to Beton Storten.nl. We are at your service on working days and throughout the Netherlands. You will receive a quote within 24 hours. We have developed a calculator so that you can request a price for your work in 3 steps.
 						</p>
 					</div>
 				</div>
-				<div class="footer-section">
-					<P class="oswald-500 text-uppercase">Services</P>
-					<hr class="border yellow-gradient border-1">
+				<div class="footer-section col w-25 pe-5">
+					<P class="oswald-500 text-uppercase text-20">Services</P>
+					<hr class="border yellow-gradient pixel-p-2">
 				</div>
-				<div class="footer-section">
-					<P class="oswald-500 text-uppercase">POURING CONCRETE</P>
-					<hr class="border yellow-gradient border-1">
+				<div class="footer-section col w-25 pe-5">
+					<P class="oswald-500 text-uppercase text-20">POURING CONCRETE</P>
+					<hr class="border yellow-gradient pixel-p-2">
 				</div>
-				<div class="footer-section">
-					<P class="oswald-500 text-uppercase">Contact US</P>
-					<hr class="border yellow-gradient border-1">
+				<div class="footer-section col w-25">
+					<P class="oswald-500 text-uppercase text-20">Contact US</P>
+					<hr class="border yellow-gradient pixel-p-2">
 				</div>
 			</div>
 			<div class="site-info">
