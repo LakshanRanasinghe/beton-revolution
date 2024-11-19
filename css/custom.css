@@ -42,8 +42,23 @@
    font-weight: 400;
    font-style: normal;
 }
+@media screen and (max-width: 576px) {
+   .text-sm-14 {
+      font-size: 14px !important;
+   }
+   .text-sm-16 {
+      font-size: 16px !important;
+   }
+   #menu-footer-menu-01 li,
+   #menu-footer-menu-02 li {
+      font-size: 14px;
+   }
+}
 .text-15 {
    font-size: 15px;
+}
+.text-16 {
+   font-size: 16px;
 }
 .text-18 {
    font-size: 18px;
