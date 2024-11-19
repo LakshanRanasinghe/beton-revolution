@@ -196,8 +196,7 @@ a {
    background-color: var(--dark-blue);
 }
 
-.home-input {
-   width: 40%;
+.home-input{
    height: 65px;
 }
 .no-border-top {
