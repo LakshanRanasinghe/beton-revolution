@@ -1,11 +1,10 @@
 :root {
    --darker-blue: #00062f;
    --dark-blue: #040e56;
-   --light-blue: #B9C2FF;
+   --light-blue: #b9c2ff;
    --orange: #ff6400;
    --yellow: #fdd401;
-   --gray: #DEDEDE4D;
-
+   --gray: #dedede4d;
 }
 .oswald-200 {
    font-family: "Oswald", sans-serif;
@@ -14,11 +13,11 @@
    font-style: normal;
 }
 .oswald-400 {
-    font-family: "Oswald", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
- }
+   font-family: "Oswald", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 400;
+   font-style: normal;
+}
 .oswald-500 {
    font-family: "Oswald", sans-serif;
    font-optical-sizing: auto;
@@ -38,28 +37,37 @@
    font-style: normal;
 }
 .poppins-400 {
-    font-family: "Poppins", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+   font-family: "Poppins", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 400;
+   font-style: normal;
 }
-.text-18{
-    font-size: 18px;
+.text-15 {
+   font-size: 15px;
 }
-.text-20{
-    font-size: 20px;
+.text-18 {
+   font-size: 18px;
 }
-.text-26{
-    font-size: 26px;
+.text-20 {
+   font-size: 20px;
 }
-.text-40{
-    font-size: 40px;
+.text-26 {
+   font-size: 26px;
 }
-.text-56{
-    font-size: 56px;
+.text-40 {
+   font-size: 40px;
 }
-.text-76{
-    font-size: 76px;
+.text-42 {
+   font-size: 42px;
+}
+.text-56 {
+   font-size: 56px;
+}
+.text-64 {
+   font-size: 64px;
+}
+.text-76 {
+   font-size: 76px;
 }
 a {
    text-decoration: none;
@@ -91,89 +99,78 @@ a {
 .w-full {
    width: 100%;
 }
+.w-30 {
+   width: 30%;
+}
+.w-70 {
+   width: 70%;
+}
+.w-215 {
+   width: 215px !important;
+}
+.width-30 {
+   width: 30px;
+}
+.width-219 {
+   width: 219px;
+}
 .yellow-gradient {
-    background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);
+   background: linear-gradient(90deg, #fdd401 0%, rgba(253, 212, 1, 0) 100%);
 }
 .pixel-p-1 {
-    padding: 1px;
+   padding: 1px;
 }
-.text-20 {
-    font-size: 20px;
-}
-.text-15 {
-    font-size: 15px;
-}.bg-orange {
+.bg-orange {
    background-color: var(--orange);
 }
 .border-orange {
    border-color: var(--orange) !important;
 }
-.bg-dark-blue{
-    background-color: var(--dark-blue);
-}
-.text-42 {
-   font-size: 42px;
+.bg-dark-blue {
+   background-color: var(--dark-blue);
 }
 
-.w-30{
-   width: 30%;
-}
-.w-70{
-   width: 70%;
-}
-
-.home-input{
+.home-input {
    width: 40%;
    height: 65px;
 }
-
-.w-215{
-   width: 215px !important;
-}
-
-.text-64{
-   font-size: 64px;
-}
 .no-border-top {
-    border-top: none;
+   border-top: none;
 }
 .border-top-gray {
-    border-top: 1px solid;
-    border-color: var(--gray);
- }
-.width-30 {
-    width: 30px;
-}
-.width-219 {
-    width: 219px;
+   border-top: 1px solid;
+   border-color: var(--gray);
 }
 .light-blue {
-    color: var(--light-blue) !important;
+   color: var(--light-blue) !important;
 }
 .link-hover:hover {
-    color: var(--light-blue);
+   color: var(--light-blue);
 }
 .link-hover-2:hover {
-    color: white;
+   color: white;
 }
 .underline {
-    text-decoration: underline;
+   text-decoration: underline;
 }
 .list-style-none {
-    list-style: none;
+   list-style: none;
 }
-#menu-footer-menu-01, #menu-footer-menu-02 {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    padding-top: 0.5rem;
+#menu-footer-menu-01,
+#menu-footer-menu-02 {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   padding-top: 0.5rem;
 }
-#menu-footer-menu-01 li a, #menu-footer-menu-02 li a{
-    color: white;
-    margin-bottom: 0.5rem;
-    font-family: "Oswald", sans-serif;
-    font-weight: 400;
+#menu-footer-menu-01 li a,
+#menu-footer-menu-02 li a {
+   color: white;
+   margin-bottom: 0.5rem;
+   font-family: "Oswald", sans-serif;
+   font-weight: 400;
 }
-#menu-footer-menu-01 li, #menu-footer-menu-02 li{
-    margin-bottom: 0.5rem;
+#menu-footer-menu-01 li,
+#menu-footer-menu-02 li {
+   margin-bottom: 0.5rem;
 }
