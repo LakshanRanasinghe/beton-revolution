@@ -8,6 +8,8 @@
    --light-gray: #C9D8E2;
    --custom-black: #0A0D13;
    --dark-gray: #343434;
+   --custom-gray: #F3F6F9;
+   --custom-gray-2: #555555;
 
 }
 .oswald-200 {
@@ -70,6 +72,9 @@
       font-size: 14px;
    }
 }
+.text-12 {
+   font-size: 12px;
+}
 .text-15 {
    font-size: 15px;
 }
@@ -129,6 +134,12 @@ a {
 }
 .text-dark-gray {
    color: var(--dark-gray);
+}
+.text-custom-gray-2 {
+   color: var(--custom-gray-2);
+}
+.text-orange {
+   color: var(--orange);
 }
 .border-light-gray {
    border-color: var(--light-gray) !important;
@@ -248,10 +259,16 @@ a {
 .border-radius-1 {
    border-radius: 1px;
 }
+.border-custom-gray {
+   border-color: var(--custom-gray);
+}
 .h-46 {
    height: 46px
 }
-.location-and-quantity-form {
+.h-36 {
+   height: 36px
+}
+.location-and-quantity-form, .type-and-kind-form, .confirm-and-pay-form {
    padding-left: 32px;
 }
 .step-title-icon::after {
@@ -263,4 +280,10 @@ a {
    height: 80px; 
    width: 2px;
    background-color: var(--yellow);
+}
+.w-163 {
+   width: 163px;
+}
+.w-precent-60 {
+   width: 60%;
 }

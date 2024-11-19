@@ -67,13 +67,13 @@
 						<p class="mb-0 d-none d-sm-block"><?php _e('Follow Us:', 'beton'); ?>&nbsp;</p>
 						<div class="d-flex align-items-center">
 							<a href="#" class="mx-1">
-								<img class="width-30" src="<?php echo site_url(); ?>/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-1.59.37-PM.png" alt="">
+								<img class="width-30" src="<?php echo get_template_directory_uri() ?>/images/facebook.png" alt="">
 							</a>
 							<a href="#" class="mx-1">
-								<img class="width-30" src="<?php echo site_url(); ?>/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-1.59.37-PM.png" alt="">
+								<img class="width-30" src="<?php echo get_template_directory_uri() ?>/images/facebook.png" alt="">
 							</a>
 							<a href="#" class="mx-1">
-								<img class="width-30" src="<?php echo site_url(); ?>/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-1.59.37-PM.png" alt="">
+								<img class="width-30" src="<?php echo get_template_directory_uri() ?>/images/facebook.png" alt="">
 							</a>
 						</div>
 					</div>
