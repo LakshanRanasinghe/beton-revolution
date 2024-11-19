@@ -11,47 +11,75 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer dark-blue">
-		<div class="beton-footer-wrapper container text-white">
-			<div class="footer-logo">
-				<a></a>
+	<footer id="colophon" class="site-footer darker-blue">
+		<div class="beton-footer-wrapper container text-white pt-5">
+			<div class="footer-logo pb-5">
+				<a><?php echo get_custom_logo(); ?></a>
 			</div>
-			<div class="footer-top d-flex">
-				<div class="footer-section col w-25 pe-5">
-					<P class="oswald-500 text-uppercase text-20">About us</P>
-					<hr class="border yellow-gradient pixel-p-2">
-					<div class="footer-section-content">
-						<p class="poppins-400 text-15">
-						Want to have concrete poured cheaply or order concrete online? Then you should go to Beton Storten.nl. We are at your service on working days and throughout the Netherlands. You will receive a quote within 24 hours. We have developed a calculator so that you can request a price for your work in 3 steps.
-						</p>
+			
+			<!-- Top Footer Section -->
+			<div class="footer-top row pb-4">
+				<div class="footer-section col-lg-4 col-md-12 mb-4 pe-lg-5">
+					<?php 
+						if (is_active_sidebar('footer-widget-1')) :
+							dynamic_sidebar('footer-widget-1'); 
+						endif; 
+					?>
+				</div>
+
+				<div class="col-lg-8 col-md-12">
+					<div class="row">
+						<div class="footer-section col-lg-4 col-md-4 col-sm-6 mb-4 pe-lg-5 text-uppercase">
+							<?php 
+								if (is_active_sidebar('footer-widget-2')) :
+									dynamic_sidebar('footer-widget-2'); 
+								endif; 
+							?>
+						</div>
+						<div class="footer-section col-lg-4 col-md-4 col-sm-6 mb-4 pe-lg-5 text-uppercase">
+							<?php 
+								if (is_active_sidebar('footer-widget-3')) :
+									dynamic_sidebar('footer-widget-3'); 
+								endif; 
+							?>
+						</div>
+						<div class="footer-section col-lg-4 col-md-4 col-sm-12 text-uppercase">
+							<?php 
+								if (is_active_sidebar('footer-widget-4')) :
+									dynamic_sidebar('footer-widget-4'); 
+								endif; 
+							?>
+						</div>
 					</div>
 				</div>
-				<div class="footer-section col w-25 pe-5">
-					<P class="oswald-500 text-uppercase text-20">Services</P>
-					<hr class="border yellow-gradient pixel-p-2">
-				</div>
-				<div class="footer-section col w-25 pe-5">
-					<P class="oswald-500 text-uppercase text-20">POURING CONCRETE</P>
-					<hr class="border yellow-gradient pixel-p-2">
-				</div>
-				<div class="footer-section col w-25">
-					<P class="oswald-500 text-uppercase text-20">Contact US</P>
-					<hr class="border yellow-gradient pixel-p-2">
+			</div>
+		</div>
+
+		<div class="site-info border-top-gray">
+			<div class="container py-4 text-center text-sm-start light-blue text-15 text-sm-14 poppins-400">
+				<div class="row justify-content-between align-items-center">
+					<div class="col-12 col-sm d-flex justify-content-center justify-content-sm-start align-items-center mb-2 mb-sm-0">
+						<p class="mb-0"><?php _e('Copyright © 2024', 'beton'); ?></p>
+						&nbsp;
+						<a href="<?php echo site_url(); ?>" class="light-blue link-hover">Betonstorten.nl</a>
+					</div>
+					<div class="col-12 col-sm-auto d-flex align-items-center justify-content-center justify-content-sm-end">
+						<p class="mb-0 d-none d-sm-block"><?php _e('Follow Us:', 'beton'); ?>&nbsp;</p>
+						<div class="d-flex align-items-center">
+							<a href="#" class="mx-1">
+								<img class="width-30" src="<?php echo site_url(); ?>/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-1.59.37-PM.png" alt="">
+							</a>
+							<a href="#" class="mx-1">
+								<img class="width-30" src="<?php echo site_url(); ?>/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-1.59.37-PM.png" alt="">
+							</a>
+							<a href="#" class="mx-1">
+								<img class="width-30" src="<?php echo site_url(); ?>/wp-content/uploads/2024/11/Screenshot-2024-11-18-at-1.59.37-PM.png" alt="">
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="site-info">
-				<!-- <a href="<?php //echo esc_url( __( 'https://wordpress.org/', 'beton' ) ); ?>">
-					<?php
-					/* translators: %s: CMS name, i.e. WordPress. */
-					// printf( esc_html__( 'Proudly powered by %s', 'beton' ), 'WordPress' );
-					?>
-				</a>
-				<span class="sep"> | </span>
-					<?php
-					/* translators: 1: Theme name, 2: Theme author. */
-					// printf( esc_html__( 'Theme: %1$s by %2$s.', 'beton' ), 'beton', '<a href="https://dayzsolutions.com">DayZ Solutions</a>' );
-					?> -->
-			</div><!-- .site-info -->
+			<!-- .site-info -->
 		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->

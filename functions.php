@@ -50,6 +50,8 @@ function beton_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'beton' ),
+			'footer-menu-01'  => esc_html__( 'Footer Menu 01', 'beton' ),
+			'footer-menu-02'  => esc_html__( 'Footer Menu 02', 'beton' ),
 		)
 	);
 
@@ -131,6 +133,45 @@ function beton_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar(array(
+        'name'          => esc_html__('Footer Widget 1', 'beton'),
+        'id'            => 'footer-widget-1',
+        'description'   => esc_html__('Add widgets here for the first footer section.', 'beton'),
+        'before_widget' => '<div class="footer-widget footer-widget-1">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4 class="footer-widget-title">',
+        'after_title'   => '</h4>',
+    ));
+
+    register_sidebar(array(
+        'name'          => esc_html__('Footer Widget 2', 'beton'),
+        'id'            => 'footer-widget-2',
+        'description'   => esc_html__('Add widgets here for the second footer section.', 'beton'),
+        'before_widget' => '<div class="footer-widget footer-widget-2">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4 class="footer-widget-title">',
+        'after_title'   => '</h4>',
+    ));
+
+    register_sidebar(array(
+        'name'          => esc_html__('Footer Widget 3', 'beton'),
+        'id'            => 'footer-widget-3',
+        'description'   => esc_html__('Add widgets here for the third footer section.', 'beton'),
+        'before_widget' => '<div class="footer-widget footer-widget-3">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4 class="footer-widget-title">',
+        'after_title'   => '</h4>',
+    ));
+
+    register_sidebar(array(
+        'name'          => esc_html__('Footer Widget 4', 'beton'),
+        'id'            => 'footer-widget-4',
+        'description'   => esc_html__('Add widgets here for the fourth footer section.', 'beton'),
+        'before_widget' => '<div class="footer-widget footer-widget-4">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4 class="footer-widget-title">',
+        'after_title'   => '</h4>',
+    ));
 }
 add_action( 'widgets_init', 'beton_widgets_init' );
 
