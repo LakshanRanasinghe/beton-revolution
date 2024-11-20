@@ -209,69 +209,77 @@ get_header();
                 <div class="confirm-and-pay-form form-section third-section" id="thirdFormSection">
                     <p><strong>Your Data</strong><br> Please fill in your personal details so we can check your payment and contact you.</p>
                     <form>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">First Name</label>
-                                <input type="text" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Your First Name">
+                        <?php
+                        if ( function_exists( 'woocommerce_form_field' ) && WC()->checkout() ) {
+                            $checkout = WC()->checkout();
+                        ?>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">First Name</label>
+                                    <?php woocommerce_form_field( 'billing_first_name', $checkout->get_checkout_fields( 'billing' )['billing_first_name'], $checkout->get_value( 'billing_first_name' ) ); ?>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Last Name</label>
+                                    <?php woocommerce_form_field( 'billing_last_name', $checkout->get_checkout_fields( 'billing' )['billing_last_name'], $checkout->get_value( 'billing_last_name' ) ); ?>
+                                </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Last Name</label>
-                                <input type="text" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Your Last Name">
+
+                            <!-- Row 2: Address and House Number -->
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Delivery Address</label>
+                                    <?php woocommerce_form_field( 'billing_address_1', $checkout->get_checkout_fields( 'billing' )['billing_address_1'], $checkout->get_value( 'billing_address_1' ) ); ?>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">House Number</label>
+                                    <?php woocommerce_form_field( 'billing_address_2', $checkout->get_checkout_fields( 'billing' )['billing_address_2'], $checkout->get_value( 'billing_address_2' ) ); ?>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Delivery Address</label>
-                                <input type="text" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Enter Your Address">
+
+                            <!-- Row 3: Postal Code -->
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Postal Code</label>
+                                    <?php woocommerce_form_field( 'billing_postcode', $checkout->get_checkout_fields( 'billing' )['billing_postcode'], $checkout->get_value( 'billing_postcode' ) ); ?>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Residence</label>
+                                    <?php woocommerce_form_field( 'billing_city', $checkout->get_checkout_fields( 'billing' )['billing_city'], $checkout->get_value( 'billing_city' ) ); ?>
+                                </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">House Number</label>
-                                <input type="text" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Enter Your House Number">
+
+                            <!-- Row 4: Phone and Email -->
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Phone Number</label>
+                                    <?php woocommerce_form_field( 'billing_phone', $checkout->get_checkout_fields( 'billing' )['billing_phone'], $checkout->get_value( 'billing_phone' ) ); ?>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Email Address</label>
+                                    <?php woocommerce_form_field( 'billing_email', $checkout->get_checkout_fields( 'billing' )['billing_email'], $checkout->get_value( 'billing_email' ) ); ?>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Postal Code or City</label>
-                                <input type="text" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Your Postal Code or City">
+
+                            <!-- Optional Billing Address -->
+                            <div class="mb-3">
+                                <label class="form-label">Billing Address (If different from delivery address)</label>
+                                    <?php woocommerce_form_field( 'billing_address_optional', [
+                                        'type' => 'text',
+                                        'class' => array('form-control border-light-gray border-radius-1 py-2 px-4 h-46'),
+                                        'placeholder' => 'Billing Address',
+                                    ], '' ); ?>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Residence</label>
-                                <input type="text" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Your Residence">
+
+                            <!-- Terms & Conditions and Submit Button -->
+                            <div class="form-check mb-3">
+                                <input type="checkbox" class="form-check-input" id="agree">
+                                <label class="form-check-label" for="agree">You Agree To Our <a href="#">Terms And Conditions</a></label>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Phone Number</label>
-                                <input type="text" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Enter phone number">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Email Address</label>
-                                <input type="email" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Enter Your Email Address">
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Billing Address (If different from delivery address)</label>
-                            <input type="text" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Billing Address">
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Requested Execution Date</label>
-                                <input type="date" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Bank</label>
-                                <select class="form-select">
-                                    <option>Select Bank</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-check mb-3">
-                            <input type="checkbox" class="form-check-input" id="agree">
-                            <label class="form-check-label" for="agree">You Agree To Our <a href="#">Terms And Conditions</a></label>
-                        </div>
-                        <button type="submit" class="btn btn-danger w-100">Confirm and Pay</button>
+                            <button type="submit" class="btn btn-danger w-100">Confirm and Pay</button>
+                        <?php } ?>
                     </form>
                 </div>
+
             </div>
         </div>
 
