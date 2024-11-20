@@ -8,14 +8,15 @@ get_header();
         <!-- Left Form Section -->
         <div class="col-lg-8">
             <!-- First Section -->
-            <div class="location-and-quantity-section p-5 box-shadow bg-white position-relative">
+            <div class="location-and-quantity-section px-sm-5 py-sm-4 box-shadow-no-bottom bg-sm-white position-relative z-2">
+                <p class="poppins-400 text-12 text-custom-gray-2 mb-1 d-sm-none d-block">Step <strong>1/6</strong></p>
                 <div class="position-relative pb-4">
-                    <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                        <h5 class="step-title text-dark-blue oswald-600 text-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative"></i> LOCATION AND CONCRETE QUANTITY</h5>
+                    <div class="position-relative z-1 bg-sm-white bg-custom-gray-3 d-inline-block pe-3 py-sm-0 py-1">
+                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative d-sm-inline-block d-none"></i> LOCATION AND CONCRETE QUANTITY</h5>
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
-                <div class="location-and-quantity-form text-18 poppins-500" id="initialFormSection">
+                <div class="location-and-quantity-form text-sm-18 poppins-500" id="initialFormSection">
                     <form>
                         <div class="mb-4">
                             <label for="location" class="form-label text-dark-gray">Location</label>
@@ -25,14 +26,14 @@ get_header();
                             <label for="quantity" class="form-label text-dark-gray">Number of M³</label>
                             <input type="text" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" id="quantity" placeholder="Enter Number of M³">
                         </div>
-                        <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25" onclick="showNewSection()">Continue</button>
+                        <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn" id="location-and-quantity-btn">Continue</button>
                     </form>
                 </div>
             </div>
             
 
             <!-- Second Section -->
-            <div class="type-and-kind-section p-5 box-shadow bg-white position-relative text-dark-gray">
+            <div class="type-and-kind-section px-sm-5 py-sm-4 box-shadow-no-top bg-sm-white position-relative text-dark-gray ">
                 <div class="position-relative pb-4">
                     <div class="position-relative z-1 bg-white d-inline-block pe-3">
                         <h5 class="step-title text-dark-blue oswald-600 text-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative"></i> TYPE AND KIND</h5>
@@ -199,7 +200,7 @@ get_header();
             </div>
 
             <!-- Third Section -->
-            <div class="type-and-kind-section p-5 box-shadow bg-white position-relative text-dark-gray">
+            <div class="confirm-and-pay-section px-sm-5 py-sm-4 box-shadow-no-top bg-sm-white position-relative text-dark-gray ">
                 <div class="position-relative pb-4">
                     <div class="position-relative z-1 bg-white d-inline-block pe-3">
                         <h5 class="step-title text-dark-blue oswald-600 text-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative"></i> CONFIRM ADDRESS AND PAY</h5>
@@ -209,18 +210,24 @@ get_header();
                 <div class="confirm-and-pay-form form-section third-section" id="thirdFormSection">
                     <p><strong>Your Data</strong><br> Please fill in your personal details so we can check your payment and contact you.</p>
                     <form>
-                        <?php
+                    <?php
                         if ( function_exists( 'woocommerce_form_field' ) && WC()->checkout() ) {
                             $checkout = WC()->checkout();
-                        ?>
+                            $billing_fields = $checkout->get_checkout_fields( 'billing' );
+
+                            // Remove labels from all billing fields
+                            foreach ( $billing_fields as $key => &$field ) {
+                                $field['label'] = ''; // Remove label
+                            }
+                            ?>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">First Name</label>
-                                    <?php woocommerce_form_field( 'billing_first_name', $checkout->get_checkout_fields( 'billing' )['billing_first_name'], $checkout->get_value( 'billing_first_name' ) ); ?>
+                                    <?php woocommerce_form_field( 'billing_first_name', $billing_fields['billing_first_name'], $checkout->get_value( 'billing_first_name' ) ); ?>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Last Name</label>
-                                    <?php woocommerce_form_field( 'billing_last_name', $checkout->get_checkout_fields( 'billing' )['billing_last_name'], $checkout->get_value( 'billing_last_name' ) ); ?>
+                                    <?php woocommerce_form_field( 'billing_last_name', $billing_fields['billing_last_name'], $checkout->get_value( 'billing_last_name' ) ); ?>
                                 </div>
                             </div>
 
@@ -228,11 +235,11 @@ get_header();
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Delivery Address</label>
-                                    <?php woocommerce_form_field( 'billing_address_1', $checkout->get_checkout_fields( 'billing' )['billing_address_1'], $checkout->get_value( 'billing_address_1' ) ); ?>
+                                    <?php woocommerce_form_field( 'billing_address_1', $billing_fields['billing_address_1'], $checkout->get_value( 'billing_address_1' ) ); ?>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">House Number</label>
-                                    <?php woocommerce_form_field( 'billing_address_2', $checkout->get_checkout_fields( 'billing' )['billing_address_2'], $checkout->get_value( 'billing_address_2' ) ); ?>
+                                    <?php woocommerce_form_field( 'billing_address_2', $billing_fields['billing_address_2'], $checkout->get_value( 'billing_address_2' ) ); ?>
                                 </div>
                             </div>
 
@@ -240,11 +247,11 @@ get_header();
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Postal Code</label>
-                                    <?php woocommerce_form_field( 'billing_postcode', $checkout->get_checkout_fields( 'billing' )['billing_postcode'], $checkout->get_value( 'billing_postcode' ) ); ?>
+                                    <?php woocommerce_form_field( 'billing_postcode', $billing_fields['billing_postcode'], $checkout->get_value( 'billing_postcode' ) ); ?>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Residence</label>
-                                    <?php woocommerce_form_field( 'billing_city', $checkout->get_checkout_fields( 'billing' )['billing_city'], $checkout->get_value( 'billing_city' ) ); ?>
+                                    <?php woocommerce_form_field( 'billing_city', $billing_fields['billing_city'], $checkout->get_value( 'billing_city' ) ); ?>
                                 </div>
                             </div>
 
@@ -252,22 +259,22 @@ get_header();
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Phone Number</label>
-                                    <?php woocommerce_form_field( 'billing_phone', $checkout->get_checkout_fields( 'billing' )['billing_phone'], $checkout->get_value( 'billing_phone' ) ); ?>
+                                    <?php woocommerce_form_field( 'billing_phone', $billing_fields['billing_phone'], $checkout->get_value( 'billing_phone' ) ); ?>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Email Address</label>
-                                    <?php woocommerce_form_field( 'billing_email', $checkout->get_checkout_fields( 'billing' )['billing_email'], $checkout->get_value( 'billing_email' ) ); ?>
+                                    <?php woocommerce_form_field( 'billing_email', $billing_fields['billing_email'], $checkout->get_value( 'billing_email' ) ); ?>
                                 </div>
                             </div>
 
                             <!-- Optional Billing Address -->
                             <div class="mb-3">
                                 <label class="form-label">Billing Address (If different from delivery address)</label>
-                                    <?php woocommerce_form_field( 'billing_address_optional', [
-                                        'type' => 'text',
-                                        'class' => array('form-control border-light-gray border-radius-1 py-2 px-4 h-46'),
-                                        'placeholder' => 'Billing Address',
-                                    ], '' ); ?>
+                                <?php woocommerce_form_field( 'billing_address_optional', [
+                                    'type' => 'text',
+                                    'class' => array('form-control border-light-gray border-radius-1 py-2 px-4 h-46'),
+                                    'placeholder' => 'Billing Address',
+                                ], '' ); ?>
                             </div>
 
                             <!-- Terms & Conditions and Submit Button -->
@@ -276,7 +283,8 @@ get_header();
                                 <label class="form-check-label" for="agree">You Agree To Our <a href="#">Terms And Conditions</a></label>
                             </div>
                             <button type="submit" class="btn btn-danger w-100">Confirm and Pay</button>
-                        <?php } ?>
+                    <?php } ?>
+
                     </form>
                 </div>
 
@@ -336,8 +344,8 @@ get_header();
 
 <script>
     function showNewSection() {
-        // document.getElementById('initialFormSection').style.display = 'none';
-        // document.getElementById('newFormSection').style.display = 'block';
+        document.getElementById('initialFormSection').style.display = 'none';
+        document.getElementById('newFormSection').style.display = 'block';
     }
 
     function showThirdSection() {

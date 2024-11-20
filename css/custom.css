@@ -10,7 +10,7 @@
    --dark-gray: #343434;
    --custom-gray: #F3F6F9;
    --custom-gray-2: #555555;
-
+   --custom-gray-3: #FCFCFC;
 }
 .oswald-200 {
    font-family: "Oswald", sans-serif;
@@ -132,6 +132,12 @@ a {
 .text-light-gray {
    color: var(--light-gray);
 }
+.text-gray {
+   color: var(--gray);
+}
+.bg-custom-gray-3 {
+   background: var(--custom-gray-3);
+}
 .text-dark-gray {
    color: var(--dark-gray);
 }
@@ -247,8 +253,14 @@ a {
 .box-shadow {
    box-shadow: 0px 0px 24px 0px #DFE5EE40;
 }
+.box-shadow-no-top {
+   box-shadow: 0px 12px 24px -6px #DFE5EE40;
+}
+.box-shadow-no-bottom {
+   box-shadow: 0px -12px 24px 0px #DFE5EE40, 0px 12px 24px 0px transparent;
+}
 #page {
-   background: #FCFCFC;
+   background: var(--custom-gray-3);
 }
 .step-title-icon {
    margin-right: 8px;
@@ -270,13 +282,14 @@ a {
 .location-and-quantity-form, .type-and-kind-form, .confirm-and-pay-form {
    padding-left: 32px;
 }
-.step-title-icon::after {
+.location-and-quantity-section::after, .type-and-kind-section::after {
    content: "";
    position: absolute;
-   left: 50%;
-   transform: translateX(-50%);
-   top: 1.4rem; 
-   height: 80px; 
+   top: 1.4rem;
+   margin-top: 26px;
+   margin-left: 8px;
+   height: calc(100% - 10px);
+   z-index: 1;
    width: 2px;
    background-color: var(--yellow);
 }
@@ -326,5 +339,17 @@ a {
    }
    .h-sm-72 {
       height: 46px;
+   }
+   .location-and-quantity-section::after {
+      display: none;
+   }
+   .box-shadow-no-bottom {
+      box-shadow: none;
+   }
+   .location-and-quantity-form, .type-and-kind-form, .confirm-and-pay-form {
+      padding-left: 0;
+   }
+   .w-precent-50 {
+      width: 50% !important;
    }
 }
