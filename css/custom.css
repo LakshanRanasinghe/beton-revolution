@@ -4,6 +4,8 @@
    --light-blue: #b9c2ff;
    --orange: #ff6400;
    --yellow: #fdd401;
+   --green: #3FD526;
+   --red: #EB2C4E;
    --gray: #dedede4d;
    --light-gray: #C9D8E2;
    --custom-black: #0A0D13;
@@ -11,6 +13,7 @@
    --custom-gray: #F3F6F9;
    --custom-gray-2: #555555;
    --custom-gray-3: #FCFCFC;
+   --custom-gray-4: #9EA0AE;
 }
 .oswald-200 {
    font-family: "Oswald", sans-serif;
@@ -144,6 +147,9 @@ a {
 .text-custom-gray-2 {
    color: var(--custom-gray-2);
 }
+.text-custom-gray-4 {
+   color: var(--custom-gray-4);
+}
 .text-orange {
    color: var(--orange);
 }
@@ -253,6 +259,9 @@ a {
 .box-shadow {
    box-shadow: 0px 0px 24px 0px #DFE5EE40;
 }
+.box-sm-shadow {
+   box-shadow: 0px 0px 24px 0px #DFE5EE40;
+}
 .box-shadow-no-top {
    box-shadow: 0px 12px 24px -6px #DFE5EE40;
 }
@@ -266,6 +275,24 @@ a {
    margin-right: 8px;
    font-size: 1.2rem;
    color: var(--yellow);
+}
+.step-back-icon {
+   margin-right: 8px;
+   font-size: 1.2rem;
+   color: var(--light-gray);
+}
+.step-exclamation-icon {
+   margin-left: 8px;
+   font-size: 1.2rem;
+   color: var(--light-gray);
+}
+.icon-cross {
+   font-size: 0.8rem;
+   color: var(--red);
+}
+.icon-tick {
+   font-size: 0.8rem;
+   color: var(--green);
 }
 .border-radius-1 {
    border-radius: 1px;
@@ -288,15 +315,15 @@ a {
    top: 1.4rem;
    margin-top: 26px;
    margin-left: 8px;
-   height: calc(100% - 10px);
+   height: calc(100% - 16px);
    z-index: 1;
    width: 2px;
    background-color: var(--yellow);
 }
-.w-163 {
-   width: 163px;
+.w-sm-163 {
+   max-width: 163px;
 }
-.w-precent-60 {
+.w-sm-precent-60 {
    width: 60%;
 }
 .max-w-162 {
@@ -327,6 +354,9 @@ a {
 .text-sm-20 {
    font-size: 20px;
 }
+.box-sm-white {
+   background: #ffffff;
+}
 @media screen and (max-width: 576px) {
    .text-sm-32 {
       font-size: 20px;
@@ -340,7 +370,7 @@ a {
    .h-sm-72 {
       height: 46px;
    }
-   .location-and-quantity-section::after {
+   .location-and-quantity-section::after, .type-and-kind-section::after {
       display: none;
    }
    .box-shadow-no-bottom {
@@ -352,4 +382,37 @@ a {
    .w-precent-50 {
       width: 50% !important;
    }
+   .box-sm-white {
+      background: transparent;
+   }
+   .box-sm-shadow {
+      box-shadow: none;
+   }
+   .select-pump-section, .execution-section {
+      border: 0 !important;
+    }
+    .w-sm-163 {
+      max-width: 116px;
+    }
+    .w-sm-precent-60 {
+      width: auto;
+   }
 }
+.location-and-quantity-section.inactive .step-title-icon, .type-and-kind-section.inactive .step-title-icon {
+   color: var(--green) !important;
+}
+.location-and-quantity-section.inactive::after, .type-and-kind-section.inactive::after {
+   background-color: var(--green) !important;
+}
+.type-and-kind-section.active .step-title, .type-and-kind-section.inactive .step-title, .confirm-and-pay-section.active .step-title, .confirm-and-pay-section.inactive .step-title  {
+   color: var(--dark-blue) !important;
+}
+.form-check-input:checked {
+   background-color: var(--orange);
+   border-color: var(--orange);
+ }
+ .form-check-input:focus {
+   box-shadow: 0 0 0 0.25rem rgba(var(--orange-rgb, 255, 165, 0), 0.5); /* Replace with --orange's RGB equivalent */
+ }
+ 
+

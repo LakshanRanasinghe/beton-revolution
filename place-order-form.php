@@ -3,13 +3,13 @@
 
 get_header(); 
 ?>
-<div class="container py-5">
+<div class="container py-5 overflow-hidden">
     <div class="row g-5">
         <!-- Left Form Section -->
         <div class="col-lg-8">
+            <p class="poppins-400 text-12 text-custom-gray-4 mb-1 d-sm-none d-block">Step <strong>1/6</strong></p>
             <!-- First Section -->
-            <div class="location-and-quantity-section px-sm-5 py-sm-4 box-shadow-no-bottom bg-sm-white position-relative z-2">
-                <p class="poppins-400 text-12 text-custom-gray-2 mb-1 d-sm-none d-block">Step <strong>1/6</strong></p>
+            <div class="location-and-quantity-section px-sm-5 py-sm-4 box-shadow-no-bottom box-sm-white position-relative z-3">
                 <div class="position-relative pb-4">
                     <div class="position-relative z-1 bg-sm-white bg-custom-gray-3 d-inline-block pe-3 py-sm-0 py-1">
                         <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative d-sm-inline-block d-none"></i> LOCATION AND CONCRETE QUANTITY</h5>
@@ -30,22 +30,27 @@ get_header();
                     </form>
                 </div>
             </div>
-            
 
             <!-- Second Section -->
-            <div class="type-and-kind-section px-sm-5 py-sm-4 box-shadow-no-top bg-sm-white position-relative text-dark-gray ">
-                <div class="position-relative pb-4">
-                    <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                        <h5 class="step-title text-dark-blue oswald-600 text-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative"></i> TYPE AND KIND</h5>
+            <div class="type-and-kind-section px-sm-5 py-sm-4 box-shadow-no-bottom box-sm-white position-relative text-dark-gray z-2 ">
+                <div class="position-relative pb-4 d-sm-block d-none">
+                    <div class="position-relative z-1 bg-white d-sm-inline-block pe-3">
+                        <h5 class="step-title text-custom-gray-4 oswald-600 text-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative d-sm-inline-block d-none"></i> TYPE AND KIND</h5>
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
-                <div class="type-and-kind-form text-16 poppins-500" id="newFormSection">
+                <div class="type-and-kind-form text-16 poppins-500 " id="newFormSection">
                     <form>
                         <!-- Application, Compound, Release Method Section -->
                         <div class="row mb-4">
                             <div class="col-md-4">
-                                <h6 class="section-title text-18 poppins-600 mb-3 text-custom-black">APPLICATION</h6>
+                                <h6 class="section-title text-18 poppins-600 mb-3 text-custom-black d-sm-block d-none">APPLICATION</h6>
+                                <div class="position-relative pb-4 d-block d-sm-none">
+                                    <div class="position-relative z-1 bg-white d-inline-block pe-3">
+                                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><i class="bi bi-arrow-left step-back-icon position-relative"></i> APPLICATION<i class="bi bi-info-circle step-exclamation-icon position-relative"></i></h5>
+                                    </div>
+                                    <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
+                                </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="application" id="roughConcrete" checked>
                                     <label class="form-check-label" for="roughConcrete">Rough Concrete Floor</label>
@@ -58,20 +63,35 @@ get_header();
                                     <input class="form-check-input" type="radio" name="application" id="wall">
                                     <label class="form-check-label" for="wall">Wall</label>
                                 </div>
+                                <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block mt-4" id="application-btn">Continue</button>
                             </div>
                             <div class="col-md-4">
-                                <h6 class="section-title text-18 poppins-600 mb-3 text-custom-black">COMPOUND</h6>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="compound" id="highlyLiquid" checked>
+                                <h6 class="section-title text-18 poppins-600 mb-3 text-custom-black d-sm-block d-none">COMPOUND</h6>
+                                <div class="position-relative pb-4 d-block d-sm-none">
+                                    <div class="position-relative z-1 bg-white d-inline-block pe-3">
+                                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><i class="bi bi-arrow-left step-back-icon position-relative"></i> COMPOUND<i class="bi bi-info-circle step-exclamation-icon position-relative"></i></h5>
+                                    </div>
+                                    <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="highlyLiquid" name="compound" checked>
                                     <label class="form-check-label" for="highlyLiquid">Highly Liquid</label>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="compound" id="extraHighStrength">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="extraHighStrength" name="compound">
                                     <label class="form-check-label" for="extraHighStrength">Extra High Strength</label>
                                 </div>
+                                <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block mt-4" id="compound-btn">Continue</button>
                             </div>
                             <div class="col-md-4">
-                                <h6 class="section-title text-18 poppins-600 mb-3 text-custom-black">RELEASE METHOD</h6>
+                                <h6 class="section-title text-18 poppins-600 mb-3 text-custom-black d-sm-block d-none">RELEASE METHOD</h6>
+                                <div class="position-relative pb-4 d-block d-sm-none">
+                                    <div class="position-relative z-1 bg-white d-inline-block pe-3">
+                                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><i class="bi bi-arrow-left step-back-icon position-relative"></i> RELEASE METHOD<i class="bi bi-info-circle step-exclamation-icon position-relative"></i>
+                                        </h5>
+                                    </div>
+                                    <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
+                                </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="releaseMethod" id="fromGutter">
                                     <label class="form-check-label" for="fromGutter">From The Gutter</label>
@@ -84,8 +104,8 @@ get_header();
                         </div>
 
                         <!-- Select Pump Section -->
-                        <div class="select-pump-section box-shadow border-custom-gray border p-3">
-                            <h6 class="section-title poppins-600 text-18 mb-3 text-dark-blue">SELECT PUMP</h6>
+                        <div class="select-pump-section box-sm-shadow border-custom-gray border p-sm-3 p-0">
+                            <h6 class="section-title poppins-600 text-sm-18 mb-3 text-dark-blue">SELECT PUMP</h6>
                             <div class="mb-4">
                                 <div class="card-body">
                                     <div class="border-custom-gray border">
@@ -94,12 +114,12 @@ get_header();
                                             <label class="form-check-label text-dark-gray" for="miniPump">Mini Concrete Pump</label>
                                         </div>
                                         <hr class="text-light-gray mt-3">
-                                        <div class="p-3 d-flex">
-                                            <img src="<?php echo get_template_directory_uri() ?>/images/lorry1.png" alt="Mini Concrete Pump" class="img-fluid mb-2 w-163">
+                                        <div class="p-sm-3 p-0 d-flex">
+                                            <img src="<?php echo get_template_directory_uri() ?>/images/lorry1.png" alt="Mini Concrete Pump" class="img-fluid mb-2 w-sm-163">
                                             <ul class="list-unstyled text-custom-gray-2 text-12 poppins-400">
-                                                <li>✓ Thin, Handy Hoses</li>
-                                                <li>✓ Few Workers Needed</li>
-                                                <li>✓ Costs Advantageous</li>
+                                                <li><i class="icon-tick bi bi-check"></i> Thin, Handy Hoses</li>
+                                                <li><i class="icon-tick bi bi-check"></i> Few Workers Needed</li>
+                                                <li><i class="icon-cross bi bi-x"></i> Costs Advantageous</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -111,7 +131,7 @@ get_header();
                                                 <label class="form-check-label text-dark-gray" for="boomPump">Boom Pump</label>
                                             </div>
                                             <div class="d-flex w-precent-60 align-items-center">
-                                                <label class="form-select-label w-100" for="">Pumping distance: </label>
+                                                <label class="form-select-label w-100 d-sm-block d-none" for="">Pumping distance: </label>
                                                 <select class="form-select form-select-sm border-light-gray border-radius-1 py-2 px-4 h-36" id="selectMeter">
                                                     <option>Select Meter</option>
                                                     <option>10 M</option>
@@ -120,23 +140,33 @@ get_header();
                                             </div>
                                         </div>
                                         <hr class="text-light-gray mt-3">
-                                        <div class="p-3 d-flex">
-                                            <img src="<?php echo get_template_directory_uri() ?>/images/lorry2.png" alt="Boom Pump" class="img-fluid mb-2 w-163">
+                                        <div class="p-sm-3 p-0 d-flex">
+                                            <img src="<?php echo get_template_directory_uri() ?>/images/lorry2.png" alt="Boom Pump" class="img-fluid mb-2 w-sm-163">
                                             
                                             <ul class="list-unstyled text-custom-gray-2 text-12 poppins-400">
-                                                <li>✓ Quickly Pumps Many Cubic Meters</li>
-                                                <li>✓ Can Also Pump Large Gravel</li>
+                                                <li><i class="icon-tick bi bi-check"></i> Thin, Handy Hoses</li>
+                                                <li><i class="icon-tick bi bi-check"></i> Quickly Pumps Many Cubic Meters</li>
+                                                <li><i class="icon-cross bi bi-x"></i> Can Also Pump Large Gravel</li>
                                             </ul>
                                         </div>
                                     </div>   
                                 </div>
                             </div>
+                            <p class="text-sm-18 text-custom-gray-2 poppins-400">Not sure which one to choose? <a href="#" class="text-orange">Use our helper.</a></p>
+                            <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block" id="release-method">Continue</button>
                         </div>
 
                         <!-- Performance Section -->
                         <div class="performance-section mt-4">
-                            <h6 class="section-title text-custom-black text-18 poppins-600 mb-3">PERFORMANCE</h6>
-                            <div class="form-check mb-3">
+                            <h6 class="section-title text-custom-black text-18 poppins-600 mb-3 d-sm-block d-none">PERFORMANCE</h6>
+                            <div class="position-relative pb-4 d-block d-sm-none">
+                                <div class="position-relative z-1 bg-white d-inline-block pe-3">
+                                    <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><i class="bi bi-arrow-left step-back-icon position-relative"></i> PERFORMANCE<i class="bi bi-info-circle step-exclamation-icon position-relative"></i>
+                                    </h5>
+                                </div>
+                                <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
+                            </div>
+                            <div class="form-check mb-sm-3">
                                 <input class="form-check-input" type="radio" name="performance" id="performSelf">
                                 <label class="form-check-label" for="performSelf">Perform Yourself</label>
                             </div>
@@ -147,7 +177,7 @@ get_header();
                         </div>
 
                         <!-- Execution Section -->
-                        <div class="execution-section mt-4 p-3 box-shadow border border-custom-gray text-18">
+                        <div class="execution-section mt-4 p-sm-3 box-sm-shadow border border-custom-gray text-18">
                             <h6 class="execution-title poppins-600 text-18 text-dark-blue mb-3">EXECUTION 2</h6>
                             <div class="row mb-3">
                                 <div class="col-md-6">
@@ -178,21 +208,33 @@ get_header();
                                 </div>
                             </div>
                             <p class="form-label">Floor</p>
-                            <div class="toggle-switch">
-                                <input type="checkbox" id="mezzanine-floor">
-                                <label for="mezzanine-floor" class="text-16 me-4">Mezzanine Floor</label>
-                                <input type="checkbox" id="butterfly-floor">
-                                <label for="butterfly-floor" class="text-16">Butterfly Floor</label>
+                            <div class="d-sm-flex">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="mezzanine-floor" name="compound" checked>
+                                    <label class="form-check-label text-16 me-4" for="mezzanine-floor">Mezzanine Floor</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="butterfly-floor" name="compound">
+                                    <label class="form-check-label text-16" for="butterfly-floor">Butterfly Floor</label>
+                                </div>
                             </div>
+                            <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block mt-4" id="execution-btn">Continue</button>
                         </div>
 
                         <!-- Email and Buttons Section -->
                         <div class="my-4">
+                            <div class="position-relative pb-4 d-block d-sm-none">
+                                <div class="position-relative z-1 bg-white d-inline-block pe-3">
+                                    <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1 uppercase"><i class="bi bi-arrow-left step-back-icon position-relative"></i> Confirm Email<i class="bi bi-info-circle step-exclamation-icon position-relative"></i>
+                                    </h5>
+                                </div>
+                                <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
+                            </div>
                             <label for="email" class="form-label text-18 text-dark-gray">Your Email Address</label>
                             <input type="email" id="email" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Enter Your Email Address">
                             <div class="btn-wrapper mt-4">
-                                <button class="btn text-white bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 me-4 px-4">Pay via iDeal</button>
-                                <button class="btn border-orange h-46 uppercase border rounded-0 text-orange oswald-600 text-16 px-4">Quote in PDF</button>
+                                <button class="btn text-white bg-orange h-46 uppercase bg-orange-btn border border-0 rounded-0 text-white oswald-600 text-16 me-4 px-4" id="pay-btn">Pay via iDeal</button>
+                                <button class="btn border-orange h-46 uppercase border rounded-0 border-orange-btn text-orange oswald-600 text-16 px-4">Quote in PDF</button>
                             </div>
                         </div>
                     </form>
@@ -200,14 +242,20 @@ get_header();
             </div>
 
             <!-- Third Section -->
-            <div class="confirm-and-pay-section px-sm-5 py-sm-4 box-shadow-no-top bg-sm-white position-relative text-dark-gray ">
-                <div class="position-relative pb-4">
+            <div class="confirm-and-pay-section px-sm-5 py-sm-4 box-shadow-no-top box-sm-white position-relative text-dark-gray z-1 ">
+                <div class="position-relative pb-4 d-sm-inline-block d-none">
                     <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                        <h5 class="step-title text-dark-blue oswald-600 text-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative"></i> CONFIRM ADDRESS AND PAY</h5>
+                        <h5 class="step-title text-custom-gray-4 oswald-600 text-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative"></i> CONFIRM ADDRESS AND PAY</h5>
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
-                <div class="confirm-and-pay-form form-section third-section" id="thirdFormSection">
+                <div class="position-relative pb-4 d-block d-sm-none">
+                    <div class="position-relative z-1 bg-white d-inline-block pe-3">
+                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1 uppercase"><i class="bi bi-arrow-left step-back-icon position-relative"></i> CONFIRM ADDRESS AND PAY</h5>
+                    </div>
+                    <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
+                </div>
+                <div class="confirm-and-pay-form form-section third-section d-none" id="thirdFormSection">
                     <p><strong>Your Data</strong><br> Please fill in your personal details so we can check your payment and contact you.</p>
                     <form>
                     <?php
@@ -343,15 +391,35 @@ get_header();
 </div>
 
 <script>
-    function showNewSection() {
-        document.getElementById('initialFormSection').style.display = 'none';
-        document.getElementById('newFormSection').style.display = 'block';
-    }
-
-    function showThirdSection() {
-        document.getElementById('newFormSection').style.display = 'none';
-        document.getElementById('thirdFormSection').style.display = 'block';
-    }
+    jQuery(document).ready(function($) {
+        if ($(window).width() >= 576) {
+            $("#location-and-quantity-btn").on("click", function() {
+                $(".location-and-quantity-section").addClass("inactive");
+                $(".location-and-quantity-form").addClass("d-none");
+                $(".type-and-kind-section").addClass("active");
+                $(".type-and-kind-form").removeClass("d-none");
+            });
+        } else {
+            $("#location-and-quantity-btn").on("click", function() {
+                $(".location-and-quantity-section").addClass("d-none");
+                $(".type-and-kind-section").removeClass("d-none");
+                $(".type-and-kind-form").removeClass("d-none");
+            });
+        }  
+        if ($(window).width() >= 576) {
+            $("#pay-btn").on("click", function(e) {
+                e.preventDefault();
+                $(".type-and-kind-section").addClass("inactive");
+                $(".type-and-kind-form").addClass("d-none");
+                $(".confirm-and-pay-section").addClass("active");
+                $(".confirm-and-pay-form").removeClass("d-none");
+            });
+        } else {
+            $("#location-and-quantity-btn").on("click", function() {
+                
+            });
+        }
+    });
 </script>
 
 <?php
