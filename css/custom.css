@@ -271,10 +271,13 @@ a {
 #page {
    background: var(--custom-gray-3);
 }
+.page {
+   margin-bottom: 0 !important;
+}
 .step-title-icon {
    margin-right: 8px;
    font-size: 1.2rem;
-   color: var(--yellow);
+   color: var(--light-gray);
 }
 .step-back-icon {
    margin-right: 8px;
@@ -313,12 +316,12 @@ a {
    content: "";
    position: absolute;
    top: 1.4rem;
-   margin-top: 26px;
+   margin-top: 28px;
    margin-left: 8px;
-   height: calc(100% - 16px);
+   height: calc(100% - 18px);
    z-index: 1;
    width: 2px;
-   background-color: var(--yellow);
+   background-color: var(--light-gray);
 }
 .w-sm-163 {
    max-width: 163px;
@@ -401,8 +404,14 @@ a {
 .location-and-quantity-section.inactive .step-title-icon, .type-and-kind-section.inactive .step-title-icon {
    color: var(--green) !important;
 }
+.location-and-quantity-section.active .step-title-icon, .type-and-kind-section.active .step-title-icon, .confirm-and-pay-section.active .step-title-icon {
+   color: var(--yellow);
+}
 .location-and-quantity-section.inactive::after, .type-and-kind-section.inactive::after {
    background-color: var(--green) !important;
+}
+.location-and-quantity-section.active::after, .type-and-kind-section.active::after {
+   background-color: var(--yellow) !important;
 }
 .type-and-kind-section.active .step-title, .type-and-kind-section.inactive .step-title, .confirm-and-pay-section.active .step-title, .confirm-and-pay-section.inactive .step-title  {
    color: var(--dark-blue) !important;

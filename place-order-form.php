@@ -7,12 +7,19 @@ get_header();
     <div class="row g-5">
         <!-- Left Form Section -->
         <div class="col-lg-8">
-            <p class="poppins-400 text-12 text-custom-gray-4 mb-1 d-sm-none d-block">Step <strong>1/6</strong></p>
+            <p class="step-number-container poppins-400 text-12 text-custom-gray-4 mb-1 d-sm-none d-block ms-4 ps-1">Step <strong><span id="step-number">1</span>/6</strong></p>
+            <p class="step-text-container poppins-400 text-12 text-custom-gray-4 mb-1 d-none d-block ms-4 ps-1">Be patient you are on the last</p>
             <!-- First Section -->
             <div class="location-and-quantity-section px-sm-5 py-sm-4 box-shadow-no-bottom box-sm-white position-relative z-3">
-                <div class="position-relative pb-4">
+                <div class="position-relative pb-4 d-sm-block d-none">
                     <div class="position-relative z-1 bg-sm-white bg-custom-gray-3 d-inline-block pe-3 py-sm-0 py-1">
                         <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative d-sm-inline-block d-none"></i> LOCATION AND CONCRETE QUANTITY</h5>
+                    </div>
+                    <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
+                </div>
+                <div class="position-relative pb-4 d-block d-sm-none">
+                    <div class="position-relative z-1 bg-white d-inline-block pe-3">
+                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a>LOCATION AND CONCRETE QUANTITY</h5>
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
@@ -26,7 +33,7 @@ get_header();
                             <label for="quantity" class="form-label text-dark-gray">Number of M³</label>
                             <input type="text" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" id="quantity" placeholder="Enter Number of M³">
                         </div>
-                        <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn" id="location-and-quantity-btn">Continue</button>
+                        <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn" id="location-and-quantity-btn" data-next="2">Continue</button>
                     </form>
                 </div>
             </div>
@@ -39,15 +46,15 @@ get_header();
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
-                <div class="type-and-kind-form text-16 poppins-500 " id="newFormSection">
+                <div class="type-and-kind-form text-16 poppins-500 d-none" id="newFormSection">
                     <form>
                         <!-- Application, Compound, Release Method Section -->
-                        <div class="row mb-4">
-                            <div class="col-md-4">
+                        <div class="row mb-sm-4">
+                            <div class="application-section col-md-4 d-sm-block d-none">
                                 <h6 class="section-title text-18 poppins-600 mb-3 text-custom-black d-sm-block d-none">APPLICATION</h6>
                                 <div class="position-relative pb-4 d-block d-sm-none">
                                     <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><i class="bi bi-arrow-left step-back-icon position-relative"></i> APPLICATION<i class="bi bi-info-circle step-exclamation-icon position-relative"></i></h5>
+                                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a> APPLICATION<i class="bi bi-info-circle step-exclamation-icon position-relative"></i></h5>
                                     </div>
                                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                                 </div>
@@ -63,13 +70,13 @@ get_header();
                                     <input class="form-check-input" type="radio" name="application" id="wall">
                                     <label class="form-check-label" for="wall">Wall</label>
                                 </div>
-                                <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block mt-4" id="application-btn">Continue</button>
+                                <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block mt-4" id="application-btn" data-next="3">Continue</button>
                             </div>
-                            <div class="col-md-4">
+                            <div class="compound-section col-md-4 d-sm-block d-none">
                                 <h6 class="section-title text-18 poppins-600 mb-3 text-custom-black d-sm-block d-none">COMPOUND</h6>
                                 <div class="position-relative pb-4 d-block d-sm-none">
                                     <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><i class="bi bi-arrow-left step-back-icon position-relative"></i> COMPOUND<i class="bi bi-info-circle step-exclamation-icon position-relative"></i></h5>
+                                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a> COMPOUND<i class="bi bi-info-circle step-exclamation-icon position-relative"></i></h5>
                                     </div>
                                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                                 </div>
@@ -81,13 +88,13 @@ get_header();
                                     <input class="form-check-input" type="checkbox" id="extraHighStrength" name="compound">
                                     <label class="form-check-label" for="extraHighStrength">Extra High Strength</label>
                                 </div>
-                                <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block mt-4" id="compound-btn">Continue</button>
+                                <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block mt-4" id="compound-btn" data-next="4">Continue</button>
                             </div>
-                            <div class="col-md-4">
+                            <div class="release-method-section-1 col-md-4 d-sm-block d-none">
                                 <h6 class="section-title text-18 poppins-600 mb-3 text-custom-black d-sm-block d-none">RELEASE METHOD</h6>
                                 <div class="position-relative pb-4 d-block d-sm-none">
                                     <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><i class="bi bi-arrow-left step-back-icon position-relative"></i> RELEASE METHOD<i class="bi bi-info-circle step-exclamation-icon position-relative"></i>
+                                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a> RELEASE METHOD<i class="bi bi-info-circle step-exclamation-icon position-relative"></i>
                                         </h5>
                                     </div>
                                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
@@ -104,8 +111,8 @@ get_header();
                         </div>
 
                         <!-- Select Pump Section -->
-                        <div class="select-pump-section box-sm-shadow border-custom-gray border p-sm-3 p-0">
-                            <h6 class="section-title poppins-600 text-sm-18 mb-3 text-dark-blue">SELECT PUMP</h6>
+                        <div class="release-method-section-2 select-pump-section box-sm-shadow border-custom-gray border p-sm-3 p-0 d-sm-block d-none">
+                            <h6 class="section-title poppins-600 text-sm-18 mb-3 mt-sm-0 mt-3 text-dark-blue">SELECT PUMP</h6>
                             <div class="mb-4">
                                 <div class="card-body">
                                     <div class="border-custom-gray border">
@@ -153,15 +160,15 @@ get_header();
                                 </div>
                             </div>
                             <p class="text-sm-18 text-custom-gray-2 poppins-400">Not sure which one to choose? <a href="#" class="text-orange">Use our helper.</a></p>
-                            <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block" id="release-method">Continue</button>
+                            <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block" id="release-method" data-next="5">Continue</button>
                         </div>
 
                         <!-- Performance Section -->
-                        <div class="performance-section mt-4">
+                        <div class="performance-section mt-sm-4 d-sm-block d-none">
                             <h6 class="section-title text-custom-black text-18 poppins-600 mb-3 d-sm-block d-none">PERFORMANCE</h6>
                             <div class="position-relative pb-4 d-block d-sm-none">
                                 <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                                    <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><i class="bi bi-arrow-left step-back-icon position-relative"></i> PERFORMANCE<i class="bi bi-info-circle step-exclamation-icon position-relative"></i>
+                                    <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a> PERFORMANCE<i class="bi bi-info-circle step-exclamation-icon position-relative"></i>
                                     </h5>
                                 </div>
                                 <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
@@ -177,7 +184,7 @@ get_header();
                         </div>
 
                         <!-- Execution Section -->
-                        <div class="execution-section mt-4 p-sm-3 box-sm-shadow border border-custom-gray text-18">
+                        <div class="execution-section mt-4 p-sm-3 box-sm-shadow border border-custom-gray text-18 d-sm-block d-none">
                             <h6 class="execution-title poppins-600 text-18 text-dark-blue mb-3">EXECUTION 2</h6>
                             <div class="row mb-3">
                                 <div class="col-md-6">
@@ -218,14 +225,14 @@ get_header();
                                     <label class="form-check-label text-16" for="butterfly-floor">Butterfly Floor</label>
                                 </div>
                             </div>
-                            <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block mt-4" id="execution-btn">Continue</button>
+                            <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block mt-4" id="execution-btn" data-next="6">Continue</button>
                         </div>
 
                         <!-- Email and Buttons Section -->
-                        <div class="my-4">
+                        <div class="verify-email-section my-sm-4 d-sm-block d-none">
                             <div class="position-relative pb-4 d-block d-sm-none">
                                 <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                                    <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1 uppercase"><i class="bi bi-arrow-left step-back-icon position-relative"></i> Confirm Email<i class="bi bi-info-circle step-exclamation-icon position-relative"></i>
+                                    <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1 uppercase"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a> Confirm Email<i class="bi bi-info-circle step-exclamation-icon position-relative"></i>
                                     </h5>
                                 </div>
                                 <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
@@ -233,7 +240,7 @@ get_header();
                             <label for="email" class="form-label text-18 text-dark-gray">Your Email Address</label>
                             <input type="email" id="email" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Enter Your Email Address">
                             <div class="btn-wrapper mt-4">
-                                <button class="btn text-white bg-orange h-46 uppercase bg-orange-btn border border-0 rounded-0 text-white oswald-600 text-16 me-4 px-4" id="pay-btn">Pay via iDeal</button>
+                                <button class="btn text-white bg-orange h-46 uppercase bg-orange-btn border border-0 rounded-0 text-white oswald-600 text-16 me-4 px-4" id="pay-btn" data-next="Be patient you are on the last">Pay via iDeal</button>
                                 <button class="btn border-orange h-46 uppercase border rounded-0 border-orange-btn text-orange oswald-600 text-16 px-4">Quote in PDF</button>
                             </div>
                         </div>
@@ -249,9 +256,9 @@ get_header();
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
-                <div class="position-relative pb-4 d-block d-sm-none">
+                <div class="confirm-and-pay-section-title position-relative pb-4 d-none">
                     <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1 uppercase"><i class="bi bi-arrow-left step-back-icon position-relative"></i> CONFIRM ADDRESS AND PAY</h5>
+                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1 uppercase"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a> CONFIRM ADDRESS AND PAY</h5>
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
@@ -393,20 +400,14 @@ get_header();
 <script>
     jQuery(document).ready(function($) {
         if ($(window).width() >= 576) {
+            $(".location-and-quantity-section").addClass("active");
             $("#location-and-quantity-btn").on("click", function() {
+                $(".location-and-quantity-section").removeClass("active");
                 $(".location-and-quantity-section").addClass("inactive");
                 $(".location-and-quantity-form").addClass("d-none");
                 $(".type-and-kind-section").addClass("active");
                 $(".type-and-kind-form").removeClass("d-none");
             });
-        } else {
-            $("#location-and-quantity-btn").on("click", function() {
-                $(".location-and-quantity-section").addClass("d-none");
-                $(".type-and-kind-section").removeClass("d-none");
-                $(".type-and-kind-form").removeClass("d-none");
-            });
-        }  
-        if ($(window).width() >= 576) {
             $("#pay-btn").on("click", function(e) {
                 e.preventDefault();
                 $(".type-and-kind-section").addClass("inactive");
@@ -415,10 +416,89 @@ get_header();
                 $(".confirm-and-pay-form").removeClass("d-none");
             });
         } else {
-            $("#location-and-quantity-btn").on("click", function() {
-                
+            $(".location-and-quantity-section").addClass("active");
+            let currentStep = 1; 
+
+            $("#location-and-quantity-btn").on("click", function () {
+                $("#step-number").html($(this).data("next"));
+                currentStep = 2;
+                $(".location-and-quantity-section").removeClass("active").addClass("inactive d-none");
+                $(".type-and-kind-form").removeClass("d-none");
+                $(".application-section").addClass("active").removeClass("d-none");
             });
-        }
+
+            $("#application-btn").on("click", function () {
+                $("#step-number").html($(this).data("next"));
+                currentStep = 3;
+                $(".application-section").removeClass("active").addClass("inactive d-none");
+                $(".compound-section").addClass("active").removeClass("d-none");
+            });
+
+            $("#compound-btn").on("click", function () {
+                $("#step-number").html($(this).data("next"));
+                currentStep = 4;
+                $(".compound-section").removeClass("active").addClass("inactive d-none");
+                $(".release-method-section-1, .release-method-section-2").addClass("active").removeClass("d-none");
+            });
+
+            $("#release-method").on("click", function () {
+                $("#step-number").html($(this).data("next"));
+                currentStep = 5;
+                $(".release-method-section-1, .release-method-section-2").removeClass("active").addClass("inactive d-none");
+                $(".performance-section, .execution-section").addClass("active").removeClass("d-none");
+            });
+
+            $("#execution-btn").on("click", function () {
+                $("#step-number").html($(this).data("next"));
+                currentStep = 6;
+                $(".performance-section, .execution-section").removeClass("active").addClass("inactive d-none");
+                $(".verify-email-section").addClass("active").removeClass("d-none");
+            });
+
+            $("#pay-btn").on("click", function (e) {
+                e.preventDefault();
+                currentStep = 7;
+                $(".verify-email-section").removeClass("active").addClass("inactive d-none");
+                $(".confirm-and-pay-form").addClass("active").removeClass("d-none");
+                $(".confirm-and-pay-section-title").removeClass("d-none");
+            });
+
+            $(".step-back").on("click", function () {
+                if (currentStep > 1) {
+                    $("#step-number").html(currentStep - 1);
+                    switch (currentStep) {
+                        case 2:
+                            $(".location-and-quantity-section").removeClass("inactive d-none").addClass("active");
+                            $(".application-section").removeClass("active").addClass("inactive d-none");
+                            break;
+                        case 3:
+                            $(".application-section").removeClass("inactive d-none").addClass("active");
+                            $(".compound-section").removeClass("active").addClass("inactive d-none");
+                            break;
+                        case 4:
+                            $(".compound-section").removeClass("inactive d-none").addClass("active");
+                            $(".release-method-section-1, .release-method-section-2").removeClass("active").addClass("inactive d-none");
+                            break;
+                        case 5:
+                            $(".release-method-section-1, .release-method-section-2").removeClass("inactive d-none").addClass("active");
+                            $(".performance-section, .execution-section").removeClass("active").addClass("inactive d-none");
+                            break;
+                        case 6:
+                            $(".performance-section, .execution-section").removeClass("inactive d-none").addClass("active");
+                            $(".verify-email-section").removeClass("active").addClass("inactive d-none");
+                            break;
+                        case 7:
+                            $(".verify-email-section").removeClass("inactive d-none").addClass("active");
+                            $(".confirm-and-pay-form").removeClass("active").addClass("inactive d-none");
+                            $(".confirm-and-pay-section-title").addClass("d-none");
+                            break;
+                    }
+                    currentStep--; 
+                }
+            });
+
+        }  
+        
     });
 </script>
 
