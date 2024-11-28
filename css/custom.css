@@ -90,6 +90,9 @@
 .text-20 {
    font-size: 20px;
 }
+.text-22 {
+   font-size: 22px;
+}
 .text-26 {
    font-size: 26px;
 }
@@ -357,6 +360,12 @@ a {
 .text-sm-20 {
    font-size: 20px;
 }
+.text-sm-24 {
+   font-size: 24px;
+}
+.text-sm-64 {
+   font-size: 64px;
+}
 .box-sm-white {
    background: #ffffff;
 }
@@ -419,9 +428,42 @@ a {
 .form-check-input:checked {
    background-color: var(--orange);
    border-color: var(--orange);
- }
- .form-check-input:focus {
+} 
+.form-check-input:focus {
    box-shadow: 0 0 0 0.25rem rgba(var(--orange-rgb, 255, 165, 0), 0.5); /* Replace with --orange's RGB equivalent */
- }
- 
+}
 
+
+.light-blue-text{
+   color: #B9C2FF;
+}
+
+.line-height{
+   line-height: 38px !important;
+}
+
+.letterspace1{
+   letter-spacing: 0.01em !important;
+}
+.grey-text{
+   color: #343434 !important;
+}
+
+.image-post{
+   width: 450px !important;
+   height: 400px !important;
+}
+
+.paragraph-ash{
+   color: #393E50 !important;
+}
+
+.bg-step1{
+   background-image: url('https://images.unsplash.com/photo-1478486982180-2de2fafa19f9?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.bg-step2{
+   background-image: url('https://images.unsplash.com/photo-1478486982180-2de2fafa19f9?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+   clip-path: polygon(0 0, 85% 0, 100% 100%, 0% 100%);
+}

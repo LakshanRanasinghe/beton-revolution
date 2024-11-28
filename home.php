@@ -37,13 +37,21 @@ get_header();
 <!-- second section -->
 <div class="bg-dark-blue container-fluid px-5">
     <div class="container d-flex align-items-center gap-5">
-        <div class="row border-5 border-end d-block col-2" style="border-color: #ff6400 !important;">
+        <div class="row border-5 border-end d-block col-3" style="border-color: #ff6400 !important;">
             <h2 class="oswald-500 text-42 text-white py-5">Calculate <br> Concrete price</h2>
         </div>
         <div class="row gap-1 py-3 col-10">
-            <input type="text" class="col-5 home-input ps-4 rounded-0" placeholder="Zip Code or City" aria-label="Recipient's username">
-            <input type="text" class="col-5 home-input ps-4 rounded-0" placeholder="Number of M" aria-label="Recipient's username">
-            <button class="col-2 oswald-600 text-20 text-white text-uppercase border-2 border-orange bg-orange rounded-0 px-6 py-3">Calculate Price</button>
+            <div class="col-4 p-0">
+                <input type="text" class="col-12 home-input ps-4 rounded-0" placeholder="Zip Code or City" aria-label="Recipient's username">
+                <p class="pt-2"><span class="light-blue-text poppins-500 text-sm-14">Calculate The Number Of Cubic Meters</span><span class="ms-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="15" height="15" fill="#B9C2FF"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg></span></p>
+            </div>
+            <div class="col-4 p-0">
+                <input type="text" class="col-12 home-input ps-4 rounded-0" placeholder="Number of M" aria-label="Recipient's username">
+            </div>
+            <div class="col-2 p-0">
+                <button class="oswald-600 text-18 text-white text-uppercase border-2 border-orange bg-orange rounded-0 px-6 py-3">Calculate Price</button>
+            </div>
+            
         </div>
     </div>
 </div>
@@ -56,7 +64,7 @@ get_header();
                 <h1 class="oswald-500 display-3 text-40 m-0 text-black text-uppercase">How do you pour concrete</h1>
                 <div style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%); height: 8px; width: 100%;"></div>
 
-                <p>Pouring concrete yourself can result in a nice cost saving, but can also be a big failure. In the article how do I pour concrete? we show you the best method with the necessary tools.  Are you going  to pour concrete, order concrete or have concrete poured ? For example, for a renovation of your house for an extension, garage , garden shed, fence, you name it, then a foundation is often needed. This foundation is generally made of concrete. For a real "do-it-yourselfer" the question immediately follows: am I going to order concrete and pour concrete myself or am I going to have concrete poured ? What should I pay attention to when ordering concrete? What is involved? Pouring concrete, how do you do that? A number of things are important, such as the thickness of the concrete floor  and the drying time of concrete . On BetonStorten.nl you will find all information about ordering concrete and pouring your concrete. From  price  to execution. We are happy to provide you with the necessary information to determine whether you are going to pour your own concrete and how you can best do that.</p>
+                <p class="grey-text poppins-400 text-18 line-height letterspace1">Pouring concrete yourself can result in a nice cost saving, but can also be a big failure. In the article how do I pour concrete? we show you the best method with the necessary tools.<br>   Are you going  to pour concrete, order concrete or have concrete poured ? For example, for a renovation of your house for an extension, garage , garden shed, fence, you name it, then a foundation is often needed. This foundation is generally made of concrete. For a real "do-it-yourselfer" the question immediately follows: am I going to order concrete and pour concrete myself or am I going to have concrete poured ? What should I pay attention to when ordering concrete? What is involved? Pouring concrete, how do you do that? A number of things are important, such as the thickness of the concrete floor  and the drying time of concrete . <br> On BetonStorten.nl you will find all information about ordering concrete and pouring your concrete. From  price  to execution. We are happy to provide you with the necessary information to determine whether you are going to pour your own concrete and how you can best do that.</p>
             </div>
             <div class="col-4">
                 <img class="image-fluid" src="https://images.unsplash.com/photo-1672748341520-6a839e6c05bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
@@ -103,9 +111,150 @@ get_header();
                     <div class="col-1 h-1" style="background-color: #FDD40166;"></div>
                 </div>
             </div>
+
+            <div class="col-9">
+                <div class="row col-5 z-1 position-relative p-2 mb-4" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
+                    <div class="row col-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="col" height="20" width="22.5" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="col" height="20" width="22.5" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="col" height="20" width="22.5" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="col" height="20" width="22.5" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="col" height="20" width="22.5" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                    </div>
+                    <h2 class="oswald-600 fs-5 lh-sm text-white m-0" style="width: 150px;">Google</h2>
+                </div>
+                <div>
+                    <p class="poppins-500 text-22 fst-italic text-white letterspace1">Great company!!! They were right on time. Fast and neat delivery, super nice staff. I had ordered too much concrete and indicated this in advance; no problem sir, we will adjust it and you will get a refund.</p>
+                </div>
+                <div>
+                    <h3 class="oswald-500 text-32 letterspace1 text-yellow text-uppercase">Hugo Donkersloot</h3>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
+<!-- fifth section -->
+<div class="bg-white container-fluid py-5 px-0">
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <div class="col-12 bg-white shadow-sm p-0 me-2">
+                <div>
+                    <img class="image-fluid image-post" src="https://images.unsplash.com/photo-1541888894402-f3b1af908be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                </div>
+                <div class="p-3">
+                    <h3 class="oswald-500 text-dark-blue text-20 letterspace1">Super Fast Service</h3>
+                    <p class="poppins-400 text-16 paragraph-ash letterspace1">Can't see yourself pouring concrete yet ? No problem! For a sleek end result, you can opt for an all-in concrete pour.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="col-12 bg-white shadow-sm p-0 me-2">
+                <div>
+                    <img class="image-fluid image-post" src="https://images.unsplash.com/photo-1541888894402-f3b1af908be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                </div>
+                <div class="p-3">
+                    <h3 class="oswald-500 text-dark-blue text-20 letterspace1">Active throughout the Netherlands</h3>
+                    <p class="poppins-400 text-16 paragraph-ash letterspace1">Can't see yourself pouring concrete yet ? No problem! For a sleek end result, you can opt for an all-in concrete pour.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="col-12 bg-white shadow-sm p-0 me-2">
+                <div>
+                    <img class="image-fluid image-post" src="https://images.unsplash.com/photo-1541888894402-f3b1af908be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                </div>
+                <div class="p-3">
+                    <h3 class="oswald-500 text-dark-blue text-20 letterspace1">Want to order or have concrete poured?</h3>
+                    <p class="poppins-400 text-16 paragraph-ash letterspace1">Can't see yourself pouring concrete yet ? No problem! For a sleek end result, you can opt for an all-in concrete pour.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- sixth section -->
+<div class="bg-dark-blue container-fluid py-0 px-0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-7 py-5">
+                <div class="row m-auto">
+                    <div class="col-8 m-auto">
+                        <h1 class="oswald-500 display-3 text-64 m-0 text-white text-uppercase"><span>Step 1:</span>Placing formwork</h1>
+                        <div style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%); height: 8px; width: 100%;"></div>
+
+                        <p class="text-white poppins-400 text-18 line-height letterspace1">In order to process concrete, concrete is liquid during pouring. This is also called plastic. This means that the concrete has a slight tendency to level out and is easier to level. Therefore, the concrete to be poured must be enclosed, otherwise it will run away.</p>
+                        <br>
+                        <p class="text-white poppins-400 text-18 line-height letterspace1"> Enclosing concrete can be done by means of existing walls or by applying a so-called formwork. Place the top of the formwork at the same height as the top of the concrete floor. Then the top of the formwork can be used as a guide to, for example, level the concrete floor by means of a row.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-step1 col-5"></div>
+        </div>
+    </div>
+</div>
+
+<div class="p-3 bg-white container-fluid"></div>
+<!-- seventh section -->
+<div class="bg-dark-blue container-fluid py-0 px-0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="bg-step2 col-5"></div>
+            <div class="col-7 py-5">
+                <div class="row m-auto">
+                    <div class="col-10 m-auto">
+                        <h1 class="oswald-500 display-3 text-64 m-0 text-white text-uppercase"><span>Step 2:</span> Concrete Reinforcement</h1>
+                        <div style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%); height: 8px; width: 100%;"></div>
+
+                        <p class="text-white poppins-400 text-18 line-height letterspace1">During hardening, concrete shrinks a little. To prevent cracks in the concrete, it is important to use concrete reinforcement. Preferably use a reinforcement mesh of 8 mm thick with a mesh width of 15 cm. Place the reinforcement on height blocks so that the concrete reinforcement is slightly above the middle at approximately 2/3, seen from the bottom of the concrete floor. </p>
+                        <br>
+                        <p class="text-white poppins-400 text-18 line-height letterspace1">For thick concrete floors from 16 cm it is wise to use double reinforcement. This is usually applicable when cars are going to drive over the concrete floor, such as for a driveway. With double reinforcement the concrete floor is better resistant to tensile and compressive stresses.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="p-3 bg-white container-fluid"></div>
+<!-- eightth section -->
+<div class="bg-dark-blue container-fluid py-0 px-0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-7 py-5">
+                <div class="row m-auto">
+                    <div class="col-8 m-auto">
+                        <h1 class="oswald-500 display-3 text-64 m-0 text-white text-uppercase"><span>Step 3:</span>Pouring Concrete</h1>
+                        <div style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%); height: 8px; width: 100%;"></div>
+
+                        <p class="text-white poppins-400 text-18 line-height letterspace1">The concrete has been ordered and is ready to be poured. You distribute the concrete evenly over the floor during pouring and check the pouring height with a level instrument such as a laser. Finish the top layer of the concrete floor with a row. Wait a few hours after pouring the concrete before walking on the concrete floor.</p>
+                        <br>
+                        <p class="text-white poppins-400 text-18 line-height letterspace1">In the summer this will be approximately between 4 and 8 hours after pouring the concrete. In the winter this can take up to the next day. Place foil over the poured concrete and leave it for preferably 2 weeks to prevent cracking. If necessary, the concrete floor can be kept wet with water instead of foil. Do this for the first 48 hours after the concrete floor has been poured. For more information about the drying time of concrete. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-step1 col-5"></div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bg-white py-5 px-0">
+    <div class="py-5"></div>
+    <div class="container">
+        <h3 class="oswald-600 text-orange text-sm-24 text-center text-uppercase">Request a Free quote now</h3>
+        <h4 class="oswald-600 text-dark-blue text-sm-64 text-center text-uppercase">WANT TO RENT A CONCRETE PUMP?</h4>
+        <div class="p-2" style="background: linear-gradient(90deg, rgba(253, 212, 1, 0.045) 0%, #FDD401 50.5%, rgba(253, 212, 1, 0) 100%);"></div>
+        <div class="row mt-3">
+            <button class="col-2 oswald-600 text-20 text-white text-uppercase border-2 border-orange bg-orange rounded-0 px-6 py-3 text-uppercase m-auto">Free Quote</button>
+        </div>
+    </div>
+    <div class="py-5"></div>
+</div>
+
+
 
 
 <?php
