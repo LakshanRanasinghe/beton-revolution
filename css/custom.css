@@ -92,6 +92,9 @@
 .text-20 {
    font-size: 20px;
 }
+.text-22 {
+   font-size: 22px;
+}
 .text-26 {
    font-size: 26px;
 }
@@ -359,6 +362,15 @@ a {
 .text-sm-20 {
    font-size: 20px;
 }
+.text-sm-24 {
+   font-size: 24px;
+}
+.text-sm-64 {
+   font-size: 64px;
+}
+.text-sm-40 {
+   font-size: 40px;
+}
 .box-sm-white {
    background: #ffffff;
 }
@@ -427,12 +439,70 @@ a {
 .form-check-input:checked {
    background-color: var(--orange);
    border-color: var(--orange);
- }
- .form-check-input:focus {
+} 
+.form-check-input:focus {
    box-shadow: 0 0 0 0.25rem rgba(var(--orange-rgb, 255, 165, 0), 0.5); /* Replace with --orange's RGB equivalent */
- }
- 
+}
 
+<<<<<<< HEAD
 .inactive .location-and-quantity-form{
    display: none;
+=======
+
+.light-blue-text{
+   color: #B9C2FF;
+}
+
+.line-height{
+   line-height: 38px !important;
+}
+
+.letterspace1{
+   letter-spacing: 0.01em !important;
+}
+
+.letterspace4{
+   letter-spacing: 0.04em !important;
+}
+
+.grey-text{
+   color: #343434 !important;
+}
+
+.image-post{
+   width: 450px !important;
+   height: 400px !important;
+}
+
+.paragraph-ash{
+   color: #393E50 !important;
+}
+
+.bg-step1{
+   background-image: url('http://localhost/beton/wp-content/uploads/2024/11/4-Company-SK.png');
+}
+
+.bg-step2{
+   background-image: url('http://localhost/beton/wp-content/uploads/2024/11/4-Company-SK-flip.png');
+}
+
+
+.custom-550-image{
+   height: 550px;
+   width: 100%;
+   object-fit: cover;
+}
+
+.h-full{
+   height: 100% !important;
+}
+
+.image-fluid{
+   object-fit: cover;
+}
+
+.margin-right-left-auto{
+   margin-right: auto !important;
+   margin-left: auto !important;
+>>>>>>> 15cc0f907e7650e689149f22f6c3ef2d3abcefa8
 }
