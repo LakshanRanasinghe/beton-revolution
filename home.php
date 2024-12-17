@@ -15,18 +15,18 @@ get_header();
                 <svg xmlns="http://www.w3.org/2000/svg" class="col p-0" height="30" width="25" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
                 <svg xmlns="http://www.w3.org/2000/svg" class="col p-0" height="30" width="25" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
             </div>
-            <div class="row col-4 align-items-center">
-                <h2 class="oswald-600 fs-5 lh-sm text-white m-0" style="width: 150px;">4.9/5 Stars</h2>
+            <div class="row col-5 align-items-center">
+                <h2 class="oswald-600 fs-5 lh-sm text-white m-0 text-uppercase p-o" style="width: 150px;">4.9/5 Stars</h2>
             </div>
             
         </div> 
 
         <div class="row col-5 z-1 position-relative p-2 d-flex mb-4" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
-            <h1 class="oswald-500 display-3 text-56 m-0 text-white text-uppercase p-0">Pouring Concrete?</h1>
+            <h1 class="oswald-500 display-4 m-0 text-white text-uppercase p-0">Pouring Concrete?</h1>
         </div>
 
         <div class="row col-9 z-1 position-relative p-2 mb-4" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
-            <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1">Calculate your price here</h1>
+            <h1 class="oswald-500 display-1 m-0 text-white text-uppercase p-0 mb-1">Calculate your price here</h1>
             <div class="p-2" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
         </div>
 
