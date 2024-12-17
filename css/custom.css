@@ -14,6 +14,8 @@
    --custom-gray-2: #555555;
    --custom-gray-3: #FCFCFC;
    --custom-gray-4: #9EA0AE;
+   --bs-btn-disabled-bg: #ffb380;
+   --bs-btn-disabled-color: #dedede4d;
 }
 .oswald-200 {
    font-family: "Oswald", sans-serif;
@@ -416,14 +418,20 @@ a {
 .location-and-quantity-section.inactive .step-title-icon, .type-and-kind-section.inactive .step-title-icon {
    color: var(--green) !important;
 }
-.location-and-quantity-section.active .step-title-icon, .type-and-kind-section.active .step-title-icon, .confirm-and-pay-section.active .step-title-icon {
+.pending.location-and-quantity-section.active .step-title-icon, .pending.type-and-kind-section.active .step-title-icon, .confirm-and-pay-section.active .step-title-icon {
    color: var(--yellow);
+}
+.filled.location-and-quantity-section.active .step-title-icon, .filled.type-and-kind-section.active .step-title-icon, .confirm-and-pay-section.active .step-title-icon {
+   color: var(--green);
 }
 .location-and-quantity-section.inactive::after, .type-and-kind-section.inactive::after {
    background-color: var(--green) !important;
 }
-.location-and-quantity-section.active::after, .type-and-kind-section.active::after {
+.pending.location-and-quantity-section.active::after, .pending.type-and-kind-section.active::after {
    background-color: var(--yellow) !important;
+}
+.filled.location-and-quantity-section.active::after, .filled.type-and-kind-section.active::after {
+   background-color: var(--green) !important;
 }
 .type-and-kind-section.active .step-title, .type-and-kind-section.inactive .step-title, .confirm-and-pay-section.active .step-title, .confirm-and-pay-section.inactive .step-title  {
    color: var(--dark-blue) !important;
@@ -436,6 +444,10 @@ a {
    box-shadow: 0 0 0 0.25rem rgba(var(--orange-rgb, 255, 165, 0), 0.5); /* Replace with --orange's RGB equivalent */
 }
 
+<<<<<<< HEAD
+.inactive .location-and-quantity-form{
+   display: none;
+=======
 
 .light-blue-text{
    color: #B9C2FF;
@@ -492,4 +504,5 @@ a {
 .margin-right-left-auto{
    margin-right: auto !important;
    margin-left: auto !important;
+>>>>>>> 15cc0f907e7650e689149f22f6c3ef2d3abcefa8
 }

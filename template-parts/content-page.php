@@ -9,9 +9,11 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php the_title( '<div class="mt-4"><h1 class="oswald-500 display-3 text-40 m-0 text-black text-uppercase mb-1">', '</h1>
+                    <div class="p-2" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
+                </div>' ); ?>
 	</header><!-- .entry-header -->
 
 	<?php beton_post_thumbnail(); ?>

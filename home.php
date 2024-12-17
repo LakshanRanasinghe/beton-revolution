@@ -43,19 +43,13 @@ get_header();
         <div class="row border-5 border-end d-block col-3" style="border-color: #ff6400 !important;">
             <h2 class="oswald-500 text-42 text-white py-5">Calculate <br> Concrete price</h2>
         </div>
-        <div class="row gap-1 py-3 col-10">
-            <div class="col-4 p-0">
-                <input type="text" class="col-12 home-input ps-4 rounded-0" placeholder="Zip Code or City" aria-label="Recipient's username">
-                <p class="pt-2"><span class="light-blue-text poppins-500 text-sm-14">Calculate The Number Of Cubic Meters</span><span class="ms-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="15" height="15" fill="#B9C2FF"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg></span></p>
+        <form class="row gap-1 py-3 col-10" action="prices">
+            <div class="relative px-0">
+                <input type="text" class="col-5 home-input ps-4 rounded-0" placeholder="Zip Code or City" aria-label="Postcode" id="postcode-input">
+                <input type="text" class="col-5 home-input ps-4 rounded-0" placeholder="Number of M" id="cubic-meters" aria-label="Cubic meters of concrete">
             </div>
-            <div class="col-4 p-0">
-                <input type="text" class="col-12 home-input ps-4 rounded-0" placeholder="Number of M" aria-label="Recipient's username">
-            </div>
-            <div class="col-2 p-0">
-                <button class="oswald-600 text-18 text-white text-uppercase border-2 border-orange bg-orange rounded-0 px-6 py-3">Calculate Price</button>
-            </div>
-            
-        </div>
+            <button class="col-2 oswald-600 text-20 text-white text-uppercase border-2 border-orange bg-orange rounded-0 px-6 py-3">Calculate Price</button>
+        </form>
     </div>
 </div>
 
