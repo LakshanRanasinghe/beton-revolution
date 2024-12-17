@@ -56,7 +56,7 @@ jQuery(document).ready(function ($) {
       enableSecondStep();
    });
 
-   $(document).on("click", ".dropdown-item", function (e) {
+   $(document).on("click", "#autocomplete-list .dropdown-item", function (e) {
       e.preventDefault();
       const selectedName = $(this).text();
       const selectedId = $(this).data("id");
