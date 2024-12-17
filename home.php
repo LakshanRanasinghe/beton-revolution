@@ -40,11 +40,13 @@ get_header();
         <div class="row border-5 border-end d-block col-2" style="border-color: #ff6400 !important;">
             <h2 class="oswald-500 text-42 text-white py-5">Calculate <br> Concrete price</h2>
         </div>
-        <div class="row gap-1 py-3 col-10">
-            <input type="text" class="col-5 home-input ps-4 rounded-0" placeholder="Zip Code or City" aria-label="Recipient's username">
-            <input type="text" class="col-5 home-input ps-4 rounded-0" placeholder="Number of M" aria-label="Recipient's username">
+        <form class="row gap-1 py-3 col-10" action="prices">
+            <div class="relative px-0">
+                <input type="text" class="col-5 home-input ps-4 rounded-0" placeholder="Zip Code or City" aria-label="Postcode" id="postcode-input">
+                <input type="text" class="col-5 home-input ps-4 rounded-0" placeholder="Number of M" id="cubic-meters" aria-label="Cubic meters of concrete">
+            </div>
             <button class="col-2 oswald-600 text-20 text-white text-uppercase border-2 border-orange bg-orange rounded-0 px-6 py-3">Calculate Price</button>
-        </div>
+        </form>
     </div>
 </div>
 
