@@ -80,6 +80,9 @@
 .text-12 {
    font-size: 12px;
 }
+.text-14 {
+   font-size: 14px;
+}
 .text-15 {
    font-size: 15px;
 }
@@ -93,6 +96,9 @@
    font-size: 20px;
 }
 .text-22 {
+   font-size: 22px;
+}
+.text-sm-22 {
    font-size: 22px;
 }
 .text-26 {
@@ -182,11 +188,20 @@ a {
 .w-30 {
    width: 30%;
 }
+.w-lg-30 {
+   width: 30%;
+}
 .w-70 {
+   width: 70%;
+}
+.w-lg-70 {
    width: 70%;
 }
 .w-215 {
    width: 215px !important;
+}
+.pixel-w-10 {
+   width: 10px;
 }
 .width-30 {
    width: 30px;
@@ -202,6 +217,12 @@ a {
 }
 .pixel-p-8 {
    padding: 8px;
+}
+.pixel-me-10 {
+   margin-left: 10px;
+}
+.pixel-sm-p-30 {
+   padding: 0;
 }
 .bg-orange {
    background-color: var(--orange);
@@ -309,10 +330,13 @@ a {
    border-color: var(--custom-gray);
 }
 .h-46 {
-   height: 46px
+   height: 46px;
 }
 .h-36 {
-   height: 36px
+   height: 36px;
+}
+.h-14 {
+   height: 14px;
 }
 .location-and-quantity-form, .type-and-kind-form, .confirm-and-pay-form {
    padding-left: 32px;
@@ -384,8 +408,45 @@ a {
    .text-sm-20 {
       font-size: 16px;
    }
+   .text-sm-64 {
+      font-size: 24px;
+   }
+   .text-22 {
+      font-size: 14px;
+   }
+   .text-sm-22 {
+      font-size: 18px;
+   }
+   .text-26 {
+      font-size: 18px;
+   }
+   .text-56 {
+      font-size: 32px;
+   }
+   .text-42 {
+      font-size: 32px;
+   }
+   .text-40 {
+      font-size: 24px;
+   }
+   .text-76 {
+      font-size: 42px;
+   }
+   .line-height{
+      line-height: 26px !important;
+   }
    .h-sm-72 {
       height: 46px;
+   }
+   .h-14 {
+      height: 8px;
+   }
+   .pixel-sm-p-30 {
+      padding: 30px;
+   }
+   .beton-star-icons {
+      width: 20px !important;
+      height: 20px !important;
    }
    .location-and-quantity-section::after, .type-and-kind-section::after {
       display: none;
@@ -443,18 +504,29 @@ a {
 .form-check-input:focus {
    box-shadow: 0 0 0 0.25rem rgba(var(--orange-rgb, 255, 165, 0), 0.5); /* Replace with --orange's RGB equivalent */
 }
+.tilted-border:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -5%;
+    width: 10px; 
+    height: 150%;
+    background-color: #ff6400; 
+    transform: rotate(20deg); 
+    transform-origin: top right; 
+    z-index: 1; 
+    display: block; 
+}
 
-<<<<<<< HEAD
 .inactive .location-and-quantity-form{
    display: none;
-=======
-
+}
 .light-blue-text{
    color: #B9C2FF;
 }
 
 .line-height{
-   line-height: 38px !important;
+   line-height: 38px;
 }
 
 .letterspace1{
@@ -504,5 +576,13 @@ a {
 .margin-right-left-auto{
    margin-right: auto !important;
    margin-left: auto !important;
->>>>>>> 15cc0f907e7650e689149f22f6c3ef2d3abcefa8
+}
+
+@media screen and (max-width: 992px){
+   .tilted-border:after {
+      display: none;
+   }
+   .w-lg-30, .w-lg-70 {
+      width: 100%;
+   }
 }

@@ -679,9 +679,9 @@ textarea {
 	left: auto;
 }
 
-.main-navigation ul ul a {
+/* .main-navigation ul ul a {
 	width: 200px;
-}
+} */
 
 .main-navigation ul li:hover > ul,
 .main-navigation ul li.focus > ul {
