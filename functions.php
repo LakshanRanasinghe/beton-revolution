@@ -365,11 +365,14 @@ function beton_calculator(): void
 	$selected_pump_type = sanitize_text_field($_POST['pump_type']);
 	$selected_pumping_distance = sanitize_text_field($_POST['pumping_distance']);
 	$selected_performance = sanitize_text_field($_POST['performance']);
-	$selected_layer_thickness = sanitize_text_field($_POST['layer-thickness']);
+	$selected_layer_thickness = sanitize_text_field($_POST['layer_thickness']);
 	$selected_rooms = sanitize_text_field($_POST['rooms_count']);
 	$selected_butterfly_floor = sanitize_text_field($_POST['butterfly_floor']);
 	$selected_surface = sanitize_text_field($_POST['surface']);
 	$selected_ground_floor = sanitize_text_field($_POST['selected_floor']);
+
+	wc_get_logger()->debug('selected_layer_thickness: ' . $selected_layer_thickness);
+
 
 	$seller_prices = get_field('beton_sellers', 'option');
 	$beton_discounts = get_field('discounts', 'option');
@@ -417,10 +420,11 @@ function beton_calculator(): void
 	$application_compound_total = $compound_total + $application_price;
 	$response_data_set['application_compound_total'] = $application_compound_total;
 	$response_data_set['application_compound_total_formatted'] = '<span>' . __('Total', 'beton') . '</span><span>' . wc_price($application_compound_total) . '</span>';
-
+	
+	$travel_distance = $_COOKIE['travelling_distance'];
+	
 	if($selected_release_method !== 'gutter'){
 		if($selected_pump_type == 'mini'){
-			$travel_distance = $_COOKIE['travelling_distance'];
 			$mini_pump_cost = get_field('mini_betonpomp_cost', 'option');
 			$pump_callout_fee = get_field('mini_pump_call-out_fee', 'option');
 			$pump_callout_min_distance_cost = get_field('call-out_min_distance', 'option');
@@ -445,6 +449,9 @@ function beton_calculator(): void
 			if($selected_pumping_distance > 100){
 				$response_data_set['pumping_extra_hose_cost'] = $pumping_extra_hose_cost;
 				$response_data_set['pumping_extra_hose_cost_formatted'] = wc_price($pumping_extra_hose_cost);
+			}else{
+				unset($response_data_set['pumping_extra_hose_cost']);
+				unset($response_data_set['pumping_extra_hose_cost_formatted']);
 			}
 
 			$pumping_hours = 2;
@@ -483,22 +490,23 @@ function beton_calculator(): void
 				}
 
 				$thickness_cost = 0;
-				if($selected_layer_thickness == '5-10cm'){
+				if($selected_layer_thickness == '5-10'){
 					$thickness_cost = $all_in_price * 0.1;
 					$all_in_price += $thickness_cost;			
-				}elseif($selected_layer_thickness == '11-15cm'){
+				}elseif($selected_layer_thickness == '11-15'){
 					$thickness_cost = $all_in_price * 0.05;
 					$all_in_price += $thickness_cost;
 				}
 				if($thickness_cost > 0){
 					$response_data_set['thickness_cost'] = $thickness_cost;
-					$response_data_set['thickness_cost_formatted'] = $thickness_cost;
+					$response_data_set['thickness_cost_formatted'] = wc_price($thickness_cost);
 				}
 
 				if($selected_rooms > 0){
-					$extra_price += $selected_rooms + 15;
-					$response_data_set['rooms_cost'] = $thickness_cost;
-					$response_data_set['rooms_formatted'] = $thickness_cost;
+					$room_cost = $selected_rooms + 15;
+					$extra_price += $room_cost;
+					$response_data_set['rooms_cost'] = $room_cost;
+					$response_data_set['rooms_formatted'] = wc_price($room_cost);
 				}
 
 				if($travel_distance > 40){
@@ -507,21 +515,203 @@ function beton_calculator(): void
 
 				if($selected_butterfly_floor){
 					$extra_price += 50;
-					$response_data_set['butterfly_floor_cost'] = $thickness_cost;
-					$response_data_set['butterfly_floor_formatted'] = $thickness_cost;
+					$response_data_set['butterfly_floor_cost'] = 50;
+					$response_data_set['butterfly_floor_formatted'] = wc_price(50);
 				}
 
 				if($selected_ground_floor){
 					$extra_price += $ground_flooring_cost;
-					$response_data_set['ground_floor_cost'] = $thickness_cost;
-					$response_data_set['ground_floor_formatted'] = $thickness_cost;
+					$response_data_set['ground_floor_cost'] = $ground_flooring_cost;
+					$response_data_set['ground_floor_formatted'] = wc_price($ground_flooring_cost);
 				}
 
 				$all_in_price += $extra_price;
 
-				$response_data_set['allIn_cost'] = $thickness_cost;
-				$response_data_set['allIn_formatted'] = $thickness_cost;
+				$response_data_set['allIn_cost'] = $all_in_price;
+				$response_data_set['allIn_formatted'] = wc_price($all_in_price);
 			}
+		}elseif($selected_pump_type == 'boom'){
+			if(empty($selected_pumping_distance) OR intval($selected_pumping_distance) < 20){
+				$selected_pumping_distance = 20;
+			}
+
+			wc_get_logger()->debug('boom pumping distance: ' . $selected_pumping_distance);
+
+			$boom_price = 0;
+
+			switch ((int) $selected_pumping_distance) {
+				case 20:
+					if ($cubic_meters <= 7) {
+						$boom_price = 300;
+					} elseif ($cubic_meters < 51) {
+						$boom_price = 275 + ($cubic_meters * 6.25);
+					} elseif ($cubic_meters < 101) {
+						$boom_price = 275 + ($cubic_meters * 5.50);
+					} elseif ($cubic_meters < 151) {
+						$boom_price = 275 + ($cubic_meters * 5.1);
+					} elseif ($cubic_meters < 201) {
+						$boom_price = 275 + ($cubic_meters * 4.9);
+					} elseif ($cubic_meters < 301) {
+						$boom_price = 275 + ($cubic_meters * 4.55);
+					} elseif ($cubic_meters < 401) {
+						$boom_price = 275 + ($cubic_meters * 4.40);
+					} elseif ($cubic_meters < 501) {
+						$boom_price = 275 + ($cubic_meters * 4.20);
+					} elseif ($cubic_meters < 601) {
+						$boom_price = 275 + ($cubic_meters * 4.05);
+					} elseif ($cubic_meters >= 601) {
+						$boom_price = 275 + ($cubic_meters * 3.95);
+					}
+					if ($cubic_meters > 7 && $boom_price < 375) {
+						$boom_price = 375;
+					}
+					break;
+				case 30:
+					if ($cubic_meters < 51) {
+						$boom_price = 285 + ($cubic_meters * 6.35);
+					} elseif ($cubic_meters < 101) {
+						$boom_price = 285 + ($cubic_meters * 5.60);
+					} elseif ($cubic_meters < 151) {
+						$boom_price = 285 + ($cubic_meters * 5.2);
+					} elseif ($cubic_meters < 201) {
+						$boom_price = 285 + ($cubic_meters * 5.0);
+					} elseif ($cubic_meters < 301) {
+						$boom_price = 285 + ($cubic_meters * 4.65);
+					} elseif ($cubic_meters < 401) {
+						$boom_price = 285 + ($cubic_meters * 4.50);
+					} elseif ($cubic_meters < 501) {
+						$boom_price = 285 + ($cubic_meters * 4.30);
+					} elseif ($cubic_meters < 601) {
+						$boom_price = 285 + ($cubic_meters * 4.15);
+					} elseif ($cubic_meters >= 601) {
+						$boom_price = 285 + ($cubic_meters * 4.05);
+					}
+					if ($boom_price < 385) {
+						$boom_price = 385;
+					}
+					break;
+				case 38:
+					if ($cubic_meters < 101) {
+						$boom_price = 415 + ($cubic_meters * 5.2);
+					} elseif ($cubic_meters < 201) {
+						$boom_price = 415 + ($cubic_meters * 4.70);
+					} elseif ($cubic_meters < 301) {
+						$boom_price = 415 + ($cubic_meters * 4.40);
+					} elseif ($cubic_meters < 401) {
+						$boom_price = 415 + ($cubic_meters * 4.15);
+					} elseif ($cubic_meters < 501) {
+						$boom_price = 415 + ($cubic_meters * 3.65);
+					} elseif ($cubic_meters >= 501) {
+						$boom_price = 415 + ($cubic_meters * 3.45);
+					}
+					if ($boom_price < 540) {
+						$boom_price = 540;
+					}
+					break;
+				case 48:
+					if ($cubic_meters < 51) {
+						$boom_price = 650 + ($cubic_meters * 5.7);
+					} elseif ($cubic_meters < 1001) {
+						$boom_price = 650 + ($cubic_meters * 5.4);
+					}
+					if ($boom_price < 1050) {
+						$boom_price = 1050;
+					}
+					break;
+				case 54:
+					if ($cubic_meters < 51) {
+						$boom_price = 790 + ($cubic_meters * 5.7);
+					} elseif ($cubic_meters < 1001) {
+						$boom_price = 790 + ($cubic_meters * 5.4);
+					}
+					if ($boom_price < 1250) {
+						$boom_price = 1250;
+					}
+					break;
+				case 59:
+					if ($cubic_meters < 51) {
+						$boom_price = 900 + ($cubic_meters * 5.7);
+					} elseif ($cubic_meters < 1001) {
+						$boom_price = 900 + ($cubic_meters * 5.4);
+					}
+					if ($boom_price < 1400) {
+						$boom_price = 1400;
+					}
+					break;
+			}
+
+			wc_get_logger()->debug('boom pumping price: ' . $boom_price);
+
+			$response_data_set['pump_cost'] = $boom_price;
+			$response_data_set['pump_cost_formatted'] = wc_price($boom_price);
+
+			$all_in_price = get_field('all-in_price', 'option');
+			$ground_flooring_cost = get_field('ground_floor_cost', 'option');
+
+			$extra_price = 0;
+			$remaining_concrete = 0;
+			$remaining_pump_distance = 0;
+
+			if($cubic_meters > 12){
+				$remaining_concrete = $cubic_meters - 12;
+				$all_in_price += ($remaining_concrete * 4);
+				wc_get_logger()->debug('concrete > 12: all_in_price ' . $all_in_price);
+			}
+			if($selected_pumping_distance > 40){
+				$remaining_pump_distance = $selected_pumping_distance - 40;
+				$extra_price += ($remaining_pump_distance * 1);
+				wc_get_logger()->debug('selected_pumping_distance > 40: extra_price ' . $extra_price);
+
+			}
+
+			if(isset($selected_layer_thickness)){
+				wc_get_logger()->debug('isset thickness : ' . $selected_layer_thickness);
+				$thickness_pricing = get_field('thickness_pricing', 'option');
+				$thickness_prices = [];
+				foreach($thickness_pricing as $thickness_price){
+					$thickness_prices[$thickness_price['thickness']] = $thickness_price['cost'];
+				}
+				wc_get_logger()->debug(json_encode($thickness_prices));
+				if($selected_layer_thickness == '5-10'){
+					$all_in_price += ($all_in_price * $thickness_prices['5-10']);
+					wc_get_logger()->debug('thickness_prices1 : thickness_prices ' . $thickness_prices['5-10']);
+
+				}elseif($selected_layer_thickness == '11-15'){
+					$all_in_price += ($all_in_price * $thickness_prices['11-15']);
+					wc_get_logger()->debug('thickness_prices2 : thickness_prices ' . $thickness_prices);
+				}
+			}
+
+			wc_get_logger()->debug('boom extra_price: ' . $extra_price);
+			wc_get_logger()->debug('boom all_in_price: ' . $all_in_price);
+
+			if(isset($selected_rooms) && $selected_rooms >= 1){
+				$extra_price += (intval($selected_rooms) * 35);
+				wc_get_logger()->debug('rooms : extra_price ' . $extra_price);
+			}
+
+			if($travel_distance > 40){
+				$extra_price += ($travel_distance * 0.5);
+				wc_get_logger()->debug('travel_distance > 40 : travel_distance ' . $travel_distance);
+
+			}
+
+			if(isset($selected_ground_floor)){
+				$extra_price += 50;
+				wc_get_logger()->debug('selected_ground_floor: ' . $extra_price);
+
+			}
+			if($selected_butterfly_floor){
+				$extra_price += 50;
+				$response_data_set['butterfly_floor_cost'] = 50;
+				$response_data_set['butterfly_floor_formatted'] = wc_price(50);
+			}
+			
+			$all_in_price += ($extra_price); 
+			$all_in_price += 100; //extra man voor giekpomp
+
+			$response_data_set['allIn_cost'] = $all_in_price;
+			$response_data_set['allIn_formatted'] = wc_price($all_in_price);
 		}
 	}
 

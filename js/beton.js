@@ -117,6 +117,9 @@ jQuery(document).ready(function ($) {
    $('input[name="compound"]').on("change", function () {
       trigger_calculator();
    });
+   $('input[name="releaseMethod"]').on("change", function () {
+      trigger_calculator();
+   });
    $('input[name="pump-type"]').on("change", function () {
       trigger_calculator();
    });
@@ -124,10 +127,16 @@ jQuery(document).ready(function ($) {
       trigger_calculator();
       $("#extra_hose_length").text($(this).val() + "m");
    });
+   $('select[name="boom_pumping_distance"]').on("change", function () {
+      trigger_calculator();
+   });
    $('input[name="performance"]').on("change", function () {
       trigger_calculator();
    });
    $('select[name="num-rooms"]').on("change", function () {
+      trigger_calculator();
+   });
+   $('select[name="layer-thickness"]').on("change", function () {
       trigger_calculator();
    });
    $("#mezzanine-floor").on("change", function () {
@@ -149,6 +158,9 @@ jQuery(document).ready(function ($) {
       let pumping_distance = 0;
       if ($('input[name="releaseMethod"]:checked').val() == "pump") {
          release_method = "pump";
+         console.log('pump')
+         // $('.release-by-pump').removeClass('d-none d-sm-none');
+
          pump_type = $('input[name="pump-type"]:checked').val();
 
          if (pump_type == "mini") {
@@ -156,6 +168,11 @@ jQuery(document).ready(function ($) {
          } else {
             pumping_distance = $('select[name="boom_pumping_distance"]').val();
          }
+      }else{
+         console.log('no pump')
+         // $('select[name="mini_pumping_distance"]').val('');
+         // $('input[name="pump-type"]').val('');
+         // $('.release-by-pump').addClass('d-none d-sm-none');
       }
 
       let performance = $('input[name="performance"]:checked').val();
@@ -192,7 +209,7 @@ jQuery(document).ready(function ($) {
             console.log(response);
             if (response.data) {
                $(".dynamic-hide").removeClass("d-flex").addClass("d-none");
-
+               $('.hide-on-ajax').addClass('d-none');
                $.each(response.data.dynamic_pricing, function (index, val) {
                   if ($("#" + index).length > 0) {
                      $("#" + index).html(val);

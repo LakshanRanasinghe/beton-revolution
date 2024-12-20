@@ -105,7 +105,7 @@ get_header();
                         </div>
 
                         <!-- Select Pump Section -->
-                        <div class="release-method-section-2 select-pump-section box-sm-shadow border-custom-gray border p-sm-3 p-0 d-sm-block d-none">
+                        <div class="release-method-section-2 release-by-pump select-pump-section box-sm-shadow border-custom-gray border p-sm-3 p-0 d-sm-block d-none">
                             <h6 class="section-title poppins-600 text-sm-18 mb-3 mt-sm-0 mt-3 text-dark-blue">SELECT PUMP</h6>
                             <div class="mb-4">
                                 <div class="card-body">
@@ -200,7 +200,7 @@ get_header();
                                 <div class="col-md-6">
                                     <label for="surface" class="form-label">Surface</label>
                                     <select id="surface" name="surface" class="form-select border-light-gray border-radius-1 py-2 px-4 h-46">
-                                        <option value="0-50">0-50 m2</option>
+                                        <option value="0-50" selected>0-50 m2</option>
                                         <option value="51-100">51-100 m2</option>
                                         <option value="101-150">101-150 m2</option>
                                         <option value="151-200">151-200 m2</option>
@@ -212,10 +212,10 @@ get_header();
                                 <div class="col-md-6">
                                     <label for="layer-thickness" class="form-label">Layer Thickness</label>
                                     <select id="layer-thickness" name="layer-thickness" class="form-select border-light-gray border-radius-1 py-2 px-4 h-46">
-                                        <option value="5-10cm">5-10 cm</option>
-                                        <option value="11-15cm">11-15 cm</option>
-                                        <option value="15-20cm">15-20 cm</option>
-                                        <option value=">20cm">&gt;20 cm</option>
+                                        <option value="5-10" selected>5-10 cm</option>
+                                        <option value="11-15">11-15 cm</option>
+                                        <option value="15-20">15-20 cm</option>
+                                        <option value="20-9999">&gt;20 cm</option>
                                     </select>
                                 </div>
                             </div>
@@ -223,7 +223,7 @@ get_header();
                                 <div class="col-md-6">
                                     <label for="num-rooms" class="form-label">Number of Rooms</label>
                                     <select id="num-rooms" name="num-rooms" class="form-select border-light-gray border-radius-1 py-2 px-4 h-46">
-                                        <?php for ($i = 1; $i < 11; $i++) {
+                                        <?php for ($i = 0; $i < 11; $i++) {
                                             echo "<option value='$i'>$i</option>";
                                         } ?>
                                     </select>
@@ -283,7 +283,7 @@ get_header();
 
                 </div>
             </div>
-
+        </div>
             <!-- Right Summary Section-->
             <div class="col-lg-4">
                 <div class="sticky-summary">
@@ -321,9 +321,9 @@ get_header();
                                     <span id="pumping_cost_formatted"><?php wc_price(0) ?></span>
                                 </div>
 
-                                <div class="d-flex justify-content-between mt-3 mb-3">
+                                <div class="d-flex justify-content-between mt-3 mb-3 ">
                                     <span>Pumping Extra Hose Cost <span id="extra_hose_length"></span></span>
-                                    <span id="pumping_extra_hose_cost_formatted"><?php wc_price(0) ?></span>
+                                    <span id="pumping_extra_hose_cost_formatted" class="dynamic-hide"><?php wc_price(0) ?></span>
                                 </div>
                             </div>
                             <hr class="text-light-gray">
