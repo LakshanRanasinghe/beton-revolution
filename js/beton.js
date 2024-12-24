@@ -1,4 +1,7 @@
 jQuery(document).ready(function ($) {
+   $(".dropdown-toggle").on("click", function (event) {
+      location.href = $(this).attr("href");
+   });
    if ($.cookie("selected_area_code") !== undefined && $.cookie("selected_area_code") !== "") {
       if ($.cookie("selected_city") !== undefined || $.cookie("selected_city") !== "") {
          $("#postcode-input").val($.cookie("selected_city"));
@@ -121,6 +124,11 @@ jQuery(document).ready(function ($) {
       trigger_calculator();
    });
    $('input[name="pump-type"]').on("change", function () {
+      if($(this).val() == 'boom'){
+         $('#mini-pump-breakdown').addClass('d-none');
+      }else{
+         $('#mini-pump-breakdown').removeClass('d-none');
+      }
       trigger_calculator();
    });
    $('select[name="mini_pumping_distance"]').on("change", function () {
@@ -130,8 +138,15 @@ jQuery(document).ready(function ($) {
    $('select[name="boom_pumping_distance"]').on("change", function () {
       trigger_calculator();
    });
-   $('input[name="performance"]').on("change", function () {
+   $('select[name="surface"]').on("change", function () {
       trigger_calculator();
+   });
+   $('input[name="performance"]').on("change", function () {
+      if ($('input[name="performance"]:checked').val() == "allIn") {
+         $("#pump").click();
+      } else {
+         trigger_calculator();
+      }
    });
    $('select[name="num-rooms"]').on("change", function () {
       trigger_calculator();
@@ -141,6 +156,11 @@ jQuery(document).ready(function ($) {
    });
    $("#mezzanine-floor").on("change", function () {
       trigger_calculator();
+      if ($("#mezzanine-floor").is(":checked")) {
+         $(".ground_floor_wrapper").removeClass("d-none");
+      } else {
+         $(".ground_floor_wrapper").addClass("d-none");
+      }
    });
    $("#butterfly-floor").on("change", function () {
       trigger_calculator();
@@ -158,7 +178,7 @@ jQuery(document).ready(function ($) {
       let pumping_distance = 0;
       if ($('input[name="releaseMethod"]:checked').val() == "pump") {
          release_method = "pump";
-         console.log('pump')
+         console.log("pump");
          // $('.release-by-pump').removeClass('d-none d-sm-none');
 
          pump_type = $('input[name="pump-type"]:checked').val();
@@ -168,8 +188,8 @@ jQuery(document).ready(function ($) {
          } else {
             pumping_distance = $('select[name="boom_pumping_distance"]').val();
          }
-      }else{
-         console.log('no pump')
+      } else {
+         console.log("no pump");
          // $('select[name="mini_pumping_distance"]').val('');
          // $('input[name="pump-type"]').val('');
          // $('.release-by-pump').addClass('d-none d-sm-none');
@@ -178,9 +198,9 @@ jQuery(document).ready(function ($) {
       let performance = $('input[name="performance"]:checked').val();
       let layer_thickness = $("#layer-thickness").val();
       let rooms_count = $("#num-rooms").val();
-      let butterfly_floor = $("#butterfly-floor").val();
+      let butterfly_floor = $("#butterfly-floor").is(":checked") ? 1 : 0;
       let surface = $('select[name="surface"]').val();
-      let selected_floor = $("#mezzanine-floor").val();
+      let selected_floor = $("#mezzanine-floor").is(":checked") ? 1 : 0;
 
       let dataSet = {
          nonce: $("#beton_nonce").val(),
@@ -201,6 +221,7 @@ jQuery(document).ready(function ($) {
          selected_floor: selected_floor,
       };
 
+      console.log(dataSet);
       $.ajax({
          type: "post",
          url: betonData.ajax_url,
@@ -209,7 +230,7 @@ jQuery(document).ready(function ($) {
             console.log(response);
             if (response.data) {
                $(".dynamic-hide").removeClass("d-flex").addClass("d-none");
-               $('.hide-on-ajax').addClass('d-none');
+               $(".hide-on-ajax").addClass("d-none");
                $.each(response.data.dynamic_pricing, function (index, val) {
                   if ($("#" + index).length > 0) {
                      $("#" + index).html(val);

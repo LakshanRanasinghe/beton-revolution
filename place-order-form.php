@@ -200,13 +200,9 @@ get_header();
                                 <div class="col-md-6">
                                     <label for="surface" class="form-label">Surface</label>
                                     <select id="surface" name="surface" class="form-select border-light-gray border-radius-1 py-2 px-4 h-46">
-                                        <option value="0-50" selected>0-50 m2</option>
-                                        <option value="51-100">51-100 m2</option>
-                                        <option value="101-150">101-150 m2</option>
-                                        <option value="151-200">151-200 m2</option>
-                                        <option value="201-300">201-300 m2</option>
-                                        <option value="301-400">301-400 m2</option>
-                                        <option value="401-500">401-500 m2</option>
+                                        <?php foreach(get_field('oppervlakte', 'option') as $i => $surface_option){
+                                            echo '<option value="'.$surface_option['size'].'" '. ($i <= 0 ? 'selected' : '') .'>'.$surface_option['size'].' m2</option>';
+                                        } ?>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
@@ -332,9 +328,13 @@ get_header();
                                     <span>All-in Cost</span>
                                     <span id="allIn_formatted"><?php wc_price(0) ?></span>
                                 </div>
-                                <div class="d-flex justify-content-between mt-3 mb-3">
+                                <div class="d-flex justify-content-between mt-3 mb-3 ground_floor_wrapper">
                                     <span>Ground Floor Cost</span>
                                     <span id="ground_floor_formatted"><?php wc_price(0) ?></span>
+                                </div>
+                                <div class="d-flex justify-content-between mt-3 mb-3">
+                                    <span>Butterfly Floor Cost</span>
+                                    <span id="butterfly_floor_formatted"><?php wc_price(0) ?></span>
                                 </div>
                             </div>
                             <hr class="text-light-gray">

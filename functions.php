@@ -348,9 +348,9 @@ add_action('wp_ajax_beton_calculator', 'beton_calculator');
 add_action('wp_ajax_nopriv_beton_calculator', 'beton_calculator');
 function beton_calculator(): void
 {
-	if (!wp_verify_nonce($_REQUEST['nonce'], "beton_calculator_nonce")) {
-		exit("No naughty business please");
-	}
+	// if (!wp_verify_nonce($_REQUEST['nonce'], "beton_calculator_nonce")) {
+	// 	exit("No naughty business please");
+	// }
 
 	if (!isset($_POST['city']) || !isset($_POST['cubic_meters']) || !isset($_POST['area_code'])) {
 		wp_send_json_error('No enough parameters to run the calculation.');
@@ -371,12 +371,10 @@ function beton_calculator(): void
 	$selected_surface = sanitize_text_field($_POST['surface']);
 	$selected_ground_floor = sanitize_text_field($_POST['selected_floor']);
 
-	wc_get_logger()->debug('selected_layer_thickness: ' . $selected_layer_thickness);
-
-
 	$seller_prices = get_field('beton_sellers', 'option');
 	$beton_discounts = get_field('discounts', 'option');
 
+	$sub_total = 0;
 	$response_data_set = [];
 	$response_data_set['cubic_meters_formatted'] = $cubic_meters;
 
@@ -394,8 +392,7 @@ function beton_calculator(): void
 	}
 	$response_data_set['beton_price'] = $beton_price;
 	$response_data_set['beton_price_formatted'] = wc_price($beton_price);
-
-
+	$sub_total += $beton_price;
 
 	$pricingData = get_field('application', 'option');
 	$application_data = getDataByProperty($pricingData['application_items'], 'product_name', $selected_application);
@@ -403,7 +400,7 @@ function beton_calculator(): void
 
 	$response_data_set['application_price'] = $application_price;
 	$response_data_set['application_price_formatted'] = '<span>' . $application_data['product_name'] . '</span><span>' . wc_price($application_price) . '</span>';
-
+	
 	// Compounds
 	$compound_total = 0;
 	if(!empty($selected_compounds) && is_array($selected_compounds)){
@@ -420,7 +417,8 @@ function beton_calculator(): void
 	$application_compound_total = $compound_total + $application_price;
 	$response_data_set['application_compound_total'] = $application_compound_total;
 	$response_data_set['application_compound_total_formatted'] = '<span>' . __('Total', 'beton') . '</span><span>' . wc_price($application_compound_total) . '</span>';
-	
+	$sub_total += $application_compound_total;
+
 	$travel_distance = $_COOKIE['travelling_distance'];
 	
 	if($selected_release_method !== 'gutter'){
@@ -441,17 +439,21 @@ function beton_calculator(): void
 
 			$response_data_set['pump_callout_cost'] = $travel_cost;
 			$response_data_set['pump_callout_cost_formatted'] = wc_price($travel_cost);
+			$sub_total += $travel_cost;
 
 			$pumping_cost = $selected_pumping_distance * $pumping_cost;
 			$response_data_set['pumping_cost'] = $pumping_cost;
 			$response_data_set['pumping_cost_formatted'] = wc_price($pumping_cost);
+			$sub_total += $pumping_cost;
 
 			if($selected_pumping_distance > 100){
 				$response_data_set['pumping_extra_hose_cost'] = $pumping_extra_hose_cost;
 				$response_data_set['pumping_extra_hose_cost_formatted'] = wc_price($pumping_extra_hose_cost);
+				$sub_total += $pumping_extra_hose_cost;
 			}else{
 				unset($response_data_set['pumping_extra_hose_cost']);
 				unset($response_data_set['pumping_extra_hose_cost_formatted']);
+				$sub_total -= $pumping_extra_hose_cost;
 			}
 
 			$pumping_hours = 2;
@@ -477,8 +479,7 @@ function beton_calculator(): void
 			}
 			$response_data_set['pump_cost'] = $mini_pump_cost;
 			$response_data_set['pump_cost_formatted'] = wc_price($mini_pump_cost);
-
-			wc_get_logger()->debug('selected_performance: ' . $selected_performance);
+			$sub_total += $mini_pump_cost;
 
 			if($selected_performance == 'allIn'){
 				$extra_price = 0;
@@ -500,42 +501,60 @@ function beton_calculator(): void
 				if($thickness_cost > 0){
 					$response_data_set['thickness_cost'] = $thickness_cost;
 					$response_data_set['thickness_cost_formatted'] = wc_price($thickness_cost);
+					$sub_total += $thickness_cost;
 				}
 
 				if($selected_rooms > 0){
-					$room_cost = $selected_rooms + 15;
+					$room_cost = $selected_rooms * 15;
 					$extra_price += $room_cost;
 					$response_data_set['rooms_cost'] = $room_cost;
 					$response_data_set['rooms_formatted'] = wc_price($room_cost);
+					$sub_total += $room_cost;
 				}
 
 				if($travel_distance > 40){
-					$extra_price += $travel_distance * 0.35;
+					$extra_price += ($travel_distance * 0.35);
 				}
 
-				if($selected_butterfly_floor){
-					$extra_price += 50;
-					$response_data_set['butterfly_floor_cost'] = 50;
-					$response_data_set['butterfly_floor_formatted'] = wc_price(50);
+				if(boolval($selected_butterfly_floor) !== false || intval($selected_butterfly_floor) !== 0){
+					// $extra_price += 50;
+					
+					// $flooring_price = get_field('oppervlakte', 'option');
+					// $butterfly_price = 0;
+					// foreach($flooring_price as $floor_price){
+					// wc_get_logger()->debug('surface: ' . ($selected_surface) . ' and loop ' . $floor_price['size']);
+
+					// 	if($floor_price['size'] == $selected_surface){
+					// 		$butterfly_price = $floor_price['cost'];
+					// 		break;
+					// 	}
+					// }
+					// if($selected_rooms > 0){
+					// 	$butterfly_price += $selected_rooms * 25;
+					// }
+					$butterfly_price = butterfly_coster($selected_surface, $selected_rooms);
+					$response_data_set['butterfly_floor_cost'] = $butterfly_price;
+					$response_data_set['butterfly_floor_formatted'] = wc_price($butterfly_price);
+					$sub_total += $butterfly_price;
 				}
 
-				if($selected_ground_floor){
+				if(boolval($selected_ground_floor) !== false || intval($selected_ground_floor) !== 0){
 					$extra_price += $ground_flooring_cost;
-					$response_data_set['ground_floor_cost'] = $ground_flooring_cost;
-					$response_data_set['ground_floor_formatted'] = wc_price($ground_flooring_cost);
+					// $response_data_set['ground_floor_cost'] = $ground_flooring_cost;
+					// $response_data_set['ground_floor_formatted'] = wc_price($ground_flooring_cost);
+					// wc_get_logger()->debug('ground floor selected so ground_flooring_cost there: ' . ($selected_ground_floor));
 				}
 
 				$all_in_price += $extra_price;
 
 				$response_data_set['allIn_cost'] = $all_in_price;
 				$response_data_set['allIn_formatted'] = wc_price($all_in_price);
+				$sub_total += $all_in_price;
 			}
 		}elseif($selected_pump_type == 'boom'){
 			if(empty($selected_pumping_distance) OR intval($selected_pumping_distance) < 20){
 				$selected_pumping_distance = 20;
 			}
-
-			wc_get_logger()->debug('boom pumping distance: ' . $selected_pumping_distance);
 
 			$boom_price = 0;
 
@@ -640,87 +659,98 @@ function beton_calculator(): void
 					break;
 			}
 
-			wc_get_logger()->debug('boom pumping price: ' . $boom_price);
-
 			$response_data_set['pump_cost'] = $boom_price;
 			$response_data_set['pump_cost_formatted'] = wc_price($boom_price);
+			$sub_total += $boom_price;
 
-			$all_in_price = get_field('all-in_price', 'option');
-			$ground_flooring_cost = get_field('ground_floor_cost', 'option');
+			if($selected_performance == 'allIn'){
+				$all_in_price = get_field('all-in_price', 'option');
+				$ground_flooring_cost = get_field('ground_floor_cost', 'option');
 
-			$extra_price = 0;
-			$remaining_concrete = 0;
-			$remaining_pump_distance = 0;
+				$extra_price = 0;
+				$remaining_concrete = 0;
+				$remaining_pump_distance = 0;
 
-			if($cubic_meters > 12){
-				$remaining_concrete = $cubic_meters - 12;
-				$all_in_price += ($remaining_concrete * 4);
-				wc_get_logger()->debug('concrete > 12: all_in_price ' . $all_in_price);
-			}
-			if($selected_pumping_distance > 40){
-				$remaining_pump_distance = $selected_pumping_distance - 40;
-				$extra_price += ($remaining_pump_distance * 1);
-				wc_get_logger()->debug('selected_pumping_distance > 40: extra_price ' . $extra_price);
-
-			}
-
-			if(isset($selected_layer_thickness)){
-				wc_get_logger()->debug('isset thickness : ' . $selected_layer_thickness);
-				$thickness_pricing = get_field('thickness_pricing', 'option');
-				$thickness_prices = [];
-				foreach($thickness_pricing as $thickness_price){
-					$thickness_prices[$thickness_price['thickness']] = $thickness_price['cost'];
+				if($cubic_meters > 12){
+					$remaining_concrete = $cubic_meters - 12;
+					$all_in_price += ($remaining_concrete * 4);
 				}
-				wc_get_logger()->debug(json_encode($thickness_prices));
-				if($selected_layer_thickness == '5-10'){
-					$all_in_price += ($all_in_price * $thickness_prices['5-10']);
-					wc_get_logger()->debug('thickness_prices1 : thickness_prices ' . $thickness_prices['5-10']);
+				if($selected_pumping_distance > 40){
+					$remaining_pump_distance = $selected_pumping_distance - 40;
+					$extra_price += ($remaining_pump_distance * 1);
+				}
 
-				}elseif($selected_layer_thickness == '11-15'){
-					$all_in_price += ($all_in_price * $thickness_prices['11-15']);
-					wc_get_logger()->debug('thickness_prices2 : thickness_prices ' . $thickness_prices);
+
+				if(isset($selected_layer_thickness)){
+					$thickness_pricing = get_field('thickness_pricing', 'option');
+					$thickness_prices = [];
+					foreach($thickness_pricing as $thickness_price){
+						$thickness_prices[$thickness_price['thickness']] = $thickness_price['cost'];
+					}
+					wc_get_logger()->debug(json_encode($thickness_prices));
+					if($selected_layer_thickness == '5-10'){
+						$all_in_price += ($all_in_price * $thickness_prices['5-10']);
+
+					}elseif($selected_layer_thickness == '11-15'){
+						$all_in_price += ($all_in_price * $thickness_prices['11-15']);
+					}
+				}
+
+				if(isset($selected_rooms) && $selected_rooms >= 1){
+					$extra_price += (intval($selected_rooms) * 35);
+				}
+
+				// if($travel_distance > 40){
+				// 	$extra_price += ($travel_distance * 0.5);
+				// 	wc_get_logger()->debug('travel_distance > 40 : travel_distance ' . $travel_distance);
+				// }
+
+				if(boolval($selected_ground_floor) !== false || intval($selected_ground_floor) !== 0){
+					$extra_price += $ground_flooring_cost;
+				}
+				
+				$all_in_price += ($extra_price); 
+				$all_in_price += 100; //extra man voor giekpomp
+
+				$response_data_set['allIn_cost'] = $all_in_price;
+				$response_data_set['allIn_formatted'] = wc_price($all_in_price);
+				$sub_total += $all_in_price;
+
+				if(boolval($selected_butterfly_floor) !== false || intval($selected_butterfly_floor) !== 0){
+					$butterfly_price = butterfly_coster($selected_surface, $selected_rooms);
+					$response_data_set['butterfly_floor_cost'] = $butterfly_price;
+					$response_data_set['butterfly_floor_formatted'] = wc_price($butterfly_price);
+					$sub_total += $butterfly_price;
 				}
 			}
-
-			wc_get_logger()->debug('boom extra_price: ' . $extra_price);
-			wc_get_logger()->debug('boom all_in_price: ' . $all_in_price);
-
-			if(isset($selected_rooms) && $selected_rooms >= 1){
-				$extra_price += (intval($selected_rooms) * 35);
-				wc_get_logger()->debug('rooms : extra_price ' . $extra_price);
-			}
-
-			if($travel_distance > 40){
-				$extra_price += ($travel_distance * 0.5);
-				wc_get_logger()->debug('travel_distance > 40 : travel_distance ' . $travel_distance);
-
-			}
-
-			if(isset($selected_ground_floor)){
-				$extra_price += 50;
-				wc_get_logger()->debug('selected_ground_floor: ' . $extra_price);
-
-			}
-			if($selected_butterfly_floor){
-				$extra_price += 50;
-				$response_data_set['butterfly_floor_cost'] = 50;
-				$response_data_set['butterfly_floor_formatted'] = wc_price(50);
-			}
-			
-			$all_in_price += ($extra_price); 
-			$all_in_price += 100; //extra man voor giekpomp
-
-			$response_data_set['allIn_cost'] = $all_in_price;
-			$response_data_set['allIn_formatted'] = wc_price($all_in_price);
 		}
 	}
 
-	$response_data_set['test'] = $pump_callout_fee;
+	$response_data_set['sub_total'] = $sub_total;
+	$response_data_set['btw'] = ($sub_total / 100) * 21;
 
-	wc_get_logger()->debug(json_encode($selected_compounds));
+	$response_data_set['sub_total_btw'] = $sub_total + $response_data_set['btw'];
 
+	wc_get_logger()->debug(json_encode($response_data_set));
 
 	wp_send_json_success([
 		'dynamic_pricing' => $response_data_set
 	]);
+}
+
+function butterfly_coster($selected_surface, $selected_rooms) : mixed {
+	$flooring_price = get_field('oppervlakte', 'option');
+	$butterfly_price = 0;
+	foreach($flooring_price as $floor_price){
+	// wc_get_logger()->debug('surface: ' . ($selected_surface) . ' and loop ' . $floor_price['size']);
+
+		if($floor_price['size'] == $selected_surface){
+			$butterfly_price = $floor_price['cost'];
+			break;
+		}
+	}
+	if($selected_rooms > 0){
+		$butterfly_price += $selected_rooms * 25;
+	}
+	return $butterfly_price;
 }
