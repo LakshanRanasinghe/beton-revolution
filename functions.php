@@ -539,7 +539,7 @@ function beton_calculator(): void
 				}
 
 				if(boolval($selected_ground_floor) !== false || intval($selected_ground_floor) !== 0){
-					$extra_price += $ground_flooring_cost;
+					$extra_price += floatval($ground_flooring_cost);
 					// $response_data_set['ground_floor_cost'] = $ground_flooring_cost;
 					// $response_data_set['ground_floor_formatted'] = wc_price($ground_flooring_cost);
 					// wc_get_logger()->debug('ground floor selected so ground_flooring_cost there: ' . ($selected_ground_floor));
@@ -706,7 +706,7 @@ function beton_calculator(): void
 				// }
 
 				if(boolval($selected_ground_floor) !== false || intval($selected_ground_floor) !== 0){
-					$extra_price += $ground_flooring_cost;
+					$extra_price += floatval($ground_flooring_cost);
 				}
 				
 				$all_in_price += ($extra_price); 

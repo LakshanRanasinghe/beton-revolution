@@ -94,25 +94,25 @@ get_header();
                                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                                 </div>
                                 <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="releaseMethod" value="gutter" id="fromGutter">
+                                    <input class="form-check-input" type="radio" name="releaseMethod" value="gutter" id="fromGutter" checked>
                                     <label class="form-check-label" for="fromGutter">From The Gutter</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="releaseMethod" value="pump" id="pump" checked>
+                                    <input class="form-check-input" type="radio" name="releaseMethod" value="pump" id="pump">
                                     <label class="form-check-label" for="pump">Pump</label>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Select Pump Section -->
-                        <div class="release-method-section-2 release-by-pump select-pump-section box-sm-shadow border-custom-gray border p-sm-3 p-0 d-sm-block d-none">
+                        <div class="release-method-pump-wrapper release-method-section-2 release-by-pump select-pump-section box-sm-shadow border-custom-gray border p-sm-3 p-0 d-sm-none d-none">
                             <h6 class="section-title poppins-600 text-sm-18 mb-3 mt-sm-0 mt-3 text-dark-blue">SELECT PUMP</h6>
                             <div class="mb-4">
                                 <div class="card-body">
                                     <div class="border-custom-gray border">
                                         <div class="d-flex justify-content-between m-3 align-items-center">
                                             <div class="form-check m-3">
-                                                <input class="form-check-input" type="radio" name="pump-type" id="miniPump" value="mini" checked>
+                                                <input class="form-check-input" type="radio" name="pump-type" id="miniPump" value="mini">
                                                 <label class="form-check-label text-dark-gray" for="miniPump">Mini Concrete Pump</label>
                                             </div>
                                             <div class="d-flex w-precent-60 align-items-center">
@@ -188,7 +188,7 @@ get_header();
                                 <label class="form-check-label" for="performSelf">Perform Yourself</label>
                             </div>
                             <div class="form-check mb-3">
-                                <input class="form-check-input" type="radio" name="performance" id="allIn" value="allIn" checked>
+                                <input class="form-check-input" type="radio" name="performance" id="allIn" value="allIn">
                                 <label class="form-check-label" for="allIn">All-in</label>
                             </div>
                         </div>
@@ -228,7 +228,7 @@ get_header();
                             <p class="form-label">Floor</p>
                             <div class="d-sm-flex">
                                 <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="mezzanine-floor" name="floor_selection" value="1" checked>
+                                    <input class="form-check-input" type="checkbox" id="mezzanine-floor" name="floor_selection" value="1">
                                     <label class="form-check-label text-16 me-4" for="mezzanine-floor">Mezzanine Floor</label>
                                 </div>
                                 <div class="form-check form-switch">
@@ -303,11 +303,11 @@ get_header();
 
                             <hr class="text-light-gray">
 
-                            <div class="d-flex justify-content-between mt-3 mb-3">
+                            <div class="release-method-pump-cost-wrapper d-flex justify-content-between mt-3 mb-3" >
                                 <span>Release method <span class="text-15 text-light-gray" id="release_method_name"></span></span>
                                 <span id="pump_cost_formatted"><?php wc_price(0) ?></span>
                             </div>
-                            <div id="mini-pump-breakdown">
+                            <div id="mini-pump-breakdown" class="release-method-pump-cost-wrapper">
                                 <div class="d-flex justify-content-between mt-3 mb-3">
                                     <span>Callout Fees</span>
                                     <span id="pump_callout_cost_formatted"><?php wc_price(0) ?></span>
@@ -322,22 +322,22 @@ get_header();
                                     <span id="pumping_extra_hose_cost_formatted" class="dynamic-hide"><?php wc_price(0) ?></span>
                                 </div>
                             </div>
-                            <hr class="text-light-gray">
-                            <div id="allIn-breakdown">
+                            <hr class="release-method-pump-cost-wrapper text-light-gray">
+                            <div id="allIn-breakdown" class="all-in-cost-wrapper d-none">
                                 <div class="d-flex justify-content-between mt-3 mb-3">
                                     <span>All-in Cost</span>
                                     <span id="allIn_formatted"><?php wc_price(0) ?></span>
                                 </div>
-                                <div class="d-flex justify-content-between mt-3 mb-3 ground_floor_wrapper">
+                                <div class="d-flex justify-content-between mt-3 mb-3 ground_floor_wrapper d-none">
                                     <span>Ground Floor Cost</span>
                                     <span id="ground_floor_formatted"><?php wc_price(0) ?></span>
                                 </div>
-                                <div class="d-flex justify-content-between mt-3 mb-3">
+                                <div class="d-flex justify-content-between mt-3 mb-3 butterfly_floor_wrapper d-none">
                                     <span>Butterfly Floor Cost</span>
                                     <span id="butterfly_floor_formatted"><?php wc_price(0) ?></span>
                                 </div>
                             </div>
-                            <hr class="text-light-gray">
+                            <hr class="all-in-cost-wrapper text-light-gray d-none">
                             <div class="d-flex justify-content-between mb-3">
                                 <span class="poppins-600 text-20 text-custom-black">Total</span>
                                 <span>€ 6725.50</span>

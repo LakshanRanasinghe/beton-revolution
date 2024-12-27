@@ -144,8 +144,10 @@ jQuery(document).ready(function ($) {
    $('input[name="performance"]').on("change", function () {
       if ($('input[name="performance"]:checked').val() == "allIn") {
          $("#pump").click();
+         $('.all-in-cost-wrapper').removeClass('d-none');
       } else {
          trigger_calculator();
+         $('.all-in-cost-wrapper').addClass('d-none');
       }
    });
    $('select[name="num-rooms"]').on("change", function () {
@@ -154,6 +156,7 @@ jQuery(document).ready(function ($) {
    $('select[name="layer-thickness"]').on("change", function () {
       trigger_calculator();
    });
+
    $("#mezzanine-floor").on("change", function () {
       trigger_calculator();
       if ($("#mezzanine-floor").is(":checked")) {
@@ -164,6 +167,11 @@ jQuery(document).ready(function ($) {
    });
    $("#butterfly-floor").on("change", function () {
       trigger_calculator();
+      if ($("#mezzanine-floor").is(":checked")) {
+         $(".butterfly_floor_wrapper").removeClass("d-none");
+      } else {
+         $(".butterfly_floor_wrapper").addClass("d-none");
+      }
    });
 
    //  trigger_calculator();
@@ -176,20 +184,28 @@ jQuery(document).ready(function ($) {
       let release_method = "gutter";
       let pump_type = null;
       let pumping_distance = 0;
+      $('#release_method_name').text('');
       if ($('input[name="releaseMethod"]:checked').val() == "pump") {
          release_method = "pump";
          console.log("pump");
-         // $('.release-by-pump').removeClass('d-none d-sm-none');
+         $('.release-method-pump-cost-wrapper').removeClass('d-none');
+         $('.release-by-pump').removeClass('d-sm-none').addClass('d-sm-block');
 
          pump_type = $('input[name="pump-type"]:checked').val();
 
          if (pump_type == "mini") {
             pumping_distance = $('select[name="mini_pumping_distance"]').val();
+            $('#release_method_name').text(': Mini');
          } else {
             pumping_distance = $('select[name="boom_pumping_distance"]').val();
+            if(pump_type == "boom") {
+               $('#release_method_name').text(': Boom');
+            }
          }
       } else {
          console.log("no pump");
+         $('.release-method-pump-cost-wrapper').addClass('d-none');
+         $('.release-by-pump').removeClass('d-sm-block').addClass('d-sm-none');
          // $('select[name="mini_pumping_distance"]').val('');
          // $('input[name="pump-type"]').val('');
          // $('.release-by-pump').addClass('d-none d-sm-none');
@@ -240,6 +256,7 @@ jQuery(document).ready(function ($) {
                            .removeClass("d-none")
                            .addClass("d-flex");
                      }
+
                   }
                });
             }

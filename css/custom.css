@@ -688,3 +688,57 @@ a {
    color: #393E50 !important;
 }
 
+/*Page content styles -> start*/
+
+#primary-menu .dropdown-menu {
+	display: block;
+
+}
+
+.beton-contact-form-wrapper label{
+	width: 100%;
+}
+
+.beton-contact-form-wrapper input{
+	width: 100%;
+}
+
+.beton-contact-form-wrapper input[type="submit"], .direct-online-offerte-btn{ 
+    box-sizing: border-box;
+    overflow: visible;
+    background: #e6e6e6;
+    margin: 0;
+    line-height: inherit;
+    -webkit-appearance: button;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-top: var(--bs-gutter-y);
+    flex: 0 0 auto;
+    
+    border-width: 2px!important;
+    padding-top: 1rem!important;
+    padding-bottom: 1rem!important;
+    text-transform: uppercase!important;
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-white-rgb),var(--bs-text-opacity))!important;
+    border-radius: 0!important;
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 20px;
+    background-color: var(--orange);
+    border-color: var(--orange) !important;
+    border: 2px solid;
+    cursor: pointer;
+}
+
+.beton-contact-form-wrapper input[type="submit"] {
+	width: 100%;
+}
+
+.page #primary .entry-content {
+	font-family: "Poppins", sans-serif;
+}
+
+/*Page content styles -> end*/
