@@ -27,7 +27,7 @@
 	<div id="page" class="site">
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'beton'); ?></a>
 
-		<header id="masthead" class="site-header">
+		<header id="masthead" class="site-header bg-white">
 			<div class="top-header container-fluid dark-blue px-sm-0 px-4 ">
 				<div class="container py-2 px-0 d-md-block d-none">
 					<div class="row align-items-center">

@@ -741,4 +741,31 @@ a {
 	font-family: "Poppins", sans-serif;
 }
 
+.beton-page-content h2 {
+	font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+	font-size: 32px;
+	margin-bottom: 24px;
+	padding-top: 24px;
+}    
+
+.beton-page-content p{
+	font-size: 18px;
+}
+
+.beton-page-content a:not(.direct-online-offerte-btn) {
+	text-decoration: underline;
+    color: rgba(var(--bs-black-rgb), var(--bs-text-opacity)) !important;
+}
+
+.beton-page-content .direct-online-offerte-btn {
+	margin-top: 24px;
+}
+
+a:focus {
+    outline: none;
+}
+
 /*Page content styles -> end*/
