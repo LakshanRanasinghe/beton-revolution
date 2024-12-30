@@ -145,11 +145,11 @@ jQuery(document).ready(function ($) {
       if ($('input[name="performance"]:checked').val() == "allIn") {
          $("#pump").click();
          $(".all-in-cost-wrapper").removeClass("d-none");
-         // $(".all-in-cost-wrapper").addClass("d-sm-block");
+         $(".execution-section").addClass("d-sm-block").removeClass('d-none');
       } else {
          trigger_calculator();
          $(".all-in-cost-wrapper").addClass("d-none");
-         // $(".all-in-cost-wrapper").removeClass("d-sm-block");
+         $(".execution-section").addClass("d-none").removeClass('d-sm-block');
       }
    });
    $('select[name="num-rooms"]').on("change", function () {
@@ -181,6 +181,7 @@ jQuery(document).ready(function ($) {
       if ($(this).val() == "quote") {
          send_to_quotation();
       } else {
+         send_to_cart();
       }
       console.log($(this).val());
    });
@@ -234,6 +235,52 @@ jQuery(document).ready(function ($) {
                $('.confirm-and-pay-section').find('.step-title').removeClass('disabled');
                $('#email').val('').trigger('change');
             }
+         }
+      });
+   }
+
+   function send_to_cart() {
+      let compositions = [];
+      $('input[name="compound"]:checked').each(function () {
+         compositions.push($(this).attr("value"));
+      });
+
+      var dataSet = {
+         action: 'concrete_add_to_cart',
+         user_email: $("#email").val(),
+         area_code: $.cookie("selected_area_code"),
+         postalcode: $("#postcode-input").val(),
+         cubic_meters: $("#cubic-meters").val(),
+         application_product: $('input[name="application"]:checked').val(),
+         composition: compositions,
+         unloading: $('input[name="releaseMethod"]:checked').val(),
+         pump_type: $('input[name="pump-type"]:checked').val(),
+         pumping_distance: $('select[name="mini_pumping_distance"]').val(),
+         boom_pumping_distance: $('select[name="boom_pumping_distance"]').val(),
+         uitvoering: $('input[name="performance"]:checked').val(),
+         "surace-sqm": $('select[name="surface"]').val(),
+         "layer-thickness": $("#layer-thickness").val(),
+         nos_rooms: $("#num-rooms").val(),
+         flooring: $("#mezzanine-floor").is(":checked") ? 1 : 0,
+         "butterfly-floor": $("#butterfly-floor").is(":checked") ? 1 : 0,
+      };
+
+      $.ajax({
+         type: "post",
+         url: betonData.ajax_url,
+         data: dataSet,
+         success: function (response) {
+            console.log(response);
+            if(response.data.redirect !== undefined){
+               window.location.href = response.data.redirect;
+            }
+
+            // $(".type-and-kind-section").addClass("inactive");
+            // $(".type-and-kind-form").addClass("d-none");
+            // $(".type-and-kind-form").removeClass("pending");
+            // $(".type-and-kind-section").removeClass("pending");
+            // $(".confirm-and-pay-section").addClass("active");
+            // $(".confirm-and-pay-form").removeClass("d-none");
          }
       });
    }

@@ -53,7 +53,7 @@ get_header();
         <!-- Right Column -->
         <form class="row col-lg-9 " action="prices">
             <div class="d-lg-flex d-block align-items-center gap-3 px-0 w-100">
-                <div class="w-lg-70 d-flex gap-3 pb-lg-0 pb-3">
+                <div class="w-lg-70 d-flex gap-3 pb-lg-0 pb-3 position-relative">
                     <input type="text" class="form-control rounded-0 home-input ps-4 " placeholder="Postcode of Stad" aria-label="Postcode" id="postcode-input">
                     <input type="text" class="form-control rounded-0 home-input ps-4 " placeholder="Aantal M" aria-label="Cubic meters of concrete" id="cubic-meters">
                 </div>

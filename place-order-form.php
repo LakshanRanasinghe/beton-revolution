@@ -375,11 +375,12 @@ get_header();
                 });
                 $("#pay-btn").on("click", function(e) {
                     e.preventDefault();
-                    $(".type-and-kind-section").addClass("inactive");
-                    $(".type-and-kind-form").addClass("d-none");
-                    $(".type-and-kind-form").removeClass("pending");
-                    $(".confirm-and-pay-section").addClass("active");
-                    $(".confirm-and-pay-form").removeClass("d-none");
+                    // $(".type-and-kind-section").addClass("inactive");
+                    // $(".type-and-kind-form").addClass("d-none");
+                    // $(".type-and-kind-form").removeClass("pending");
+                    // $(".type-and-kind-section").removeClass("pending");
+                    // $(".confirm-and-pay-section").addClass("active");
+                    // $(".confirm-and-pay-form").removeClass("d-none");
                 });
             } else {
                 $(".location-and-quantity-section").addClass("active");
