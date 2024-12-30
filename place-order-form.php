@@ -7,33 +7,33 @@ get_header();
     <div class="row g-5">
         <!-- Left Form Section -->
         <div class="col-lg-8">
-            <p class="step-number-container poppins-400 text-12 text-custom-gray-4 mb-1 d-sm-none d-block ms-4 ps-1">Step <strong><span id="step-number">1</span>/6</strong></p>
-            <p class="step-text-container poppins-400 text-12 text-custom-gray-4 mb-1 d-none d-block ms-4 ps-1">Be patient you are on the last</p>
+            <p class="step-number-container poppins-400 text-12 text-custom-gray-4 mb-1 d-sm-none d-block ms-4 ps-1">Stap <strong><span id="step-number">1</span>/6</strong></p>
+            <p class="step-text-container poppins-400 text-12 text-custom-gray-4 mb-1 d-none d-block ms-4 ps-1">Wees geduldig, je bent bij de laatste</p>
             <!-- First Section -->
             <div class="location-and-quantity-section section-wrap px-sm-5 py-sm-4 box-shadow-no-bottom box-sm-white position-relative z-3 pending" data-step="1">
                 <div class="position-relative pb-4 d-sm-block">
                     <div class="position-relative z-1 bg-sm-white bg-custom-gray-3 d-inline-block pe-3 py-sm-0 py-1">
-                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative d-sm-inline-block d-none"></i> LOCATION AND CONCRETE QUANTITY</h5>
+                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative d-sm-inline-block d-none"></i> LOCATIE EN BETONHOEVEELHEID</h5>
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
                 <div class="position-relative pb-4 d-block d-sm-none">
                     <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a>LOCATION AND CONCRETE QUANTITY</h5>
+                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a>LOCATIE EN BETONHOEVEELHEID</h5>
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
                 <div class="location-and-quantity-form form-section text-sm-18 poppins-500" id="initialFormSection">
                     <form>
                         <div class="mb-4">
-                            <label for="location" class="form-label text-dark-gray">Location</label>
-                            <input type="text" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" id="postcode-input" placeholder="Enter Postcode or City">
+                            <label for="location" class="form-label text-dark-gray">Locatie</label>
+                            <input type="text" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" id="postcode-input" placeholder="Voer Postcode of Stad in">
                         </div>
                         <div class="mb-4">
-                            <label for="quantity" class="form-label text-dark-gray">Number of M³</label>
-                            <input type="text" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" id="cubic-meters" placeholder="Enter Number of M³">
+                            <label for="quantity" class="form-label text-dark-gray">Aantal M³</label>
+                            <input type="text" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" id="cubic-meters" placeholder="Voer Aantal M³ in">
                         </div>
-                        <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn" id="location-and-quantity-btn" data-next="2" disabled>Continue</button>
+                        <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn" id="location-and-quantity-btn" data-next="2" disabled>Doorgaan</button>
                     </form>
                 </div>
             </div>
@@ -42,7 +42,7 @@ get_header();
             <div class="type-and-kind-section section-wrap px-sm-5 py-sm-4 box-shadow-no-bottom box-sm-white position-relative text-dark-gray z-2 pending" data-step="2">
                 <div class="position-relative pb-4 d-sm-block d-none">
                     <div class="position-relative z-1 bg-white d-sm-inline-block pe-3">
-                        <h5 class="step-title text-custom-gray-4 oswald-600 text-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative d-sm-inline-block d-none"></i> TYPE AND KIND</h5>
+                        <h5 class="step-title text-custom-gray-4 oswald-600 text-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative d-sm-inline-block d-none"></i> TYPE EN SOORT</h5>
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
@@ -52,10 +52,10 @@ get_header();
                         <!-- Application, Compound, Release Method Section -->
                         <div class="row mb-sm-4">
                             <div class="application-section col-md-4 d-sm-block d-none">
-                                <h6 class="section-title text-18 poppins-600 mb-3 text-custom-black d-sm-block d-none">APPLICATION</h6>
+                                <h6 class="section-title text-18 poppins-600 mb-3 text-custom-black d-sm-block d-none">TOEPASSING</h6>
                                 <div class="position-relative pb-4 d-block d-sm-none">
                                     <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a> APPLICATION<i class="bi bi-info-circle step-exclamation-icon position-relative"></i></h5>
+                                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a> TOEPASSING<i class="bi bi-info-circle step-exclamation-icon position-relative"></i></h5>
                                     </div>
                                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                                 </div>
@@ -66,13 +66,13 @@ get_header();
                                         <label class="form-check-label" for="<?php echo sanitize_title($application_item['product_name']); ?>"><?php echo $application_item['product_name']; ?></label>
                                     </div>
                                 <?php } ?>
-                                <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block mt-4" id="application-btn" data-next="3">Continue</button>
+                                <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block mt-4" id="application-btn" data-next="3">Doorgaan</button>
                             </div>
                             <div class="compound-section col-md-4 d-sm-block d-none">
-                                <h6 class="section-title text-18 poppins-600 mb-3 text-custom-black d-sm-block d-none">COMPOUND</h6>
+                                <h6 class="section-title text-18 poppins-600 mb-3 text-custom-black d-sm-block d-none">SAMENSTELLING</h6>
                                 <div class="position-relative pb-4 d-block d-sm-none">
                                     <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a> COMPOUND<i class="bi bi-info-circle step-exclamation-icon position-relative"></i></h5>
+                                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a> SAMENSTELLING<i class="bi bi-info-circle step-exclamation-icon position-relative"></i></h5>
                                     </div>
                                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                                 </div>
@@ -82,41 +82,41 @@ get_header();
                                         <label class="form-check-label" for="<?php echo sanitize_title($compound_item['product_name']); ?>_input"><?php echo $compound_item['product_name'] ?></label>
                                     </div>
                                 <?php } ?>
-                                <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block mt-4" id="compound-btn" data-next="4">Continue</button>
+                                <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block mt-4" id="compound-btn" data-next="4">Doorgaan</button>
                             </div>
                             <div class="release-method-section-1 col-md-4 d-sm-block d-none">
-                                <h6 class="section-title text-18 poppins-600 mb-3 text-custom-black d-sm-block d-none">RELEASE METHODS</h6>
+                                <h6 class="section-title text-18 poppins-600 mb-3 text-custom-black d-sm-block d-none">LOSSINGSMETHODES</h6>
                                 <div class="position-relative pb-4 d-block d-sm-none">
                                     <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a> RELEASE METHOD<i class="bi bi-info-circle step-exclamation-icon position-relative"></i>
+                                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a> LOSSINGSMETHODE<i class="bi bi-info-circle step-exclamation-icon position-relative"></i>
                                         </h5>
                                     </div>
                                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                                 </div>
                                 <div class="form-check mb-2">
                                     <input class="form-check-input" type="radio" name="releaseMethod" value="gutter" id="fromGutter" checked>
-                                    <label class="form-check-label" for="fromGutter">From The Gutter</label>
+                                    <label class="form-check-label" for="fromGutter">Uit de goot</label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="releaseMethod" value="pump" id="pump">
-                                    <label class="form-check-label" for="pump">Pump</label>
+                                    <label class="form-check-label" for="pump">Pomp</label>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Select Pump Section -->
                         <div class="release-method-pump-wrapper release-method-section-2 release-by-pump select-pump-section box-sm-shadow border-custom-gray border p-sm-3 p-0 d-sm-none d-none">
-                            <h6 class="section-title poppins-600 text-sm-18 mb-3 mt-sm-0 mt-3 text-dark-blue">SELECT PUMP</h6>
+                            <h6 class="section-title poppins-600 text-sm-18 mb-3 mt-sm-0 mt-3 text-dark-blue">KIES POMP</h6>
                             <div class="mb-4">
                                 <div class="card-body">
                                     <div class="border-custom-gray border">
                                         <div class="d-flex justify-content-between m-3 align-items-center">
                                             <div class="form-check m-3">
                                                 <input class="form-check-input" type="radio" name="pump-type" id="miniPump" value="mini">
-                                                <label class="form-check-label text-dark-gray" for="miniPump">Mini Concrete Pump</label>
+                                                <label class="form-check-label text-dark-gray" for="miniPump">Mini Betonpomp</label>
                                             </div>
                                             <div class="d-flex w-precent-60 align-items-center">
-                                                <label class="form-select-label w-100 d-sm-block d-none" for="">Pumping distance: </label>
+                                                <label class="form-select-label w-100 d-sm-block d-none" for="">Pompafstand: </label>
                                                 <select class="form-select form-select-sm border-light-gray border-radius-1 py-2 px-4 h-36" name="mini_pumping_distance">
                                                     <?php
                                                     for ($i = 5; $i <= 300; $i = $i + 5) {
@@ -130,9 +130,9 @@ get_header();
                                         <div class="p-sm-3 p-0 d-flex">
                                             <img src="<?php echo get_template_directory_uri() ?>/images/lorry1.png" alt="Mini Concrete Pump" class="img-fluid mb-2 w-sm-163">
                                             <ul class="list-unstyled text-custom-gray-2 text-12 poppins-400">
-                                                <li><i class="icon-tick bi bi-check"></i> Thin, Handy Hoses</li>
-                                                <li><i class="icon-tick bi bi-check"></i> Few Workers Needed</li>
-                                                <li><i class="icon-cross bi bi-x"></i> Costs Advantageous</li>
+                                                <li><i class="icon-tick bi bi-check"></i> Dunne, Handige Slangen</li>
+                                                <li><i class="icon-tick bi bi-check"></i> Weinig Werknemers Nodig</li>
+                                                <li><i class="icon-cross bi bi-x"></i> Kosten Voordelig</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -141,12 +141,12 @@ get_header();
                                         <div class="d-flex justify-content-between m-3 align-items-center">
                                             <div class="form-check w-auto">
                                                 <input class="form-check-input" type="radio" name="pump-type" id="boomPump" value="boom">
-                                                <label class="form-check-label text-dark-gray" for="boomPump">Boom Pump</label>
+                                                <label class="form-check-label text-dark-gray" for="boomPump">Giekpomp</label>
                                             </div>
                                             <div class="d-flex w-precent-60 align-items-center">
-                                                <label class="form-select-label w-100 d-sm-block d-none" for="">Pumping distance: </label>
+                                                <label class="form-select-label w-100 d-sm-block d-none" for="">Pompafstand: </label>
                                                 <select class="form-select form-select-sm border-light-gray border-radius-1 py-2 px-4 h-36" name="boom_pumping_distance">
-                                                    <option>Select Meter</option>
+                                                    <option>Selecteer Meter</option>
                                                     <option value="20" selected>20 m</option>
                                                     <option value="30">30 m</option>
                                                     <option value="38">38 m</option>
@@ -161,44 +161,44 @@ get_header();
                                             <img src="<?php echo get_template_directory_uri() ?>/images/lorry2.png" alt="Boom Pump" class="img-fluid mb-2 w-sm-163">
 
                                             <ul class="list-unstyled text-custom-gray-2 text-12 poppins-400">
-                                                <li><i class="icon-tick bi bi-check"></i> Thin, Handy Hoses</li>
-                                                <li><i class="icon-tick bi bi-check"></i> Quickly Pumps Many Cubic Meters</li>
-                                                <li><i class="icon-cross bi bi-x"></i> Can Also Pump Large Gravel</li>
+                                                <li><i class="icon-tick bi bi-check"></i> Dunne, Handige Slangen</li>
+                                                <li><i class="icon-tick bi bi-check"></i> Pompt Snel Veel Kubieke Meters</li>
+                                                <li><i class="icon-cross bi bi-x"></i> Kan Ook Groot Grind Pompen</li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <p class="text-sm-18 text-custom-gray-2 poppins-400">Not sure which one to choose? <a href="#" class="text-orange">Use our helper.</a></p>
-                            <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block" id="release-method" data-next="5">Continue</button>
+                            <p class="text-sm-18 text-custom-gray-2 poppins-400">Weet je niet welke je moet kiezen? <a href="#" class="text-orange">Gebruik onze hulp.</a></p>
+                            <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block" id="release-method" data-next="5">Doorgaan</button>
                         </div>
 
                         <!-- Performance Section -->
                         <div class="performance-section mt-sm-4 d-sm-block d-none">
-                            <h6 class="section-title text-custom-black text-18 poppins-600 mb-3 d-sm-block d-none">PERFORMANCE</h6>
+                            <h6 class="section-title text-custom-black text-18 poppins-600 mb-3 d-sm-block d-none">PRESTATIE</h6>
                             <div class="position-relative pb-4 d-block d-sm-none">
                                 <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                                    <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a> PERFORMANCE<i class="bi bi-info-circle step-exclamation-icon position-relative"></i>
+                                    <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a> PRESTATIE<i class="bi bi-info-circle step-exclamation-icon position-relative"></i>
                                     </h5>
                                 </div>
                                 <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                             </div>
                             <div class="form-check mb-sm-3">
                                 <input class="form-check-input" type="radio" name="performance" value="performSelf" id="performSelf" checked>
-                                <label class="form-check-label" for="performSelf">Perform Yourself</label>
+                                <label class="form-check-label" for="performSelf">Zelf Uitvoeren</label>
                             </div>
                             <div class="form-check mb-3">
                                 <input class="form-check-input" type="radio" name="performance" id="allIn" value="allIn">
-                                <label class="form-check-label" for="allIn">All-in</label>
+                                <label class="form-check-label" for="allIn">Alles-in-één</label>
                             </div>
                         </div>
 
                         <!-- Execution Section -->
                         <div class="execution-section mt-4 p-sm-3 box-sm-shadow border border-custom-gray text-18 d-none">
-                            <h6 class="execution-title poppins-600 text-18 text-dark-blue mb-3">EXECUTION 2</h6>
+                            <h6 class="execution-title poppins-600 text-18 text-dark-blue mb-3">UITVOERING 2</h6>
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <label for="surface" class="form-label">Surface</label>
+                                    <label for="surface" class="form-label">Oppervlak</label>
                                     <select id="surface" name="surface" class="form-select border-light-gray border-radius-1 py-2 px-4 h-46">
                                         <?php foreach(get_field('oppervlakte', 'option') as $i => $surface_option){
                                             echo '<option value="'.$surface_option['size'].'" '. ($i <= 0 ? 'selected' : '') .'>'.$surface_option['size'].' m2</option>';
@@ -206,7 +206,7 @@ get_header();
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="layer-thickness" class="form-label">Layer Thickness</label>
+                                    <label for="layer-thickness" class="form-label">Laagdikte</label>
                                     <select id="layer-thickness" name="layer-thickness" class="form-select border-light-gray border-radius-1 py-2 px-4 h-46">
                                         <option value="5-10" selected>5-10 cm</option>
                                         <option value="11-15">11-15 cm</option>
@@ -217,7 +217,7 @@ get_header();
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <label for="num-rooms" class="form-label">Number of Rooms</label>
+                                    <label for="num-rooms" class="form-label">Aantal Kamers</label>
                                     <select id="num-rooms" name="num-rooms" class="form-select border-light-gray border-radius-1 py-2 px-4 h-46">
                                         <?php for ($i = 0; $i < 11; $i++) {
                                             echo "<option value='$i'>$i</option>";
@@ -225,34 +225,34 @@ get_header();
                                     </select>
                                 </div>
                             </div>
-                            <p class="form-label">Floor</p>
+                            <p class="form-label">Vloer</p>
                             <div class="d-sm-flex">
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" id="mezzanine-floor" name="floor_selection" value="1">
-                                    <label class="form-check-label text-16 me-4" for="mezzanine-floor">Mezzanine Floor</label>
+                                    <label class="form-check-label text-16 me-4" for="mezzanine-floor">Tussenvloer</label>
                                 </div>
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" id="butterfly-floor" name="butterfly-floor" value="1">
-                                    <label class="form-check-label text-16" for="butterfly-floor">Butterfly Floor</label>
+                                    <label class="form-check-label text-16" for="butterfly-floor">Vlindervloer</label>
                                 </div>
                             </div>
-                            <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block mt-4" id="execution-btn" data-next="6">Continue</button>
+                            <button type="button" class="btn bg-orange h-46 uppercase border border-0 rounded-0 text-white oswald-600 text-16 w-25 w-precent-50 bg-orange-btn d-sm-none d-block mt-4" id="execution-btn" data-next="6">Doorgaan</button>
                         </div>
 
                         <!-- Email and Buttons Section -->
                         <div class="verify-email-section my-sm-4 d-sm-block d-none">
                             <div class="position-relative pb-4 d-block d-sm-none">
                                 <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                                    <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1 uppercase"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a> Confirm Email<i class="bi bi-info-circle step-exclamation-icon position-relative"></i>
+                                    <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1 uppercase"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a> Bevestig E-mail<i class="bi bi-info-circle step-exclamation-icon position-relative"></i>
                                     </h5>
                                 </div>
                                 <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                             </div>
-                            <label for="email" class="form-label text-18 text-dark-gray">Your Email Address</label>
-                            <input type="email" id="email" name="user_email" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Enter Your Email Address">
+                            <label for="email" class="form-label text-18 text-dark-gray">Uw E-mailadres</label>
+                            <input type="email" id="email" name="user_email" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Voer Uw E-mailadres in">
                             <div class="btn-wrapper mt-4">
-                                <button class="submit-btn btn text-white bg-orange h-46 uppercase bg-orange-btn border border-0 rounded-0 text-white oswald-600 text-16 me-4 px-4" type="button" value="checkout" id="pay-btn" data-next="Be patient you are on the last">Pay via iDeal</button>
-                                <button class="submit-btn btn border-orange h-46 uppercase border rounded-0 border-orange-btn text-orange oswald-600 text-16 px-4" type="button" value="quote" disabled require>Quote in PDF</button>
+                                <button class="submit-btn btn text-white bg-orange h-46 uppercase bg-orange-btn border border-0 rounded-0 text-white oswald-600 text-16 me-4 px-4" type="button" value="checkout" id="pay-btn" data-next="Be patient you are on the last">Betalen via iDeal</button>
+                                <button class="submit-btn btn border-orange h-46 uppercase border rounded-0 border-orange-btn text-orange oswald-600 text-16 px-4" type="button" value="quote" disabled require>Offerte in PDF</button>
                             </div>
                         </div>
                     </form>
@@ -263,18 +263,18 @@ get_header();
             <div class="confirm-and-pay-section section-wrap px-sm-5 py-sm-4 box-shadow-no-top box-sm-white position-relative text-dark-gray z-1" data-step="3">
                 <div class="position-relative pb-4 d-sm-inline-block d-none">
                     <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                        <h5 class="step-title text-custom-gray-4 oswald-600 text-20 d-inline-block mt-1 disabled"><i class="bi bi-check-circle-fill step-title-icon position-relative"></i> CONFIRM ADDRESS AND PAY</h5>
+                        <h5 class="step-title text-custom-gray-4 oswald-600 text-20 d-inline-block mt-1 disabled"><i class="bi bi-check-circle-fill step-title-icon position-relative"></i> BEVESTIG ADRES EN BETAAL</h5>
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
                 <div class="confirm-and-pay-section-title position-relative pb-4 d-none">
                     <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1 uppercase"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a> CONFIRM ADDRESS AND PAY</h5>
+                        <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1 uppercase"><a class="step-back"><i class="bi bi-arrow-left step-back-icon position-relative"></i></a> BEVESTIG ADRES EN BETAAL</h5>
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
                 <div class="confirm-and-pay-form form-section third-section d-none" id="thirdFormSection">
-                    <p><strong>Your Data</strong><br> Please fill in your personal details so we can check your payment and contact you.</p>
+                    <p><strong>Uw Gegevens</strong><br> Vul alstublieft uw persoonlijke gegevens in, zodat we uw betaling kunnen controleren en contact met u kunnen opnemen.</p>
 
 
                 </div>
@@ -285,7 +285,7 @@ get_header();
                 <div class="sticky-summary">
                     <div class="box-shadow bg-white">
                         <hr class="yellow pixel-p-8 opacity-100 no-border-top m-0">
-                        <div class="oswald-600 text-32 px-4 pt-3 text-dark-blue">YOUR REQUEST</div>
+                        <div class="oswald-600 text-32 px-4 pt-3 text-dark-blue">UW AANVRAAG</div>
                         <hr class="text-light-gray">
                         <div class="summary-content p-4 poppins-400 text-18 text-dark-gray">
                             <div class="d-flex justify-content-between mb-3">
@@ -293,7 +293,7 @@ get_header();
                                 <span id="beton_price_formatted"><?php wc_price(0) ?></span>
                             </div>
                             <hr class="text-light-gray">
-                            <h6 class="text-20 poppins-500 text-custom-black">Concrete Composition</h6>
+                            <h6 class="text-20 poppins-500 text-custom-black">Betonsamenstelling</h6>
                             <div class="d-flex justify-content-between" id="application_price_formatted"></div>
                             <div class="d-flex justify-content-between dynamic-hide" id="hoog-vloeibaar_formatted"></div>
                             <div class="d-flex justify-content-between dynamic-hide" id="snelhardend_formatted"></div>
@@ -304,36 +304,36 @@ get_header();
                             <hr class="text-light-gray">
 
                             <div class="release-method-pump-cost-wrapper d-flex justify-content-between mt-3 mb-3" >
-                                <span>Release method <span class="text-15 text-light-gray" id="release_method_name"></span></span>
+                                <span>Lossingsmethode <span class="text-15 text-light-gray" id="release_method_name"></span></span>
                                 <span id="pump_cost_formatted"><?php wc_price(0) ?></span>
                             </div>
                             <div id="mini-pump-breakdown" class="release-method-pump-cost-wrapper">
                                 <div class="d-flex justify-content-between mt-3 mb-3">
-                                    <span>Callout Fees</span>
+                                    <span>Voorrijkosten</span>
                                     <span id="pump_callout_cost_formatted"><?php wc_price(0) ?></span>
                                 </div>
                                 <div class="d-flex justify-content-between mt-3 mb-3">
-                                    <span>Pumping Cost</span>
+                                    <span>Pompkosten</span>
                                     <span id="pumping_cost_formatted"><?php wc_price(0) ?></span>
                                 </div>
 
                                 <div class="d-flex justify-content-between mt-3 mb-3 ">
-                                    <span>Pumping Extra Hose Cost <span id="extra_hose_length"></span></span>
+                                    <span>Kosten Extra Pomp Slang <span id="extra_hose_length"></span></span>
                                     <span id="pumping_extra_hose_cost_formatted" class="dynamic-hide"><?php wc_price(0) ?></span>
                                 </div>
                             </div>
                             <hr class="release-method-pump-cost-wrapper text-light-gray">
                             <div id="allIn-breakdown" class="all-in-cost-wrapper d-none">
                                 <div class="d-flex justify-content-between mt-3 mb-3">
-                                    <span>All-in Cost</span>
+                                    <span>All-in Kosten</span>
                                     <span id="allIn_formatted"><?php wc_price(0) ?></span>
                                 </div>
                                 <div class="d-flex justify-content-between mt-3 mb-3 ground_floor_wrapper d-none">
-                                    <span>Ground Floor Cost</span>
+                                    <span>Begane Grond Kosten</span>
                                     <span id="ground_floor_formatted"><?php wc_price(0) ?></span>
                                 </div>
                                 <div class="d-flex justify-content-between mt-3 mb-3 butterfly_floor_wrapper d-none">
-                                    <span>Butterfly Floor Cost</span>
+                                    <span>Vlindervloer Kosten</span>
                                     <span id="butterfly_floor_formatted"><?php wc_price(0) ?></span>
                                 </div>
                             </div>
@@ -343,7 +343,7 @@ get_header();
                                 <span id="sub_total">€ 6725.50</span>
                             </div> -->
                             <div class="d-flex justify-content-between mb-3">
-                                <span class="poppins-600 text-20 text-custom-black">Subtotal</span>
+                                <span class="poppins-600 text-20 text-custom-black">Subtotaal</span>
                                 <span id="sub_total_formatted"><?php wc_price(0) ?></span>
                             </div>
                             <div class="d-flex justify-content-between mb-3">
@@ -352,7 +352,7 @@ get_header();
                             </div>
                             <hr class="text-light-gray">
                             <div class="d-flex justify-content-between poppins-600 text-20 text-custom-black">
-                                <span>Total</span>
+                                <span>Totaal</span>
                                 <span id="total_formatted"><?php wc_price(0) ?></span>
                             </div>
                         </div>
