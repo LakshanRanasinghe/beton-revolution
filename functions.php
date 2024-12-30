@@ -1324,3 +1324,65 @@ function send_quotation_email($data, $email, $quote_id) {
 		wp_delete_attachment($pdf_id); //DELETE PDF
 		return ['redirect_url' => $url_r];
 }
+
+add_action('wp_ajax_concrete_add_to_cart', 'concrete_add_to_cart');
+add_action('wp_ajax_nopriv_concrete_add_to_cart', 'concrete_add_to_cart');
+function concrete_add_to_cart() {
+	$data = $_POST;
+	unset($data['action']);
+	WC()->cart->empty_cart(); // Empty the cart before add newly
+	$cart_item_key = WC()->cart->add_to_cart( 34 );
+
+	if ($cart_item_key) {
+        wp_send_json_success([
+            'message' => 'Product added to cart successfully!',
+            'cart_item_key' => $cart_item_key,
+        ]);
+    } else {
+        wp_send_json_error(['message' => 'Failed to add product to cart.']);
+    }
+
+    wp_die(); // Terminate to ensure no extra output
+}
+
+//Add custom cart item data
+function beton_cart_item_data( $cart_item_data, $product_id, $variation_id ) {
+    if( isset( $_POST['action'] ) && $_POST['action'] == 'concrete_add_to_cart' ) {
+		$data = $_POST;
+		unset($data['action']);
+		$data['city'] = $data['postalcode'];
+		$calc_data = $data;
+		$calc_data['application'] = $_POST['application_product'];
+		$calc_data['application'] = $_POST['application_product'];
+		$calc_data['compounds'] = $_POST['composition'];
+		$calc_data['release_method'] = $_POST['unloading'];
+		$calc_data['pumping_distance'] = !empty($_POST['pumping_distance']) ? $_POST['pumping_distance'] : $_POST['boom_pumping_distance'];
+		$calc_data['performance'] = $_POST['uitvoering'];
+		$calc_data['layer_thickness'] = $_POST['layer-thickness'];
+		$calc_data['rooms_count'] = $_POST['nos_rooms'];
+		$calc_data['butterfly_floor'] = $_POST['butterfly-floor'];
+		$calc_data['surface'] = $_POST['surace-sqm'];
+		$calc_data['selected_floor'] = $_POST['flooring'];
+
+		$calcuated_data = beton_calculator($calc_data);
+		wc_get_logger()->debug(json_encode($calcuated_data));
+
+		
+
+        $cart_item_data['test'] = 123;
+    }
+    return $cart_item_data;
+}
+// add_filter( 'woocommerce_add_cart_item_data', 'beton_cart_item_data', 10, 3 );
+
+//Display custom item data in the cart
+function zwt_get_item_data( $item_data, $cart_item_data ) {
+    if( isset( $cart_item_data['test'] ) ) {
+    $item_data[] = array(
+        'key' => __( 'Genre id', 'text-domain' ),
+        'value' => wc_clean( $cart_item_data['test'] )
+    );
+    }
+    return $item_data;
+}
+add_filter( 'woocommerce_get_item_data', 'zwt_get_item_data', 10, 2 );
