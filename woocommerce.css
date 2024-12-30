@@ -617,9 +617,12 @@ p.no-comments {
 
 .woocommerce-checkout .woocommerce-error {
 	background-color: #ffdbc3;
-	margin-left: 0;
-	line-height: 24px;
+	margin-left: 12px;
+    line-height: 24px;
     font-size: 14px;
+    padding: 10px;
+    list-style: none;
+    border-radius: 10px;
 }
 
 .checkout-icons {
