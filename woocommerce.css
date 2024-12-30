@@ -565,3 +565,112 @@ p.no-comments {
 .widget_price_filter .ui-slider-horizontal .ui-slider-range {
 	height: 100%;
 }
+
+.woocommerce-checkout .checkout_coupon.woocommerce-form-coupon, .woocommerce-checkout .woocommerce-form-coupon-toggle {
+	display: none !important;
+}
+
+.checkout-box {
+    padding: 16px 16px 0;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #c5cacd;
+}
+
+.checkout-btn {
+    min-height: 45px;
+    color: #fff;
+    padding: 0 16px;
+    font-weight: 700;
+    background: #00b901;
+    border-radius: 5px;
+}
+
+@media (min-width: 1025px) {
+    .verticle-separator {
+        border-right: 1px solid #c5cacd;
+    }
+}
+
+.woocommerce-checkout .beton-page-content h2 {
+    padding-top: 0;
+	margin-bottom: 0;
+}
+
+.woocommerce-checkout .woocommerce-billing-fields__field-wrapper input {
+	width: 100%;
+	padding-left: 10px;
+    padding-right: 10px;
+}
+
+.woocommerce-checkout .select2-container .select2-selection--single {
+	height: 50px !important;
+}
+
+.woocommerce-checkout .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 46px !important;
+}
+
+.woocommerce-checkout .select2-container--default .select2-selection--single .select2-selection__rendered {
+	padding: 10px;
+}
+
+.woocommerce-checkout .woocommerce-error {
+	background-color: #ffdbc3;
+	margin-left: 0;
+	line-height: 24px;
+    font-size: 14px;
+}
+
+.checkout-icons {
+	border: 1px solid #515f6a;
+	color: #515f6a;
+	padding: 4px 8px;
+	border-radius: 50px;
+}
+
+.checkout-icons:hover {
+	background: #011d33;
+	color: #ffffff;
+}
+
+.checkout-icons-btn {
+	cursor: pointer;
+}
+
+.woocommerce-checkout .beton-page-content p, .woocommerce-checkout .beton-page-content .checkout-box {
+    font-size: 18px;
+    line-height: 30px;
+    font-family: "Oswald", sans-serif;
+    font-weight: 300;
+}
+
+.woocommerce-checkout .beton-page-content .checkout-box .order-total {
+	font-weight: 700;
+}
+
+.woocommerce-checkout li.wc_payment_method label, .woocommerce-checkout .beton-page-content h3{
+	font-family: "Oswald", sans-serif;
+}
+
+.woocommerce-checkout .wc_payment_methods.payment_methods {
+	margin: 0;
+    list-style: none;
+    margin-bottom: 24px;
+	padding-left: 0;
+}
+
+.woocommerce-checkout .wc_payment_methods.payment_methods li .payment_box {
+	padding-left: 15px;
+}
+
+.woocommerce-checkout .wc_payment_methods.payment_methods li .payment_box p, .woocommerce-checkout .woocommerce-terms-and-conditions-wrapper p{
+	font-size: 16px;
+	font-family: "Poppins", sans-serif;
+	font-weight: 400;
+}
+
+#order_review .product-name .variation {
+	display: flex;
+	gap: 5px;
+}

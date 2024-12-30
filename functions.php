@@ -190,6 +190,7 @@ function beton_scripts()
 	wp_enqueue_script('beton-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 	wp_enqueue_script('jquery-cookie', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js', array('jquery'), '1.4.1', true);
 	wp_enqueue_script('beton', get_stylesheet_directory_uri() . '/js/beton.js', array('jquery'), '1.2.0', true);
+	wp_enqueue_script('beton-woocommerce', get_stylesheet_directory_uri() . '/js/beton-woocommerce.js', array('jquery'), '1.2.0', true);
 
 	global $wpdb;
 	$table_name = $wpdb->prefix . 'postcodes';
@@ -754,3 +755,10 @@ function butterfly_coster($selected_surface, $selected_rooms) : mixed {
 	}
 	return $butterfly_price;
 }
+
+function theme_wc_setup() {
+	remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
+	add_action( 'woocommerce_checkout_after_customer_details', 'woocommerce_checkout_payment', 20 );
+}
+  
+add_action( 'after_setup_theme', 'theme_wc_setup' );
