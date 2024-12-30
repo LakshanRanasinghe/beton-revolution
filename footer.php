@@ -64,7 +64,7 @@
 						<a href="<?php echo site_url(); ?>" class="light-blue link-hover">Betonstorten.nl</a>
 					</div>
 					<div class="col-12 col-sm-auto d-flex align-items-center justify-content-center justify-content-sm-end">
-						<p class="mb-0 d-none d-sm-block"><?php _e('Follow Us:', 'beton'); ?>&nbsp;</p>
+						<p class="mb-0 d-none d-sm-block">Volg ons: </p>
 						<div class="d-flex align-items-center">
 							<a href="#" class="mx-1">
 								<img class="width-30" src="<?php echo get_template_directory_uri() ?>/images/facebook.png" alt="">
