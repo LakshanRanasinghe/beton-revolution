@@ -752,7 +752,12 @@ a {
 	font-size: 32px;
 	margin-bottom: 24px;
 	padding-top: 24px;
-}    
+}  
+
+.beton-page-content h4 {
+	font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+}  
 
 .beton-page-content p{
 	font-size: 18px;
@@ -843,4 +848,33 @@ ul.dropdown-menu.depth_0 .dropdown-item:active{
 #order_review .product-name .variation dd {
    padding: 0;
    margin: 0;
+}
+
+/* Thank you Page */
+ul.woocommerce-order-overview.woocommerce-thankyou-order-details.order_details {
+   /* padding: 0;
+   margin: 0; */
+   line-height: 30px;
+}
+ul.wc-item-meta {
+   padding: 0;
+   margin: 0;
+   list-style: none;
+}
+
+ul.wc-item-meta p {
+   margin: 0;
+   padding: 0;
+}
+
+ul.wc-item-meta > li {
+   display: flex;
+   gap: 10px;
+   align-items: center;
+   font-size: 16px;
+   line-height: 20px;
+}
+.font-oswald{
+	font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
 }
