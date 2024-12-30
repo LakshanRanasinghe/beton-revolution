@@ -34,8 +34,8 @@ get_header();
         </div>
 
         <div class="row gap-3 z-1 position-relative">
-            <button class="btn-hover-orange col-lg-2 col-sm-4 col-6 oswald-600 text-sm-20 text-white text-uppercase border-2 border-white rounded-0 bg-transparent px-4 py-3">Bereken Prijs</button>
-            <button class="btn-hover col-lg-2 col-sm-4 col-5 oswald-600 text-sm-20 text-white text-uppercase border-2 border-orange bg-orange rounded-0 px-6 py-3">Gratis Offerte</button>
+            <a href="<?php echo site_url(); ?>/pour-concrete-or-order-concrete/" class="btn-hover-orange col-lg-2 col-sm-4 col-6 oswald-600 text-sm-20 text-white text-uppercase text-center border-2 border-white rounded-0 bg-transparent px-4 py-3">Bereken Prijs</a>
+            <a href="<?php echo site_url(); ?>/offerte-aanvragen/" class="btn-hover col-lg-2 col-sm-4 col-5 oswald-600 text-sm-20 text-white text-uppercase text-center border-2 border-orange bg-orange rounded-0 px-6 py-3">Gratis Offerte</a>
         </div>
     </div>
 </div>
@@ -330,7 +330,7 @@ get_header();
             <div class="h-14" style="background: linear-gradient(90deg, rgba(253, 212, 1, 0.045) 0%, #FDD401 50.5%, rgba(253, 212, 1, 0) 100%);"></div>
         </div>
         <div class="row mt-3">
-            <button class="col-md-3 col-lg-2 col-6 oswald-600 text-20 text-white text-uppercase border-2 border-orange bg-orange rounded-0 px-6 py-3 text-uppercase m-auto">Gratis Offerte</button>
+            <a href="<?php echo site_url(); ?>/offerte-aanvragen/" class="col-md-3 col-lg-2 col-6 oswald-600 text-20 text-white text-center border-2 border-orange bg-orange rounded-0 px-6 py-3 text-uppercase m-auto">Gratis Offerte</a>
         </div>
     </div>
     <div class="py-4 py-md-5"></div>
