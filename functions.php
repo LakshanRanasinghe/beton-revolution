@@ -1340,14 +1340,12 @@ function concrete_add_to_cart() {
 	WC()->cart->empty_cart(); // Empty the cart before add newly
 	$cart_item_key = WC()->cart->add_to_cart( 34 );
 
-	$cart_item_data = [
-        'custom_price' => $custom_price,
-    ];
-
 	if ($cart_item_key) {
+		WC()->session->set('billing_email', $_POST['user_email']);
         wp_send_json_success([
             'message' => 'Product added to cart successfully!',
             'cart_item_key' => $cart_item_key,
+			'redirect' => wc_get_checkout_url()
         ]);
     } else {
         wp_send_json_error(['message' => 'Failed to add product to cart.']);
@@ -1356,11 +1354,23 @@ function concrete_add_to_cart() {
     wp_die(); // Terminate to ensure no extra output
 }
 
+function override_checkout_email_field( $fields ) {
+    $billing_email = WC()->session->get('billing_email');
+    if(!is_null($billing_email)) {
+      $fields['billing']['billing_email']['default'] = $billing_email;
+    }
+    return $fields;
+}
+
+add_filter( 'woocommerce_checkout_fields' , 'override_checkout_email_field' );
+
 //Add custom cart item data
 function beton_cart_item_data( $cart_item_data, $product_id, $variation_id ) {
     if( isset( $_POST['action'] ) && $_POST['action'] == 'concrete_add_to_cart' ) {
 		$data = $_POST;
 		unset($data['action']);
+
+
 		$data['city'] = $data['postalcode'];
 		$calc_data = $data;
 		$calc_data['application'] = $_POST['application_product'];

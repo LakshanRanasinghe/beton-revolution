@@ -225,3 +225,17 @@ if ( ! function_exists( 'beton_woocommerce_header_cart' ) ) {
 		<?php
 	}
 }
+
+add_action( 'template_redirect', 'skip_cart_redirect' );
+function skip_cart_redirect(){
+    // Redirect to checkout (when cart is not empty)
+    if ( ! WC()->cart->is_empty() && is_cart() ) {
+        wp_safe_redirect( wc_get_checkout_url() ); 
+        exit();
+    }
+    // Redirect to shop if cart is empty
+    elseif ( WC()->cart->is_empty() && is_cart() ) {
+        wp_safe_redirect( wc_get_page_permalink( 'home' ) );
+        exit();
+    }
+}

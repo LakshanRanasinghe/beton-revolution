@@ -878,3 +878,10 @@ ul.wc-item-meta > li {
 	font-family: "Oswald", sans-serif;
     font-optical-sizing: auto;
 }
+
+#autocomplete-list {
+   top: 60px;
+   border-radius: 0;
+   border: 0;
+   z-index: 99999999999;
+}
