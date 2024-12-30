@@ -34,20 +34,22 @@
 						<div class="col">
 							<div class="row gx-3 row-cols-auto">
 								<div class="col">
-									<a href="#" class="btn-bg-opacity-10 px-3 py-1 text-yellow uppercase text-sm oswald-400"><i class="bi bi-lightning-charge-fill text-white"></i> <?php _e('Superfast Service', 'beton') ?>!</a>
+									<a href="#" class="btn-bg-opacity-10 px-3 py-1 text-yellow uppercase text-sm oswald-400"><i class="bi bi-lightning-charge-fill text-white"></i> Supersnelle service!</a>
 								</div>
 								<div class="col">
-									<a href="#" class="btn-bg-opacity-10 px-3 py-1 text-yellow uppercase text-sm oswald-400"><i class="bi bi-lightning-charge-fill text-white"></i> <?php _e('Always Nearby', 'beton'); ?>!</a>
+									<a href="#" class="btn-bg-opacity-10 px-3 py-1 text-yellow uppercase text-sm oswald-400"><i class="bi bi-lightning-charge-fill text-white"></i> Altijd in de buurt!</a>
 								</div>
 							</div>
 						</div>
 						<div class="col">
 							<div class="row gx-4 row-cols-auto justify-content-end">
 								<div class="col">
-									<a href="tel:00000000000" class="text-white uppercase text-sm oswald-400"><i class="bi bi-phone"></i> <?php _e('Call', 'beton'); ?>: 06-27016082</a>
+									<!-- <a href="tel:00000000000" class="text-white uppercase text-sm oswald-400"><i class="bi bi-phone"></i> <?php //_e('Call', 'beton'); ?>: 06-27016082</a> -->
+									<a href="tel:00000000000" class="text-white uppercase oswald-600 text-sm-14 letter-spacing-four"><i class="bi bi-phone"></i> 06-27016082</a>
 								</div>
 								<div class="col">
-									<a href="mailto:info@betonstorten.nl" class="text-white uppercase text-sm oswald-400"><i class="bi bi-envelope"></i> <?php _e('E-mail', 'beton'); ?>: info@betonstorten.nl</a>
+									<!-- <a href="mailto:info@betonstorten.nl" class="text-white uppercase text-sm oswald-400"><i class="bi bi-envelope"></i> <?php //_e('E-mail', 'beton'); ?>: info@betonstorten.nl</a> -->
+									<a href="mailto:info@betonstorten.nl" class="text-white uppercase text-sm-14 oswald-400 letter-spacing-four"><i class="bi bi-envelope"></i> info@betonstorten.nl</a>
 								</div>
 							</div>
 						</div>
@@ -58,13 +60,19 @@
 						<div class="col">
 							<div class="row gx-4 row-cols-auto">
 								<div class="col-5">
-									<a href="tel:00000000000" class="text-white uppercase text-sm oswald-400">
-										<i class="bi bi-phone"></i> <?php _e('Call', 'beton'); ?>: 06-27016082
+									<!-- <a href="tel:00000000000" class="text-white uppercase oswald-600 text-sm-14">
+										<i class="bi bi-phone"></i> <?php //_e('Call', 'beton'); ?>: 06-27016082
+									</a> -->
+									<a href="tel:00000000000" class="text-white uppercase oswald-600 text-sm-14 letter-spacing-four">
+										<i class="bi bi-phone"></i> 06-27016082
 									</a>
 								</div>
 								<div class="col-7 d-flex justify-content-end">
-									<a href="mailto:info@betonstorten.nl" class="text-white uppercase text-sm oswald-400">
-										<i class="bi bi-envelope"></i> <?php _e('E-mail', 'beton'); ?>: info@betonstorten.nl
+									<!-- <a href="mailto:info@betonstorten.nl" class="text-white uppercase text-sm-14 oswald-400">
+										<i class="bi bi-envelope"></i> <?php //_e('E-mail', 'beton'); ?>: info@betonstorten.nl
+									</a> -->
+									<a href="mailto:info@betonstorten.nl" class="text-white uppercase text-sm-14 oswald-400 letter-spacing-four">
+										<i class="bi bi-envelope"></i> info@betonstorten.nl
 									</a>
 								</div>
 							</div>
