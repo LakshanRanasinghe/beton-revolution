@@ -124,10 +124,10 @@ jQuery(document).ready(function ($) {
       trigger_calculator();
    });
    $('input[name="pump-type"]').on("change", function () {
-      if($(this).val() == 'boom'){
-         $('#mini-pump-breakdown').addClass('d-none');
-      }else{
-         $('#mini-pump-breakdown').removeClass('d-none');
+      if ($(this).val() == "boom") {
+         $("#mini-pump-breakdown").addClass("d-none");
+      } else {
+         $("#mini-pump-breakdown").removeClass("d-none");
       }
       trigger_calculator();
    });
@@ -144,10 +144,12 @@ jQuery(document).ready(function ($) {
    $('input[name="performance"]').on("change", function () {
       if ($('input[name="performance"]:checked').val() == "allIn") {
          $("#pump").click();
-         $('.all-in-cost-wrapper').removeClass('d-none');
+         $(".all-in-cost-wrapper").removeClass("d-none");
+         // $(".all-in-cost-wrapper").addClass("d-sm-block");
       } else {
          trigger_calculator();
-         $('.all-in-cost-wrapper').addClass('d-none');
+         $(".all-in-cost-wrapper").addClass("d-none");
+         // $(".all-in-cost-wrapper").removeClass("d-sm-block");
       }
    });
    $('select[name="num-rooms"]').on("change", function () {
@@ -174,6 +176,68 @@ jQuery(document).ready(function ($) {
       }
    });
 
+   $(".submit-btn").on("click", function (e) {
+      e.preventDefault();
+      if ($(this).val() == "quote") {
+         send_to_quotation();
+      } else {
+      }
+      console.log($(this).val());
+   });
+
+   $('#email').on('change', function(){
+      if($(this).val() !== ''){
+         $('.submit-btn[value="quote"]').prop("disabled", false);
+      }else{
+         $('.submit-btn[value="quote"]').prop("disabled", true);
+      }
+   })
+
+   function send_to_quotation() {
+      let compositions = [];
+      $('input[name="compound"]:checked').each(function () {
+         compositions.push($(this).attr("value"));
+      });
+
+      var dataSet = {
+         action: 'save_quotation',
+         user_email: $("#email").val(),
+         area_code: $.cookie("selected_area_code"),
+         postalcode: $("#postcode-input").val(),
+         cubic_meters: $("#cubic-meters").val(),
+         application_product: $('input[name="application"]:checked').val(),
+         composition: compositions,
+         unloading: $('input[name="releaseMethod"]:checked').val(),
+         pump_type: $('input[name="pump-type"]:checked').val(),
+         pumping_distance: $('select[name="mini_pumping_distance"]').val(),
+         boom_pumping_distance: $('select[name="boom_pumping_distance"]').val(),
+         uitvoering: $('input[name="performance"]:checked').val(),
+         "surace-sqm": $('select[name="surface"]').val(),
+         "layer-thickness": $("#layer-thickness").val(),
+         nos_rooms: $("#num-rooms").val(),
+         flooring: $("#mezzanine-floor").is(":checked") ? 1 : 0,
+         "butterfly-floor": $("#butterfly-floor").is(":checked") ? 1 : 0,
+      };
+
+      $.ajax({
+         type: "post",
+         url: betonData.ajax_url,
+         data: dataSet,
+         success: function (response) {
+            if(response.data.status == 'mail-sent'){
+               $(".confirm-and-pay-section").addClass("active");
+               $(".type-and-kind-section").removeClass("pending");
+               $(".type-and-kind-section").removeClass("active");
+               $(".type-and-kind-section").addClass("inactive");
+               $('.type-and-kind-form').addClass('d-none');
+
+               $('.confirm-and-pay-section').find('.step-title').removeClass('disabled');
+               $('#email').val('').trigger('change');
+            }
+         }
+      });
+   }
+
    //  trigger_calculator();
    function trigger_calculator() {
       let compounds = [];
@@ -184,28 +248,28 @@ jQuery(document).ready(function ($) {
       let release_method = "gutter";
       let pump_type = null;
       let pumping_distance = 0;
-      $('#release_method_name').text('');
+      $("#release_method_name").text("");
       if ($('input[name="releaseMethod"]:checked').val() == "pump") {
          release_method = "pump";
          console.log("pump");
-         $('.release-method-pump-cost-wrapper').removeClass('d-none');
-         $('.release-by-pump').removeClass('d-sm-none').addClass('d-sm-block');
+         $(".release-method-pump-cost-wrapper").removeClass("d-none");
+         $(".release-by-pump").removeClass("d-sm-none").addClass("d-sm-block");
 
          pump_type = $('input[name="pump-type"]:checked').val();
 
          if (pump_type == "mini") {
             pumping_distance = $('select[name="mini_pumping_distance"]').val();
-            $('#release_method_name').text(': Mini');
+            $("#release_method_name").text(": Mini");
          } else {
             pumping_distance = $('select[name="boom_pumping_distance"]').val();
-            if(pump_type == "boom") {
-               $('#release_method_name').text(': Boom');
+            if (pump_type == "boom") {
+               $("#release_method_name").text(": Boom");
             }
          }
       } else {
          console.log("no pump");
-         $('.release-method-pump-cost-wrapper').addClass('d-none');
-         $('.release-by-pump').removeClass('d-sm-block').addClass('d-sm-none');
+         $(".release-method-pump-cost-wrapper").addClass("d-none");
+         $(".release-by-pump").removeClass("d-sm-block").addClass("d-sm-none");
          // $('select[name="mini_pumping_distance"]').val('');
          // $('input[name="pump-type"]').val('');
          // $('.release-by-pump').addClass('d-none d-sm-none');
@@ -238,33 +302,67 @@ jQuery(document).ready(function ($) {
       };
 
       console.log(dataSet);
-      $.ajax({
-         type: "post",
-         url: betonData.ajax_url,
-         data: dataSet,
-         success: function (response) {
-            console.log(response);
-            if (response.data) {
-               $(".dynamic-hide").removeClass("d-flex").addClass("d-none");
-               $(".hide-on-ajax").addClass("d-none");
-               $.each(response.data.dynamic_pricing, function (index, val) {
-                  if ($("#" + index).length > 0) {
-                     $("#" + index).html(val);
+      if(!$(document.body).hasClass('home')){//don't run on home page
+         $.ajax({
+            type: "post",
+            url: betonData.ajax_url,
+            data: dataSet,
+            success: function (response) {
+               console.log(response);
+               if (response.data) {
+                  $(".dynamic-hide").removeClass("d-flex").addClass("d-none");
+                  $(".hide-on-ajax").addClass("d-none");
+                  $.each(response.data.dynamic_pricing, function (index, val) {
+                     if ($("#" + index).length > 0) {
+                        $("#" + index).html(val);
 
-                     if ($("#" + index).hasClass("dynamic-hide")) {
-                        $("#" + index)
-                           .removeClass("d-none")
-                           .addClass("d-flex");
+                        if ($("#" + index).hasClass("dynamic-hide")) {
+                           $("#" + index)
+                              .removeClass("d-none")
+                              .addClass("d-flex");
+                        }
                      }
-
-                  }
-               });
-            }
-         },
-         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Status: " + textStatus);
-            alert("Error: " + errorThrown);
-         },
-      });
+                  });
+               }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+               alert("Status: " + textStatus);
+               alert("Error: " + errorThrown);
+            },
+         });
+      }
    }
+
+   $('.step-title').not('.disabled').on('click', function(){
+      var clicked_section = $(this).parents('.section-wrap');
+      let total_steps = 3;
+      let clicked_step = $(clicked_section).data('step');
+
+      let current_section = $('.section.active');
+      let current_step = $(current_section).data('step');
+
+      $(clicked_section).addClass('active').addClass('pending').removeClass('inactive').removeClass('filled');
+
+      console.log(clicked_section);
+
+      for (let index = 1; index <= total_steps; index++) {
+         if(index == clicked_step){
+            $('.section-wrap[data-step='+index+']').find('.form-section').removeClass('d-none');
+            continue;
+         }else{
+            $('.section-wrap[data-step='+index+']').find('.form-section').addClass('d-none');
+         }
+
+         if(index == 1){
+            if ($("#postcode-input").val() == "" || $("#cubic-meters").val() == "" || $("#cubic-meters").val() <= 0) {
+               $("#location-and-quantity-btn").prop("disabled", true);
+               $(".location-and-quantity-section").addClass("pending").removeClass("filled");
+            }
+         }
+         console.log($('.section-wrap[data-step='+index+']'));
+
+         $('.section-wrap[data-step='+index+']').removeClass('active').removeClass('pending').removeClass('inactive')
+      }
+      
+   });
 });
