@@ -10,7 +10,7 @@ get_header();
             <p class="step-number-container poppins-400 text-12 text-custom-gray-4 mb-1 d-sm-none d-block ms-4 ps-1">Step <strong><span id="step-number">1</span>/6</strong></p>
             <p class="step-text-container poppins-400 text-12 text-custom-gray-4 mb-1 d-none d-block ms-4 ps-1">Be patient you are on the last</p>
             <!-- First Section -->
-            <div class="location-and-quantity-section px-sm-5 py-sm-4 box-shadow-no-bottom box-sm-white position-relative z-3 pending">
+            <div class="location-and-quantity-section section-wrap px-sm-5 py-sm-4 box-shadow-no-bottom box-sm-white position-relative z-3 pending" data-step="1">
                 <div class="position-relative pb-4 d-sm-block">
                     <div class="position-relative z-1 bg-sm-white bg-custom-gray-3 d-inline-block pe-3 py-sm-0 py-1">
                         <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative d-sm-inline-block d-none"></i> LOCATION AND CONCRETE QUANTITY</h5>
@@ -23,7 +23,7 @@ get_header();
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
-                <div class="location-and-quantity-form text-sm-18 poppins-500" id="initialFormSection">
+                <div class="location-and-quantity-form form-section text-sm-18 poppins-500" id="initialFormSection">
                     <form>
                         <div class="mb-4">
                             <label for="location" class="form-label text-dark-gray">Location</label>
@@ -39,14 +39,14 @@ get_header();
             </div>
 
             <!-- Second Section -->
-            <div class="type-and-kind-section px-sm-5 py-sm-4 box-shadow-no-bottom box-sm-white position-relative text-dark-gray z-2 pending">
+            <div class="type-and-kind-section section-wrap px-sm-5 py-sm-4 box-shadow-no-bottom box-sm-white position-relative text-dark-gray z-2 pending" data-step="2">
                 <div class="position-relative pb-4 d-sm-block d-none">
                     <div class="position-relative z-1 bg-white d-sm-inline-block pe-3">
                         <h5 class="step-title text-custom-gray-4 oswald-600 text-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative d-sm-inline-block d-none"></i> TYPE AND KIND</h5>
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
-                <div class="type-and-kind-form text-16 poppins-500" id="newFormSection">
+                <div class="type-and-kind-form text-16 poppins-500 form-section" id="newFormSection">
                     <form>
                         <input type="hidden" name="nonce" id="beton_nonce" value="<?php echo wp_create_nonce("beton_calculator_nonce"); ?>">
                         <!-- Application, Compound, Release Method Section -->
@@ -260,10 +260,10 @@ get_header();
             </div>
 
             <!-- Third Section -->
-            <div class="confirm-and-pay-section px-sm-5 py-sm-4 box-shadow-no-top box-sm-white position-relative text-dark-gray z-1 ">
+            <div class="confirm-and-pay-section section-wrap px-sm-5 py-sm-4 box-shadow-no-top box-sm-white position-relative text-dark-gray z-1" data-step="3">
                 <div class="position-relative pb-4 d-sm-inline-block d-none">
                     <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                        <h5 class="step-title text-custom-gray-4 oswald-600 text-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative"></i> CONFIRM ADDRESS AND PAY</h5>
+                        <h5 class="step-title text-custom-gray-4 oswald-600 text-20 d-inline-block mt-1 disabled"><i class="bi bi-check-circle-fill step-title-icon position-relative"></i> CONFIRM ADDRESS AND PAY</h5>
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>

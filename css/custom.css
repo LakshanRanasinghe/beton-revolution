@@ -786,3 +786,6 @@ a:focus {
 }
 
 /*Page content styles -> end*/
+.step-title {
+   cursor: pointer;
+}

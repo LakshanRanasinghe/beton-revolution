@@ -230,6 +230,9 @@ jQuery(document).ready(function ($) {
                $(".type-and-kind-section").removeClass("active");
                $(".type-and-kind-section").addClass("inactive");
                $('.type-and-kind-form').addClass('d-none');
+
+               $('.confirm-and-pay-section').find('.step-title').removeClass('disabled');
+               $('#email').val('').trigger('change');
             }
          }
       });
@@ -329,4 +332,37 @@ jQuery(document).ready(function ($) {
          });
       }
    }
+
+   $('.step-title').not('.disabled').on('click', function(){
+      var clicked_section = $(this).parents('.section-wrap');
+      let total_steps = 3;
+      let clicked_step = $(clicked_section).data('step');
+
+      let current_section = $('.section.active');
+      let current_step = $(current_section).data('step');
+
+      $(clicked_section).addClass('active').addClass('pending').removeClass('inactive').removeClass('filled');
+
+      console.log(clicked_section);
+
+      for (let index = 1; index <= total_steps; index++) {
+         if(index == clicked_step){
+            $('.section-wrap[data-step='+index+']').find('.form-section').removeClass('d-none');
+            continue;
+         }else{
+            $('.section-wrap[data-step='+index+']').find('.form-section').addClass('d-none');
+         }
+
+         if(index == 1){
+            if ($("#postcode-input").val() == "" || $("#cubic-meters").val() == "" || $("#cubic-meters").val() <= 0) {
+               $("#location-and-quantity-btn").prop("disabled", true);
+               $(".location-and-quantity-section").addClass("pending").removeClass("filled");
+            }
+         }
+         console.log($('.section-wrap[data-step='+index+']'));
+
+         $('.section-wrap[data-step='+index+']').removeClass('active').removeClass('pending').removeClass('inactive')
+      }
+      
+   });
 });
