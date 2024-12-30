@@ -145,11 +145,11 @@ jQuery(document).ready(function ($) {
       if ($('input[name="performance"]:checked').val() == "allIn") {
          $("#pump").click();
          $(".all-in-cost-wrapper").removeClass("d-none");
-         // $(".all-in-cost-wrapper").addClass("d-sm-block");
+         $(".execution-section").addClass("d-sm-block").removeClass('d-none');
       } else {
          trigger_calculator();
          $(".all-in-cost-wrapper").addClass("d-none");
-         // $(".all-in-cost-wrapper").removeClass("d-sm-block");
+         $(".execution-section").addClass("d-none").removeClass('d-sm-block');
       }
    });
    $('select[name="num-rooms"]').on("change", function () {

@@ -789,3 +789,14 @@ a:focus {
 .step-title {
    cursor: pointer;
 }
+#order_review .product-name .variation {
+   display: grid !important;
+   grid-template-columns: repeat(2, 1fr);
+}
+#order_review .product-name .variation p{
+   margin: auto;
+}
+#order_review .product-name .variation dd {
+   padding: 0;
+   margin: 0;
+}

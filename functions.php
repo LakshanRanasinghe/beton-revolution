@@ -190,6 +190,7 @@ function beton_scripts()
 	wp_enqueue_script('beton-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 	wp_enqueue_script('jquery-cookie', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js', array('jquery'), '1.4.1', true);
 	wp_enqueue_script('beton', get_stylesheet_directory_uri() . '/js/beton.js', array('jquery'), '1.2.0', true);
+	wp_enqueue_script('beton-checkout', get_stylesheet_directory_uri() . '/js/beton-woocommerce.js', array('jquery'), '1.2.0', true);
 
 	global $wpdb;
 	$table_name = $wpdb->prefix . 'postcodes';
@@ -403,7 +404,7 @@ function beton_calculator($data = null)
 
 	$response_data_set['application_price'] = $application_price;
 	$response_data_set['application_price_formatted'] = '<span>' . $application_data['product_name'] . '</span><span>' . wc_price($application_price) . '</span>';
-	
+	$sub_total += $application_price;
 	// Compounds
 	$compound_total = 0;
 	if(!empty($selected_compounds) && is_array($selected_compounds)){
@@ -764,6 +765,12 @@ function butterfly_coster($selected_surface, $selected_rooms) : mixed {
 	return $butterfly_price;
 }
 
+function theme_wc_setup() {
+	remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
+	add_action( 'woocommerce_checkout_after_customer_details', 'woocommerce_checkout_payment', 20 );
+}
+add_action( 'after_setup_theme', 'theme_wc_setup' );
+
 add_action('wp_ajax_save_quotation', 'save_quotation');
 add_action('wp_ajax_nopriv_save_quotation', 'save_quotation');
 function save_quotation() : void {
@@ -778,7 +785,7 @@ function save_quotation() : void {
 	$calc_data['application'] = $_POST['application_product'];
 	$calc_data['compounds'] = $_POST['composition'];
 	$calc_data['release_method'] = $_POST['unloading'];
-	$calc_data['pumping_distance'] = !empty($_POST['pumping_distance']) ? $_POST['pumping_distance'] : $_POST['boom_pumping_distance'];
+	$calc_data['pumping_distance'] = (isset($_POST['pump-type']) && $_POST['pump-type'] == 'mini' ? $_POST['pumping_distance'] : $_POST['boom_pumping_distance']);
 	$calc_data['performance'] = $_POST['uitvoering'];
 	$calc_data['layer_thickness'] = $_POST['layer-thickness'];
 	$calc_data['rooms_count'] = $_POST['nos_rooms'];
@@ -1212,21 +1219,21 @@ function quotation_html($quote_id)
 	return ['html' => $html, 'id' => $quote_id , 'title' => get_the_title($quote_id )]; // return html
 }
 
-function test_pdf()
-{
-	if (empty($_GET['download_pdf'])) {
-		return;
-	}
+// function test_pdf()
+// {
+// 	if (empty($_GET['download_pdf'])) {
+// 		return;
+// 	}
 
-	// echo $data['html'];
-	$quote_id = 160;
-	$data = quotation_html(160);
+// 	// echo $data['html'];
+// 	$quote_id = 160;
+// 	$data = quotation_html(160);
 
-	send_quotation_email($data, 'harshana@dayzsolutions.com', $quote_id);
+// 	send_quotation_email($data, 'harshana@dayzsolutions.com', $quote_id);
 
-	// stream_pdf_file($data['html'], $data['id'], $data['title'], true);
-}
-add_action('init', 'test_pdf');
+// 	// stream_pdf_file($data['html'], $data['id'], $data['title'], true);
+// }
+// add_action('init', 'test_pdf');
 
 function stream_pdf_file($contents, $id, $title, $is_stream = false)
 {
@@ -1333,6 +1340,10 @@ function concrete_add_to_cart() {
 	WC()->cart->empty_cart(); // Empty the cart before add newly
 	$cart_item_key = WC()->cart->add_to_cart( 34 );
 
+	$cart_item_data = [
+        'custom_price' => $custom_price,
+    ];
+
 	if ($cart_item_key) {
         wp_send_json_success([
             'message' => 'Product added to cart successfully!',
@@ -1356,7 +1367,7 @@ function beton_cart_item_data( $cart_item_data, $product_id, $variation_id ) {
 		$calc_data['application'] = $_POST['application_product'];
 		$calc_data['compounds'] = $_POST['composition'];
 		$calc_data['release_method'] = $_POST['unloading'];
-		$calc_data['pumping_distance'] = !empty($_POST['pumping_distance']) ? $_POST['pumping_distance'] : $_POST['boom_pumping_distance'];
+		$calc_data['pumping_distance'] = (isset($_POST['pump-type']) && $_POST['pump-type'] == 'mini' ? $_POST['pumping_distance'] : $_POST['boom_pumping_distance']);
 		$calc_data['performance'] = $_POST['uitvoering'];
 		$calc_data['layer_thickness'] = $_POST['layer-thickness'];
 		$calc_data['rooms_count'] = $_POST['nos_rooms'];
@@ -1365,24 +1376,101 @@ function beton_cart_item_data( $cart_item_data, $product_id, $variation_id ) {
 		$calc_data['selected_floor'] = $_POST['flooring'];
 
 		$calcuated_data = beton_calculator($calc_data);
-		wc_get_logger()->debug(json_encode($calcuated_data));
 
-		
+		if($calcuated_data['beton_price'] && $calcuated_data['cubic_meters_formatted']){
+			$cart_item_data['concrete_value'] = $calcuated_data['beton_price'];
+			$cubic_meters = number_format($calcuated_data['cubic_meters_formatted'], 2);
+			$cart_item_data['concrete_label'] = "Beton: {$cubic_meters}m³";
+		}
 
-        $cart_item_data['test'] = 123;
+		if(isset($calcuated_data['application_price'])){
+			$cart_item_data['application_label'] = "Toepassing";
+			$cart_item_data['application_value'] = $calcuated_data['application_price'];
+		}
+
+		if($data['composition']){
+			$cart_item_data['compositions_label'] = ucwords(str_replace('-', ' ', implode(', ', $data['composition'])));
+			$cart_item_data['compositions_value'] = $calcuated_data['application_compound_total'];
+		}
+
+		if(isset($data['unloading'])){
+			$cart_item_data['unloading_label'] = "Loswijze";
+			$cart_item_data['unloading_value'] = $data['unloading'] == 'pump' ? 'Pomp' : "Gutter";
+		}
+
+		if(isset($calcuated_data['pump_cost'])){
+			$cart_item_data['pump_label'] = ($data['pump_type'] == 'mini' ? 'Mini betonpomp' : 'Giekpomp');
+			$cart_item_data['pump_value'] = $calcuated_data['pump_cost'];
+		}
+
+		if(isset($calcuated_data['pump_callout_cost'])){
+			$cart_item_data['callout_label'] = "Voorrijkosten";
+			$cart_item_data['callout_value'] = $calcuated_data['pump_callout_cost'];
+		}
+
+		if(isset($calcuated_data['pumping_cost'])){
+			$cart_item_data['pumping_label'] = "Pompafstand - {$data['pumping_distance']}m";
+			$cart_item_data['pumping_value'] = $calcuated_data['pumping_cost'];
+		}
+
+		if(isset($calcuated_data['pumping_extra_hose_cost'])){
+			$cart_item_data['pumping_value'] = $calcuated_data['pumping_cost'] + $calcuated_data['pumping_extra_hose_cost'];
+		}
+
+		if(isset($calcuated_data['allIn_cost'])){
+			$cart_item_data['allin_label'] = "All-in";
+			$cart_item_data['allin_value'] = $calcuated_data['allIn_cost'];
+		}
+
+		if(isset($calcuated_data['butterfly_floor_cost'])){
+			$cart_item_data['butterfly_floor_label'] = "Vlindervloer";
+			$cart_item_data['butterfly_floor_value'] = $calcuated_data['butterfly_floor_cost'];
+		}
+
+		$cart_item_data['sub_total'] = $calcuated_data['sub_total'];
     }
     return $cart_item_data;
 }
-// add_filter( 'woocommerce_add_cart_item_data', 'beton_cart_item_data', 10, 3 );
+add_filter( 'woocommerce_add_cart_item_data', 'beton_cart_item_data', 10, 3 );
 
 //Display custom item data in the cart
-function zwt_get_item_data( $item_data, $cart_item_data ) {
-    if( isset( $cart_item_data['test'] ) ) {
-    $item_data[] = array(
-        'key' => __( 'Genre id', 'text-domain' ),
-        'value' => wc_clean( $cart_item_data['test'] )
-    );
-    }
+function beton_get_item_data( $item_data, $cart_item_data ) {
+	foreach($cart_item_data as $label => $cart_item){
+		if(str_ends_with($label, 'label')){
+			$value = $cart_item_data[str_replace('label', 'value', $label)];
+			$item_data[] = array(
+				'key' => $cart_item_data[$label],
+				'value' => is_numeric($value) ? wc_price($value) : wc_clean($value)
+			);
+		}
+	}
+
     return $item_data;
 }
-add_filter( 'woocommerce_get_item_data', 'zwt_get_item_data', 10, 2 );
+add_filter( 'woocommerce_get_item_data', 'beton_get_item_data', 10, 2 );
+
+add_action('woocommerce_before_calculate_totals', function($cart_object){
+	foreach ($cart_object->get_cart() as $cart_item_key => $cart_item) {
+		$product = $cart_item['data'];
+		$sub_total = floatval($cart_item['sub_total']);
+
+		if (!empty($sub_total)) {
+			$cart_item['data']->set_price($sub_total);
+		}
+	}
+});
+
+//Add custom meta to order
+function beton_checkout_create_order_line_item( $item, $cart_item_key, $values, $order ) {
+	foreach($values as $label => $cart_item){
+		if(str_ends_with($label, 'label')){
+			$value = $values[str_replace('label', 'value', $label)];
+			$item->add_meta_data($values[$label], is_numeric($value) ? wc_price($value) : wc_clean($value), true);
+		}
+	}
+
+    if( isset( $values['zwt_field'] ) ) {
+        $item->add_meta_data(__( 'Genre id', 'text-domain' ), $values['zwt_field'], true);
+    }
+}
+add_action( 'woocommerce_checkout_create_order_line_item', 'beton_checkout_create_order_line_item', 10, 4 );
