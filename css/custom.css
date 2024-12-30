@@ -830,4 +830,6 @@ ul.dropdown-menu.depth_0 .dropdown-item:active{
 .btn-hover-orange:hover{
    background-color: #FF6400 !important;
    border: 2px solid #FF6400; 
+}.step-title {
+   cursor: pointer;
 }

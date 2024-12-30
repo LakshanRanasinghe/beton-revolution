@@ -10,7 +10,7 @@ get_header();
             <p class="step-number-container poppins-400 text-12 text-custom-gray-4 mb-1 d-sm-none d-block ms-4 ps-1">Step <strong><span id="step-number">1</span>/6</strong></p>
             <p class="step-text-container poppins-400 text-12 text-custom-gray-4 mb-1 d-none d-block ms-4 ps-1">Be patient you are on the last</p>
             <!-- First Section -->
-            <div class="location-and-quantity-section px-sm-5 py-sm-4 box-shadow-no-bottom box-sm-white position-relative z-3 pending">
+            <div class="location-and-quantity-section section-wrap px-sm-5 py-sm-4 box-shadow-no-bottom box-sm-white position-relative z-3 pending" data-step="1">
                 <div class="position-relative pb-4 d-sm-block">
                     <div class="position-relative z-1 bg-sm-white bg-custom-gray-3 d-inline-block pe-3 py-sm-0 py-1">
                         <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative d-sm-inline-block d-none"></i> LOCATION AND CONCRETE QUANTITY</h5>
@@ -23,7 +23,7 @@ get_header();
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
-                <div class="location-and-quantity-form text-sm-18 poppins-500" id="initialFormSection">
+                <div class="location-and-quantity-form form-section text-sm-18 poppins-500" id="initialFormSection">
                     <form>
                         <div class="mb-4">
                             <label for="location" class="form-label text-dark-gray">Location</label>
@@ -39,14 +39,14 @@ get_header();
             </div>
 
             <!-- Second Section -->
-            <div class="type-and-kind-section px-sm-5 py-sm-4 box-shadow-no-bottom box-sm-white position-relative text-dark-gray z-2 pending">
+            <div class="type-and-kind-section section-wrap px-sm-5 py-sm-4 box-shadow-no-bottom box-sm-white position-relative text-dark-gray z-2 pending" data-step="2">
                 <div class="position-relative pb-4 d-sm-block d-none">
                     <div class="position-relative z-1 bg-white d-sm-inline-block pe-3">
                         <h5 class="step-title text-custom-gray-4 oswald-600 text-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative d-sm-inline-block d-none"></i> TYPE AND KIND</h5>
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
-                <div class="type-and-kind-form text-16 poppins-500" id="newFormSection">
+                <div class="type-and-kind-form text-16 poppins-500 form-section" id="newFormSection">
                     <form>
                         <input type="hidden" name="nonce" id="beton_nonce" value="<?php echo wp_create_nonce("beton_calculator_nonce"); ?>">
                         <!-- Application, Compound, Release Method Section -->
@@ -184,7 +184,7 @@ get_header();
                                 <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                             </div>
                             <div class="form-check mb-sm-3">
-                                <input class="form-check-input" type="radio" name="performance" value="performSelf" id="performSelf">
+                                <input class="form-check-input" type="radio" name="performance" value="performSelf" id="performSelf" checked>
                                 <label class="form-check-label" for="performSelf">Perform Yourself</label>
                             </div>
                             <div class="form-check mb-3">
@@ -194,7 +194,7 @@ get_header();
                         </div>
 
                         <!-- Execution Section -->
-                        <div class="execution-section mt-4 p-sm-3 box-sm-shadow border border-custom-gray text-18 d-sm-block d-none">
+                        <div class="execution-section mt-4 p-sm-3 box-sm-shadow border border-custom-gray text-18 d-none">
                             <h6 class="execution-title poppins-600 text-18 text-dark-blue mb-3">EXECUTION 2</h6>
                             <div class="row mb-3">
                                 <div class="col-md-6">
@@ -249,10 +249,10 @@ get_header();
                                 <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                             </div>
                             <label for="email" class="form-label text-18 text-dark-gray">Your Email Address</label>
-                            <input type="email" id="email" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Enter Your Email Address">
+                            <input type="email" id="email" name="user_email" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Enter Your Email Address">
                             <div class="btn-wrapper mt-4">
-                                <button class="btn text-white bg-orange h-46 uppercase bg-orange-btn border border-0 rounded-0 text-white oswald-600 text-16 me-4 px-4" id="pay-btn" data-next="Be patient you are on the last">Pay via iDeal</button>
-                                <button class="btn border-orange h-46 uppercase border rounded-0 border-orange-btn text-orange oswald-600 text-16 px-4">Quote in PDF</button>
+                                <button class="submit-btn btn text-white bg-orange h-46 uppercase bg-orange-btn border border-0 rounded-0 text-white oswald-600 text-16 me-4 px-4" type="button" value="checkout" id="pay-btn" data-next="Be patient you are on the last">Pay via iDeal</button>
+                                <button class="submit-btn btn border-orange h-46 uppercase border rounded-0 border-orange-btn text-orange oswald-600 text-16 px-4" type="button" value="quote" disabled require>Quote in PDF</button>
                             </div>
                         </div>
                     </form>
@@ -260,10 +260,10 @@ get_header();
             </div>
 
             <!-- Third Section -->
-            <div class="confirm-and-pay-section px-sm-5 py-sm-4 box-shadow-no-top box-sm-white position-relative text-dark-gray z-1 ">
+            <div class="confirm-and-pay-section section-wrap px-sm-5 py-sm-4 box-shadow-no-top box-sm-white position-relative text-dark-gray z-1" data-step="3">
                 <div class="position-relative pb-4 d-sm-inline-block d-none">
                     <div class="position-relative z-1 bg-white d-inline-block pe-3">
-                        <h5 class="step-title text-custom-gray-4 oswald-600 text-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative"></i> CONFIRM ADDRESS AND PAY</h5>
+                        <h5 class="step-title text-custom-gray-4 oswald-600 text-20 d-inline-block mt-1 disabled"><i class="bi bi-check-circle-fill step-title-icon position-relative"></i> CONFIRM ADDRESS AND PAY</h5>
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
@@ -338,22 +338,22 @@ get_header();
                                 </div>
                             </div>
                             <hr class="all-in-cost-wrapper text-light-gray d-none">
-                            <div class="d-flex justify-content-between mb-3">
+                            <!-- <div class="d-flex justify-content-between mb-3">
                                 <span class="poppins-600 text-20 text-custom-black">Total</span>
-                                <span>€ 6725.50</span>
-                            </div>
+                                <span id="sub_total">€ 6725.50</span>
+                            </div> -->
                             <div class="d-flex justify-content-between mb-3">
                                 <span class="poppins-600 text-20 text-custom-black">Subtotal</span>
-                                <span>€ 6982.50</span>
+                                <span id="sub_total_formatted"><?php wc_price(0) ?></span>
                             </div>
                             <div class="d-flex justify-content-between mb-3">
                                 <span>VAT 21%</span>
-                                <span>€ 120.00</span>
+                                <span id="btw_formatted"><?php wc_price(0) ?></span>
                             </div>
                             <hr class="text-light-gray">
                             <div class="d-flex justify-content-between poppins-600 text-20 text-custom-black">
                                 <span>Total</span>
-                                <span>€ 6982,50</span>
+                                <span id="total_formatted"><?php wc_price(0) ?></span>
                             </div>
                         </div>
                     </div>
@@ -377,6 +377,7 @@ get_header();
                     e.preventDefault();
                     $(".type-and-kind-section").addClass("inactive");
                     $(".type-and-kind-form").addClass("d-none");
+                    $(".type-and-kind-form").removeClass("pending");
                     $(".confirm-and-pay-section").addClass("active");
                     $(".confirm-and-pay-form").removeClass("d-none");
                 });
