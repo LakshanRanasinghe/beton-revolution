@@ -346,8 +346,11 @@ function getDataByProperty($array, $filter_name, $filter_value)
 
 add_action('wp_ajax_beton_calculator', 'beton_calculator');
 add_action('wp_ajax_nopriv_beton_calculator', 'beton_calculator');
-function beton_calculator(): void
+function beton_calculator($data = null)
 {
+	if($data !== null && is_array($data) && count($data) > 0){
+		$_POST = $data;
+	}
 	// if (!wp_verify_nonce($_REQUEST['nonce'], "beton_calculator_nonce")) {
 	// 	exit("No naughty business please");
 	// }
@@ -727,23 +730,29 @@ function beton_calculator(): void
 	}
 
 	$response_data_set['sub_total'] = $sub_total;
+	$response_data_set['sub_total_formatted'] = wc_price($sub_total);
 	$response_data_set['btw'] = ($sub_total / 100) * 21;
+	$response_data_set['btw_formatted'] = wc_price($response_data_set['btw']);
 
 	$response_data_set['sub_total_btw'] = $sub_total + $response_data_set['btw'];
+	$response_data_set['total_formatted'] = wc_price($response_data_set['sub_total_btw']);
 
 	wc_get_logger()->debug(json_encode($response_data_set));
 
-	wp_send_json_success([
-		'dynamic_pricing' => $response_data_set
-	]);
+	if($data !== null && is_array($data) && count($data) > 0){
+		return $response_data_set;
+	}
+	else{
+		wp_send_json_success([
+			'dynamic_pricing' => $response_data_set
+		]);
+	}
 }
 
 function butterfly_coster($selected_surface, $selected_rooms) : mixed {
 	$flooring_price = get_field('oppervlakte', 'option');
 	$butterfly_price = 0;
 	foreach($flooring_price as $floor_price){
-	// wc_get_logger()->debug('surface: ' . ($selected_surface) . ' and loop ' . $floor_price['size']);
-
 		if($floor_price['size'] == $selected_surface){
 			$butterfly_price = $floor_price['cost'];
 			break;
@@ -753,4 +762,565 @@ function butterfly_coster($selected_surface, $selected_rooms) : mixed {
 		$butterfly_price += $selected_rooms * 25;
 	}
 	return $butterfly_price;
+}
+
+add_action('wp_ajax_save_quotation', 'save_quotation');
+add_action('wp_ajax_nopriv_save_quotation', 'save_quotation');
+function save_quotation() : void {
+	$data = $_POST;
+	unset($data['action']);
+
+	wc_get_logger()->debug(json_encode($data));
+
+	$data['city'] = $data['postalcode'];
+	$calc_data = $data;
+	$calc_data['application'] = $_POST['application_product'];
+	$calc_data['application'] = $_POST['application_product'];
+	$calc_data['compounds'] = $_POST['composition'];
+	$calc_data['release_method'] = $_POST['unloading'];
+	$calc_data['pumping_distance'] = !empty($_POST['pumping_distance']) ? $_POST['pumping_distance'] : $_POST['boom_pumping_distance'];
+	$calc_data['performance'] = $_POST['uitvoering'];
+	$calc_data['layer_thickness'] = $_POST['layer-thickness'];
+	$calc_data['rooms_count'] = $_POST['nos_rooms'];
+	$calc_data['butterfly_floor'] = $_POST['butterfly-floor'];
+	$calc_data['surface'] = $_POST['surace-sqm'];
+	$calc_data['selected_floor'] = $_POST['flooring'];
+
+	$calcuated_data = beton_calculator($calc_data);
+	wc_get_logger()->debug(json_encode($calcuated_data));
+
+	$quote = array(
+		'post_title'    => 'New Price Quotation',
+		'post_status'   => 'publish',
+		'post_type' => 'concrete_quotation'
+	);
+	$quote_id = wp_insert_post($quote);
+
+	$data['beton_samenstelling_cubic_meters'] = $data['cubic_meters'];
+	$data['beton_samenstelling_postalcode'] = $data['postalcode'];
+
+	$data['additional_butterfly-floor'] = $data['butterfly-floor'];
+	$data['additional_flooring'] = $data['flooring'];
+	$data['additional_nos_rooms'] = $data['nos_rooms'];
+	$data['additional_layer-thickness'] = $data['layer-thickness'];
+	$data['additional_surace-sqm'] = $data['surace-sqm'];
+
+	foreach ($data as $key => $value) {
+		// update_field($key, $value, $quote_id);
+		update_post_meta($quote_id, $key, $value);
+	}
+
+	$quote_update = array(
+		'ID'         => $quote_id,
+		'post_title' => 'Offerte #' . $quote_id
+	);
+	wp_update_post($quote_update);
+
+	$totals = array(
+		'totals_aantal_cost' => $calcuated_data['sub_total_btw'],
+		'totals_toepassing_cost' => $calcuated_data['application_price'],
+		'totals_hoog_vloeibaar_cost' => $calcuated_data['hoog-vloeibaar'],
+		'totals_snelhardend_cost' => $calcuated_data['snelhardend'],
+		'totals_fijn_grind_cost' => $calcuated_data['fijn-grind'],
+		'totals_extra_hoge_sterkte_cost' => $calcuated_data[''],
+		'totals_top_totals' => $calcuated_data['application_compound_total'],
+		'totals_pump_cost' => $calcuated_data['pump_cost'],
+		'totals_voorrijkosten_cost' => $calcuated_data['pump_callout_cost'],
+		'totals_pumping_distance_cost' => $calcuated_data['pumping_cost'],
+		'totals_toeslag_extra_leidingwagen_cost' => $calcuated_data['pumping_extra_hose_cost'],
+		'totals_all-in_uitvoering_cost' => $calcuated_data['allIn'],
+		'totals_vlindervloer_cost' => $calcuated_data['butterfly_floor'],
+		'totals_subtotal' => $calcuated_data['sub_total'],
+		'totals_btw' => $calcuated_data['btw'],
+		'totals_grand_total' => $calcuated_data['sub_total_btw'],
+	);
+	foreach($totals as $key => $value){
+		// update_field($key, $value, $quote_id);
+		update_post_meta($quote_id, $key, $value);
+	}
+
+	do_action('acf/save_post', $quote_id);
+
+	$pdf_data = quotation_html($quote_id);
+	send_quotation_email($pdf_data, $data['user_email'], $quote_id);
+
+	wp_send_json_success([
+		'status' => 'mail-sent'
+	]);
+}
+
+function quotation_html($quote_id)
+{
+	global $wpdb;
+	$post = get_post($quote_id);
+	$city = get_post_meta($quote_id, 'beton_samenstelling_postalcode', true);
+	ob_start();
+
+	//=========   HTML CODE BEGINS HERE AFTER PHP END TAG ====================
+	$cubic_m = get_post_meta($quote_id, 'beton_samenstelling_cubic_meters', true);
+?>
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+		<title>Betonbestellen</title>
+		<style>
+			body {
+				font-family: 'Montserrat', sans-serif;
+				font-size: 12px;
+				letter-spacing: -0.3px;
+			}
+
+			.invoice-wrapper {
+				width: 700px;
+				margin: auto;
+			}
+
+			.nav-sidebar .nav-header:not(:first-of-type) {
+				padding: 1.7rem 0rem .5rem;
+			}
+
+			.logo {
+				font-size: 20px;
+			}
+
+			.sidebar-collapse .brand-link .brand-image {
+				margin-top: -33px;
+			}
+
+			.content-wrapper {
+				margin: auto !important;
+			}
+
+			.billing-company-image {
+				width: 50px;
+			}
+
+			.billing_name {
+				text-transform: uppercase;
+			}
+
+			.billing_address {
+				text-transform: capitalize;
+			}
+
+			.table {
+				width: 100%;
+				border-collapse: collapse;
+			}
+
+			th {
+				text-align: left;
+				padding: 5px;
+			}
+
+			td {
+				padding: 5px;
+				vertical-align: top;
+			}
+
+			.row {
+				display: block;
+				clear: both;
+			}
+
+			.text-right {
+				text-align: right;
+			}
+
+			.table thead tr {
+				background: #f6453d;
+				color: #fff;
+			}
+
+			.table-hover tbody tr:nth-child(even) {
+				background: #eaeaea;
+				display: table-row;
+			}
+
+			.table-hover tbody tr:nth-child(odd) {
+				background: #fff;
+			}
+
+			address {
+				font-style: normal;
+			}
+
+			.space-left {
+				padding-left: 25px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="row invoice-wrapper">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<table class="table">
+							<tr>
+								<td>
+									<address>
+										<strong>BetonBestellen.nl BV</strong><br>
+										Ondernemersweg 4<br>
+										4691 SL Tholen<br>
+										Telefoon: 0166-604035
+									</address>
+									<br>
+									<div>
+										Bank: NL67 ABNA 0548 7707 43<br>
+										Btw-nummer: NL8565.25.352.B01<br>
+										KvK-nummer: 66382386
+									</div>
+									<br>
+									<div>
+										E-mail:info@betonbestellen.nl
+									</div>
+								</td>
+								<td colspan="2">
+									<?php echo wp_get_attachment_image(26, 'large') ?>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" class="text-left">
+									<div style="margin-top: 25px;">
+										Offertenummer: <?php echo '#' . $quote_id; ?><br>
+										Offertedatum: <?php echo get_the_date('d-m-Y', $quote_id) ?><br>
+										Vervaldatum: <?php echo date("d-m-Y", strtotime("+1 month", strtotime(get_the_date('d-m-Y', $quote_id)))); ?><br>
+										E-mail aanvrager: <?php echo get_post_meta($quote_id , 'user_email', true); ?>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<br><br>
+				<div class="row">
+					<div class="col-md-12 table-responsive">
+						<table class="table table-condensed table-hover">
+							<thead>
+								<tr>
+									<th>Omschrijving</th>
+									<th>Aantal</th>
+									<th>Prijs</th>
+									<th class="text-right">Totaal</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong>Beton:</strong></td>
+									<td></td>
+									<td></td>
+									<td class="text-right"></td>
+								</tr>
+								<tr>
+									<td class="space-left"><span id="concrete_cubic_size"><?php echo $cubic_m; ?></span> m³ beton <?php echo $city ? 'te ' . $city . ':' : '' ?></td>
+									<td><?php echo $cubic_m; ?> m³</td>
+									<td>
+										<?php echo wc_price(get_post_meta($quote_id , 'totals_aantal_cost', true) / $cubic_m); ?>
+									</td>
+									<td class="text-right"><?php echo wc_price(get_post_meta($quote_id , 'totals_aantal_cost', true)); ?></td>
+								</tr>
+								<tr>
+									<td class="space-left">Toepassing - <span class="gray-out"><?php echo get_post_meta($quote_id , 'application_product', true) ?></span></td>
+									<td><?php echo $cubic_m; ?></td>
+									<td><?php echo wc_price(floatval(get_post_meta($quote_id , 'totals_toepassing_cost', true)) / $cubic_m) ?></td>
+									<td class="text-right"><?php echo get_post_meta($quote_id , 'totals_toepassing_cost', true) > 0 ? wc_price(get_post_meta($quote_id , 'totals_toepassing_cost', true)) : ''; ?></td>
+								</tr>
+								<?php if (!empty(get_post_meta($quote_id , 'totals_hoog_vloeibaar_cost', true))) { ?>
+									<tr>
+										<td class="space-left">Hoog vloeibaar</td>
+										<td><?php echo $cubic_m; ?></td>
+										<td><?php echo wc_price(floatval(get_post_meta($quote_id , 'totals_hoog_vloeibaar_cost', true)) / $cubic_m); ?></td>
+										<td class="text-right"><?php echo get_post_meta($quote_id , 'totals_hoog_vloeibaar_cost', true) > 0 ? wc_price(get_post_meta($quote_id , 'totals_hoog_vloeibaar_cost', true)) : ''; ?></td>
+									</tr>
+								<?php } ?>
+								<?php if (!empty(get_post_meta($quote_id , 'totals_snelhardend_cost', true))) { ?>
+									<tr>
+										<td class="space-left">Snelhardend</td>
+										<td><?php echo $cubic_m; ?></td>
+										<td><?php echo wc_price(floatval(get_post_meta($quote_id , 'totals_snelhardend_cost', true)) / $cubic_m); ?></td>
+										<td class="text-right"><?php echo get_post_meta($quote_id , 'totals_snelhardend_cost', true) > 0 ? wc_price(get_post_meta($quote_id , 'totals_snelhardend_cost', true)) : ''; ?></td>
+									</tr>
+								<?php } ?>
+								<?php if (!empty(get_post_meta($quote_id , 'totals_fijn_grind_cost', true))) { ?>
+									<tr>
+										<td class="space-left">Fijn grind</td>
+										<td><?php echo $cubic_m; ?></td>
+										<td><?php echo wc_price(floatval(get_post_meta($quote_id , 'totals_fijn_grind_cost', true)) / $cubic_m); ?></td>
+										<td class="text-right"><?php echo get_post_meta($quote_id , 'totals_fijn_grind_cost', true) > 0 ? wc_price(get_post_meta($quote_id , 'totals_fijn_grind_cost', true)) : ''; ?></td>
+									</tr>
+								<?php } ?>
+								<?php if (!empty(get_post_meta($quote_id , 'totals_extra_hoge_sterkte_cost', true))) { ?>
+									<tr>
+										<td class="space-left">Extra hoge sterkte</td>
+										<td><?php echo $cubic_m; ?></td>
+										<td><?php echo wc_price(floatval(get_post_meta($quote_id , 'totals_extra_hoge_sterkte_cost', true)) / $cubic_m); ?></td>
+										<td class="text-right"><?php echo get_post_meta($quote_id , 'totals_extra_hoge_sterkte_cost', true) > 0 ? wc_price(get_post_meta($quote_id , 'totals_extra_hoge_sterkte_cost', true)) : ''; ?></td>
+									</tr>
+								<?php } ?>
+								<tr>
+									<td><strong>Los methode</strong></td>
+									<td></td>
+									<td></td>
+									<td class="text-right"></td>
+								</tr>
+								<?php if (get_post_meta($quote_id , 'unloading', true)) { ?>
+									<tr>
+										<td class="space-left"><span class="gray-out"><?php echo get_post_meta($quote_id , 'unloading', true) ;  ?></span></td>
+										<td></td>
+										<td></td>
+										<td class="text-right"></td>
+									</tr>
+								<?php }
+								if (get_post_meta($quote_id , 'totals_pump_cost', true) > 0) { ?>
+									<tr>
+										<td class="space-left"><?php echo get_post_meta($quote_id , 'pump_type', true) == 'mini' ? "Mini betonpomp" : "Giekpomp" ?> per uur</td>
+										<td></td>
+										<td></td>
+										<td class="text-right"><?php echo wc_price(get_post_meta($quote_id , 'totals_pump_cost', true)); ?></td>
+									</tr>
+								<?php } ?>
+								<?php if (!empty(get_post_meta($quote_id , 'totals_voorrijkosten_cost', true))) { ?>
+									<tr>
+										<td class="space-left">Voorrijkosten</td>
+										<td>1</td>
+										<td>
+											<?php echo get_post_meta($quote_id , 'totals_voorrijkosten_cost', true) > 0 ? wc_price(get_post_meta($quote_id , 'totals_voorrijkosten_cost', true)) : ''; ?>
+										</td>
+										<td class="text-right"><?php echo get_post_meta($quote_id , 'totals_voorrijkosten_cost', true) > 0 ? wc_price(get_post_meta($quote_id , 'totals_voorrijkosten_cost', true)) : ''; ?></td>
+									</tr>
+								<?php } ?>
+								<?php if (!empty(get_post_meta($quote_id , 'totals_toeslag_extra_leidingwagen_cost', true))) { ?>
+									<tr>
+										<td class="space-left">Toeslag extra leidingwagen</td>
+										<td></td>
+										<td></td>
+										<td class="text-right"><?php echo get_post_meta($quote_id , 'totals_toeslag_extra_leidingwagen_cost', true) > 0 ? wc_price(get_post_meta($quote_id , 'totals_toeslag_extra_leidingwagen_cost', true)) : ''; ?></td>
+									</tr>
+								<?php } ?>
+								<?php if (!empty(get_post_meta($quote_id , 'pumping_distance', true))) {
+
+									$pumping_distance_price = floatval(get_post_meta($quote_id , 'totals_toeslag_extra_leidingwagen_cost', true)) + floatval(get_post_meta($quote_id , 'totals_pumping_distance_cost', true));
+								?>
+									<tr>
+										<td class="space-left">Pompafstand:</td>
+										<td><span class="pumping_distance"><?php echo get_post_meta($quote_id , 'pumping_distance', true); ?>m</span></td>
+										<td>
+											<?php echo wc_price($pumping_distance_price / get_post_meta($quote_id , 'pumping_distance', true)); ?>
+										</td>
+										<td class="text-right">
+											<?php echo (get_post_meta($quote_id , 'totals_toeslag_extra_leidingwagen_cost', true) > 0 or get_post_meta($quote_id , 'totals_pumping_distance_cost', true) > 0) ? wc_price($pumping_distance_price) : ''; ?>
+											<?php //echo get_post_meta($quote_id , 'totals_toeslag_extra_leidingwagen_cost', true) > 0 ? wc_price(get_post_meta($quote_id , 'totals_toeslag_extra_leidingwagen_cost', true)) : ''; 
+											?>
+										</td>
+									</tr>
+								<?php } ?>
+								<?php if (!empty(get_post_meta($quote_id , 'totals_all-in_uitvoering_cost', true))) { ?>
+									<tr>
+										<td class="space-left">All-in uitvoering</td>
+										<td>1</td>
+										<td><?php echo get_post_meta($quote_id , 'totals_all-in_uitvoering_cost', true) > 0 ? wc_price(get_post_meta($quote_id , 'totals_all-in_uitvoering_cost', true)) : ''; ?></td>
+										<td class="text-right"><?php echo get_post_meta($quote_id , 'totals_all-in_uitvoering_cost', true) > 0 ? wc_price(get_post_meta($quote_id , 'totals_all-in_uitvoering_cost', true)) : ''; ?></td>
+									</tr>
+								<?php } ?>
+								<?php if (!empty(get_post_meta($quote_id , 'totals_vlindervloer_cost', true)) and !empty(get_post_meta($quote_id , 'totals_all-in_uitvoering_cost', true))) { ?>
+									<tr>
+										<td class="space-left">Vlindervloer</td>
+										<td></td>
+										<td></td>
+										<td class="text-right"><?php echo get_post_meta($quote_id , 'totals_vlindervloer_cost', true) > 0 ? wc_price(get_post_meta($quote_id , 'totals_vlindervloer_cost', true)) : ''; ?></td>
+									</tr>
+								<?php } ?>
+
+								<?php if (!empty(get_post_meta($quote_id , 'additional_surace-sqm', true)) and !empty(get_post_meta($quote_id , 'totals_all-in_uitvoering_cost', true))) { ?>
+									<tr>
+										<td class="space-left">Oppervlakte</td>
+										<td><?php echo get_post_meta($quote_id , 'additional_surace-sqm', true) ? (get_post_meta($quote_id , 'additional_surace-sqm', true)) : ''; ?></td>
+										<td></td>
+										<td class="text-right"></td>
+									</tr>
+								<?php } ?>
+								<?php if (!empty(get_post_meta($quote_id , 'additional_layer-thickness', true)) and !empty(get_post_meta($quote_id , 'totals_all-in_uitvoering_cost', true))) { ?>
+									<tr>
+										<td class="space-left">Laagdikte</td>
+										<td><?php echo get_post_meta($quote_id , 'additional_layer-thickness', true) ? (get_post_meta($quote_id , 'additional_layer-thickness', true)) : ''; ?></td>
+										<td></td>
+										<td class="text-right"></td>
+									</tr>
+								<?php } ?>
+								<?php if (!empty(get_post_meta($quote_id , 'additional_flooring', true)) and !empty(get_post_meta($quote_id , 'totals_all-in_uitvoering_cost', true))) { ?>
+									<tr>
+										<td class="space-left">Verdiepingsvloer</td>
+										<td><?php echo get_post_meta($quote_id , 'additional_flooring', true) ? (get_post_meta($quote_id , 'additional_flooring', true)) : ''; ?></td>
+										<td></td>
+										<td class="text-right"></td>
+									</tr>
+								<?php } ?>
+								<?php if (!empty(get_post_meta($quote_id , 'additional_nos_rooms', true)) and !empty(get_post_meta($quote_id , 'totals_all-in_uitvoering_cost', true))) { ?>
+									<tr>
+										<td class="space-left">Aantal vertrekken</td>
+										<td><?php echo get_post_meta($quote_id , 'additional_nos_rooms', true) ? (get_post_meta($quote_id , 'additional_nos_rooms', true)) : ''; ?></td>
+										<td></td>
+										<td class="text-right"></td>
+									</tr>
+								<?php } ?>
+
+								<tr>
+									<td></td>
+									<td class="text-right">Subtotaal</td>
+									<td></td>
+									<td class="text-right"><strong><?php echo wc_price(get_post_meta($quote_id , 'totals_subtotal', true)); ?></strong></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-right">BTW 21%</td>
+									<td></td>
+									<td class="text-right"><strong><?php echo wc_price(get_post_meta($quote_id , 'totals_btw', true)); ?></strong></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td class="text-right">Totaal</td>
+									<td></td>
+									<td class="text-right"><strong><?php echo wc_price(get_post_meta($quote_id , 'totals_grand_total', true)); ?></strong></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- /.col -->
+				</div>
+				<br>
+				<small><small>Op al onze leveringen en werkzaamheden zijn de Algemene Verkoopwaarden van BetonBestellen.nl van toepassing.</small></small>
+				<div>
+					<small><small>DISCLAIMER: deze automatisch door het systeem gegenereerde offerte van fouten bevatten en is onder voorbehoud.</small></small>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	</html>
+<?php
+	//=========   HTML CODE BEGINS ENDS BEFORE THE BEGINING PHP TAG ====================
+
+	global $html;
+	$html = ob_get_contents(); // get all html in buffer to the $html global variable
+	ob_end_clean(); // clean the buffer 
+	return ['html' => $html, 'id' => $quote_id , 'title' => get_the_title($quote_id )]; // return html
+}
+
+function test_pdf()
+{
+	if (empty($_GET['download_pdf'])) {
+		return;
+	}
+
+	// echo $data['html'];
+	$quote_id = 160;
+	$data = quotation_html(160);
+
+	send_quotation_email($data, 'harshana@dayzsolutions.com', $quote_id);
+
+	// stream_pdf_file($data['html'], $data['id'], $data['title'], true);
+}
+add_action('init', 'test_pdf');
+
+function stream_pdf_file($contents, $id, $title, $is_stream = false)
+{
+	// Include autoloader 
+	require_once 'inc/dompdf/autoload.inc.php';
+
+	// Instantiate and use the dompdf class   
+	$dompdf = new Dompdf\Dompdf();
+	$dompdf->set_option('enable_html5_parser', TRUE);
+	$dompdf->loadHtml($contents);
+	// (Optional) Setup the paper size and orientation 
+	$dompdf->setPaper('A4', 'Portrait');
+	$dompdf->set_option('isRemoteEnabled', true);
+	// Render the HTML as PDF 
+	$dompdf->render();
+
+	ob_end_clean();
+
+	if ($is_stream) {
+		$dompdf->stream("dompdf_out.pdf", array("Attachment" => false));
+		return;
+	} else {
+		$pdf = $dompdf->output();
+		$upload = wp_upload_bits($title . '.pdf', null, $pdf);
+		$attach_id = wp_insert_attachment($pdf, $upload['file'], $id);
+		return $attach_id;
+	}
+	exit(0);
+}
+
+function send_quotation_email($data, $email, $quote_id) {
+		$pdf_id = stream_pdf_file($data['html'], $data['id'], $data['title']);
+
+		$to = $email;
+		$headers = array();
+		$attachments = [get_attached_file($pdf_id), 'https://www.betonbestellen.nl/wp-content/uploads/2022/06/aandachtspunten.pdf', 'https://betonbestellen.nl/Algemene_voorwaarden.pdf'];
+
+		$mail_attachment = array(get_attached_file($pdf_id), WP_CONTENT_DIR . '/uploads/2022/06/aandachtspunten.pdf', WP_CONTENT_DIR . '/uploads/2022/06/alv.pdf');
+
+		$unloading_method = get_post_meta($quote_id , 'unloading', true);
+		$butterfly_floor = get_post_meta($quote_id, 'additional_butterfly-floor', true);
+		$performance = get_post_meta($quote_id, 'uitvoering', true);
+		$cubic_m = get_post_meta($quote_id, 'cubic_meters', true);
+		$city = get_post_meta($quote_id, 'postalcode', true);
+
+		if ($performance == 'allIn') {
+			$dynamic_p = 'U heeft er voor gekozen zelf de beton te storten.';
+		} else {
+			$dynamic_p = 'U heeft er voor gekozen het beton op all-in basis te laten storten.';
+		}
+
+		if ($performance != 'allIn' and $unloading_method != 'pump') {
+			$dynamic_mail_txt = get_field('method_one', 'option');
+		} elseif ($performance !== 'allIn' and $unloading_method == 'pump') {
+			$dynamic_mail_txt = get_field('method_two', 'option');
+		} elseif ($performance == 'allIn' and $unloading_method == 'pump' and $butterfly_floor == 0) {
+			$dynamic_mail_txt = get_field('method_three', 'option');
+		} elseif ($performance == 'allIn' and $unloading_method == 'pump' and $butterfly_floor) {
+			$dynamic_mail_txt = get_field('method_four', 'option');
+		}
+
+		if (!isset($dynamic_mail_txt) or empty($dynamic_mail_txt)) {
+			$dynamic_mail_txt = '<p class="">' . $dynamic_p . '</p>
+			<p class="">Het is belangrijk met de volgende aandachtspunten rekening te houden:<br class="" /><br class="" /></p>
+			<ul class="">
+			<li class="">Verzorg voldoende manschappen. Er is een maximale lostijd van toepassing bij een afname t/m 7 kuub van 45 min en bij 15 kuub van 75 minuten;</li>
+			<li class="">Maak voldoende opstel plaats vrij voor de betonmixer. De afmetingen van de vrachtwagen is afhankelijk van de hoeveelheid beton maar minimaal vergelijkbaar met een vuilniswagen;</li>
+			<li class="">In de binnenstad is soms ontheffing of een vergunning benodigd. Verzorg deze optijd;</li>
+			<li class="">Op al onze leveringen zijn de algemene voorwaarden van toepassing, zie: <a class="" title="https://betonbestellen.nl/alv.pdf" href="https://betonbestellen.nl/alv.pdf">https://betonbestellen.nl/alv.pdf</a></li>
+			</ul>';
+		}
+
+		$html = '<div class="">
+		<p class="">Geachte heer / mevrouw,</p>
+		<p class="">Hierbij ons voorstel voor het pompen en eventueel storten van ca ' . $cubic_m . ' m3 beton te ' . $city . ' (zie PDF bijlage)</p>
+		' . $dynamic_mail_txt . '
+		Wij vertrouwen erop u hiermee een passende aanbieding te doen.
+		<div class=""> </div>
+		<p class="">Dit is een automatisch gegenereerde offerte, mocht u akkoord gaan met onze offerte dan kunt u per e-mail of telefoon contact met ons opnemen om een afspraak in te plannen. U kunt de offerte ook direct via iDeal afrekenen. <a href="' . wc_get_checkout_url() . '?pay-url=' . $quote_id . '">Klik hier</a></p>
+		<p class=""><a class="" title="https://g.page/r/CcvazzN6aWu0EAI/review" href="https://g.page/r/CcvazzN6aWu0EAI/review">Klik hier om een review te schrijven over uw ervaringen met Betonstorten.nl</a>.</p>
+		<p class="">Met vriendelijke groet,</p>
+		<p class="">De medewerkers van <a class="" title="http://BetonBestellen.nl" href="http://betonbestellen.nl/">BetonBestellen.nl</a> BV</p>
+		<p class=""><b class="">E</b> <a class="" title="mailto:info@betonstorten.nl" href="mailto:info@betonstorten.nl">info@betonstorten.nl</a><br class="" /><b class="">T</b> (0166) 606001<br class="" /><b class="">M</b> 06 27016082</p>
+		</div>';
+
+		$content_type = function () {
+			return 'text/html';
+		};
+		add_filter('wp_mail_content_type', $content_type);
+		// $headers[] = 'Cc: info@betonbestellen.nl';
+		wp_mail($to, 'Offerte van BetonBestellen.nl', $html, $headers, $mail_attachment);
+		remove_filter('wp_mail_content_type', $content_type);
+		$url_r = get_permalink(get_page_by_path('offerte-aanvraag'));
+		$url_r = add_query_arg('quotation', 'sent', $url_r);
+		wp_delete_attachment($pdf_id); //DELETE PDF
+		return ['redirect_url' => $url_r];
 }

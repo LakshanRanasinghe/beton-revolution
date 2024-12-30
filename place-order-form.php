@@ -184,7 +184,7 @@ get_header();
                                 <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                             </div>
                             <div class="form-check mb-sm-3">
-                                <input class="form-check-input" type="radio" name="performance" value="performSelf" id="performSelf">
+                                <input class="form-check-input" type="radio" name="performance" value="performSelf" id="performSelf" checked>
                                 <label class="form-check-label" for="performSelf">Perform Yourself</label>
                             </div>
                             <div class="form-check mb-3">
@@ -194,7 +194,7 @@ get_header();
                         </div>
 
                         <!-- Execution Section -->
-                        <div class="execution-section mt-4 p-sm-3 box-sm-shadow border border-custom-gray text-18 d-sm-block d-none">
+                        <div class="execution-section mt-4 p-sm-3 box-sm-shadow border border-custom-gray text-18 d-none">
                             <h6 class="execution-title poppins-600 text-18 text-dark-blue mb-3">EXECUTION 2</h6>
                             <div class="row mb-3">
                                 <div class="col-md-6">
@@ -249,10 +249,10 @@ get_header();
                                 <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                             </div>
                             <label for="email" class="form-label text-18 text-dark-gray">Your Email Address</label>
-                            <input type="email" id="email" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Enter Your Email Address">
+                            <input type="email" id="email" name="user_email" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Enter Your Email Address">
                             <div class="btn-wrapper mt-4">
-                                <button class="btn text-white bg-orange h-46 uppercase bg-orange-btn border border-0 rounded-0 text-white oswald-600 text-16 me-4 px-4" id="pay-btn" data-next="Be patient you are on the last">Pay via iDeal</button>
-                                <button class="btn border-orange h-46 uppercase border rounded-0 border-orange-btn text-orange oswald-600 text-16 px-4">Quote in PDF</button>
+                                <button class="submit-btn btn text-white bg-orange h-46 uppercase bg-orange-btn border border-0 rounded-0 text-white oswald-600 text-16 me-4 px-4" type="button" value="checkout" id="pay-btn" data-next="Be patient you are on the last">Pay via iDeal</button>
+                                <button class="submit-btn btn border-orange h-46 uppercase border rounded-0 border-orange-btn text-orange oswald-600 text-16 px-4" type="button" value="quote" disabled require>Quote in PDF</button>
                             </div>
                         </div>
                     </form>
@@ -338,22 +338,22 @@ get_header();
                                 </div>
                             </div>
                             <hr class="all-in-cost-wrapper text-light-gray d-none">
-                            <div class="d-flex justify-content-between mb-3">
+                            <!-- <div class="d-flex justify-content-between mb-3">
                                 <span class="poppins-600 text-20 text-custom-black">Total</span>
-                                <span>€ 6725.50</span>
-                            </div>
+                                <span id="sub_total">€ 6725.50</span>
+                            </div> -->
                             <div class="d-flex justify-content-between mb-3">
                                 <span class="poppins-600 text-20 text-custom-black">Subtotal</span>
-                                <span>€ 6982.50</span>
+                                <span id="sub_total_formatted"><?php wc_price(0) ?></span>
                             </div>
                             <div class="d-flex justify-content-between mb-3">
                                 <span>VAT 21%</span>
-                                <span>€ 120.00</span>
+                                <span id="btw_formatted"><?php wc_price(0) ?></span>
                             </div>
                             <hr class="text-light-gray">
                             <div class="d-flex justify-content-between poppins-600 text-20 text-custom-black">
                                 <span>Total</span>
-                                <span>€ 6982,50</span>
+                                <span id="total_formatted"><?php wc_price(0) ?></span>
                             </div>
                         </div>
                     </div>
@@ -377,6 +377,7 @@ get_header();
                     e.preventDefault();
                     $(".type-and-kind-section").addClass("inactive");
                     $(".type-and-kind-form").addClass("d-none");
+                    $(".type-and-kind-form").removeClass("pending");
                     $(".confirm-and-pay-section").addClass("active");
                     $(".confirm-and-pay-form").removeClass("d-none");
                 });
