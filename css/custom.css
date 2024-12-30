@@ -753,6 +753,23 @@ a {
 
 .beton-page-content p{
 	font-size: 18px;
+   line-height: 38px;
+}
+
+.beton-page-content ul{
+   font-size: 18px;
+   line-height: 38px;
+}
+
+@media screen and (max-width: 992px) {
+   .beton-page-content p{
+	   font-size: 16px;
+   }
+
+   .beton-page-content ul{
+      font-size: 16px;
+
+   }
 }
 
 .beton-page-content a:not(.direct-online-offerte-btn) {
