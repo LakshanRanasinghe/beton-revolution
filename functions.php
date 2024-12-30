@@ -1338,7 +1338,7 @@ function concrete_add_to_cart() {
 	$data = $_POST;
 	unset($data['action']);
 	WC()->cart->empty_cart(); // Empty the cart before add newly
-	$cart_item_key = WC()->cart->add_to_cart( 34 );
+	$cart_item_key = WC()->cart->add_to_cart( get_field('beton_product', 'option') );
 
 	if ($cart_item_key) {
 		WC()->session->set('billing_email', $_POST['user_email']);
