@@ -239,3 +239,281 @@ function skip_cart_redirect(){
         exit();
     }
 }
+
+add_action("admin_init", "admin_pdf_init");
+function admin_pdf_init(){
+	add_meta_box("quote-pdf", "Quotation PDF", "admin_pdf_link", "concrete_quotation", "side", "default");
+}
+
+function admin_pdf_link(){
+	global $post;
+	echo '<a href="edit.php?post_type=concrete_quotation&pdf_generate=true&quote_id=' . $post->ID . '" target="_blank" class="button" value="steam_pdf"><span class="dashicons dashicons-pdf"></span></a>';
+}
+
+add_action('manage_concrete_quotation_posts_custom_column', 'custom_book_column', 10, 2);
+function custom_book_column($column, $post_id)
+{
+	global $wpdb;
+	$postcode = get_post_meta($post_id, 'beton_samenstelling_postalcode', true);
+	switch ($column) {
+		case 'city':
+			$metaCity = get_post_meta($post_id, 'beton_samenstelling_postalcode', true);
+			$city = $wpdb->get_row("SELECT city_name FROM {$wpdb->prefix}postcodes_2 WHERE zip LIKE '%{$postcode}%' ");
+			$town = $city->city_name;
+			if (preg_match('/[A-Za-z]/', $town) && !preg_match('/[0-9]/', $town)) {
+				echo $town;
+			} else {
+				echo $metaCity;
+			}
+			break;
+		case 'order':
+			$post_data = array(
+				'Aantal m³' => get_post_meta($post_id, 'beton_samenstelling_cubic_meters', true),
+				'Postalcode' => get_post_meta($post_id, 'beton_samenstelling_postalcode', true),
+				'Toepassing' => get_post_meta($post_id, 'application_application_product', true),
+				'Loswijze' => get_post_meta($post_id, 'unloading', true),
+				'Samenstelling' => implode(', ', get_post_meta($post_id, 'composition', true) ? get_post_meta($post_id, 'composition', true) : array()),
+				'Pomp type' => get_post_meta($post_id, 'pump_type_pump_type', true),
+				'M-Pompafstand' => get_post_meta($post_id, 'pump_type_pumping_distance', true),
+				'B-Pompafstand' => get_post_meta($post_id, 'pump_type_boom_pumping_distance', true),
+				'Uitvoering' => get_post_meta($post_id, 'performance_uitvoering', true),
+				'Oppervlakte' => get_post_meta($post_id, 'additional_surace-sqm', true),
+				'Laagdikte' => get_post_meta($post_id, 'additional_layer-thickness', true),
+				'Aantal vertrekken' => get_post_meta($post_id, 'additional_nos_rooms', true),
+				'Verdiepingsvloer / Floor' => get_post_meta($post_id, 'additional_flooring', true),
+				'Vlindervloer / Butterfly floor' => get_post_meta($post_id, 'additional_butterfly', true),
+				'Email' => get_post_meta($post_id, 'user_email', true)
+			);
+			foreach ($post_data as $label => $value) {
+				if (!empty($value)) {
+					echo $label . ": " . $value . '</br>';
+				}
+			}
+			break;
+		case 'postcode':
+			echo $postcode;
+			break;
+		case 'gclid':
+			echo get_post_meta($post_id, 'gclid', true) ? get_post_meta($post_id, 'gclid', true) : '--';
+			// echo '<input type="hidden" name="order_id" value="' . $post_id . '">
+			// 		<input type="text" readonly class="gclid_field_c" data-order="' . $post_id . '" class="gclid_field_' . $post_id . '" id="gclid_field_' . $post_id . '" name="gclid_field" value="">
+			// 		<span></span>';
+			break;
+		case 'tax':
+			echo wc_price(get_post_meta($post_id, 'totals_btw_21', true)); // 
+			break;
+		case 'sub_total':
+			echo wc_price(get_post_meta($post_id, 'totals_subtotal', true)); // 
+			break;
+		case 'total':
+			echo wc_price(get_post_meta($post_id, 'totals_grand_total', true)); // 
+			break;
+		case 'pdf':
+			echo '<a href="edit.php?post_type=concrete_quotation&pdf_generate=true&quote_id=' . $post_id . '" target="_blank" class="button" value="steam_pdf"><span class="dashicons dashicons-pdf"></span></a>';
+			break;
+	}
+}
+
+add_filter('manage_edit-concrete_quotation_sortable_columns', 'my_sortable_date_column');
+function my_sortable_date_column($columns){
+	$columns['order'] = 'Order';
+	return $columns;
+}
+function admin_pdf_steam_quote(){
+	if (!isset($_GET['pdf_generate'])) {
+		return;
+	}
+	$quote_id = $_GET['quote_id'];
+	$data = quotation_html($quote_id);
+	$pdf_id = stream_pdf_file($data['html'], $data['id'], $data['title'], true);
+}
+add_action("admin_init", "admin_pdf_steam_quote");
+
+add_action("admin_init", "pay_url_init");
+function pay_url_init(){
+	add_meta_box("pay-quote", "Pay URL", "pay_url", "concrete_quotation", "side", "default");
+}
+
+function pay_url(){
+	global $post;
+	$order = get_post_meta($post->ID, 'order_id', true);
+	if (empty($order)) {
+		echo '<p>' . wc_get_checkout_url() . '?pay-url=' . $post->ID . '</p>';
+		echo '<a href="' . wc_get_checkout_url() . '?pay-url=' . $post->ID . '" target="_blank" class="button tagadd" style="margin: 5px;">Pay URL</a>';
+	} else {
+		echo '<p>Order ID : ' . $order . '</p>';
+		echo '<a href="' . get_edit_post_link($order) . '" target="_blank" class="button tagadd" style="margin: 5px;">Check order</a>';
+	}
+}
+
+add_action('init', 'make_payment_by_url');
+function make_payment_by_url()
+{
+	if (!isset($_GET['pay-url']) and empty($_GET['pay-url'])) {
+		return;
+	}
+
+	$quote_id = $_GET['pay-url'];
+
+	$post_data = array(
+		'action' => 'concrete_add_to_cart',
+		'cubic_meters' => get_post_meta($quote_id, 'beton_samenstelling_cubic_meters', true),
+		'postalcode' => get_post_meta($quote_id, 'beton_samenstelling_postalcode', true),
+		'application_product' => get_post_meta($quote_id, 'application_product', true),
+		'unloading' => get_post_meta($quote_id, 'unloading', true),
+		'composition' => get_post_meta($quote_id, 'composition', true),
+		'pump-type' => get_post_meta($quote_id, 'pump_type_grp_pump_type', true),
+		'pumping_distance' => get_post_meta($quote_id, 'pump_type_grp_pumping_distance', true),
+		'boom_pumping_distance' => get_post_meta($quote_id, 'pump_type_grp_boom_pumping_distance', true),
+		'uitvoering' => get_post_meta($quote_id, 'uitvoering', true),
+		'surace-sqm' => get_post_meta($quote_id, 'additional_surace-sqm', true),
+		'layer-thickness' => get_post_meta($quote_id, 'additional_layer-thickness', true),
+		'nos_rooms' => get_post_meta($quote_id, 'additional_nos_rooms', true),
+		'flooring' => get_post_meta($quote_id, 'additional_flooring', true),
+		'butterfly-floor' => get_post_meta($quote_id, 'additional_butterfly-floor', true),
+		'user_email' => get_post_meta($quote_id, 'user_email', true),
+		'quote_id' => $quote_id,
+
+		// 'Samenstelling' => get_post_meta($quote_id, 'composition_inputs', true),
+
+		// 'Hoog vloeibaar' => get_post_meta($quote_id, 'totals_hoog_vloeibaar_cost', true),
+		// 'Snelhardend' => get_post_meta($quote_id, 'totals_snelhardend_cost', true),
+		// 'Fijn grind' => get_post_meta($quote_id, 'totals_fijn_grind_cost', true),
+		// 'Vlinderbeton' => get_post_meta($quote_id, 'totals_vlinderbeton-hoge-sterkte_cost', true),
+		// 'Beton' => get_post_meta($quote_id, 'beton_samenstelling_cubic_meters', true),
+		// 'Extra hoge sterkte' => get_post_meta($quote_id, 'totals_extra_hoge_sterkte_cost', true),
+		// 'Toepassing' => get_post_meta($quote_id, 'application_application_product', true),
+		// 'Loswijze' => get_post_meta($quote_id, 'unloading', true),
+		// 'Pomp' => get_post_meta($quote_id, 'pump_type_pump_type', true),
+		// 'Pompafstand' => get_post_meta($quote_id, 'pump_type_pumping_distance', true) ? get_post_meta($quote_id, 'pump_type_pumping_distance', true) : get_post_meta($quote_id, 'pump_type_boom_pumping_distance', true),
+		// 'Uitvoering' => get_post_meta($quote_id, 'performance_uitvoering', true),
+		// 'Oppervlakte' => get_post_meta($quote_id, 'additional_surace-sqm', true),
+		// 'Laagdikte' => get_post_meta($quote_id, 'additional_layer-thickness', true),
+		// 'aantal_price' => get_post_meta($quote_id, 'totals_aantal_cost', true),
+		// 'application_price' => get_post_meta($quote_id, 'totals_toepassing_cost', true),
+		// 'composition_total_price' => get_post_meta($quote_id, 'totals_top_totals', true),
+		// 'pump_total' => get_post_meta($quote_id, 'totals_pump_cost', true),
+		// 'Voorrijkosten' => get_post_meta($quote_id, 'totals_voorrijkosten_cost', true),
+		// 'all-in-total' => get_post_meta($quote_id, 'totals_all-in_uitvoering_cost', true),
+		// 'pumping_distance_total' => get_post_meta($quote_id, 'totals_pumping_distance_cost', true),
+		// 'mini_extra_horse' => get_post_meta($quote_id, 'totals_toeslag_extra_leidingwagen_cost', true),
+		// 'pump_callout_fee' => get_post_meta($quote_id, 'totals_voorrijkosten_cost', true),
+		// 'butterfly_floor' => get_post_meta($quote_id, 'totals_vlindervloer_cost', true),
+		// 'composition_price_vlinderbeton' => get_post_meta($quote_id, 'totals_vlinderbeton', true),
+	);
+
+	// $response = wp_remote_post(home_url(), array('body' => $post_data));
+	// print_r($response);
+	// if (is_wp_error($response)) {
+	// 	echo $response->get_error_message();
+	// } else {
+		// defined('WC_ABSPATH') || exit;
+
+		// // Load cart functions which are loaded only on the front-end.
+		// include_once WC_ABSPATH . 'includes/wc-cart-functions.php';
+		// include_once WC_ABSPATH . 'includes/class-wc-cart.php';
+
+		if (is_null(WC()->cart)) {
+			wc_load_cart();
+		}
+		
+		WC()->session->__unset('quotation_id');
+		WC()->session->set('quotation_id', $quote_id);
+		WC()->cart->empty_cart();
+		
+		$cart_item_key = WC()->cart->add_to_cart( get_field('beton_product', 'option') );
+
+
+	// }
+	wp_redirect(wc_get_checkout_url());
+}
+function beton_add_cart_item_data_via_pay_url($cart_item_data, $product_id, $variation_id)
+{
+	$quote_id = WC()->session->get('quotation_id');
+	if (empty($quote_id)) {
+		return $cart_item_data;
+	}
+
+	$calc_data = array(
+		'area_code' => get_post_meta($quote_id, 'area_code', true),
+		'cubic_meters' => get_post_meta($quote_id, 'beton_samenstelling_cubic_meters', true),
+		'postalcode' => get_post_meta($quote_id, 'beton_samenstelling_postalcode', true),
+		'application' => get_post_meta($quote_id, 'application_product', true),
+		'release_method' => get_post_meta($quote_id, 'unloading', true),
+		'compounds' => get_post_meta($quote_id, 'composition', true),
+		'pump_type' => get_post_meta($quote_id, 'pump_type_grp_pump_type', true),
+		'pumping_distance' => get_post_meta($quote_id, 'pump_type_grp_pumping_distance', true),
+		'boom_pumping_distance' => get_post_meta($quote_id, 'pump_type_grp_boom_pumping_distance', true),
+		'performance' => get_post_meta($quote_id, 'uitvoering', true),
+		'surface' => get_post_meta($quote_id, 'additional_surace-sqm', true),
+		'layer_thickness' => get_post_meta($quote_id, 'additional_layer-thickness', true),
+		'rooms_count' => get_post_meta($quote_id, 'additional_nos_rooms', true),
+		'selected_floor' => get_post_meta($quote_id, 'additional_flooring', true),
+		'butterfly_floor' => get_post_meta($quote_id, 'additional_butterfly-floor', true),
+		'user_email' => get_post_meta($quote_id, 'user_email', true),
+		'quote_id' => $quote_id,
+	);
+
+	setcookie('travelling_distance', get_post_meta($quote_id, 'travelling_distance', true), time() + 31556926);
+
+	$calc_data['city'] = $calc_data['postalcode'];
+	$calc_data['pumping_distance'] = (isset($calc_data['pump_type']) && $calc_data['pump_type'] == 'mini' ? $calc_data['pumping_distance'] : $calc_data['boom_pumping_distance']);
+
+	$calcuated_data = beton_calculator($calc_data);
+	$beton_price = get_post_meta($quote_id, 'beton_cost', true);
+	if($beton_price && $calc_data['cubic_meters']){
+		$cart_item_data['concrete_value'] = $beton_price;
+		$cubic_meters = number_format($calc_data['cubic_meters'], 2);
+		$cart_item_data['concrete_label'] = "Beton: {$cubic_meters}m³";
+	}
+
+	if(isset($calcuated_data['application_price'])){
+		$cart_item_data['application_label'] = "Toepassing";
+		$cart_item_data['application_value'] = get_field('totals_toepassing_cost', $quote_id);
+	}
+
+	if(get_field('totals_top_totals', $quote_id)){
+		$cart_item_data['compositions_label'] = ucwords(str_replace('-', ' ', implode(', ', $calc_data['compounds'])));
+		$cart_item_data['compositions_value'] = get_field('totals_top_totals', $quote_id) - get_field('totals_toepassing_cost', $quote_id);
+	}
+
+	if(isset($calc_data['release_method'])){
+		$cart_item_data['unloading_label'] = "Loswijze";
+		$cart_item_data['unloading_value'] = $calc_data['release_method'] == 'pump' ? 'Pomp' : "Gutter";
+	}
+
+	if(get_field('totals_pump_cost', $quote_id) && get_field('pump_type', $quote_id)){
+		$cart_item_data['pump_label'] = (get_field('pump_type', $quote_id) == 'mini' ? 'Mini betonpomp' : 'Giekpomp');
+		$cart_item_data['pump_value'] = get_field('totals_pump_cost', $quote_id);
+	}
+
+	if($callout_value = get_field('totals_voorrijkosten_cost', $quote_id)){
+		$cart_item_data['callout_label'] = "Voorrijkosten";
+		$cart_item_data['callout_value'] = $callout_value;
+	}
+
+	if($pumping_distance_cost = get_field('totals_pumping_distance_cost', $quote_id)){
+		$pumping_distance = get_field('pump_type', $quote_id) == 'mini' ? get_field('pumping_distance', $quote_id) : get_field('boom_pumping_distance', $quote_id);
+		$cart_item_data['pumping_label'] = "Pompafstand - {$pumping_distance}m";
+		$cart_item_data['pumping_value'] = $pumping_distance_cost;
+	}
+
+	if($toeslag_extra_leidingwagen_cost = get_field('totals_toeslag_extra_leidingwagen_cost', $quote_id)){
+		$cart_item_data['pumping_value'] = get_field('totals_pumping_distance_cost', $quote_id) + $toeslag_extra_leidingwagen_cost;
+	}
+
+	if($allIn_cost = get_field('totals_all-in_uitvoering_cost', $quote_id)){
+		$cart_item_data['allin_label'] = "All-in";
+		$cart_item_data['allin_value'] = $allIn_cost;
+	}
+
+	if($vlindervloer_cost = get_field('totals_vlindervloer_cost', $quote_id)){
+		$cart_item_data['butterfly_floor_label'] = "Vlindervloer";
+		$cart_item_data['butterfly_floor_value'] = $vlindervloer_cost;
+	}
+
+	$cart_item_data['sub_total'] = get_field('totals_subtotal', $quote_id);
+    
+    return $cart_item_data;
+}
+add_filter('woocommerce_add_cart_item_data', 'beton_add_cart_item_data_via_pay_url', 10, 3);

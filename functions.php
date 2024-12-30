@@ -404,7 +404,7 @@ function beton_calculator($data = null)
 
 	$response_data_set['application_price'] = $application_price;
 	$response_data_set['application_price_formatted'] = '<span>' . $application_data['product_name'] . '</span><span>' . wc_price($application_price) . '</span>';
-	$sub_total += $application_price;
+	// $sub_total += $application_price;
 	// Compounds
 	$compound_total = 0;
 	if(!empty($selected_compounds) && is_array($selected_compounds)){
@@ -423,7 +423,7 @@ function beton_calculator($data = null)
 	$response_data_set['application_compound_total_formatted'] = '<span>' . __('Total', 'beton') . '</span><span>' . wc_price($application_compound_total) . '</span>';
 	$sub_total += $application_compound_total;
 
-	$travel_distance = $_COOKIE['travelling_distance'];
+	$travel_distance = isset($_COOKIE['travelling_distance']) ? $_COOKIE['travelling_distance'] : 0;
 	
 	if($selected_release_method !== 'gutter'){
 		if($selected_pump_type == 'mini'){
@@ -435,7 +435,6 @@ function beton_calculator($data = null)
 			$all_in_price = get_field('all-in_price', 'option');
 			$ground_flooring_cost = get_field('ground_floor_cost', 'option');
 			$travel_cost = $travel_distance * $pump_callout_fee;
-
 
 			if($travel_cost < $pump_callout_min_distance_cost){
 				$travel_cost = $pump_callout_min_distance_cost;
@@ -505,7 +504,7 @@ function beton_calculator($data = null)
 				if($thickness_cost > 0){
 					$response_data_set['thickness_cost'] = $thickness_cost;
 					$response_data_set['thickness_cost_formatted'] = wc_price($thickness_cost);
-					$sub_total += $thickness_cost;
+					// $sub_total += $thickness_cost;
 				}
 
 				if($selected_rooms > 0){
@@ -513,7 +512,7 @@ function beton_calculator($data = null)
 					$extra_price += $room_cost;
 					$response_data_set['rooms_cost'] = $room_cost;
 					$response_data_set['rooms_formatted'] = wc_price($room_cost);
-					$sub_total += $room_cost;
+					// $sub_total += $room_cost;
 				}
 
 				if($travel_distance > 40){
@@ -782,10 +781,9 @@ function save_quotation() : void {
 	$data['city'] = $data['postalcode'];
 	$calc_data = $data;
 	$calc_data['application'] = $_POST['application_product'];
-	$calc_data['application'] = $_POST['application_product'];
 	$calc_data['compounds'] = $_POST['composition'];
 	$calc_data['release_method'] = $_POST['unloading'];
-	$calc_data['pumping_distance'] = (isset($_POST['pump-type']) && $_POST['pump-type'] == 'mini' ? $_POST['pumping_distance'] : $_POST['boom_pumping_distance']);
+	$calc_data['pumping_distance'] = (isset($_POST['pump_type']) && $_POST['pump_type'] == 'mini' ? $_POST['pumping_distance'] : $_POST['boom_pumping_distance']);
 	$calc_data['performance'] = $_POST['uitvoering'];
 	$calc_data['layer_thickness'] = $_POST['layer-thickness'];
 	$calc_data['rooms_count'] = $_POST['nos_rooms'];
@@ -794,6 +792,7 @@ function save_quotation() : void {
 	$calc_data['selected_floor'] = $_POST['flooring'];
 
 	$calcuated_data = beton_calculator($calc_data);
+	wc_get_logger()->debug('Data to save quotation');
 	wc_get_logger()->debug(json_encode($calcuated_data));
 
 	$quote = array(
@@ -805,12 +804,14 @@ function save_quotation() : void {
 
 	$data['beton_samenstelling_cubic_meters'] = $data['cubic_meters'];
 	$data['beton_samenstelling_postalcode'] = $data['postalcode'];
+	$data['beton_cost'] = $calcuated_data['beton_price'];
 
 	$data['additional_butterfly-floor'] = $data['butterfly-floor'];
 	$data['additional_flooring'] = $data['flooring'];
 	$data['additional_nos_rooms'] = $data['nos_rooms'];
 	$data['additional_layer-thickness'] = $data['layer-thickness'];
 	$data['additional_surace-sqm'] = $data['surace-sqm'];
+	$data['travelling_distance'] = $_COOKIE['travelling_distance'];
 
 	foreach ($data as $key => $value) {
 		// update_field($key, $value, $quote_id);
@@ -829,14 +830,14 @@ function save_quotation() : void {
 		'totals_hoog_vloeibaar_cost' => $calcuated_data['hoog-vloeibaar'],
 		'totals_snelhardend_cost' => $calcuated_data['snelhardend'],
 		'totals_fijn_grind_cost' => $calcuated_data['fijn-grind'],
-		'totals_extra_hoge_sterkte_cost' => $calcuated_data[''],
+		'totals_extra_hoge_sterkte_cost' => $calcuated_data['extra-hoge-sterkte'],
 		'totals_top_totals' => $calcuated_data['application_compound_total'],
 		'totals_pump_cost' => $calcuated_data['pump_cost'],
 		'totals_voorrijkosten_cost' => $calcuated_data['pump_callout_cost'],
 		'totals_pumping_distance_cost' => $calcuated_data['pumping_cost'],
 		'totals_toeslag_extra_leidingwagen_cost' => $calcuated_data['pumping_extra_hose_cost'],
-		'totals_all-in_uitvoering_cost' => $calcuated_data['allIn'],
-		'totals_vlindervloer_cost' => $calcuated_data['butterfly_floor'],
+		'totals_all-in_uitvoering_cost' => $calcuated_data['allIn_cost'],
+		'totals_vlindervloer_cost' => $calcuated_data['butterfly_floor_cost'],
 		'totals_subtotal' => $calcuated_data['sub_total'],
 		'totals_btw' => $calcuated_data['btw'],
 		'totals_grand_total' => $calcuated_data['sub_total_btw'],
@@ -1370,10 +1371,8 @@ function beton_cart_item_data( $cart_item_data, $product_id, $variation_id ) {
 		$data = $_POST;
 		unset($data['action']);
 
-
 		$data['city'] = $data['postalcode'];
 		$calc_data = $data;
-		$calc_data['application'] = $_POST['application_product'];
 		$calc_data['application'] = $_POST['application_product'];
 		$calc_data['compounds'] = $_POST['composition'];
 		$calc_data['release_method'] = $_POST['unloading'];
@@ -1400,7 +1399,7 @@ function beton_cart_item_data( $cart_item_data, $product_id, $variation_id ) {
 
 		if($data['composition']){
 			$cart_item_data['compositions_label'] = ucwords(str_replace('-', ' ', implode(', ', $data['composition'])));
-			$cart_item_data['compositions_value'] = $calcuated_data['application_compound_total'];
+			$cart_item_data['compositions_value'] = $calcuated_data['application_compound_total'] - $calcuated_data['application_price'];
 		}
 
 		if(isset($data['unloading'])){
@@ -1462,7 +1461,7 @@ add_filter( 'woocommerce_get_item_data', 'beton_get_item_data', 10, 2 );
 add_action('woocommerce_before_calculate_totals', function($cart_object){
 	foreach ($cart_object->get_cart() as $cart_item_key => $cart_item) {
 		$product = $cart_item['data'];
-		$sub_total = floatval($cart_item['sub_total']);
+		$sub_total = isset($cart_item['sub_total']) ? floatval($cart_item['sub_total']) : '';
 
 		if (!empty($sub_total)) {
 			$cart_item['data']->set_price($sub_total);
