@@ -932,3 +932,7 @@ div#orddd_list_view_select {
    padding-right: 10px;
    background: #fff;
 }
+
+.navbar-toggler:focus {
+	box-shadow: none !important;
+}
