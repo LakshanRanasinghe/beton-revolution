@@ -983,3 +983,7 @@ span.woocommerce-input-wrapper, span.woocommerce-input-wrapper input {width: 100
 .woocommerce-checkout-review-order-table .tax-rate {
    width: 100%;
 }
+
+.border-custom-gray.border.active {
+   border-color: var(--orange) !important;
+}
