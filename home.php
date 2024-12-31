@@ -57,7 +57,7 @@ get_header();
                     <input type="text" class="form-control rounded-0 home-input ps-4" placeholder="Postcode of Stad" aria-label="Postcode" id="postcode-input">
                     <input type="text" class="form-control rounded-0 home-input ps-4" placeholder="Aantal M" aria-label="Cubic meters of concrete" id="cubic-meters">
                 </div>
-                <button class="btn oswald-600 text-sm-20 text-white text-uppercase border-2 border-orange bg-orange rounded-0 px-6 py-3 w-lg-25">Bereken Prijs</button>
+                <button class="btn oswald-600 text-sm-20 text-white text-uppercase border-2 border-orange bg-orange rounded-0 px-6 py-3 w-lg-25 letter-spacing-four">Bereken Prijs</button>
             </div>
             <div class="d-flex align-items-center ps-md-0">
                 <p class="text-14 poppins-500 light-blue pt-3 letter-spacing-four">Bereken het aantal kubieke meters</p>
@@ -75,7 +75,7 @@ get_header();
             <div class="col-lg-7 col-12 z-1 position-relative p-lg-2 p-4 mb-2" style="backdrop-filter: blur(25px); background-color: rgba(255, 255, 255, 0.1);">
                 <div class="pe-lg-5 pe-0">
                     <div class="col-lg-9 col-12">
-                        <h1 class="oswald-500 display-3 text-40 m-0 text-black text-uppercase mb-1">
+                        <h1 class="oswald-500 display-3 text-40 m-0 text-black text-uppercase mb-1 letter-spacing-four">
                             Hoe stort je beton?
                         </h1>
                         <div class="h-14" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
@@ -94,7 +94,7 @@ get_header();
             <div class="col-lg-5 col-12 px-lg-0 px-4">
                 <img class="img-fluid" src="https://images.unsplash.com/photo-1672748341520-6a839e6c05bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Concrete Pouring">
                 <div class="bg-orange p-4">
-                    <h4 class="oswald-600 text-26 text-white m-0">BELLEN: 06-27016082</h4>
+                    <h4 class="oswald-600 text-26 text-white m-0 letter-spacing-four">BELLEN: 06-27016082</h4>
                 </div>
             </div>
         </div>
@@ -105,14 +105,14 @@ get_header();
             <div class="col-lg-5 col-12 px-lg-0 px-4">
                 <img class="img-fluid custom-550-image" src="https://images.unsplash.com/photo-1603814929895-f68fc3d4c89d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Concrete Pouring">
                 <div class="bg-orange p-4">
-                    <h4 class="oswald-600 text-26 text-white m-0">BELLEN: 06-27016082</h4>
+                    <h4 class="oswald-600 text-26 text-white m-0 letter-spacing-four">BELLEN: 06-27016082</h4>
                 </div>
             </div>
             <div class="col-lg-7 col-12 z-1 position-relative p-lg-2 p-4 mb-2 d-flex align-items-center">
                 <div class="ps-lg-5 ps-0">
                     <div class="row align-items-center col-12">
                         <div class="col-lg-8 col-12">
-                            <h1 class="oswald-500 display-3 text-40 m-0 text-black text-uppercase mb-1">
+                            <h1 class="oswald-500 display-3 text-40 m-0 text-black text-uppercase mb-1 letter-spacing-four">
                                 Zie je jezelf nog niet beton storten?
                             </h1>
                             <div class="h-14" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
@@ -141,7 +141,7 @@ get_header();
     <div class="container">
         <div class="row">
             <div class="col-3 p-0">
-                <h1 class="oswald-500 display-3 text-sm-64 m-0 text-white text-uppercase">Getuigenissen</h1>
+                <h1 class="oswald-500 display-3 text-sm-64 m-0 text-white text-uppercase letter-spacing-four">Getuigenissen</h1>
                 <div class="h-14 mt-1" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
             </div>
         </div>
