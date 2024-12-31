@@ -238,6 +238,9 @@ a {
 .pixel-p-1 {
    padding: 1px;
 }
+.pixel-p-4 {
+   padding: 4px;
+}
 .pixel-p-8 {
    padding: 8px;
 }
@@ -986,4 +989,7 @@ span.woocommerce-input-wrapper, span.woocommerce-input-wrapper input {width: 100
 
 .border-custom-gray.border.active {
    border-color: var(--orange) !important;
+}
+.inactive .step-title-block {
+   padding: 0 !important;
 }

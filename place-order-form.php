@@ -11,7 +11,7 @@ get_header();
             <p class="step-text-container poppins-400 text-12 text-custom-gray-4 mb-1 d-none d-block ms-4 ps-1">Wees geduldig, je bent bij de laatste</p>
             <!-- First Section -->
             <div class="location-and-quantity-section section-wrap px-sm-5 py-sm-4 box-shadow-no-bottom box-sm-white position-relative z-3 pending" data-step="1">
-                <div class="position-relative pb-4 d-sm-block">
+                <div class="step-title-block position-relative d-sm-block">
                     <div class="position-relative z-1 bg-sm-white bg-custom-gray-3 d-inline-block pe-3 py-sm-0 py-1">
                         <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative d-sm-inline-block d-none"></i> LOCATIE EN BETONHOEVEELHEID</h5>
                     </div>
@@ -23,7 +23,7 @@ get_header();
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
-                <div class="location-and-quantity-form form-section text-sm-18 poppins-500" id="initialFormSection">
+                <div class="location-and-quantity-form form-section text-sm-18 poppins-500 mt-4" id="initialFormSection">
                     <form>
                         <div class="mb-4">
                             <label for="location" class="form-label text-dark-gray">Locatie</label>
@@ -40,13 +40,13 @@ get_header();
 
             <!-- Second Section -->
             <div class="type-and-kind-section section-wrap px-sm-5 py-sm-4 box-shadow-no-bottom box-sm-white position-relative text-dark-gray z-2 pending" data-step="2">
-                <div class="position-relative pb-4 d-sm-block d-none">
+                <div class="step-title-block position-relative d-sm-block d-none">
                     <div class="position-relative z-1 bg-white d-sm-inline-block pe-3">
                         <h5 class="step-title text-custom-gray-4 oswald-600 text-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative d-sm-inline-block d-none"></i> TYPE EN SOORT</h5>
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
-                <div class="type-and-kind-form text-16 poppins-500 form-section" id="newFormSection">
+                <div class="type-and-kind-form text-16 poppins-500 form-section mt-4" id="newFormSection">
                     <form>
                         <input type="hidden" name="nonce" id="beton_nonce" value="<?php echo wp_create_nonce("beton_calculator_nonce"); ?>">
                         <!-- Application, Compound, Release Method Section -->
@@ -127,7 +127,7 @@ get_header();
                                             </div>
                                         </div>
                                         <!-- <hr class="text-light-gray mt-3"> -->
-                                        <div class="p-sm-3 p-0 d-flex">
+                                        <div class="px-sm-3 p-0 d-flex">
                                             <img src="<?php echo get_template_directory_uri() ?>/images/lorry1.png" alt="Mini Concrete Pump" class="img-fluid mb-2 w-sm-163">
                                             <ul class="list-unstyled text-custom-gray-2 text-12 poppins-400">
                                                 <li><i class="icon-tick bi bi-check"></i> Dunne, handzame slangen</li>
@@ -159,7 +159,7 @@ get_header();
                                             </div>
                                         </div>
                                         <hr class="text-light-gray mt-3">
-                                        <div class="p-sm-3 p-0 d-flex">
+                                        <div class="px-sm-3 p-0 d-flex">
                                             <img src="<?php echo get_template_directory_uri() ?>/images/lorry2.png" alt="Boom Pump" class="img-fluid mb-2 w-sm-163">
 
                                             <ul class="list-unstyled text-custom-gray-2 text-12 poppins-400">
@@ -264,7 +264,7 @@ get_header();
 
             <!-- Third Section -->
             <div class="confirm-and-pay-section section-wrap px-sm-5 py-sm-4 box-shadow-no-top box-sm-white position-relative text-dark-gray z-1" data-step="3">
-                <div class="position-relative pb-4 d-sm-inline-block d-none">
+                <div class="step-title-block position-relative d-sm-inline-block d-none">
                     <div class="position-relative z-1 bg-white d-inline-block pe-3">
                         <h5 class="step-title text-custom-gray-4 oswald-600 text-20 d-inline-block mt-1 disabled"><i class="bi bi-check-circle-fill step-title-icon position-relative"></i> BEVESTIG ADRES EN BETAAL</h5>
                     </div>
@@ -276,7 +276,7 @@ get_header();
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
-                <div class="confirm-and-pay-form form-section third-section d-none" id="thirdFormSection">
+                <div class="confirm-and-pay-form form-section third-section d-none mt-4" id="thirdFormSection">
                     <p><strong>Uw Gegevens</strong><br> Vul alstublieft uw persoonlijke gegevens in, zodat we uw betaling kunnen controleren en contact met u kunnen opnemen.</p>
 
 
@@ -287,7 +287,7 @@ get_header();
             <div class="col-lg-4">
                 <div class="sticky-summary">
                     <div class="box-shadow bg-white">
-                        <hr class="yellow pixel-p-8 opacity-100 no-border-top m-0">
+                        <hr class="yellow pixel-p-4 opacity-100 no-border-top m-0">
                         <div class="oswald-600 text-32 px-4 pt-3 text-dark-blue">UW AANVRAAG</div>
                         <hr class="text-light-gray">
                         <div class="summary-content p-4 poppins-400 text-18 text-dark-gray">
