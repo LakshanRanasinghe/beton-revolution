@@ -1386,10 +1386,15 @@ function beton_cart_item_data( $cart_item_data, $product_id, $variation_id ) {
 
 		$calcuated_data = beton_calculator($calc_data);
 
+		wc_get_logger()->debug('Adding to cart (cacl data): ' . json_encode($calcuated_data));
+
 		if($calcuated_data['beton_price'] && $calcuated_data['cubic_meters_formatted']){
 			$cart_item_data['concrete_value'] = $calcuated_data['beton_price'];
 			$cubic_meters = number_format($calcuated_data['cubic_meters_formatted'], 2);
 			$cart_item_data['concrete_label'] = "Beton: {$cubic_meters}m³";
+
+			$cart_item_data['hidden_concrete_qty_value'] = $cubic_meters;
+			$cart_item_data['hidden_concrete_qty_label'] = 'Concrete Cubic meters';
 		}
 
 		if(isset($calcuated_data['application_price'])){
@@ -1400,6 +1405,13 @@ function beton_cart_item_data( $cart_item_data, $product_id, $variation_id ) {
 		if($data['composition']){
 			$cart_item_data['compositions_label'] = ucwords(str_replace('-', ' ', implode(', ', $data['composition'])));
 			$cart_item_data['compositions_value'] = $calcuated_data['application_compound_total'] - $calcuated_data['application_price'];
+
+			foreach($data['composition'] as $composition){
+				if(isset($calcuated_data[$composition])){
+					$cart_item_data['hidden_' . $composition . '_label'] =  ucwords(str_replace('-', ' ', $composition));
+					$cart_item_data['hidden_' . $composition . '_value'] = $calcuated_data[$composition];
+				}
+			}
 		}
 
 		if(isset($data['unloading'])){
@@ -1420,6 +1432,11 @@ function beton_cart_item_data( $cart_item_data, $product_id, $variation_id ) {
 		if(isset($calcuated_data['pumping_cost'])){
 			$cart_item_data['pumping_label'] = "Pompafstand - {$data['pumping_distance']}m";
 			$cart_item_data['pumping_value'] = $calcuated_data['pumping_cost'];
+		}
+
+		if(isset($data['pumping_distance'])){
+			$cart_item_data['hidden_pumping_distance_label'] = "Pumping Distance";
+			$cart_item_data['hidden_pumping_distance_value'] = $data['pumping_distance'];
 		}
 
 		if(isset($calcuated_data['pumping_extra_hose_cost'])){
@@ -1446,8 +1463,12 @@ add_filter( 'woocommerce_add_cart_item_data', 'beton_cart_item_data', 10, 3 );
 
 //Display custom item data in the cart
 function beton_get_item_data( $item_data, $cart_item_data ) {
+	// echo '<pre>';
+	// print_r($cart_item_data);
+	// echo '</pre>';
+
 	foreach($cart_item_data as $label => $cart_item){
-		if(str_ends_with($label, 'label')){
+		if(str_ends_with($label, 'label') && !str_starts_with($label, 'hidden_')){
 			$value = $cart_item_data[str_replace('label', 'value', $label)];
 			$item_data[] = array(
 				'key' => $cart_item_data[$label],
@@ -1460,6 +1481,26 @@ function beton_get_item_data( $item_data, $cart_item_data ) {
 }
 add_filter( 'woocommerce_get_item_data', 'beton_get_item_data', 10, 2 );
 
+//Add custom meta to order
+function beton_checkout_create_order_line_item( $item, $cart_item_key, $values, $order ) {
+	wc_get_logger()->debug('Adding to order: ' . json_encode($values));
+	foreach($values as $label => $cart_item){
+		if(str_ends_with($label, 'label') || str_starts_with($label, 'hidden')){
+			$value = $values[str_replace('label', 'value', $label)];
+			$item->add_meta_data($values[$label], is_numeric($value) ? wc_price($value) : wc_clean($value), true);
+			$item->add_meta_data('raw_' . str_replace('label', 'value', $label), $value, true);
+			$item->add_meta_data('raw_' . $label, $values[$label], true);
+		}
+		// if(str_starts_with($label, 'hidden')){
+		// 	$item->add_meta_data('raw_' . str_replace('label', 'value', $label), $value, true);
+		// 	$item->add_meta_data('raw_' . $label, $values[$label], true);
+		// }
+	}
+
+	// if($values[''])
+}
+add_action( 'woocommerce_checkout_create_order_line_item', 'beton_checkout_create_order_line_item', 10, 4 );
+
 add_action('woocommerce_before_calculate_totals', function($cart_object){
 	foreach ($cart_object->get_cart() as $cart_item_key => $cart_item) {
 		$product = $cart_item['data'];
@@ -1470,18 +1511,3 @@ add_action('woocommerce_before_calculate_totals', function($cart_object){
 		}
 	}
 });
-
-//Add custom meta to order
-function beton_checkout_create_order_line_item( $item, $cart_item_key, $values, $order ) {
-	foreach($values as $label => $cart_item){
-		if(str_ends_with($label, 'label')){
-			$value = $values[str_replace('label', 'value', $label)];
-			$item->add_meta_data($values[$label], is_numeric($value) ? wc_price($value) : wc_clean($value), true);
-		}
-	}
-
-    if( isset( $values['zwt_field'] ) ) {
-        $item->add_meta_data(__( 'Genre id', 'text-domain' ), $values['zwt_field'], true);
-    }
-}
-add_action( 'woocommerce_checkout_create_order_line_item', 'beton_checkout_create_order_line_item', 10, 4 );
