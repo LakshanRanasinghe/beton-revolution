@@ -14,7 +14,7 @@ get_header();
                 <svg xmlns="http://www.w3.org/2000/svg" class="beton-star-icons col p-0" height="30" width="25" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
                 <svg xmlns="http://www.w3.org/2000/svg" class="beton-star-icons col p-0" height="30" width="25" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
                 <svg xmlns="http://www.w3.org/2000/svg" class="beton-star-icons col p-0" height="30" width="25" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                <h2 class="oswald-600 lh-sm text-white m-0 ps-2 new-text-sm-22 rating-width" >4,9/5 Sterren</h2>
+                <h2 class="oswald-600 lh-sm text-white m-0 ps-2 new-text-sm-22 rating-width text-uppercase" >4,9/5 Sterren</h2>
             </div>
             <!-- <div class="row col-lg-4 col-4 align-items-center" style="width: 180px;">
                 
@@ -22,28 +22,28 @@ get_header();
             
         </div> 
 
-        <div class="row col-lg-5 col-11 z-1 position-relative p-2 d-flex mb-4" style="backdrop-filter: blur(8px); background-color: #FFFFFF1A;">
-            <h1 class="oswald-500 display-3 text-56 m-0 text-white text-uppercase p-0">Beton bestellen?</h1>
+        <div class="row col-lg-5 col-11 z-1 position-relative p-2 d-flex mb-4 padding-left-title" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
+            <h1 class="oswald-500 display-3 text-56 m-0 text-white text-uppercase p-0 letter-spacing-four">Beton bestellen?</h1>
         </div>
 
-        <div class="row col-lg-9 col-12 z-1 position-relative p-2 mb-4" style="backdrop-filter: blur(8px); background-color: #FFFFFF1A;">
-            <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-block d-none">Binnen 24 uur gratis offerte</h1>
-            <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-none d-block">Binnen 24 uur</h1>
+        <div class="row col-lg-10 col-12 z-1 position-relative p-2 mb-4 padding-left-title" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
+            <h1 class="oswald-600 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-block d-none letter-spacing-four">Binnen 24 uur gratis offerte</h1>
+            <h1 class="oswald-600 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-none d-block letter-spacing-four">Binnen 24 uur</h1>
             <div class="p-1 d-sm-none d-block" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
-            <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-none d-block letter-spacing-four">gratis offerte</h1>
+            <h1 class="oswald-600 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-none d-block letter-spacing-four">gratis offerte</h1>
             <div class="p-2 d-sm-block d-none" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
         </div>
 
         <div class="row gap-3 z-1 position-relative">
-            <a href="<?php echo site_url(); ?>/pour-concrete-or-order-concrete/" class="btn-hover-orange col-lg-2 col-sm-4 col-6 oswald-600 text-sm-20 text-white text-uppercase text-center border-2 border-white rounded-0 bg-transparent px-4 py-3">Bereken Prijs</a>
-            <a href="<?php echo site_url(); ?>/offerte-aanvragen/" class="btn-hover col-lg-2 col-sm-4 col-5 oswald-600 text-sm-20 text-white text-uppercase text-center border-2 border-orange bg-orange rounded-0 px-6 py-3">Gratis Offerte</a>
+            <a href="<?php echo site_url(); ?>/pour-concrete-or-order-concrete/" class="btn-hover-orange col-lg-2 col-sm-4 col-6 oswald-600 text-sm-20 text-white text-uppercase text-center border-2 border-white rounded-0 bg-transparent px-4 py-3 letter-spacing-four">Bereken Prijs</a>
+            <a href="<?php echo site_url(); ?>/offerte-aanvragen/" class="btn-hover col-lg-2 col-sm-4 col-5 oswald-600 text-sm-20 text-white text-uppercase text-center border-2 border-orange bg-orange rounded-0 px-6 py-3 letter-spacing-four">Gratis Offerte</a>
         </div>
     </div>
 </div>
 
 <!-- second section -->
 <div class="bg-dark-blue container-fluid px-lg-5 px-3 py-3 py-lg-0">
-    <div class="container d-flex flex-lg-row flex-column align-items-center gap-lg-5 gap-0 overflow-hidden px-0">
+    <div class="new-container-1400 container d-flex flex-lg-row flex-column align-items-center gap-lg-5 gap-0 overflow-hidden px-0">
         <!-- Left Column -->
         <div class="row col-lg-3 col-12 d-block position-relative tilted-border">
             <div class="py-lg-5 py-3 px-0 d-lg-block d-flex px-lg-3">
@@ -55,10 +55,10 @@ get_header();
         <form class="row col-lg-9 " action="prices">
             <div class="d-lg-flex d-block align-items-center gap-3 px-0 w-100">
                 <div class="w-lg-70 d-flex gap-3 pb-lg-0 pb-3 position-relative">
-                    <input type="text" class="form-control rounded-0 home-input ps-4" placeholder="Postcode of Stad" aria-label="Postcode" id="postcode-input">
-                    <input type="text" class="form-control rounded-0 home-input ps-4" placeholder="Aantal M" aria-label="Cubic meters of concrete" id="cubic-meters">
+                    <input type="text" class="form-control rounded-0 home-input ps-4 oswald-600 text-20 letter-spacing-four text-uppercase" placeholder="Postcode of Stad" aria-label="Postcode" id="postcode-input">
+                    <input type="text" class="form-control rounded-0 home-input ps-4 oswald-600 text-20 letter-spacing-four text-uppercase" placeholder="Aantal M" aria-label="Cubic meters of concrete" id="cubic-meters">
                 </div>
-                <button class="btn oswald-600 text-sm-20 text-white text-uppercase border-2 border-orange bg-orange rounded-0 px-6 py-3 w-lg-25">Bereken Prijs</button>
+                <button class="btn oswald-600 text-sm-20 text-white text-uppercase border-2 border-orange bg-orange rounded-0 px-6 py-3 w-lg-25 letter-spacing-four">Bereken Prijs</button>
             </div>
             <div class="d-flex align-items-center ps-md-0">
                 <p class="text-14 poppins-500 light-blue pt-3 letter-spacing-four">Bereken het aantal kubieke meters</p>
@@ -76,9 +76,7 @@ get_header();
             <div class="col-lg-7 col-12 z-1 position-relative p-lg-2 p-4 mb-2" style="backdrop-filter: blur(25px); background-color: rgba(255, 255, 255, 0.1);">
                 <div class="pe-lg-5 pe-0">
                     <div class="col-lg-9 col-12">
-                        <h1 class="oswald-500 display-3 text-40 m-0 text-black text-uppercase mb-1">
-                            Hoe stort je beton?
-                        </h1>
+                        <h1 class="oswald-600 display-3 text-40 m-0 text-black text-uppercase mb-1 letter-spacing-four text-dark-blue">Hoe stort je beton?</h1>
                         <div class="h-14" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
                     </div>
                     <p class="grey-text poppins-400 text-sm-18 line-height letterspace1 mt-3 mb-3">
@@ -95,7 +93,7 @@ get_header();
             <div class="col-lg-5 col-12 px-lg-0 px-4">
                 <img class="img-fluid" src="https://images.unsplash.com/photo-1672748341520-6a839e6c05bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Concrete Pouring">
                 <div class="bg-orange p-4">
-                    <h4 class="oswald-600 text-26 text-white m-0">BELLEN: 06-27016082</h4>
+                    <h4 class="oswald-600 text-26 text-white m-0 letter-spacing-four">BELLEN: 06-27016082</h4>
                 </div>
             </div>
         </div>
@@ -106,14 +104,14 @@ get_header();
             <div class="col-lg-5 col-12 px-lg-0 px-4">
                 <img class="img-fluid custom-550-image" src="https://images.unsplash.com/photo-1603814929895-f68fc3d4c89d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Concrete Pouring">
                 <div class="bg-orange p-4">
-                    <h4 class="oswald-600 text-26 text-white m-0">BELLEN: 06-27016082</h4>
+                    <h4 class="oswald-600 text-26 text-white m-0 letter-spacing-four">BELLEN: 06-27016082</h4>
                 </div>
             </div>
             <div class="col-lg-7 col-12 z-1 position-relative p-lg-2 p-4 mb-2 d-flex align-items-center">
                 <div class="ps-lg-5 ps-0">
                     <div class="row align-items-center col-12">
                         <div class="col-lg-8 col-12">
-                            <h1 class="oswald-500 display-3 text-40 m-0 text-black text-uppercase mb-1">
+                            <h1 class="oswald-600 text-dark-blue display-3 text-40 m-0 text-black text-uppercase mb-1 letter-spacing-four">
                                 Zie je jezelf nog niet beton storten?
                             </h1>
                             <div class="h-14" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
@@ -142,13 +140,13 @@ get_header();
     <div class="container">
         <div class="row">
             <div class="col-3 p-0">
-                <h1 class="oswald-500 display-3 text-sm-64 m-0 text-white text-uppercase">Getuigenissen</h1>
+                <h1 class="oswald-600 display-3 text-sm-64 m-0 text-white text-uppercase letter-spacing-four">Getuigenissen</h1>
                 <div class="h-14 mt-1" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
             </div>
         </div>
 
-        <div class="row pt-5 d-flex flex-lg-row flex-column">
-            <div class="col-lg-3 col-12 p-0">
+        <div class="row pt-5 d-flex flex-lg-row flex-column padding7">
+            <div class="col-lg-4 col-12 p-0">
                 <div class="d-flex h-full">
                     <img class="image-fluid w-custom-70 p-0 pixel-me-10 ms-0" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                     <div class="w-custom-30 d-flex px-0">
@@ -159,19 +157,19 @@ get_header();
                 </div>
             </div>
 
-            <div class="col-lg-9 col-12 p-0">
+            <div class="col-lg-8 col-12 p-0">
                 <div class="row col-md-4 col-8 z-1 position-relative p-2 mb-4 mt-md-0 mt-4 mx-0" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
-                    <div class="row col-6">
+                    <div class="row col-5">
                         <svg xmlns="http://www.w3.org/2000/svg" class="col p-0" height="25" width="28" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
                         <svg xmlns="http://www.w3.org/2000/svg" class="col p-0" height="25" width="28" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
                         <svg xmlns="http://www.w3.org/2000/svg" class="col p-0" height="25" width="28" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
                         <svg xmlns="http://www.w3.org/2000/svg" class="col p-0" height="25" width="28" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
                         <svg xmlns="http://www.w3.org/2000/svg" class="col p-0" height="25" width="28" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
                     </div>
-                    <h2 class="oswald-600 fs-5 lh-sm text-white m-0 col-6 pe-0">klanten vertellen</h2>
+                    <h2 class="oswald-600 fs-5 lh-sm text-white m-0 col-7 pe-0">klanten vertellen</h2>
                 </div>
                 <div>
-                    <p class="poppins-500 text-sm-22 fst-italic text-white letterspace1">Prima geleverd zoals afgesproken. Ook willen ze prima met je meedenken. Wat wel beter kan is, wanneer ze beloven terug te bellen nav een email dat ze dit dan ook doen en het was fijn om vooraf te weten dat beton dat achterblijft in de pompwagen je zelf moet gebruiken of later verwijderen. Nu maar noodgedwongen beton op wat zand laten lozen en wanneer het droog is zal ik het wel breken en afvoeren</p>
+                    <p class="poppins-500 text-sm-22 fst-italic text-white letterspace1 line-height-38">Prima geleverd zoals afgesproken. Ook willen ze prima met je meedenken. Wat wel beter kan is, wanneer ze beloven terug te bellen nav een email dat ze dit dan ook doen en het was fijn om vooraf te weten dat beton dat achterblijft in de pompwagen je zelf moet gebruiken of later verwijderen. Nu maar noodgedwongen beton op wat zand laten lozen en wanneer het droog is zal ik het wel breken en afvoeren</p>
                 </div>
                 <div>
                     <h3 class="oswald-500 text-sm-32 letterspace1 text-yellow text-uppercase">Hilde , Epse</h3>
@@ -189,34 +187,34 @@ get_header();
     <div class="container">
         <div class="row d-flex flex-md-row flex-column pixel-px-12">
             <div class="col-lg-4 col-sm-6 col-12 mb-3">
-                <div class="col-12 bg-white shadow-sm p-0 me-2">
+                <div class="col-12 bg-white p-0 me-2">
                     <div>
                         <img class="image-fluid image-post" src="https://images.unsplash.com/photo-1541888894402-f3b1af908be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                     </div>
                     <div class="p-3">
-                        <h3 class="oswald-500 text-dark-blue text-20 letterspace1">Beton zelf mixen of bestellen?</h3>
+                        <h3 class="oswald-500 text-dark-blue text-20 letterspace1 post-title-margin-tb">Beton zelf mixen of bestellen?</h3>
                         <p class="poppins-400 text-16 paragraph-ash letterspace1">Wat is goedkoper beton zelf mixen of bestellen? Je leest het in het artikel goedkoop beton bestellen.</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 col-12 mb-3">
-                <div class="col-12 bg-white shadow-sm p-0 me-2">
+                <div class="col-12 bg-white p-0 me-2">
                     <div>
                         <img class="image-fluid image-post" src="https://images.unsplash.com/photo-1541888894402-f3b1af908be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                     </div>
                     <div class="p-3">
-                        <h3 class="oswald-500 text-dark-blue text-20 letterspace1">Wat zijn de kosten voor beton?</h3>
+                        <h3 class="oswald-500 text-dark-blue text-20 letterspace1 post-title-margin-tb">Wat zijn de kosten voor beton?</h3>
                         <p class="poppins-400 text-16 paragraph-ash letterspace1">Ontdek wat de kosten van beton zijn in het artikel wat kost beton.</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 col-12">
-                <div class="col-12 bg-white shadow-sm p-0 me-2">
+                <div class="col-12 bg-white p-0 me-2">
                     <div>
                         <img class="image-fluid image-post" src="https://images.unsplash.com/photo-1541888894402-f3b1af908be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                     </div>
                     <div class="p-3">
-                        <h3 class="oswald-500 text-dark-blue text-20 letterspace1">Beton zelf storten of laten storten?</h3>
+                        <h3 class="oswald-500 text-dark-blue text-20 letterspace1 post-title-margin-tb">Beton zelf storten of laten storten?</h3>
                         <p class="poppins-400 text-16 paragraph-ash letterspace1">Zelf beton storten of laten storten? Ontdek wat er komt kijken bij het storten van beton.</p>
                     </div>
                 </div>
@@ -323,7 +321,7 @@ get_header();
 </div>
 
 <div class="container-fluid bg-white py-md-5 px-0">
-    <div class="py-4 py-md-5"></div>
+    <div class="py-4 py-md-5 padding7"></div>
     <div class="container">
         <h3 class="oswald-600 text-orange text-sm-24 text-center text-uppercase letter-spacing-four">Vraag nu een gratis offerte aan</h3>
         <h4 class="oswald-600 text-dark-blue text-sm-64 text-center text-uppercase letter-spacing-four">WILT U EEN BETONPOMP HUREN?</h4>
@@ -334,7 +332,7 @@ get_header();
             <a href="<?php echo site_url(); ?>/offerte-aanvragen/" class="col-md-3 col-lg-2 col-6 oswald-600 text-20 text-white text-center border-2 border-orange bg-orange rounded-0 px-6 py-3 text-uppercase m-auto">Gratis Offerte</a>
         </div>
     </div>
-    <div class="py-4 py-md-5"></div>
+    <div class="py-4 py-md-5 padding7"></div>
 </div>
 
 
