@@ -972,3 +972,14 @@ span.woocommerce-input-wrapper, span.woocommerce-input-wrapper input {width: 100
 .navbar-toggler:focus {
 	box-shadow: none !important;
 }
+
+.woocommerce-checkout-review-order-table ul#shipping_method {
+   margin: 0;
+   list-style: none;
+   padding: 0;
+   font-size: 16px;
+   float: right;
+}
+.woocommerce-checkout-review-order-table .tax-rate {
+   width: 100%;
+}
