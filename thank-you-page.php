@@ -11,13 +11,13 @@ get_header();
         </div>
 
         <!-- Thank You Message -->
-        <h3 class="thank-you-header text-center oswald-600 text-sm-32 text-dark-blue mb-4">THANK YOU FOR REQUESTING THE QUOTE!</h3>
-        <p class="mb-4 text-center poppins-400 text-sm-18 text-dark-gray mb-5">You will receive an email with your quote within a few minutes. Do you have any questions? Please feel free to contact us.</p>
+        <h3 class="thank-you-header text-center oswald-600 text-sm-32 text-dark-blue mb-4">BEDANKT VOOR HET AANVRAGEN VAN DE OFFERTE!</h3>
+        <p class="mb-4 text-center poppins-400 text-sm-18 text-dark-gray mb-5">U ontvangt binnen enkele minuten een e-mail met uw offerte. Heeft u vragen? Neem gerust contact met ons op.</p>
 
         <!-- Action Buttons -->
         <div class="d-flex justify-content-center oswald-600 ">
-            <a href="#" class="btn text-white text-sm-20 uppercase bg-orange me-sm-4 me-2 px-sm-5 px-3 h-sm-72 rounded-0 d-flex align-items-center bg-orange-btn">CALCULATE ANOTHER PRICE</a>
-            <a href="#" class="btn border border-orange border-2 text-sm-20 uppercase px-sm-5 px-3 h-sm-72 text-orange rounded-0 d-flex align-items-center border-orange-btn">GO TO HOMEPAGE</a>
+            <a href="<?php echo site_url(); ?>/prices/" class="btn text-white text-sm-20 uppercase bg-orange me-sm-4 me-2 px-sm-5 px-3 h-sm-72 rounded-0 d-flex align-items-center bg-orange-btn">BEREKEN EEN ANDERE PRIJS</a>
+            <a href="<?php echo site_url(); ?>" class="btn border border-orange border-2 text-sm-20 uppercase px-sm-5 px-3 h-sm-72 text-orange rounded-0 d-flex align-items-center border-orange-btn">GA NAAR DE HOMEPAGINA</a>
         </div>
     </div>
 </div>
