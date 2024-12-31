@@ -254,7 +254,7 @@ get_header();
                             <label for="email" class="form-label text-18 text-dark-gray">Uw E-mailadres</label>
                             <input type="email" id="email" name="user_email" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Voer Uw E-mailadres in">
                             <div class="btn-wrapper mt-4">
-                                <button class="submit-btn btn text-white bg-orange h-46 uppercase bg-orange-btn border border-0 rounded-0 text-white oswald-600 text-16 me-4 px-4" type="button" value="checkout" id="pay-btn" data-next="Be patient you are on the last">Betalen via iDeal</button>
+                                <button class="submit-btn btn text-white bg-orange h-46 uppercase bg-orange-btn border rounded-0 text-white oswald-600 text-16 me-4 px-4 border-orange" type="button" value="checkout" id="pay-btn" data-next="Be patient you are on the last">Betalen via iDeal</button>
                                 <button class="submit-btn btn border-orange h-46 uppercase border rounded-0 border-orange-btn text-orange oswald-600 text-16 px-4" type="button" value="quote" disabled require>Offerte in PDF</button>
                             </div>
                         </div>

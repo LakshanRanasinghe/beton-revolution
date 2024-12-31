@@ -985,13 +985,13 @@ div#orddd_list_view_select {
    cursor: not-allowed !important;
 }
 
-button#pay-btn:hover, button#location-and-quantity-btn {
+button#pay-btn:hover, button#location-and-quantity-btn:hover, .thankyou-page-btn1:hover {
    background-color: #FFF !important;
    border: 1px solid var(--orange) !important;
    color: var(--orange) !important;
 }
 
-button.submit-btn.btn.border-orange.h-46.uppercase.border.rounded-0.border-orange-btn.text-orange.oswald-600.text-16.px-4:hover {
+button.submit-btn.btn.border-orange.h-46.uppercase.border.rounded-0.border-orange-btn.text-orange.oswald-600.text-16.px-4:hover, .thankyou-page-btn2:hover {
    color: #FFF !important;
    background-color: var(--orange) !important;
 }
