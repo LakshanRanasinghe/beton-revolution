@@ -4,23 +4,33 @@ get_header();
 ?>
 
 <!-- first section -->
-<div class="bg-image container-fluid object-fit-cover position-relative p-0" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); height: 90vh;">
+<div class="bg-image container-fluid object-fit-cover position-relative p-0 background-img-adjust" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); height: 90vh;">
     <div class="z-0 hero-section-overlay position-absolute h-100 container-fluid bg-black bg-opacity-50 top-0 left-0 p-0"></div>
-    <div class="container h-100 d-flex flex-column justify-content-center pixel-sm-p-30">
-        <div class="row col-lg-4 col-9 z-1 position-relative p-2 mb-4" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
-            <div class="row col-lg-8 col-6">
+    <div class="new-container-1400 container h-100 d-flex flex-column justify-content-center pixel-sm-p-30">
+        <div class="row col-lg-4 col-9 z-1 position-relative p-2 mb-4" style="backdrop-filter: blur(8px); background-color: #FFFFFF1A;">
+            <div class="d-flex align-items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="beton-star-icons col p-0" height="30" width="25" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
                 <svg xmlns="http://www.w3.org/2000/svg" class="beton-star-icons col p-0" height="30" width="25" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
                 <svg xmlns="http://www.w3.org/2000/svg" class="beton-star-icons col p-0" height="30" width="25" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
                 <svg xmlns="http://www.w3.org/2000/svg" class="beton-star-icons col p-0" height="30" width="25" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
                 <svg xmlns="http://www.w3.org/2000/svg" class="beton-star-icons col p-0" height="30" width="25" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                <h2 class="oswald-600 lh-sm text-white m-0 ps-2 new-text-sm-22 rating-width" >4,9/5 Sterren</h2>
             </div>
-            <div class="row col-lg-4 col-4 align-items-center" style="width: 180px;">
-                <h2 class="oswald-600 fs-5 lh-sm text-white m-0" style="width: 180px;">4,9/5 Sterren</h2>
-            </div>
+            <!-- <div class="row col-lg-4 col-4 align-items-center" style="width: 180px;">
+                
+            </div> -->
             
         </div> 
 
+<<<<<<< HEAD
+        <div class="row col-lg-5 col-11 z-1 position-relative p-2 d-flex mb-4" style="backdrop-filter: blur(8px); background-color: #FFFFFF1A;">
+            <h1 class="oswald-500 display-3 text-56 m-0 text-white text-uppercase p-0">Beton bestellen?</h1>
+        </div>
+
+        <div class="row col-lg-9 col-12 z-1 position-relative p-2 mb-4" style="backdrop-filter: blur(8px); background-color: #FFFFFF1A;">
+            <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-block d-none">Binnen 24 uur gratis offerte</h1>
+            <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-none d-block">Binnen 24 uur</h1>
+=======
         <div class="row col-lg-5 col-11 z-1 position-relative p-2 d-flex mb-4 padding-left-title" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
             <h1 class="oswald-500 display-3 text-56 m-0 text-white text-uppercase p-0 letter-spacing-four">Beton bestellen?</h1>
         </div>
@@ -28,6 +38,7 @@ get_header();
         <div class="row col-lg-10 col-12 z-1 position-relative p-2 mb-4 padding-left-title" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
             <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-block d-none letter-spacing-four">Binnen 24 uur gratis offerte</h1>
             <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-none d-block letter-spacing-four">Binnen 24 uur</h1>
+>>>>>>> e010714a5fb976169709f8198961bc9d3579021a
             <div class="p-1 d-sm-none d-block" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
             <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-none d-block letter-spacing-four">gratis offerte</h1>
             <div class="p-2 d-sm-block d-none" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
