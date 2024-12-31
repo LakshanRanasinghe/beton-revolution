@@ -297,12 +297,12 @@ get_header();
                             </div>
                             <hr class="text-light-gray">
                             <h6 class="text-20 poppins-500 text-custom-black">Betonsamenstelling</h6>
-                            <div class="d-flex justify-content-between" id="application_price_formatted"></div>
-                            <div class="d-flex justify-content-between dynamic-hide" id="hoog-vloeibaar_formatted"></div>
-                            <div class="d-flex justify-content-between dynamic-hide" id="snelhardend_formatted"></div>
-                            <div class="d-flex justify-content-between dynamic-hide" id="fijn-grind_formatted"></div>
-                            <div class="d-flex justify-content-between dynamic-hide" id="extra-hoge-sterkte_formatted"></div>
-                            <div class="d-flex justify-content-between" id="application_compound_total_formatted"><?php wc_price(0) ?></div>
+                            <div class="d-flex justify-content-between mb-2" id="application_price_formatted"></div>
+                            <div class="d-flex justify-content-between dynamic-hide mb-2" id="hoog-vloeibaar_formatted"></div>
+                            <div class="d-flex justify-content-between dynamic-hide mb-2" id="snelhardend_formatted"></div>
+                            <div class="d-flex justify-content-between dynamic-hide mb-2" id="fijn-grind_formatted"></div>
+                            <div class="d-flex justify-content-between dynamic-hide mb-2" id="extra-hoge-sterkte_formatted"></div>
+                            <div class="d-flex justify-content-between mb-2" id="application_compound_total_formatted"><?php wc_price(0) ?></div>
 
                             <hr class="text-light-gray">
 
