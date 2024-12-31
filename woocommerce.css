@@ -679,6 +679,31 @@ p.no-comments {
 	gap: 5px;
 }
 
+#order_review .product-name .variation dd{
+	text-align: right;
+}
+
 #ship-to-different-address span {
 	font-size: 18px;
 }
+
+.woocommerce-checkout ul#shipping_method li {
+	display: inline-block;
+}
+
+.woocommerce-checkout ul#shipping_method {
+	text-align: right;
+    margin-top: -33px;
+}
+
+@media screen and (max-width: 992px) {
+	.woocommerce-checkout #order_review_heading {
+		padding-top: 20px;
+		padding-left: 16px;
+	}
+	.woocommerce-checkout .woocommerce-checkout-review-order-table {
+		padding-bottom: 30px;
+	}
+}
+
+
