@@ -13,7 +13,7 @@ jQuery(document).ready(function ($) {
             }, 500);
 
             if (!$('.woocommerce-error').length) {
-                $('<ul class="woocommerce-error"><li>Please fill out all required fields.</li></ul>')
+                $('<ul class="woocommerce-error"><li>Vul alle verplichte velden in.</li></ul>')
                     .prependTo('form.woocommerce-checkout');
             }
         } else {
