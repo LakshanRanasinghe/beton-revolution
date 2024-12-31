@@ -58,6 +58,12 @@
 .oswald-weight{
    font-weight: 800 !important;
 }
+.poppins-300 {
+   font-family: "Poppins", serif;
+   font-optical-sizing: auto;
+   font-weight: 300;
+   font-style: normal;
+}
 .poppins-400 {
    font-family: "Poppins", serif;
    font-optical-sizing: auto;
@@ -238,6 +244,9 @@ a {
 .pixel-p-1 {
    padding: 1px;
 }
+.pixel-p-4 {
+   padding: 4px;
+}
 .pixel-p-8 {
    padding: 8px;
 }
@@ -264,7 +273,7 @@ a {
 }
 
 .home-input{
-   height: 65px;
+   height: 82px;
 }
 .no-border-top {
    border-top: none;
@@ -300,7 +309,7 @@ a {
    color: white;
    margin-bottom: 0.5rem;
    font-family: "Oswald", serif;
-   font-weight: 400;
+   font-weight: 300;
    letter-spacing: 0.04em !important;
 }
 #menu-footer-menu-01 li,
@@ -357,7 +366,7 @@ a {
    border-radius: 1px;
 }
 .border-custom-gray {
-   border-color: var(--custom-gray);
+   border-color: var(--custom-gray) !important;
 }
 .h-46 {
    height: 46px;
@@ -969,6 +978,30 @@ div#orddd_list_view_select {
    padding-right: 10px;
    background: #fff;
 }
+
+.bg-offwhite{
+   background-color: #FCFCFC;
+}
+
+.form-check-input:checked[type=radio] + label, .form-check-input:checked[type=checkbox] + label {
+   color: #ff6400;
+}
+
+.btn.disabled, .btn:disabled, fieldset:disabled .btn{
+   color: var(--orange) !important;
+   cursor: not-allowed !important;
+}
+
+button#pay-btn:hover, button#location-and-quantity-btn:hover, .thankyou-page-btn1:hover {
+   background-color: #FFF !important;
+   border: 1px solid var(--orange) !important;
+   color: var(--orange) !important;
+}
+
+button.submit-btn.btn.border-orange.h-46.uppercase.border.rounded-0.border-orange-btn.text-orange.oswald-600.text-16.px-4:hover, .thankyou-page-btn2:hover {
+   color: #FFF !important;
+   background-color: var(--orange) !important;
+}
 .woocommerce-checkout .beton-page-content p > label {
    clear: both;
    width: 100%;
@@ -989,4 +1022,11 @@ span.woocommerce-input-wrapper, span.woocommerce-input-wrapper input {width: 100
 }
 .woocommerce-checkout-review-order-table .tax-rate {
    width: 100%;
+}
+
+.border-custom-gray.border.active {
+   border-color: var(--orange) !important;
+}
+.inactive .step-title-block {
+   padding: 0 !important;
 }

@@ -11,7 +11,7 @@ get_header();
             <p class="step-text-container poppins-400 text-12 text-custom-gray-4 mb-1 d-none d-block ms-4 ps-1">Wees geduldig, je bent bij de laatste</p>
             <!-- First Section -->
             <div class="location-and-quantity-section section-wrap px-sm-5 py-sm-4 box-shadow-no-bottom box-sm-white position-relative z-3 pending" data-step="1">
-                <div class="position-relative pb-4 d-sm-block">
+                <div class="step-title-block position-relative d-sm-block">
                     <div class="position-relative z-1 bg-sm-white bg-custom-gray-3 d-inline-block pe-3 py-sm-0 py-1">
                         <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative d-sm-inline-block d-none"></i> LOCATIE EN BETONHOEVEELHEID</h5>
                     </div>
@@ -23,7 +23,7 @@ get_header();
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
-                <div class="location-and-quantity-form form-section text-sm-18 poppins-500" id="initialFormSection">
+                <div class="location-and-quantity-form form-section text-sm-18 poppins-500 mt-4" id="initialFormSection">
                     <form>
                         <div class="mb-4">
                             <label for="location" class="form-label text-dark-gray">Locatie</label>
@@ -40,13 +40,13 @@ get_header();
 
             <!-- Second Section -->
             <div class="type-and-kind-section section-wrap px-sm-5 py-sm-4 box-shadow-no-bottom box-sm-white position-relative text-dark-gray z-2 pending" data-step="2">
-                <div class="position-relative pb-4 d-sm-block d-none">
+                <div class="step-title-block position-relative d-sm-block d-none">
                     <div class="position-relative z-1 bg-white d-sm-inline-block pe-3">
                         <h5 class="step-title text-custom-gray-4 oswald-600 text-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative d-sm-inline-block d-none"></i> TYPE EN SOORT</h5>
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
-                <div class="type-and-kind-form text-16 poppins-500 form-section" id="newFormSection">
+                <div class="type-and-kind-form text-16 poppins-500 form-section mt-4" id="newFormSection">
                     <form>
                         <input type="hidden" name="nonce" id="beton_nonce" value="<?php echo wp_create_nonce("beton_calculator_nonce"); ?>">
                         <!-- Application, Compound, Release Method Section -->
@@ -109,7 +109,7 @@ get_header();
                             <h6 class="section-title poppins-600 text-sm-18 mb-3 mt-sm-0 mt-3 text-dark-blue">KIES POMP</h6>
                             <div class="mb-4">
                                 <div class="card-body">
-                                    <div class="border-custom-gray border">
+                                    <div class="border-custom-gray pump-wrap border">
                                         <div class="d-flex justify-content-between m-3 align-items-center">
                                             <div class="form-check m-3">
                                                 <input class="form-check-input" type="radio" name="pump-type" id="miniPump" value="mini">
@@ -127,17 +127,19 @@ get_header();
                                             </div>
                                         </div>
                                         <!-- <hr class="text-light-gray mt-3"> -->
-                                        <div class="p-sm-3 p-0 d-flex">
+                                        <div class="px-sm-3 p-0 d-flex">
                                             <img src="<?php echo get_template_directory_uri() ?>/images/lorry1.png" alt="Mini Concrete Pump" class="img-fluid mb-2 w-sm-163">
                                             <ul class="list-unstyled text-custom-gray-2 text-12 poppins-400">
-                                                <li><i class="icon-tick bi bi-check"></i> Dunne, Handige Slangen</li>
-                                                <li><i class="icon-tick bi bi-check"></i> Weinig Werknemers Nodig</li>
-                                                <li><i class="icon-cross bi bi-x"></i> Kosten Voordelig</li>
+                                                <li><i class="icon-tick bi bi-check"></i> Dunne, handzame slangen</li>
+                                                <li><i class="icon-tick bi bi-check"></i> Weinig arbeiders benodigd</li>
+                                                <li><i class="icon-tick bi bi-check"></i> Kosten voordelig</li>
+                                                <li><i class="icon-tick bi bi-check"></i> Ook voor lange afstanden (> 250 meter)</li>
+                                                <li><i class="icon-cross bi bi-x"></i> Kan alleen klein grind (16 mm) verpompen</li>
                                             </ul>
                                         </div>
                                     </div>
 
-                                    <div class="border-custom-gray border mt-3">
+                                    <div class="border-custom-gray border pump-wrap mt-3">
                                         <div class="d-flex justify-content-between m-3 align-items-center">
                                             <div class="form-check w-auto">
                                                 <input class="form-check-input" type="radio" name="pump-type" id="boomPump" value="boom">
@@ -157,13 +159,14 @@ get_header();
                                             </div>
                                         </div>
                                         <hr class="text-light-gray mt-3">
-                                        <div class="p-sm-3 p-0 d-flex">
+                                        <div class="px-sm-3 p-0 d-flex">
                                             <img src="<?php echo get_template_directory_uri() ?>/images/lorry2.png" alt="Boom Pump" class="img-fluid mb-2 w-sm-163">
 
                                             <ul class="list-unstyled text-custom-gray-2 text-12 poppins-400">
-                                                <li><i class="icon-tick bi bi-check"></i> Dunne, Handige Slangen</li>
-                                                <li><i class="icon-tick bi bi-check"></i> Pompt Snel Veel Kubieke Meters</li>
-                                                <li><i class="icon-cross bi bi-x"></i> Kan Ook Groot Grind Pompen</li>
+                                            <li><i class="icon-tick bi bi-check"></i> Verpompt snel veel kuubs (> 20 kuub p/u)</li>
+                                                <li><i class="icon-tick bi bi-check"></i> Kan ook groot grind (32 mm) verpompen</li>
+                                                <li><i class="icon-cross bi bi-x"></i> Zware machine, niet voor onverhard terrein</li>
+                                                <li><i class="icon-cross bi bi-x"></i> Veel opstelruimte nodig (breder dan 5 meter)</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -251,7 +254,7 @@ get_header();
                             <label for="email" class="form-label text-18 text-dark-gray">Uw E-mailadres</label>
                             <input type="email" id="email" name="user_email" class="form-control border-light-gray border-radius-1 py-2 px-4 h-46" placeholder="Voer Uw E-mailadres in">
                             <div class="btn-wrapper mt-4">
-                                <button class="submit-btn btn text-white bg-orange h-46 uppercase bg-orange-btn border border-0 rounded-0 text-white oswald-600 text-16 me-4 px-4" type="button" value="checkout" id="pay-btn" data-next="Be patient you are on the last">Betalen via iDeal</button>
+                                <button class="submit-btn btn text-white bg-orange h-46 uppercase bg-orange-btn border rounded-0 text-white oswald-600 text-16 me-4 px-4 border-orange" type="button" value="checkout" id="pay-btn" data-next="Be patient you are on the last">Betalen via iDeal</button>
                                 <button class="submit-btn btn border-orange h-46 uppercase border rounded-0 border-orange-btn text-orange oswald-600 text-16 px-4" type="button" value="quote" disabled require>Offerte in PDF</button>
                             </div>
                         </div>
@@ -261,7 +264,7 @@ get_header();
 
             <!-- Third Section -->
             <div class="confirm-and-pay-section section-wrap px-sm-5 py-sm-4 box-shadow-no-top box-sm-white position-relative text-dark-gray z-1" data-step="3">
-                <div class="position-relative pb-4 d-sm-inline-block d-none">
+                <div class="step-title-block position-relative d-sm-inline-block d-none">
                     <div class="position-relative z-1 bg-white d-inline-block pe-3">
                         <h5 class="step-title text-custom-gray-4 oswald-600 text-20 d-inline-block mt-1 disabled"><i class="bi bi-check-circle-fill step-title-icon position-relative"></i> BEVESTIG ADRES EN BETAAL</h5>
                     </div>
@@ -273,7 +276,7 @@ get_header();
                     </div>
                     <hr class="text-light-gray position-absolute w-100 top-0 mt-3">
                 </div>
-                <div class="confirm-and-pay-form form-section third-section d-none" id="thirdFormSection">
+                <div class="confirm-and-pay-form form-section third-section d-none mt-4" id="thirdFormSection">
                     <p><strong>Uw Gegevens</strong><br> Vul alstublieft uw persoonlijke gegevens in, zodat we uw betaling kunnen controleren en contact met u kunnen opnemen.</p>
 
 
@@ -284,22 +287,22 @@ get_header();
             <div class="col-lg-4">
                 <div class="sticky-summary">
                     <div class="box-shadow bg-white">
-                        <hr class="yellow pixel-p-8 opacity-100 no-border-top m-0">
+                        <hr class="yellow pixel-p-4 opacity-100 no-border-top m-0">
                         <div class="oswald-600 text-32 px-4 pt-3 text-dark-blue">UW AANVRAAG</div>
                         <hr class="text-light-gray">
                         <div class="summary-content p-4 poppins-400 text-18 text-dark-gray">
-                            <div class="d-flex justify-content-between mb-3">
+                            <div class="d-flex justify-content-between mb-4">
                                 <span>Beton: <span id="cubic_meters_formatted">0</span> m³</span>
                                 <span id="beton_price_formatted"><?php wc_price(0) ?></span>
                             </div>
                             <hr class="text-light-gray">
                             <h6 class="text-20 poppins-500 text-custom-black">Betonsamenstelling</h6>
-                            <div class="d-flex justify-content-between" id="application_price_formatted"></div>
-                            <div class="d-flex justify-content-between dynamic-hide" id="hoog-vloeibaar_formatted"></div>
-                            <div class="d-flex justify-content-between dynamic-hide" id="snelhardend_formatted"></div>
-                            <div class="d-flex justify-content-between dynamic-hide" id="fijn-grind_formatted"></div>
-                            <div class="d-flex justify-content-between dynamic-hide" id="extra-hoge-sterkte_formatted"></div>
-                            <div class="d-flex justify-content-between" id="application_compound_total_formatted"><?php wc_price(0) ?></div>
+                            <div class="d-flex justify-content-between mb-2" id="application_price_formatted"></div>
+                            <div class="d-flex justify-content-between dynamic-hide mb-2" id="hoog-vloeibaar_formatted"></div>
+                            <div class="d-flex justify-content-between dynamic-hide mb-2" id="snelhardend_formatted"></div>
+                            <div class="d-flex justify-content-between dynamic-hide mb-2" id="fijn-grind_formatted"></div>
+                            <div class="d-flex justify-content-between dynamic-hide mb-2" id="extra-hoge-sterkte_formatted"></div>
+                            <div class="d-flex justify-content-between mb-2" id="application_compound_total_formatted"><?php wc_price(0) ?></div>
 
                             <hr class="text-light-gray">
 
