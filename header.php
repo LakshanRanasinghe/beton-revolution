@@ -141,8 +141,8 @@
 							<div class="offcanvas-body px-4">
 								<?php
 								wp_nav_menu(array(
-									'theme_location' => 'menu-1',
-									'menu_id'        => 'primary-menu',
+									'theme_location' => 'menu-2',
+									'menu_id'        => 'Mobile',
 									'container' => false,
 									'menu_class' => '',
 									'fallback_cb' => '__return_false',

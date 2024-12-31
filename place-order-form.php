@@ -109,7 +109,7 @@ get_header();
                             <h6 class="section-title poppins-600 text-sm-18 mb-3 mt-sm-0 mt-3 text-dark-blue">KIES POMP</h6>
                             <div class="mb-4">
                                 <div class="card-body">
-                                    <div class="border-custom-gray border">
+                                    <div class="border-custom-gray pump-wrap border">
                                         <div class="d-flex justify-content-between m-3 align-items-center">
                                             <div class="form-check m-3">
                                                 <input class="form-check-input" type="radio" name="pump-type" id="miniPump" value="mini">
@@ -130,14 +130,16 @@ get_header();
                                         <div class="p-sm-3 p-0 d-flex">
                                             <img src="<?php echo get_template_directory_uri() ?>/images/lorry1.png" alt="Mini Concrete Pump" class="img-fluid mb-2 w-sm-163">
                                             <ul class="list-unstyled text-custom-gray-2 text-12 poppins-400">
-                                                <li><i class="icon-tick bi bi-check"></i> Dunne, Handige Slangen</li>
-                                                <li><i class="icon-tick bi bi-check"></i> Weinig Werknemers Nodig</li>
-                                                <li><i class="icon-cross bi bi-x"></i> Kosten Voordelig</li>
+                                                <li><i class="icon-tick bi bi-check"></i> Dunne, handzame slangen</li>
+                                                <li><i class="icon-tick bi bi-check"></i> Weinig arbeiders benodigd</li>
+                                                <li><i class="icon-tick bi bi-check"></i> Kosten voordelig</li>
+                                                <li><i class="icon-tick bi bi-check"></i> Ook voor lange afstanden (> 250 meter)</li>
+                                                <li><i class="icon-cross bi bi-x"></i> Kan alleen klein grind (16 mm) verpompen</li>
                                             </ul>
                                         </div>
                                     </div>
 
-                                    <div class="border-custom-gray border mt-3">
+                                    <div class="border-custom-gray border pump-wrap mt-3">
                                         <div class="d-flex justify-content-between m-3 align-items-center">
                                             <div class="form-check w-auto">
                                                 <input class="form-check-input" type="radio" name="pump-type" id="boomPump" value="boom">
@@ -161,9 +163,10 @@ get_header();
                                             <img src="<?php echo get_template_directory_uri() ?>/images/lorry2.png" alt="Boom Pump" class="img-fluid mb-2 w-sm-163">
 
                                             <ul class="list-unstyled text-custom-gray-2 text-12 poppins-400">
-                                                <li><i class="icon-tick bi bi-check"></i> Dunne, Handige Slangen</li>
-                                                <li><i class="icon-tick bi bi-check"></i> Pompt Snel Veel Kubieke Meters</li>
-                                                <li><i class="icon-cross bi bi-x"></i> Kan Ook Groot Grind Pompen</li>
+                                            <li><i class="icon-tick bi bi-check"></i> Verpompt snel veel kuubs (> 20 kuub p/u)</li>
+                                                <li><i class="icon-tick bi bi-check"></i> Kan ook groot grind (32 mm) verpompen</li>
+                                                <li><i class="icon-cross bi bi-x"></i> Zware machine, niet voor onverhard terrein</li>
+                                                <li><i class="icon-cross bi bi-x"></i> Veel opstelruimte nodig (breder dan 5 meter)</li>
                                             </ul>
                                         </div>
                                     </div>

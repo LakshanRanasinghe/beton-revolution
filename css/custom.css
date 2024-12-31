@@ -478,7 +478,7 @@ a {
       line-height: 26px !important;
    }
    .h-sm-72 {
-      height: 46px;
+      height: 66px;
    }
    .h-14 {
       height: 8px;
@@ -991,4 +991,29 @@ button#pay-btn:hover, button#location-and-quantity-btn {
 button.submit-btn.btn.border-orange.h-46.uppercase.border.rounded-0.border-orange-btn.text-orange.oswald-600.text-16.px-4:hover {
    color: #FFF !important;
    background-color: var(--orange) !important;
+}
+.woocommerce-checkout .beton-page-content p > label {
+   clear: both;
+   width: 100%;
+}
+
+span.woocommerce-input-wrapper, span.woocommerce-input-wrapper input {width: 100%;}
+
+.navbar-toggler:focus {
+	box-shadow: none !important;
+}
+
+.woocommerce-checkout-review-order-table ul#shipping_method {
+   margin: 0;
+   list-style: none;
+   padding: 0;
+   font-size: 16px;
+   float: right;
+}
+.woocommerce-checkout-review-order-table .tax-rate {
+   width: 100%;
+}
+
+.border-custom-gray.border.active {
+   border-color: var(--orange) !important;
 }

@@ -597,7 +597,7 @@ p.no-comments {
 	margin-bottom: 0;
 }
 
-.woocommerce-checkout .woocommerce-billing-fields__field-wrapper input {
+.woocommerce-checkout .woocommerce-billing-fields__field-wrapper input, .woocommerce-checkout .woocommerce-shipping-fields__field-wrapper input, .woocommerce-checkout .orddd-checkout-fields input {
 	width: 100%;
 	padding-left: 10px;
     padding-right: 10px;
@@ -617,12 +617,13 @@ p.no-comments {
 
 .woocommerce-checkout .woocommerce-error {
 	background-color: #ffdbc3;
-	margin-left: 12px;
+	/* margin-left: 12px; */
     line-height: 24px;
     font-size: 14px;
     padding: 10px;
     list-style: none;
     border-radius: 10px;
+	margin-bottom: 10px;
 }
 
 .checkout-icons {
@@ -676,4 +677,8 @@ p.no-comments {
 #order_review .product-name .variation {
 	display: flex;
 	gap: 5px;
+}
+
+#ship-to-different-address span {
+	font-size: 18px;
 }

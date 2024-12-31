@@ -3,9 +3,16 @@ jQuery(document).ready(function ($) {
         $('.validate-required input, .validate-required select').trigger('validate');
 
         var hasError = false;
-        $('.woocommerce-invalid-required-field').each(function () {
+        $('.checkout-billing-fields .woocommerce-invalid-required-field').each(function () {
             hasError = true; 
         });
+
+        if($('#ship-to-different-address-checkbox').is(':checked')) {
+            console.log('Ship to diff address checked');
+            $('.woocommerce-invalid-required-field').each(function () {
+                hasError = true; 
+            });
+        }
 
         if (hasError) {
             $('html, body').animate({

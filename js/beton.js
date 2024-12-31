@@ -121,6 +121,9 @@ jQuery(document).ready(function ($) {
       trigger_calculator();
    });
    $('input[name="releaseMethod"]').on("change", function () {
+      if(!$('input[name="pump-type"]').is(':checked')){
+         $('#miniPump').click();
+      }
       trigger_calculator();
    });
    $('input[name="pump-type"]').on("change", function () {
@@ -129,6 +132,8 @@ jQuery(document).ready(function ($) {
       } else {
          $("#mini-pump-breakdown").removeClass("d-none");
       }
+      $('.pump-wrap').removeClass('active');
+      $(this).parents('.pump-wrap').addClass('active');
       trigger_calculator();
    });
    $('select[name="mini_pumping_distance"]').on("change", function () {
@@ -234,6 +239,7 @@ jQuery(document).ready(function ($) {
 
                $('.confirm-and-pay-section').find('.step-title').removeClass('disabled');
                $('#email').val('').trigger('change');
+               window.location.href = "/beton2025/dank-u/";
             }
          }
       });
