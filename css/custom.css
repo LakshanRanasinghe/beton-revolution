@@ -962,3 +962,9 @@ div#orddd_list_view_select {
    padding-right: 10px;
    background: #fff;
 }
+.woocommerce-checkout .beton-page-content p > label {
+   clear: both;
+   width: 100%;
+}
+
+span.woocommerce-input-wrapper, span.woocommerce-input-wrapper input {width: 100%;}
