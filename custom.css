@@ -24,12 +24,6 @@
    font-weight: 200;
    font-style: normal;
 }
-.oswald-300 {
-   font-family: "Oswald", serif;
-   font-optical-sizing: auto;
-   font-weight: 300;
-   font-style: normal;
-}
 .oswald-400 {
    font-family: "Oswald", serif;
    font-optical-sizing: auto;
@@ -301,7 +295,6 @@ a {
    margin-bottom: 0.5rem;
    font-family: "Oswald", serif;
    font-weight: 400;
-   letter-spacing: 0.04em !important;
 }
 #menu-footer-menu-01 li,
 #menu-footer-menu-02 li {
@@ -638,22 +631,19 @@ a {
 @media screen and (min-width: 991px){
    .beton-steps-content-right-wrapper {
       background-image: url('https://dayzsolutions.com/beton2025/wp-content/uploads/2024/12/4-Company-SK-withline-left.png');
-      /* background-position: calc(100% + 200px) center; */
-      background-position: calc(100% + 10px) center;
+      background-position: calc(100% + 200px) center;
       background-repeat: no-repeat;
       background-size: contain;
    }
    .beton-steps-content-right-wrapper-2 {
       background-image: url('https://dayzsolutions.com/beton2025/wp-content/uploads/2024/12/4-Company-SK-withline-left.png');
-      /* background-position: calc(100% + 330px) center; */
-      background-position: calc(100% + 10px) center;
+      background-position: calc(100% + 330px) center;
       background-repeat: no-repeat;
       background-size: contain;
    }
    .beton-steps-content-left-wrapper {
       background-image: url('https://dayzsolutions.com/beton2025/wp-content/uploads/2024/12/4-Company-SK-flip-withline-right.png');
-      /* background-position: calc(0% - 200px) center; */
-      background-position: calc(0% - 10px) center;
+      background-position: calc(0% - 200px) center;
       background-repeat: no-repeat;
       background-size: contain;
    }
@@ -954,11 +944,3 @@ div#orddd_list_view_select {
    }
 }
 
-.post-title-margin-tb{
-   margin: 10px 0px 15px 0px !important;
-}
-.beton-footer-wrapper .footer-logo img {
-   padding-left: 10px;
-   padding-right: 10px;
-   background: #fff;
-}

@@ -59,12 +59,12 @@
 			<div class="container py-4 text-center text-sm-start light-blue text-15 text-sm-14 poppins-400">
 				<div class="row justify-content-between align-items-center">
 					<div class="col-12 col-sm d-flex justify-content-center justify-content-sm-start align-items-center mb-2 mb-sm-0">
-						<p class="mb-0"><?php _e('Copyright © 2024', 'beton'); ?></p>
+						<p class="mb-0 poppins-400 text-15 text-sm-14"><?php _e('Copyright © 2024', 'beton'); ?></p>
 						&nbsp;
 						<a href="<?php echo site_url(); ?>" class="light-blue link-hover">Betonstorten.nl</a>
 					</div>
 					<div class="col-12 col-sm-auto d-flex align-items-center justify-content-center justify-content-sm-end">
-						<p class="mb-0 d-none d-sm-block">Volg ons: </p>
+						<p class="mb-0 d-none d-sm-block poppins-400 text-15 text-sm-14">Volg ons: </p>
 						<div class="d-flex align-items-center">
 							<a href="#" class="mx-1">
 								<img class="width-30" src="<?php echo get_template_directory_uri() ?>/images/facebook.png" alt="">
