@@ -22,7 +22,6 @@ get_header();
             
         </div> 
 
-<<<<<<< HEAD
         <div class="row col-lg-5 col-11 z-1 position-relative p-2 d-flex mb-4" style="backdrop-filter: blur(8px); background-color: #FFFFFF1A;">
             <h1 class="oswald-500 display-3 text-56 m-0 text-white text-uppercase p-0">Beton bestellen?</h1>
         </div>
@@ -30,15 +29,6 @@ get_header();
         <div class="row col-lg-9 col-12 z-1 position-relative p-2 mb-4" style="backdrop-filter: blur(8px); background-color: #FFFFFF1A;">
             <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-block d-none">Binnen 24 uur gratis offerte</h1>
             <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-none d-block">Binnen 24 uur</h1>
-=======
-        <div class="row col-lg-5 col-11 z-1 position-relative p-2 d-flex mb-4 padding-left-title" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
-            <h1 class="oswald-500 display-3 text-56 m-0 text-white text-uppercase p-0 letter-spacing-four">Beton bestellen?</h1>
-        </div>
-
-        <div class="row col-lg-10 col-12 z-1 position-relative p-2 mb-4 padding-left-title" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
-            <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-block d-none letter-spacing-four">Binnen 24 uur gratis offerte</h1>
-            <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-none d-block letter-spacing-four">Binnen 24 uur</h1>
->>>>>>> e010714a5fb976169709f8198961bc9d3579021a
             <div class="p-1 d-sm-none d-block" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
             <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-none d-block letter-spacing-four">gratis offerte</h1>
             <div class="p-2 d-sm-block d-none" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>

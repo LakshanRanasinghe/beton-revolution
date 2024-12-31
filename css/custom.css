@@ -911,7 +911,6 @@ div#orddd_list_view_select {
    clear: both;
 }
 
-<<<<<<< HEAD
 .background-img-adjust {
    background-repeat: no-repeat;
    background-position: center;
@@ -926,10 +925,10 @@ div#orddd_list_view_select {
 
 .new-text-sm-22 {
    font-size: 22px;
-=======
-@media screen and (min-width: 1024px){
-   .padding-left-title{
-      padding-left: 20px !important;
-   }
->>>>>>> e010714a5fb976169709f8198961bc9d3579021a
+}
+
+.beton-footer-wrapper .footer-logo img {
+   padding-left: 10px;
+   padding-right: 10px;
+   background: #fff;
 }
