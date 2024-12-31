@@ -957,3 +957,8 @@ div#orddd_list_view_select {
 .post-title-margin-tb{
    margin: 10px 0px 15px 0px !important;
 }
+.beton-footer-wrapper .footer-logo img {
+   padding-left: 10px;
+   padding-right: 10px;
+   background: #fff;
+}
