@@ -47,22 +47,22 @@ get_header();
         <!-- Left Column -->
         <div class="row col-lg-3 col-12 d-block position-relative tilted-border">
             <div class="py-lg-5 py-3 px-0 d-lg-block d-flex px-lg-3">
-                <h2 class="oswald-500 text-42 text-white letter-spacing-four">Bereken&nbsp</h2>
-                <h2 class="oswald-500 text-42 text-white letter-spacing-four">Betonprijs</h2>
+                <h2 class="oswald-500 text-42 text-white letter-spacing-four text-uppercase">Bereken&nbsp</h2>
+                <h2 class="oswald-500 text-42 text-white letter-spacing-four text-uppercase">Betonprijs</h2>
             </div>       
         </div>
         <!-- Right Column -->
         <form class="row col-lg-9 " action="prices">
             <div class="d-lg-flex d-block align-items-center gap-3 px-0 w-100">
                 <div class="w-lg-70 d-flex gap-3 pb-lg-0 pb-3 position-relative">
-                    <input type="text" class="form-control rounded-0 home-input ps-4 oswald-600 text-20 letter-spacing-four text-uppercase" placeholder="Postcode of Stad" aria-label="Postcode" id="postcode-input">
+                    <input type="text" class="form-control rounded-0 home-input ps-4 oswald-600 text-20 letter-spacing-four text-uppercase " placeholder="Postcode of Stad" aria-label="Postcode" id="postcode-input">
                     <input type="text" class="form-control rounded-0 home-input ps-4 oswald-600 text-20 letter-spacing-four text-uppercase" placeholder="Aantal M" aria-label="Cubic meters of concrete" id="cubic-meters">
                 </div>
-                <button class="btn oswald-600 text-sm-20 text-white text-uppercase border-2 border-orange bg-orange rounded-0 px-6 py-3 w-lg-25 letter-spacing-four">Bereken Prijs</button>
+                <button class="btn oswald-600 text-sm-20 text-white text-uppercase border-2 border-orange bg-orange rounded-0 px-6 py-4 w-lg-25 letter-spacing-four">Bereken Prijs</button>
             </div>
             <div class="d-flex align-items-center ps-md-0">
-                <p class="text-14 poppins-500 light-blue pt-3 letter-spacing-four">Bereken het aantal kubieke meters</p>
-                <i class="bi bi-exclamation-circle-fill ps-2 light-blue pt-1"></i>
+                <p class="text-14 poppins-500 light-blue pt-3 letter-spacing-four mb-0">Bereken het aantal kubieke meters</p>
+                <i class="bi bi-exclamation-circle-fill ps-2 light-blue pt-3"></i>
             </div>
         </form>
     </div>
@@ -70,7 +70,7 @@ get_header();
 
 
 <!-- third section -->
-<div class="bg-white container-fluid py-5 px-0">
+<div class="bg-white container-fluid py-5 my-5 px-0">
     <div class="container">
         <div class="row">
             <div class="col-lg-7 col-12 z-1 position-relative p-lg-2 p-4 mb-2" style="backdrop-filter: blur(25px); background-color: rgba(255, 255, 255, 0.1);">
@@ -169,7 +169,7 @@ get_header();
                     <h2 class="oswald-600 fs-5 lh-sm text-white m-0 col-7 pe-0">klanten vertellen</h2>
                 </div>
                 <div>
-                    <p class="poppins-500 text-sm-22 fst-italic text-white letterspace1 line-height-38">Prima geleverd zoals afgesproken. Ook willen ze prima met je meedenken. Wat wel beter kan is, wanneer ze beloven terug te bellen nav een email dat ze dit dan ook doen en het was fijn om vooraf te weten dat beton dat achterblijft in de pompwagen je zelf moet gebruiken of later verwijderen. Nu maar noodgedwongen beton op wat zand laten lozen en wanneer het droog is zal ik het wel breken en afvoeren</p>
+                    <p class="poppins-300 text-sm-22 fst-italic text-white letterspace1 line-height-38">Prima geleverd zoals afgesproken. Ook willen ze prima met je meedenken. Wat wel beter kan is, wanneer ze beloven terug te bellen nav een email dat ze dit dan ook doen en het was fijn om vooraf te weten dat beton dat achterblijft in de pompwagen je zelf moet gebruiken of later verwijderen. Nu maar noodgedwongen beton op wat zand laten lozen en wanneer het droog is zal ik het wel breken en afvoeren</p>
                 </div>
                 <div>
                     <h3 class="oswald-500 text-sm-32 letterspace1 text-yellow text-uppercase">Hilde , Epse</h3>
@@ -182,39 +182,39 @@ get_header();
 
 
 <!-- fifth section -->
-<div class="bg-white container-fluid py-5 px-0">
+<div class="bg-offwhite container-fluid py-5 px-0">
     <div class="p-md-5 p-0"></div>
     <div class="container">
         <div class="row d-flex flex-md-row flex-column pixel-px-12">
             <div class="col-lg-4 col-sm-6 col-12 mb-3">
-                <div class="col-12 bg-white p-0 me-2">
+                <div class="col-12 p-0 me-2 bg-white h-full">
                     <div>
-                        <img class="image-fluid image-post" src="https://images.unsplash.com/photo-1541888894402-f3b1af908be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                        <img class="image-fluid image-post" src="<?php echo site_url(); ?>/wp-content/uploads/2024/12/Screenshot-2024-12-31-at-15.02.31.png" alt="">
                     </div>
                     <div class="p-3">
-                        <h3 class="oswald-500 text-dark-blue text-20 letterspace1 post-title-margin-tb">Beton zelf mixen of bestellen?</h3>
+                        <h3 class="oswald-500 text-dark-blue text-20 letterspace1 post-title-margin-tb text-uppercase">Beton zelf mixen of bestellen?</h3>
                         <p class="poppins-400 text-16 paragraph-ash letterspace1">Wat is goedkoper beton zelf mixen of bestellen? Je leest het in het artikel goedkoop beton bestellen.</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 col-12 mb-3">
-                <div class="col-12 bg-white p-0 me-2">
+                <div class="col-12 p-0 me-2 bg-white h-full">
                     <div>
-                        <img class="image-fluid image-post" src="https://images.unsplash.com/photo-1541888894402-f3b1af908be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                        <img class="image-fluid image-post" src="<?php echo site_url(); ?>/wp-content/uploads/2024/12/Screenshot-2024-12-31-at-15.02.42.png" alt="">
                     </div>
                     <div class="p-3">
-                        <h3 class="oswald-500 text-dark-blue text-20 letterspace1 post-title-margin-tb">Wat zijn de kosten voor beton?</h3>
+                        <h3 class="oswald-500 text-dark-blue text-20 letterspace1 post-title-margin-tb text-uppercase">Wat zijn de kosten voor beton?</h3>
                         <p class="poppins-400 text-16 paragraph-ash letterspace1">Ontdek wat de kosten van beton zijn in het artikel wat kost beton.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 col-12">
-                <div class="col-12 bg-white p-0 me-2">
+            <div class="col-lg-4 col-sm-6 col-12 mb-3">
+                <div class="col-12 p-0 me-2 bg-white h-full">
                     <div>
-                        <img class="image-fluid image-post" src="https://images.unsplash.com/photo-1541888894402-f3b1af908be4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                        <img class="image-fluid image-post" src="<?php echo site_url(); ?>/wp-content/uploads/2024/12/Screenshot-2024-12-31-at-15.02.54.jpg" alt="">
                     </div>
                     <div class="p-3">
-                        <h3 class="oswald-500 text-dark-blue text-20 letterspace1 post-title-margin-tb">Beton zelf storten of laten storten?</h3>
+                        <h3 class="oswald-500 text-dark-blue text-20 letterspace1 post-title-margin-tb text-uppercase">Beton zelf storten of laten storten?</h3>
                         <p class="poppins-400 text-16 paragraph-ash letterspace1">Zelf beton storten of laten storten? Ontdek wat er komt kijken bij het storten van beton.</p>
                     </div>
                 </div>

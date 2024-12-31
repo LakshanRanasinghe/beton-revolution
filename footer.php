@@ -70,10 +70,10 @@
 								<img class="width-30" src="<?php echo get_template_directory_uri() ?>/images/facebook.png" alt="">
 							</a>
 							<a href="#" class="mx-1">
-								<img class="width-30" src="<?php echo get_template_directory_uri() ?>/images/facebook.png" alt="">
+								<img class="width-30" src="<?php echo get_template_directory_uri() ?>/images/twitter.png" alt="">
 							</a>
 							<a href="#" class="mx-1">
-								<img class="width-30" src="<?php echo get_template_directory_uri() ?>/images/facebook.png" alt="">
+								<img class="width-30" src="<?php echo get_template_directory_uri() ?>/images/insta.png" alt="">
 							</a>
 						</div>
 					</div>
