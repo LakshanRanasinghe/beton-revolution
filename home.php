@@ -21,15 +21,15 @@ get_header();
             
         </div> 
 
-        <div class="row col-lg-5 col-11 z-1 position-relative p-2 d-flex mb-4" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
-            <h1 class="oswald-500 display-3 text-56 m-0 text-white text-uppercase p-0">Beton bestellen?</h1>
+        <div class="row col-lg-5 col-11 z-1 position-relative p-2 d-flex mb-4 padding-left-title" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
+            <h1 class="oswald-500 display-3 text-56 m-0 text-white text-uppercase p-0 letter-spacing-four">Beton bestellen?</h1>
         </div>
 
-        <div class="row col-lg-9 col-12 z-1 position-relative p-2 mb-4" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
-            <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-block d-none">Binnen 24 uur gratis offerte</h1>
-            <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-none d-block">Binnen 24 uur</h1>
+        <div class="row col-lg-10 col-12 z-1 position-relative p-2 mb-4 padding-left-title" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
+            <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-block d-none letter-spacing-four">Binnen 24 uur gratis offerte</h1>
+            <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-none d-block letter-spacing-four">Binnen 24 uur</h1>
             <div class="p-1 d-sm-none d-block" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
-            <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-none d-block">gratis offerte</h1>
+            <h1 class="oswald-500 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-none d-block letter-spacing-four">gratis offerte</h1>
             <div class="p-2 d-sm-block d-none" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
         </div>
 
@@ -46,21 +46,21 @@ get_header();
         <!-- Left Column -->
         <div class="row col-lg-3 col-12 d-block position-relative tilted-border">
             <div class="py-lg-5 py-3 px-0 d-lg-block d-flex px-lg-3">
-                <h2 class="oswald-500 text-42 text-white ">Bereken&nbsp</h2>
-                <h2 class="oswald-500 text-42 text-white">Betonprijs</h2>
+                <h2 class="oswald-500 text-42 text-white letter-spacing-four">Bereken&nbsp</h2>
+                <h2 class="oswald-500 text-42 text-white letter-spacing-four">Betonprijs</h2>
             </div>       
         </div>
         <!-- Right Column -->
         <form class="row col-lg-9 " action="prices">
             <div class="d-lg-flex d-block align-items-center gap-3 px-0 w-100">
                 <div class="w-lg-70 d-flex gap-3 pb-lg-0 pb-3 position-relative">
-                    <input type="text" class="form-control rounded-0 home-input ps-4 " placeholder="Postcode of Stad" aria-label="Postcode" id="postcode-input">
-                    <input type="text" class="form-control rounded-0 home-input ps-4 " placeholder="Aantal M" aria-label="Cubic meters of concrete" id="cubic-meters">
+                    <input type="text" class="form-control rounded-0 home-input ps-4" placeholder="Postcode of Stad" aria-label="Postcode" id="postcode-input">
+                    <input type="text" class="form-control rounded-0 home-input ps-4" placeholder="Aantal M" aria-label="Cubic meters of concrete" id="cubic-meters">
                 </div>
                 <button class="btn oswald-600 text-sm-20 text-white text-uppercase border-2 border-orange bg-orange rounded-0 px-6 py-3 w-lg-25">Bereken Prijs</button>
             </div>
             <div class="d-flex align-items-center ps-md-0">
-                <p class="text-14 oswald-500 light-blue pt-3">Bereken het aantal kubieke meters</p>
+                <p class="text-14 poppins-500 light-blue pt-3 letter-spacing-four">Bereken het aantal kubieke meters</p>
                 <i class="bi bi-exclamation-circle-fill ps-2 light-blue pt-1"></i>
             </div>
         </form>
