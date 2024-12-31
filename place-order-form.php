@@ -11,7 +11,7 @@ get_header();
             <p class="step-text-container poppins-400 text-12 text-custom-gray-4 mb-1 d-none d-block ms-4 ps-1">Wees geduldig, je bent bij de laatste</p>
             <!-- First Section -->
             <div class="location-and-quantity-section section-wrap px-sm-5 py-sm-4 box-shadow-no-bottom box-sm-white position-relative z-3 pending" data-step="1">
-                <div class="step-title-block position-relative d-sm-block">
+                <div class="step-title-block position-relative d-none d-sm-block">
                     <div class="position-relative z-1 bg-sm-white bg-custom-gray-3 d-inline-block pe-3 py-sm-0 py-1">
                         <h5 class="step-title text-dark-blue oswald-600 text-sm-20 d-inline-block mt-1"><i class="bi bi-check-circle-fill step-title-icon position-relative d-sm-inline-block d-none"></i> LOCATIE EN BETONHOEVEELHEID</h5>
                     </div>

@@ -2,7 +2,7 @@ jQuery(document).ready(function ($) {
    $(".dropdown-toggle").on("click", function (event) {
       location.href = $(this).attr("href");
    });
-   if ($.cookie("selected_area_code") !== undefined && $.cookie("selected_area_code") !== "") {
+   if ($.cookie("selected_area_code") !== undefined && $.cookie("selected_area_code") !== "" && $(document).width() >= 767) {
       if ($.cookie("selected_city") !== undefined || $.cookie("selected_city") !== "") {
          $("#postcode-input").val($.cookie("selected_city"));
          enableSecondStep();
