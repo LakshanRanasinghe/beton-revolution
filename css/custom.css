@@ -417,6 +417,9 @@ a {
 .box-sm-white {
    background: #ffffff;
 }
+.rating-width {
+   width: 180px;
+}
 @media screen and (max-width: 576px) {
    .text-sm-32 {
       font-size: 20px;
@@ -470,6 +473,12 @@ a {
       width: 20px !important;
       height: 20px !important;
    }
+   .new-text-sm-22 {
+      font-size: 14px !important;
+   }
+   .rating-width {
+      width: auto;
+   } 
    .location-and-quantity-section::after, .type-and-kind-section::after {
       display: none;
    }
@@ -900,4 +909,20 @@ p#orddd-na-slots {
 
 div#orddd_list_view_select {
    clear: both;
+}
+
+.background-img-adjust {
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+}
+
+@media (min-width: 1490px) {
+    .new-container-1400 {
+        max-width: 1480px;
+    }
+}
+
+.new-text-sm-22 {
+   font-size: 22px;
 }
