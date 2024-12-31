@@ -885,3 +885,19 @@ ul.wc-item-meta > li {
    border: 0;
    z-index: 99999999999;
 }
+label[for=e_deliverydate] {
+   margin-right: 15px;
+}
+
+#orddd_time_slot_field label {
+   float: left;
+   clear: both;
+}
+
+p#orddd-na-slots {
+   clear: both;
+}
+
+div#orddd_list_view_select {
+   clear: both;
+}
