@@ -291,7 +291,7 @@ get_header();
                         <div class="oswald-600 text-32 px-4 pt-3 text-dark-blue">UW AANVRAAG</div>
                         <hr class="text-light-gray">
                         <div class="summary-content p-4 poppins-400 text-18 text-dark-gray">
-                            <div class="d-flex justify-content-between mb-3">
+                            <div class="d-flex justify-content-between mb-4">
                                 <span>Beton: <span id="cubic_meters_formatted">0</span> m³</span>
                                 <span id="beton_price_formatted"><?php wc_price(0) ?></span>
                             </div>

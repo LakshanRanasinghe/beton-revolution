@@ -231,15 +231,15 @@ jQuery(document).ready(function ($) {
          data: dataSet,
          success: function (response) {
             if(response.data.status == 'mail-sent'){
-               $(".confirm-and-pay-section").addClass("active");
-               $(".type-and-kind-section").removeClass("pending");
-               $(".type-and-kind-section").removeClass("active");
-               $(".type-and-kind-section").addClass("inactive");
-               $('.type-and-kind-form').addClass('d-none');
+               window.location.href = response.data.redirect;
+               // $(".confirm-and-pay-section").addClass("active");
+               // $(".type-and-kind-section").removeClass("pending");
+               // $(".type-and-kind-section").removeClass("active");
+               // $(".type-and-kind-section").addClass("inactive");
+               // $('.type-and-kind-form').addClass('d-none');
 
-               $('.confirm-and-pay-section').find('.step-title').removeClass('disabled');
-               $('#email').val('').trigger('change');
-               window.location.href = "/beton2025/dank-u/";
+               // $('.confirm-and-pay-section').find('.step-title').removeClass('disabled');
+               // $('#email').val('').trigger('change');
             }
          }
       });

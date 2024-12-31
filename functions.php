@@ -854,7 +854,8 @@ function save_quotation() : void {
 	send_quotation_email($pdf_data, $data['user_email'], $quote_id);
 
 	wp_send_json_success([
-		'status' => 'mail-sent'
+		'status' => 'mail-sent',
+		'redirect' => get_field('thank_you_page', 'option')
 	]);
 }
 
