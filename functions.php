@@ -454,9 +454,9 @@ function beton_calculator($data = null)
 				$response_data_set['pumping_extra_hose_cost_formatted'] = wc_price($pumping_extra_hose_cost);
 				$sub_total += $pumping_extra_hose_cost;
 			}else{
-				unset($response_data_set['pumping_extra_hose_cost']);
-				unset($response_data_set['pumping_extra_hose_cost_formatted']);
-				$sub_total -= $pumping_extra_hose_cost;
+				// unset($response_data_set['pumping_extra_hose_cost']);
+				// unset($response_data_set['pumping_extra_hose_cost_formatted']);
+				// $sub_total -= $pumping_extra_hose_cost;
 			}
 
 			$pumping_hours = 2;
@@ -1376,7 +1376,7 @@ function beton_cart_item_data( $cart_item_data, $product_id, $variation_id ) {
 		$calc_data['application'] = $_POST['application_product'];
 		$calc_data['compounds'] = $_POST['composition'];
 		$calc_data['release_method'] = $_POST['unloading'];
-		$calc_data['pumping_distance'] = (isset($_POST['pump-type']) && $_POST['pump-type'] == 'mini' ? $_POST['pumping_distance'] : $_POST['boom_pumping_distance']);
+		$calc_data['pumping_distance'] = (isset($_POST['pump_type']) && $_POST['pump_type'] == 'mini' ? $_POST['pumping_distance'] : $_POST['boom_pumping_distance']);
 		$calc_data['performance'] = $_POST['uitvoering'];
 		$calc_data['layer_thickness'] = $_POST['layer-thickness'];
 		$calc_data['rooms_count'] = $_POST['nos_rooms'];
@@ -1437,6 +1437,8 @@ function beton_cart_item_data( $cart_item_data, $product_id, $variation_id ) {
 		}
 
 		$cart_item_data['sub_total'] = $calcuated_data['sub_total'];
+
+		wc_get_logger()->debug('Adding to cart: ' . json_encode($cart_item_data));
     }
     return $cart_item_data;
 }

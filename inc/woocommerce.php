@@ -516,4 +516,4 @@ function beton_add_cart_item_data_via_pay_url($cart_item_data, $product_id, $var
     
     return $cart_item_data;
 }
-add_filter('woocommerce_add_cart_item_data', 'beton_add_cart_item_data_via_pay_url', 10, 3);
+add_filter('woocommerce_add_cart_item_data', 'beton_add_cart_item_data_via_pay_url', 15, 3);
