@@ -234,6 +234,7 @@ jQuery(document).ready(function ($) {
 
                $('.confirm-and-pay-section').find('.step-title').removeClass('disabled');
                $('#email').val('').trigger('change');
+               window.location.href = "/beton2025/dank-u/";
             }
          }
       });
