@@ -193,6 +193,10 @@ function beton_scripts()
 	wp_enqueue_script('beton', get_stylesheet_directory_uri() . '/js/beton.js', array('jquery'), '1.2.25', true);
 	wp_enqueue_script('beton-checkout', get_stylesheet_directory_uri() . '/js/beton-woocommerce.js', array('jquery'), '1.2.6', true);
 
+	//New scripts for beton revolution - 25.03.2026
+	wp_enqueue_script('beton-revolution', get_stylesheet_directory_uri() . '/js/beton-revolution.js', array('jquery'), '1.0.0', true);
+	wp_enqueue_script('beton-slider', get_stylesheet_directory_uri() . '/js/beton-slider.js', array('jquery'), '1.0.0', true);
+
 	global $wpdb;
 	$table_name = $wpdb->prefix . 'postcodes';
 
@@ -207,9 +211,12 @@ function beton_scripts()
 	wp_enqueue_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', array(), '5.3.3');
 	wp_enqueue_style('bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css', array(), '1.11.3');
 	wp_enqueue_script('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', array(), '5.3.3', true);
-	wp_enqueue_style('custom', get_stylesheet_directory_uri() . '/css/custom.css', array('bootstrap'), '1.0.13');
+	wp_enqueue_style('custom', get_stylesheet_directory_uri() . '/css/custom.css', array('bootstrap'), '1.0.14');
 	// wp_enqueue_style('g-fonts', 'https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', array(), '1.0.0');
 	// wp_enqueue_style( 'fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/regular.min.css', array(), '6.6.0' );
+
+	//New styles for beton revolution - 25.03.2026
+	wp_enqueue_style('beton-revolution', get_stylesheet_directory_uri() . '/css/beton-revolution.css', array(), '1.0.0');
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
