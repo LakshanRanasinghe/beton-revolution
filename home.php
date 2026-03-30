@@ -1,6 +1,8 @@
 <?php
 /* Template Name: Home */
 get_header();
+
+$pricingData = get_field('application', 'option');
 ?>
 
 <div class="bpc">
@@ -151,11 +153,13 @@ get_header();
                         <span class="bpc-price-badge-label">Prijs:</span>
                         <div class="bpc-btw-toggle-wrap">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch" id="btwToggle">
-                                <label class="form-check-label bpc-btw-label" for="btwToggle">Incl. btw</label>
+                                <input class="form-check-input" type="checkbox" role="switch" id="bpc-btw-toggle">
+                                <label class="form-check-label bpc-btw-label" for="bpc-btw-toggle">Incl. btw</label>
                             </div>
                         </div>
-                        <span class="bpc-price-amount">€10000,00</span>
+                        <span class="bpc-price-amount" id="total_formatted"><?php echo wc_price(10) ?></span>
+                        <span class="bpc-price-amount" id="sub_total_formatted"
+                            style="display: none;"><?php echo wc_price(0) ?></span>
                     </div>
                 </div>
 
@@ -164,11 +168,12 @@ get_header();
                     <div class="bpc-input-row">
                         <div class="bpc-input-group">
                             <div class="bpc-input-label">Hoeveel beton (m³)</div>
-                            <input type="number" class="bpc-text-input" placeholder="Vul het aantal m3 beton in.">
+                            <input type="text" inputmode="decimal" class="bpc-text-input"
+                                placeholder="Vul het aantal m³ beton in." id="cubic-meters">
                         </div>
-                        <div class="bpc-input-group">
+                        <div class="bpc-input-group position-relative">
                             <div class="bpc-input-label">Locatie</div>
-                            <input type="text" class="bpc-text-input" placeholder="Amsterdam">
+                            <input type="text" class="bpc-text-input" placeholder="Amsterdam" id="postcode-input">
                         </div>
                     </div>
                 </div>
@@ -176,89 +181,47 @@ get_header();
                 <!-- ── 2. Toepassing ── -->
                 <div class="bpc-section">
                     <div class="bpc-section-head">
-                        <div class="bpc-section-head-title">Toepassing</div>
+                        <div class="bpc-section-head-title"><?php echo $pricingData['application_items_title']; ?></div>
                         <div class="bpc-section-hr"></div>
                     </div>
                     <div class="bpc-option-grid-2">
-                        <!-- Funderingsbalken -->
-                        <label class="bpc-option-card">
-                            <input type="radio" name="toepassing" value="funderingsbalken" class="bpc-radio-input">
-                            <div class="bpc-card-meta">
-                                <div class="bpc-radio"></div>
-                                <div class="bpc-info-btn">
-                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <mask id="mask0_272_967" style="mask-type:alpha" maskUnits="userSpaceOnUse"
-                                            x="0" y="0" width="18" height="18">
-                                            <rect width="18" height="18" fill="#D9D9D9" />
-                                        </mask>
-                                        <g mask="url(#mask0_272_967)">
-                                            <path
-                                                d="M8.9997 12.5626C9.1592 12.5626 9.29276 12.5087 9.40039 12.4008C9.50814 12.2931 9.56201 12.1595 9.56201 12.0001V8.81262C9.56201 8.65325 9.50807 8.51962 9.4002 8.41175C9.29232 8.304 9.1587 8.25012 8.99932 8.25012C8.83982 8.25012 8.70626 8.304 8.59864 8.41175C8.49089 8.51962 8.43701 8.65325 8.43701 8.81262V12.0001C8.43701 12.1595 8.49095 12.2931 8.59882 12.4008C8.7067 12.5087 8.84032 12.5626 8.9997 12.5626ZM8.99951 6.9665C9.17114 6.9665 9.31501 6.90843 9.43114 6.79231C9.54726 6.67618 9.60532 6.53231 9.60532 6.36068C9.60532 6.18906 9.54726 6.04519 9.43114 5.92906C9.31501 5.81306 9.17114 5.75506 8.99951 5.75506C8.82789 5.75506 8.68401 5.81306 8.56789 5.92906C8.45176 6.04519 8.3937 6.18906 8.3937 6.36068C8.3937 6.53231 8.45176 6.67618 8.56789 6.79231C8.68401 6.90843 8.82789 6.9665 8.99951 6.9665ZM9.00082 16.1251C8.01532 16.1251 7.08901 15.9381 6.22189 15.5641C5.35476 15.1901 4.60051 14.6826 3.95914 14.0414C3.31776 13.4003 2.80995 12.6464 2.4357 11.7796C2.06157 10.9129 1.87451 9.98681 1.87451 9.00143C1.87451 8.01593 2.06151 7.08962 2.43551 6.2225C2.80951 5.35537 3.31707 4.60112 3.9582 3.95975C4.59932 3.31837 5.35326 2.81056 6.22001 2.43631C7.08676 2.06218 8.01282 1.87512 8.9982 1.87512C9.9837 1.87512 10.91 2.06212 11.7771 2.43612C12.6443 2.81012 13.3985 3.31768 14.0399 3.95881C14.6813 4.59993 15.1891 5.35387 15.5633 6.22062C15.9374 7.08737 16.1245 8.01343 16.1245 8.99881C16.1245 9.98431 15.9375 10.9106 15.5635 11.7777C15.1895 12.6449 14.6819 13.3991 14.0408 14.0405C13.3997 14.6819 12.6458 15.1897 11.779 15.5639C10.9123 15.9381 9.9862 16.1251 9.00082 16.1251Z"
-                                                fill="#9CA3AF" />
-                                        </g>
-                                    </svg>
+                        <?php foreach ($pricingData['application_items'] as $index => $application_item) { ?>
+                            <label class="bpc-option-card">
+                                <input type="radio" name="application" value="funderingsbalken" class="bpc-radio-input"
+                                    id="<?php echo sanitize_title($application_item['product_name']); ?>"
+                                    value="<?php echo sanitize_title($application_item['product_name']); ?>" <?php echo $index == 0 ? 'checked' : ''; ?>>
+                                <div class="bpc-card-meta">
+                                    <div class="bpc-radio"></div>
+                                    <div class="bpc-info-btn">
+                                        <?php if ($application_item['tooltips'] == 1) { ?>
+                                            <a class="beton-popover text-success" tabindex="0" role="button"
+                                                data-bs-toggle="popover" data-bs-trigger="focus"
+                                                title="<?php echo $application_item['product_name']; ?>" data-bs-placement="top"
+                                                data-bs-content="<?php echo $application_item['tooltip_text']; ?>"
+                                                style="margin-left: 1px;">
+                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <mask id="mask0_272_967" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                        x="0" y="0" width="18" height="18">
+                                                        <rect width="18" height="18" fill="#D9D9D9" />
+                                                    </mask>
+                                                    <g mask="url(#mask0_272_967)">
+                                                        <path
+                                                            d="M8.9997 12.5626C9.1592 12.5626 9.29276 12.5087 9.40039 12.4008C9.50814 12.2931 9.56201 12.1595 9.56201 12.0001V8.81262C9.56201 8.65325 9.50807 8.51962 9.4002 8.41175C9.29232 8.304 9.1587 8.25012 8.99932 8.25012C8.83982 8.25012 8.70626 8.304 8.59864 8.41175C8.49089 8.51962 8.43701 8.65325 8.43701 8.81262V12.0001C8.43701 12.1595 8.49095 12.2931 8.59882 12.4008C8.7067 12.5087 8.84032 12.5626 8.9997 12.5626ZM8.99951 6.9665C9.17114 6.9665 9.31501 6.90843 9.43114 6.79231C9.54726 6.67618 9.60532 6.53231 9.60532 6.36068C9.60532 6.18906 9.54726 6.04519 9.43114 5.92906C9.31501 5.81306 9.17114 5.75506 8.99951 5.75506C8.82789 5.75506 8.68401 5.81306 8.56789 5.92906C8.45176 6.04519 8.3937 6.18906 8.3937 6.36068C8.3937 6.53231 8.45176 6.67618 8.56789 6.79231C8.68401 6.90843 8.82789 6.9665 8.99951 6.9665ZM9.00082 16.1251C8.01532 16.1251 7.08901 15.9381 6.22189 15.5641C5.35476 15.1901 4.60051 14.6826 3.95914 14.0414C3.31776 13.4003 2.80995 12.6464 2.4357 11.7796C2.06157 10.9129 1.87451 9.98681 1.87451 9.00143C1.87451 8.01593 2.06151 7.08962 2.43551 6.2225C2.80951 5.35537 3.31707 4.60112 3.9582 3.95975C4.59932 3.31837 5.35326 2.81056 6.22001 2.43631C7.08676 2.06218 8.01282 1.87512 8.9982 1.87512C9.9837 1.87512 10.91 2.06212 11.7771 2.43612C12.6443 2.81012 13.3985 3.31768 14.0399 3.95881C14.6813 4.59993 15.1891 5.35387 15.5633 6.22062C15.9374 7.08737 16.1245 8.01343 16.1245 8.99881C16.1245 9.98431 15.9375 10.9106 15.5635 11.7777C15.1895 12.6449 14.6819 13.3991 14.0408 14.0405C13.3997 14.6819 12.6458 15.1897 11.779 15.5639C10.9123 15.9381 9.9862 16.1251 9.00082 16.1251Z"
+                                                            fill="#9CA3AF" />
+                                                    </g>
+                                                </svg>
+                                            </a>
+                                        <?php } ?>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="bpc-option-card-icon">
-                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_272_957)">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M30.3304 27.5384H0.579968C0.261281 27.5384 0.0175781 27.2947 0.0175781 26.976C0.0175781 26.6761 0.261281 26.4136 0.579968 26.4136H1.10487V23.6204C1.10487 23.3018 1.34857 23.0581 1.66726 23.0581H30.3304C30.6491 23.0581 30.8928 23.3018 30.8928 23.6204V26.4136H31.4177C31.7364 26.4136 31.9801 26.6761 31.9801 26.976C31.9801 27.2947 31.7364 27.5384 31.4177 27.5384H30.3304ZM2.36087 22.4957V9.14827C2.36087 8.82958 2.60457 8.58588 2.92326 8.58588H8.79086C9.09081 8.58588 9.35326 8.82958 9.35326 9.14827V22.4957H2.36087ZM22.6444 22.4957V9.14827C22.6444 8.82958 22.8881 8.58588 23.2068 8.58588H29.0744C29.3743 8.58588 29.6368 8.82958 29.6368 9.14827V22.4957H22.6444Z"
-                                            fill="#555555" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M3.8788 9.71064C3.57885 9.71064 3.31641 9.44819 3.31641 9.14825V0.74989C3.31641 0.431202 3.57885 0.1875 3.8788 0.1875C4.19748 0.1875 4.44119 0.431202 4.44119 0.74989V9.14825C4.44119 9.44819 4.19748 9.71064 3.8788 9.71064ZM7.83427 9.71064C7.51559 9.71064 7.27188 9.44819 7.27188 9.14825V0.74989C7.27188 0.431202 7.51559 0.1875 7.83427 0.1875C8.13422 0.1875 8.39666 0.431202 8.39666 0.74989V9.14825C8.39666 9.44819 8.13422 9.71064 7.83427 9.71064Z"
-                                            fill="#555555" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M8.37859 3.7493H3.33583C3.03589 3.7493 2.77344 3.5056 2.77344 3.18691C2.77344 2.88697 3.03589 2.62452 3.33583 2.62452H8.37859C8.67853 2.62452 8.94098 2.88697 8.94098 3.18691C8.94098 3.5056 8.67853 3.7493 8.37859 3.7493ZM8.37859 7.25487H3.33583C3.03589 7.25487 2.77344 7.01117 2.77344 6.69248C2.77344 6.39254 3.03589 6.13009 3.33583 6.13009H8.37859C8.67853 6.13009 8.94098 6.39254 8.94098 6.69248C8.94098 7.01117 8.67853 7.25487 8.37859 7.25487ZM24.163 9.71064C23.8443 9.71064 23.6006 9.44819 23.6006 9.14825V0.74989C23.6006 0.431202 23.8443 0.1875 24.163 0.1875C24.463 0.1875 24.7254 0.431202 24.7254 0.74989V9.14825C24.7254 9.44819 24.463 9.71064 24.163 9.71064ZM28.1185 9.71064C27.7998 9.71064 27.5561 9.44819 27.5561 9.14825V0.74989C27.5561 0.431202 27.7998 0.1875 28.1185 0.1875C28.4184 0.1875 28.6621 0.431202 28.6621 0.74989V9.14825C28.6621 9.44819 28.4184 9.71064 28.1185 9.71064Z"
-                                            fill="#555555" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M28.6433 3.74929H23.6192C23.3006 3.74929 23.0569 3.50559 23.0569 3.1869C23.0569 2.88696 23.3006 2.62451 23.6192 2.62451H28.6433C28.9619 2.62451 29.2057 2.88696 29.2057 3.1869C29.2057 3.50559 28.9619 3.74929 28.6433 3.74929ZM28.6433 7.25486H23.6192C23.3006 7.25486 23.0569 7.01116 23.0569 6.69247C23.0569 6.39253 23.3006 6.13008 23.6192 6.13008H28.6433C28.9619 6.13008 29.2057 6.39253 29.2057 6.69247C29.2057 7.01116 28.9619 7.25486 28.6433 7.25486ZM10.1406 22.4956V20.0586C10.1406 19.7399 10.4031 19.4962 10.703 19.4962H14.8647V22.4956H10.1406ZM15.4458 19.5712C15.6146 19.6837 15.7083 19.8524 15.7083 20.0586V22.4956H15.4458V19.5712Z"
-                                            fill="#555555" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M20.169 22.4959V20.0588C20.169 19.7401 19.9066 19.4964 19.6066 19.4964H15.445V22.4959H20.169ZM14.8638 19.5714C14.6951 19.6839 14.5826 19.8526 14.5826 20.0588V22.4959H14.8638V19.5714ZM12.5955 18.9341V16.497C12.5955 16.1971 12.8392 15.9346 13.1579 15.9346H17.6008C17.9195 15.9346 18.1632 16.1971 18.1632 16.497V18.9341H12.5955ZM20.8439 15.316H16.401C16.0823 15.316 15.8386 15.0723 15.8386 14.7536V12.3353C15.8386 12.0167 16.0823 11.7729 16.401 11.7729H20.8439C21.1438 11.7729 21.4063 12.0167 21.4063 12.3353V14.7536C21.4063 15.0723 21.1626 15.316 20.8439 15.316ZM27.7988 29.6757H4.19716C3.87847 29.6757 3.63477 29.432 3.63477 29.1133C3.63477 28.8134 3.87847 28.5509 4.19716 28.5509H27.7988C28.0987 28.5509 28.3612 28.8134 28.3612 29.1133C28.3612 29.432 28.0987 29.6757 27.7988 29.6757ZM25.0243 31.8128H6.97161C6.65293 31.8128 6.40922 31.5503 6.40922 31.2504C6.40922 30.9317 6.65293 30.688 6.97161 30.688H25.0243C25.3243 30.688 25.5867 30.9317 25.5867 31.2504C25.5867 31.5503 25.3243 31.8128 25.0243 31.8128Z"
-                                            fill="#555555" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_272_957">
-                                            <rect width="32" height="32" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                            <div class="bpc-option-card-name">Funderingsbalken</div>
-                        </label>
-                        <!-- Vloer (selected) -->
-                        <label class="bpc-option-card">
-                            <input type="radio" name="toepassing" value="vloer" class="bpc-radio-input" checked>
-                            <div class="bpc-card-meta">
-                                <div class="bpc-radio"></div>
-                                <div class="bpc-info-btn">
-                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <mask id="mask0_272_967" style="mask-type:alpha" maskUnits="userSpaceOnUse"
-                                            x="0" y="0" width="18" height="18">
-                                            <rect width="18" height="18" fill="#D9D9D9" />
-                                        </mask>
-                                        <g mask="url(#mask0_272_967)">
-                                            <path
-                                                d="M8.9997 12.5626C9.1592 12.5626 9.29276 12.5087 9.40039 12.4008C9.50814 12.2931 9.56201 12.1595 9.56201 12.0001V8.81262C9.56201 8.65325 9.50807 8.51962 9.4002 8.41175C9.29232 8.304 9.1587 8.25012 8.99932 8.25012C8.83982 8.25012 8.70626 8.304 8.59864 8.41175C8.49089 8.51962 8.43701 8.65325 8.43701 8.81262V12.0001C8.43701 12.1595 8.49095 12.2931 8.59882 12.4008C8.7067 12.5087 8.84032 12.5626 8.9997 12.5626ZM8.99951 6.9665C9.17114 6.9665 9.31501 6.90843 9.43114 6.79231C9.54726 6.67618 9.60532 6.53231 9.60532 6.36068C9.60532 6.18906 9.54726 6.04519 9.43114 5.92906C9.31501 5.81306 9.17114 5.75506 8.99951 5.75506C8.82789 5.75506 8.68401 5.81306 8.56789 5.92906C8.45176 6.04519 8.3937 6.18906 8.3937 6.36068C8.3937 6.53231 8.45176 6.67618 8.56789 6.79231C8.68401 6.90843 8.82789 6.9665 8.99951 6.9665ZM9.00082 16.1251C8.01532 16.1251 7.08901 15.9381 6.22189 15.5641C5.35476 15.1901 4.60051 14.6826 3.95914 14.0414C3.31776 13.4003 2.80995 12.6464 2.4357 11.7796C2.06157 10.9129 1.87451 9.98681 1.87451 9.00143C1.87451 8.01593 2.06151 7.08962 2.43551 6.2225C2.80951 5.35537 3.31707 4.60112 3.9582 3.95975C4.59932 3.31837 5.35326 2.81056 6.22001 2.43631C7.08676 2.06218 8.01282 1.87512 8.9982 1.87512C9.9837 1.87512 10.91 2.06212 11.7771 2.43612C12.6443 2.81012 13.3985 3.31768 14.0399 3.95881C14.6813 4.59993 15.1891 5.35387 15.5633 6.22062C15.9374 7.08737 16.1245 8.01343 16.1245 8.99881C16.1245 9.98431 15.9375 10.9106 15.5635 11.7777C15.1895 12.6449 14.6819 13.3991 14.0408 14.0405C13.3997 14.6819 12.6458 15.1897 11.779 15.5639C10.9123 15.9381 9.9862 16.1251 9.00082 16.1251Z"
-                                                fill="#9CA3AF" />
-                                        </g>
-                                    </svg>
+                                <div class="bpc-option-card-icon">
+                                    <img src="<?php echo $application_item['icon']; ?>">
                                 </div>
-                            </div>
-                            <div class="bpc-option-card-icon">
-                                <svg width="30" height="28" viewBox="0 0 30 28" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M17.7293 0H12.2717L11.8907 8.08587H18.1103L17.7293 0ZM18.6676 19.9141H11.3334L10.9524 28H19.0486L18.6676 19.9141ZM18.2278 10.5808H11.7731L11.4509 17.4192H18.55L18.2278 10.5808ZM2.72779 10.5808L1.65711 17.4192H9.6892L10.0114 10.5808H2.72779ZM1.26646 19.9141L0.000488281 28H9.19063L9.5716 19.9141H1.26646ZM27.2732 10.5808H19.9896L20.3118 17.4192H28.3439L27.2732 10.5808ZM25.6166 0H19.4911L19.872 8.08587H26.8826L25.6166 0ZM4.38436 0L3.11838 8.08587H10.1289L10.5099 0H4.38436ZM28.7345 19.9141H20.4294L20.8104 28H30.0005L28.7345 19.9141Z"
-                                        fill="#555555" />
-                                </svg>
-                            </div>
-                            <div class="bpc-option-card-name">Vloer</div>
-                        </label>
+                                <div class="bpc-option-card-name"><?php echo $application_item['product_name']; ?></div>
+                            </label>
+                        <?php } ?>
+
                     </div>
                 </div>
 
@@ -672,18 +635,18 @@ get_header();
                         <div class="bpc-kuub-fields">
                             <div class="bpc-kuub-field">
                                 <label class="bpc-kuub-field-label">Lengte (meters)</label>
-                                <input type="number" class="bpc-kuub-field-input" id="bpc-kuub-length-input"
-                                    placeholder="Voer lengte in meters in">
+                                <input type="text" inputmode="decimal" class="bpc-kuub-field-input"
+                                    id="bpc-kuub-length-input" placeholder="Voer lengte in meters in">
                             </div>
                             <div class="bpc-kuub-field">
                                 <label class="bpc-kuub-field-label">Breedte (meters)</label>
-                                <input type="number" class="bpc-kuub-field-input" id="bpc-kuub-width-input"
-                                    placeholder="Voer breedte in meters in">
+                                <input type="text" inputmode="decimal" class="bpc-kuub-field-input"
+                                    id="bpc-kuub-width-input" placeholder="Voer breedte in meters in">
                             </div>
                             <div class="bpc-kuub-field">
                                 <label class="bpc-kuub-field-label">Hoogte (meters)</label>
-                                <input type="number" class="bpc-kuub-field-input" id="bpc-kuub-height-input"
-                                    placeholder="Voer hoogte in meters in">
+                                <input type="text" inputmode="decimal" class="bpc-kuub-field-input"
+                                    id="bpc-kuub-height-input" placeholder="Voer hoogte in meters in">
                             </div>
                         </div>
                         <div class="bpc-kuub-result"><span id="bpc-kuub-result-value">0</span> <sup>m³</sup></div>
@@ -1244,7 +1207,7 @@ get_header();
 </section>
 
 
-<div class="bpc-custom-modal-container">
+<div class="bpc-custom-modal-container" style="display: none;">
     <div class="custom-modal-overlay" style="display: flex;">
         <div class="custom-modal">
             <div class="modal-header">

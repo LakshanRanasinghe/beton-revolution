@@ -18,42 +18,23 @@
    --bs-btn-disabled-bg: #ffb380;
    --bs-btn-disabled-color: #dedede4d;
 }
-.oswald-200 {
-   font-family: "Oswald", serif;
-   font-optical-sizing: auto;
-   font-weight: 200;
-   font-style: normal;
+.oswald-200, .oswald-300, .oswald-400, .oswald-500, .oswald-600, .oswald-700 {
+   font-family: 'Manrope', sans-serif !important;
 }
-.oswald-300 {
-   font-family: "Oswald", serif;
-   font-optical-sizing: auto;
-   font-weight: 300;
-   font-style: normal;
-}
-.oswald-400 {
-   font-family: "Oswald", serif;
-   font-optical-sizing: auto;
-   font-weight: 400;
-   font-style: normal;
-}
-.oswald-500 {
-   font-family: "Oswald", serif;
-   font-optical-sizing: auto;
-   font-weight: 500;
-   font-style: normal;
-}
-.oswald-600 {
-   font-family: "Oswald", serif;
-   font-optical-sizing: auto;
-   font-weight: 600;
-   font-style: normal;
-}
-.oswald-700 {
-   font-family: "Oswald", serif;
-   font-optical-sizing: auto;
-   font-weight: 700;
-   font-style: normal;
-}
+
+.manrope-400 { font-family: 'Manrope', sans-serif; font-weight: 400; }
+.manrope-500 { font-family: 'Manrope', sans-serif; font-weight: 500; }
+.manrope-600 { font-family: 'Manrope', sans-serif; font-weight: 600; }
+.manrope-700 { font-family: 'Manrope', sans-serif; font-weight: 700; }
+.manrope-800 { font-family: 'Manrope', sans-serif; font-weight: 800; }
+.font-manrope { font-family: 'Manrope', sans-serif; }
+
+.oswald-200 { font-weight: 200; }
+.oswald-300 { font-weight: 300; }
+.oswald-400 { font-weight: 400; }
+.oswald-500 { font-weight: 500; }
+.oswald-600 { font-weight: 600; }
+.oswald-700 { font-weight: 700; }
 
 .oswald-weight{
    font-weight: 800 !important;
@@ -984,14 +965,40 @@ ul.wc-item-meta > li {
 }
 
 #autocomplete-list {
-   top: 60px;
-   border-radius: 0;
-   border: 0;
-   z-index: 99999999999;
+    position: absolute;
+    top: 100% !important;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+    border: 1px solid #E5E7EB;
+    z-index: 99999999;
+    margin-top: 5px;
+    padding: 8px 0;
+    max-height: 280px;
+    overflow-y: auto;
 }
-.location-and-quantity-section #autocomplete-list {
-   top: 78px;
+
+#autocomplete-list .dropdown-item {
+    padding: 12px 20px;
+    font-family: 'Manrope', sans-serif !important;
+    font-size: 15px;
+    font-weight: 600;
+    color: #060C35;
+    text-decoration: none;
+    display: block;
+    transition: all 0.2s ease;
+    border: none;
+    background: transparent;
 }
+
+#autocomplete-list .dropdown-item:hover {
+    background-color: #F6F8FB;
+    color: #1ACB23;
+}
+
 label[for=e_deliverydate] {
    margin-right: 15px;
 }
