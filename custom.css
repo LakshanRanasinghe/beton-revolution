@@ -539,18 +539,19 @@ a {
 .form-check-input:focus {
    box-shadow: 0 0 0 0.25rem rgba(var(--orange-rgb, 255, 165, 0), 0.5); /* Replace with --orange's RGB equivalent */
 }
+
 .tilted-border:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -5%;
-    width: 10px; 
-    height: 150%;
-    background-color: #ff6400; 
-    transform: rotate(20deg); 
-    transform-origin: top right; 
-    z-index: 1; 
-    display: block; 
+   content: '';
+   position: absolute;
+   top: 0;
+   right: 0;
+   width: 10px; 
+   height: 150%;
+   background-color: #ff6400; 
+   transform: rotate(20deg); 
+   transform-origin: top right; 
+   z-index: 1; 
+   display: block; 
 }
 
 .inactive .location-and-quantity-form{
@@ -944,3 +945,6 @@ div#orddd_list_view_select {
    }
 }
 
+a.beton-popover.text-success {
+    color: #3fd526 !important;
+}

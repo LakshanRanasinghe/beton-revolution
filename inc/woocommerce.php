@@ -338,8 +338,8 @@ function pay_url(){
 	global $post;
 	$order = get_post_meta($post->ID, 'order_id', true);
 	if (empty($order)) {
-		echo '<p>' . wc_get_checkout_url() . '?pay-url=' . $post->ID . '</p>';
-		echo '<a href="' . wc_get_checkout_url() . '?pay-url=' . $post->ID . '" target="_blank" class="button tagadd" style="margin: 5px;">Pay URL</a>';
+		echo '<p>' . wc_get_checkout_url() . '?pay-url=' . encrypt_code($post->ID) . '</p>';
+		echo '<a href="' . wc_get_checkout_url() . '?pay-url=' . encrypt_code($post->ID) . '" target="_blank" class="button tagadd" style="margin: 5px;">Pay URL</a>';
 	} else {
 		echo '<p>Order ID : ' . $order . '</p>';
 		echo '<a href="' . get_edit_post_link($order) . '" target="_blank" class="button tagadd" style="margin: 5px;">Check order</a>';
@@ -353,7 +353,26 @@ function make_payment_by_url()
 		return;
 	}
 
-	$quote_id = $_GET['pay-url'];
+	$quote_id = decrypt_code($_GET['pay-url']);
+	
+	if ( !get_post_status( $quote_id ) ) {
+		WC()->cart->empty_cart();
+		wp_safe_redirect( wc_get_page_permalink( 'home' ) );
+        exit();
+	}
+// 	wc_get_logger()->debug( 'Pay URL and quote ID: ' . ($_GET['pay-url']) . ' and ' . $quote_id, array('source' => 'beton-logs') );
+	
+	
+	$post_date = get_post_time('U', true, $quote_id); // Unix timestamp
+	$one_month_ago = strtotime('-1 month');
+
+        // If older than 1 month, redirect
+// 	if ($post_date < $one_month_ago) {
+// 		wp_redirect(home_url('/offerte-aanvragen/'));
+// 		exit;
+// 	}
+// 	
+// 	
 
 	$post_data = array(
 		'action' => 'concrete_add_to_cart',
@@ -419,21 +438,79 @@ function make_payment_by_url()
 		
 		WC()->session->__unset('quotation_id');
 		WC()->session->set('quotation_id', $quote_id);
+		setcookie( 'quotation_id', $quote_id, time() + 3600, '/' );
+	
+// 	wc_get_logger()->debug( 'Setting quote ID: ' . $quote_id, array('source' => 'beton-logs') );
+
 		WC()->cart->empty_cart();
 		
-		$cart_item_key = WC()->cart->add_to_cart( get_field('beton_product', 'option') );
+		$cart_item_data = array('custom_price' => get_post_meta($quote_id, 'totals_subtotal', true));   
+
+		$cart_item_key = WC()->cart->add_to_cart( get_field('beton_product', 'option'), 1, 0, [], $cart_item_data );
+
+		// $cart_item = WC()->cart->get_cart_item( $cart_item_key );
+		
+		// $cart_item['data']->set_price( get_post_meta($quote_id, 'totals_subtotal', true) );
+		// WC()->cart->set_session();
+		// WC()->cart->calculate_totals();
+
+		// WC()->cart->cart_contents[ $cart_item_key ]['custom_price'] = get_post_meta($quote_id, 'totals_subtotal', true); // your custom price
+
 
 
 	// }
 	wp_redirect(wc_get_checkout_url());
 }
+
+// add_action( 'woocommerce_before_calculate_totals', function( $cart ) {
+//     if ( is_admin() && ! defined( 'DOING_AJAX' ) )
+//         return;
+
+//     foreach ( $cart->get_cart() as $cart_item_key => $cart_item ) {
+//         if ( isset( $cart_item['custom_price'] ) ) {
+//             $cart_item['data']->set_price( 500 );
+//         }
+//     }
+// });
+
+add_action( 'woocommerce_before_calculate_totals', 'add_custom_item_price', 10 );
+function add_custom_item_price( $cart_object ) {
+
+    // foreach ( $cart_object->get_cart() as $item_values ) {
+	foreach ( $cart_object->cart_contents as $key => $value ) {
+		if( isset( $value["custom_price"] ) ) {
+		
+        // ##  Get cart item data
+        // $item_id = $item_values['data']->id; // Product ID
+        // $original_price = $item_values['data']->price; // Product original price
+
+        // ## Get your custom fields values
+        // $price1 = $item_values['custom_data']['price1'];
+        // $quantity = $item_values['custom_data']['quantity'];
+
+        // // CALCULATION FOR EACH ITEM:
+        // ## Make HERE your own calculation 
+        // $new_price = $price1 ;
+
+        ## Set the new item price in cart
+		// if ( isset( $item_values['custom_price'] ) ) {
+        	$value['data']->set_price($value["custom_price"]);
+		}
+    }
+}
+
 function beton_add_cart_item_data_via_pay_url($cart_item_data, $product_id, $variation_id)
 {
 	$quote_id = WC()->session->get('quotation_id');
-	if (empty($quote_id)) {
-		return $cart_item_data;
-	}
+// 	wc_get_logger()->debug( 'Quote ID when adding meta: ' . $quote_id, array('source' => 'beton-logs') );
 
+	if(isset( $_COOKIE['quotation_id'] ) ){
+		$quote_id = $_COOKIE['quotation_id'];
+	}
+// 	if (empty($quote_id)) {
+// 		return $cart_item_data;
+// 	}
+	
 	$calc_data = array(
 		'area_code' => get_post_meta($quote_id, 'area_code', true),
 		'cubic_meters' => get_post_meta($quote_id, 'beton_samenstelling_cubic_meters', true),
@@ -457,7 +534,7 @@ function beton_add_cart_item_data_via_pay_url($cart_item_data, $product_id, $var
 	setcookie('travelling_distance', get_post_meta($quote_id, 'travelling_distance', true), time() + 31556926);
 
 	$calc_data['city'] = $calc_data['postalcode'];
-	$calc_data['pumping_distance'] = (isset($calc_data['pump_type']) && $calc_data['pump_type'] == 'mini' ? $calc_data['pumping_distance'] : $calc_data['boom_pumping_distance']);
+	$calc_data['pumping_distance'] = (isset($calc_data['pump_type']) && $calc_data['pump_type'] == 'mini' ? $calc_data['pumping_distance'] : 				$calc_data['boom_pumping_distance']);
 
 	$calcuated_data = beton_calculator($calc_data);
 	$beton_price = get_post_meta($quote_id, 'beton_cost', true);
@@ -479,7 +556,12 @@ function beton_add_cart_item_data_via_pay_url($cart_item_data, $product_id, $var
 
 	if(isset($calc_data['release_method'])){
 		$cart_item_data['unloading_label'] = "Loswijze";
-		$cart_item_data['unloading_value'] = $calc_data['release_method'] == 'pump' ? 'Pomp' : "Gutter";
+// 		wc_get_logger()->debug( 'Calcdata when adding meta2: ' . json_encode($calc_data), array('source' => 'beton-logs') );
+// 		wc_get_logger()->debug( '$cart_item_data when adding meta2: ' . json_encode($cart_item_data), array('source' => 'beton-logs') );
+		
+		$cart_item_data['unloading_value'] = $calc_data['release_method'] == 'pump' ? 'Pomp' : "Uit de goot";
+		
+		
 	}
 
 	if(get_field('totals_pump_cost', $quote_id) && get_field('pump_type', $quote_id)){
@@ -511,8 +593,26 @@ function beton_add_cart_item_data_via_pay_url($cart_item_data, $product_id, $var
 		$cart_item_data['butterfly_floor_label'] = "Vlindervloer";
 		$cart_item_data['butterfly_floor_value'] = $vlindervloer_cost;
 	}
+	
+	if (!empty(get_field('composition', $quote_id))) {
+		$composition = get_field('composition', $quote_id);
+		foreach ($composition as $id => $item) {
+			$cart_item_data['raw_' . str_replace('-', '_', $item) . '_value'] = get_field('totals_' . str_replace('-', '_', $item) . '_cost', $quote_id);
+			$cart_item_data['raw_' . str_replace('-', '_', $item) . '_label'] = ucwords(str_replace('-', ' ', $item));
+		}
+	}
 
 	$cart_item_data['sub_total'] = get_field('totals_subtotal', $quote_id);
+
+	if(isset($cart_item_data['allin_value']) && floatval($cart_item_data['allin_value']) > 0){
+		$cart_item_data['unloading_value'] = "Alles-in-één met pomp";
+	}
+	
+	wc_get_logger()->debug( 'new test: ' . json_encode($cart_item_data), array('source' => 'beton-logs') );
+	
+	if(isset($cart_item_data['pump_label']) && str_contains($cart_item_data['pump_label'], 'pomp')){
+		$cart_item_data['unloading_value'] = $cart_item_data['pump_label'];	
+	}
     
     return $cart_item_data;
 }

@@ -33,9 +33,46 @@ defined( 'ABSPATH' ) || exit;
 
 			if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_checkout_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 				?>
+				<!-- <pre>
+					<?php //print_r($cart_item); ?>
+				</pre> -->
 				<div class="<?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item d-flex justify-content-between', $cart_item, $cart_item_key ) ); ?>">
-					<div class="product-name">
-						<?php // echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) ) . '&nbsp;'; ?>
+						
+					<div class="product-name w-100">
+						<?php 
+							if ($cart_item['unloading_value'] == 'Uit de goot') { ?>
+								<div class="p-0 d-flex justify-content-between">
+									<div class="d-flex gap-3 text-20 poppins-500 text-custom-black">
+										<img src="<?php echo site_url(); ?>/wp-content/uploads/2025/01/wheelbarrow.png" alt="Mini Concrete Pump" class="img-fluid mb-2 w-sm-163 h-sm-80">
+										<?php echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) ) . '&nbsp;'; ?>
+									</div>
+									<div><?php wc_cart_totals_subtotal_html(); ?></div>
+								</div>
+								<?php 
+							} elseif ($cart_item['unloading_value'] == 'Pomp') {
+								if($cart_item['pump_label'] == 'Mini betonpomp') { ?>
+									<div class="p-0 d-flex justify-content-between">
+										<div class="d-flex gap-3 text-20 poppins-500 text-custom-black">
+											<img src="<?php echo site_url(); ?>/wp-content/themes/beton/images/lorry1.png" alt="Mini Concrete Pump" class="img-fluid mb-2 w-sm-163 h-sm-80">
+											<?php echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) ) . '&nbsp;'; ?>
+										</div>
+										<div><?php wc_cart_totals_subtotal_html(); ?></div>
+									</div>
+								<?php
+								} else { ?>
+									<div class="p-0 d-flex justify-content-between">
+										<div class="d-flex gap-3 text-20 poppins-500 text-custom-black">
+											<img src="<?php echo site_url(); ?>/wp-content/themes/beton/images/lorry2.png" alt="Boom Pump" class="img-fluid mb-2 w-sm-163 h-sm-80">
+											<?php echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) ) . '&nbsp;'; ?>
+										</div>
+										<div><?php wc_cart_totals_subtotal_html(); ?></div>
+									</div>
+								<?php
+								}
+							}
+						?>
+						<hr class="text-light-gray mt-3">
+						<?php //echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) ) . '&nbsp;'; ?>
 						<?php // echo apply_filters( 'woocommerce_checkout_cart_item_quantity', ' <strong class="product-quantity">' . sprintf( '&times;&nbsp;%s', $cart_item['quantity'] ) . '</strong>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						<?php echo wc_get_formatted_cart_item_data( $cart_item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</div>
@@ -54,7 +91,7 @@ defined( 'ABSPATH' ) || exit;
 
 		<div class="cart-subtotal d-flex justify-content-between">
 			<div><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></div>
-			<div><?php wc_cart_totals_subtotal_html(); ?></div>
+			<div class="beton-checkout-subtotal"><?php wc_cart_totals_subtotal_html(); ?></div>
 		</div>
 
 		<?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
@@ -68,7 +105,7 @@ defined( 'ABSPATH' ) || exit;
 
 			<?php do_action( 'woocommerce_review_order_before_shipping' ); ?>
 
-			<?php wc_cart_totals_shipping_html(); ?>
+			<?php //wc_cart_totals_shipping_html(); ?>
 
 			<?php do_action( 'woocommerce_review_order_after_shipping' ); ?>
 
@@ -101,7 +138,7 @@ defined( 'ABSPATH' ) || exit;
 
 		<div class="order-total d-flex justify-content-between">
 			<div><?php esc_html_e( 'Total', 'woocommerce' ); ?></div>
-			<div><?php wc_cart_totals_order_total_html(); ?></div>
+			<div class="beton-checkout-total"><?php wc_cart_totals_order_total_html(); ?></div>
 		</div>
 
 		<?php do_action( 'woocommerce_review_order_after_order_total' ); ?>

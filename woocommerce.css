@@ -645,12 +645,16 @@ p.no-comments {
 .woocommerce-checkout .beton-page-content p, .woocommerce-checkout .beton-page-content .checkout-box {
     font-size: 18px;
     line-height: 30px;
-    font-family: "Oswald", sans-serif;
+    font-family: "Poppins", serif;
     font-weight: 300;
 }
 
 .woocommerce-checkout .beton-page-content .checkout-box .order-total {
-	font-weight: 700;
+	font-weight: 500;
+}
+
+.woocommerce-checkout #order_review dt {
+	font-weight: 400;
 }
 
 .woocommerce-checkout li.wc_payment_method label, .woocommerce-checkout .beton-page-content h3{
@@ -676,7 +680,6 @@ p.no-comments {
 
 #order_review .product-name .variation {
 	display: flex;
-	gap: 5px;
 }
 
 #order_review .product-name .variation dd{
@@ -706,4 +709,204 @@ p.no-comments {
 	}
 }
 
+.woocommerce-checkout .entry-header {
+	display: none;
+}
 
+.woocommerce-checkout .woocommerce-billing-fields h3, #shipping_first_name_field, #shipping_last_name_field, #billing_company_field, #billing_phone_field, #ship-to-different-address, #shipping_company_field, #billing_eu_vat_number_field, #shipping_email_field {
+	display: none;
+}
+
+.woocommerce-checkout #billing_country {
+	width: 100%;
+}
+
+.woocommerce-checkout .woocommerce-shipping-fields .shipping_address {
+	display: block !important;
+}
+
+.woocommerce-checkout .woocommerce-error {
+	margin-left: 0 !important;
+}
+
+.no-bottom-border-radius {
+	border-radius: 5px 5px 0 0 !important;
+	border-bottom: none;
+}
+.no-top-border-radius {
+	border-radius: 0 0 5px 5px !important;
+	border-top: none;
+	padding-top: 20px;
+}
+
+.woocommerce-checkout .form-row {
+    font-family: 'Poppins', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.woocommerce-checkout .form-row label, .woocommerce-checkout li.wc_payment_method label {
+    font-family: 'Poppins', sans-serif !important;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.woocommerce-checkout .form-row input[type="email"], .woocommerce-checkout .form-row input[type="text"], .woocommerce-checkout .form-row input[type="tel"], .woocommerce-checkout .form-row input[type="number"], .woocommerce-checkout .form-row textarea{
+    font-family: 'Poppins', sans-serif;
+	outline: 0;
+    margin: 0;
+    transition: all .3s ease-in-out;
+    font-size: 15px;
+    line-height: 1.333333;
+    border: none !important;
+    width: 100%;
+    color: #515f6a;
+    padding: 16px;
+    background: #f6f7f9;
+    border-radius: 5px;
+    box-shadow: inset 0 0 0 1px #c5cacd;
+    position: relative;
+    z-index: 1;
+    padding-right: 40px;
+}
+
+.woocommerce-checkout .form-row.woocommerce-validated input.input-text {
+	background: #3fd526 !important;
+    box-shadow: inset 0 0 0 2px #3fd526, 0 0 0px 1000px #e5ffe0 inset !important; 
+}
+
+.woocommerce-checkout .form-row.woocommerce-invalid input.input-text {
+    box-shadow: inset 0 0 0 2px #e2401c, 0 0 0px 1000px #ffc4b8 inset !important;
+}
+
+/* .woocommerce-checkout input:-webkit-autofill {
+    box-shadow: inset 0 0 0 2px #3fd526, 0 0 0px 1000px #e5ffe0 inset !important; 
+    -webkit-text-fill-color: #515f6a !important; 
+}
+
+.woocommerce-checkout input:-internal-autofill-selected {
+    appearance: none !important;
+    background-image: none !important;
+    background-color: #d4edda !important;
+    -webkit-text-fill-color: #515f6a !important; 
+} */
+
+.woocommerce-checkout .after-collapse-title small, .woocommerce-checkout .orddd-checkout-fields .orddd_field_note {
+	font-family: 'Poppins', sans-serif;
+	font-size: 13px;
+	font-weight: 400;
+}
+
+.woocommerce-checkout #shipping_country_field span, .woocommerce-checkout #billing_country_field span {
+	font-family: 'Poppins', sans-serif;
+}
+
+.woocommerce-checkout .beton-page-content #customer_details, .woocommerce-checkout .beton-page-content .checkout-billing-content-wrapper {
+    line-height: 20px; 
+}
+
+/* checkout calendar stylings */
+.woocommerce-checkout .ui-widget-header {
+    background: var(--orange) url(images/ui-bg_gloss-wave_45_817865_500x100.png) 50% 50% repeat-x;
+}
+
+.woocommerce-checkout .ui-widget-content {
+    border: 1px solid #8e846b;
+    background: #fffcf2 url(images/ui-bg_highlight-soft_100_feeebd_1x100.png) 50% top repeat-x;
+}
+
+.woocommerce-checkout .ui-datepicker td {
+    padding: 0;
+    border: none !important;
+}
+
+.woocommerce-checkout .ui-state-active, .woocommerce-checkout .ui-widget-content .ui-state-active, .woocommerce-checkout .ui-widget-header .ui-state-active {
+    border: 1px solid #655e4e !important;
+    background: #ffffff url(images/ui-bg_inset-soft_30_ffffff_1x100.png) 50% 50% repeat-x !important;
+    font-weight: bold !important;
+    color: var(--orange) !important;
+    /*border-radius: 50%;*/
+}
+
+.woocommerce-checkout .ui-state-default, .woocommerce-checkout .ui-widget-content .ui-state-default {
+	color: #ffffff;
+}
+
+.woocommerce-checkout td.ui-state-disabled .ui-state-default {
+    background: #ff0000 !important;
+    opacity: 1 !important;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.woocommerce-checkout .ui-datepicker-buttonpane.ui-widget-content button {
+    box-sizing: border-box;
+    overflow: visible;
+    background: #e6e6e6;
+    padding: 0.6em 1em 0.4em;
+    margin: 0;
+    border-width: 2px!important;
+    width: 50%!important;
+    margin-bottom: 1rem!important;
+    margin-top: 1rem!important;
+    padding-top: .5rem!important;
+    padding-bottom: .5rem!important;
+    text-transform: uppercase!important;
+    color: #fff!important;
+    border-radius: 0!important;
+    font-family: "Oswald", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    background-color: var(--orange) !important;
+    border-color: var(--orange) !important;
+    border: 2px solid;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.woocommerce-checkout .ui-datepicker .ui-datepicker-title {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+.woocommerce-checkout .ui-datepicker th {
+    font-size: 16px;
+    font-weight: 400;
+    border: 1px solid #fff8f8;
+    background: #ff6400;
+    color: #fff;
+}
+
+#orddd_datepicker .ui-datepicker-inline.ui-datepicker {
+	width: 100%;
+}
+
+.custom-hidden {
+	display: none !important
+}
+
+#shipping_house_number_suffix_field label[for="shipping_house_number_suffix"] {
+	font-size: 12px;
+}
+
+#orddd_list_view_select .list-view.selected {
+	background: #3fd526 !important;
+}
+
+.popover {
+	border: 2px solid #3fd526 !important;
+	background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #3fd526 0%, #ffffff 100%) repeat scroll 0 0 !important; 
+}
+
+.popover .popover-header {
+	background-color: transparent !important; 
+	border-bottom: 1px solid #3fd526 !important; 
+	font-family: "Poppins", serif;
+}
+
+.popover .popover-body {
+	background-color: transparent !important; 
+	color: #000000 !important;
+}

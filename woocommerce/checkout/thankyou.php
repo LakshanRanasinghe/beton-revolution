@@ -44,15 +44,15 @@ defined('ABSPATH') || exit;
 
 			<?php wc_get_template('checkout/order-received.php', array('order' => $order)); ?>
 
-			<div class="row align-items-center">
-					<div class="col-6">
+			<div class="row">
+					<div class="col-sm-6 col-12">
 						<div class=" pt-5">
 						<?php wc_get_template( 'order/order-details-customer.php', array( 'order' => $order ) ); ?>
 						</div>
 						
 					</div>
-					<div class="col-6">
-						<ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details list-unstyled">
+					<div class="col-sm-6 col-12">
+						<ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details list-unstyled ms-0 pt-5">
 
 							<li class="woocommerce-order-overview__order order">
 								<?php esc_html_e('Order number:', 'woocommerce'); ?>

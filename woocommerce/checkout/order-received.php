@@ -20,7 +20,7 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<h2 class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received text-center">
+<h2 class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received text-left">
 	<?php
 	/**
 	 * Filter the message shown after a checkout is complete.
@@ -39,4 +39,5 @@ defined( 'ABSPATH' ) || exit;
 	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo $message;
 	?>
+	<div class="p-2 mt-1" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
 </h2>

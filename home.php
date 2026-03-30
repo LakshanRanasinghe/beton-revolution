@@ -4,73 +4,72 @@ get_header();
 ?>
 
 <!-- first section -->
-<div class="bg-image container-fluid object-fit-cover position-relative p-0 background-img-adjust" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); height: 90vh;">
+<div class="beton-hero-section bg-image container-fluid object-fit-cover position-relative p-0 background-img-adjust" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
     <div class="z-0 hero-section-overlay position-absolute h-100 container-fluid bg-black bg-opacity-50 top-0 left-0 p-0"></div>
     <div class="new-container-1400 container h-100 d-flex flex-column justify-content-center pixel-sm-p-30">
         <div class="row col-lg-4 col-9 z-1 position-relative p-2 mb-4" style="backdrop-filter: blur(8px); background-color: #FFFFFF1A;">
-            <div class="d-flex align-items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="beton-star-icons col p-0" height="30" width="25" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="beton-star-icons col p-0" height="30" width="25" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="beton-star-icons col p-0" height="30" width="25" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="beton-star-icons col p-0" height="30" width="25" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="beton-star-icons col p-0" height="30" width="25" viewBox="0 0 576 512"><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                <h2 class="oswald-600 lh-sm text-white m-0 ps-2 new-text-sm-22 rating-width text-uppercase" >4,9/5 Sterren</h2>
-            </div>
-            <!-- <div class="row col-lg-4 col-4 align-items-center" style="width: 180px;">
+            <div class="d-flex align-items-center beton-hero-google-ratings">
                 
-            </div> -->
+                <?php echo do_shortcode( '[trustindex no-registration=google]'); ?>
+                
+            </div> 
             
         </div> 
 
         <div class="row col-lg-5 col-11 z-1 position-relative p-2 d-flex mb-4 padding-left-title" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
-            <h1 class="oswald-500 display-3 text-56 m-0 text-white text-uppercase p-0 letter-spacing-four">Beton bestellen?</h1>
+            <h1 class="oswald-500 display-3 text-56 m-0 text-white text-uppercase p-0 letter-spacing-four">Beton storten?</h1>
         </div>
 
         <div class="row col-lg-10 col-12 z-1 position-relative p-2 mb-4 padding-left-title" style="backdrop-filter: blur(25px); background-color: #FFFFFF1A;">
-            <h1 class="oswald-600 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-block d-none letter-spacing-four">Binnen 24 uur gratis offerte</h1>
+            <h1 class="oswald-600 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-block d-none letter-spacing-four">Bereken hier uw prijs</h1>
             <h1 class="oswald-600 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-none d-block letter-spacing-four">Binnen 24 uur</h1>
             <div class="p-1 d-sm-none d-block" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
             <h1 class="oswald-600 display-3 text-76 m-0 text-white text-uppercase p-0 mb-1 d-sm-none d-block letter-spacing-four">gratis offerte</h1>
             <div class="p-2 d-sm-block d-none" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
         </div>
 
-        <div class="row gap-3 z-1 position-relative">
-            <a href="<?php echo site_url(); ?>/pour-concrete-or-order-concrete/" class="btn-hover-orange col-lg-2 col-sm-4 col-6 oswald-600 text-sm-20 text-white text-uppercase text-center border-2 border-white rounded-0 bg-transparent px-4 py-3 letter-spacing-four">Bereken Prijs</a>
-            <a href="<?php echo site_url(); ?>/offerte-aanvragen/" class="btn-hover col-lg-2 col-sm-4 col-5 oswald-600 text-sm-20 text-white text-uppercase text-center border-2 border-orange bg-orange rounded-0 px-6 py-3 letter-spacing-four">Gratis Offerte</a>
-        </div>
+        <!-- <div class="row gap-3 z-1 position-relative">
+            <a href="#beton-calculate-prices-section" class="btn-hover-orange col-lg-2 col-sm-4 col-6 oswald-600 text-sm-20 text-white text-uppercase text-center border-2 border-white rounded-0 bg-transparent px-4 py-3 letter-spacing-four">Bereken Prijs</a>
+            <a href="<?php //echo site_url(); ?>/offerte-aanvragen/" class="btn-hover col-lg-2 col-sm-4 col-5 oswald-600 text-sm-20 text-white text-uppercase text-center border-2 border-orange bg-orange rounded-0 px-6 py-3 letter-spacing-four">Gratis Offerte</a>
+        </div> -->
     </div>
 </div>
 
 <!-- second section -->
-<div class="bg-dark-blue container-fluid px-lg-5 px-3 py-3 py-lg-0">
-    <div class="new-container-1400 container d-flex flex-lg-row flex-column align-items-center gap-lg-5 gap-0 overflow-hidden px-0">
+<div class="bg-dark-blue container-fluid px-lg-5 px-3 py-3 py-lg-0 overflow-hidden" id="beton-calculate-prices-section">
+    <div class="new-container-1400 container d-flex flex-lg-row flex-column align-items-center gap-lg-5 gap-0 px-0">
         <!-- Left Column -->
-        <div class="row col-lg-3 col-12 d-block position-relative tilted-border">
-            <div class="py-lg-5 py-3 px-0 d-lg-block d-flex px-lg-3">
+        <div class="row col-lg-3 col-12 d-block position-relative tilted-border overflow-hidden">
+            <div class="py-lg-5 py-3 d-lg-block d-flex px-lg-3">
                 <h2 class="oswald-500 text-sm-42 text-white letter-spacing-four text-uppercase">Bereken&nbsp</h2>
                 <h2 class="oswald-500 text-sm-42 text-white letter-spacing-four text-uppercase">Betonprijs</h2>
             </div>       
         </div>
         <!-- Right Column -->
-        <form class="row col-lg-9 " action="prices">
-            <div class="d-lg-flex d-block align-items-center gap-3 px-0 w-100">
+        <form class="row col-lg-9 " action="offerte-aanvragen" id="home-offerte-aanvragen-form">
+            <div class="d-lg-flex d-block align-items-center gap-3 ps-4 pe-4 w-100 ps-sm-0 pe-sm-0">
                 <div class="w-lg-70 d-flex gap-3 pb-lg-0 pb-3 position-relative">
-                    <input type="text" class="form-control rounded-0 home-input ps-4 oswald-600 letter-spacing-four text-uppercase text-sm-20-2" placeholder="Postcode of Stad" aria-label="Postcode" id="postcode-input">
-                    <input type="text" class="form-control rounded-0 home-input ps-4 oswald-600 letter-spacing-four text-uppercase text-sm-20-2" placeholder="Aantal M" aria-label="Cubic meters of concrete" id="cubic-meters">
+                    <input type="text" class="form-control rounded-0 home-input ps-2 pe-2 ps-md-4 oswald-600 letter-spacing-four text-uppercase text-sm-20-2" placeholder="Postcode of Stad" aria-label="Postcode" id="postcode-input">
+                    <input type="text" class="form-control rounded-0 home-input ps-2 pe-2 ps-md-4 oswald-600 letter-spacing-four text-uppercase text-sm-20-2" placeholder="Aantal M³" aria-label="Cubic meters of concrete" id="cubic-meters">
                 </div>
                 <button class="btn oswald-600 text-sm-20 text-white text-uppercase border-2 border-orange bg-orange rounded-0 px-6 py-md-4 py-3 w-lg-25 letter-spacing-four">Bereken Prijs</button>
             </div>
-            <div class="d-flex align-items-center ps-md-0">
+            <div class="d-flex align-items-center ps-sm-0 pe-sm-0 ps-4 pe-4">
                 <p class="text-14 poppins-500 light-blue pt-3 letter-spacing-four mb-0">Bereken het aantal kubieke meters</p>
-                <i class="bi bi-exclamation-circle-fill ps-2 light-blue pt-3 cursor-pointer"></i>
+                <a href="<?php echo site_url(); ?>/bereken-het-aantal-kuub" class="pt-3 ps-2"><i class="bi bi-exclamation-circle-fill light-blue"></i></a>
             </div>
         </form>
     </div>
 </div>
 
+<div class="container-fluid bg-white py-md-5 pt-4 px-0">
+    <div class="container">
+        <?php echo do_shortcode( '[grw id=704]'); ?>
+    </div>
+</div>
 
 <!-- third section -->
-<div class="bg-white container-fluid py-md-5 py-0 my-md-5 my-2 px-0">
+<div class="bg-white container-fluid py-md-5 py-0 my-2 px-0">
     <div class="container pb-md-4 pb-0">
         <div class="row">
             <div class="col-lg-7 col-12 z-1 position-relative p-lg-2 p-4 mb-md-2 mb-0" style="backdrop-filter: blur(25px); background-color: rgba(255, 255, 255, 0.1);">
@@ -79,22 +78,25 @@ get_header();
                         <h1 class="oswald-600 display-3 text-40 m-0 text-black text-uppercase mb-1 letter-spacing-four text-dark-blue">Hoe stort je beton?</h1>
                         <div class="h-14" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
                     </div>
-                    <p class="grey-text poppins-400 text-sm-18 line-height letterspace1 mt-3 mb-3">
-                    Beton storten kan een uitdagend maar lonend project zijn voor de handige doe-het-zelver. Het vereist echter precisie en voorbereiding, want fouten kunnen duur uitpakken. Bij BetonBestellen.nl begeleiden we je stap voor stap bij het storten van beton, zodat je professionele resultaten behaalt.
-                    </p>
-                    <p class="grey-text poppins-400 text-sm-18 line-height letterspace1 mt-1 mb-3">
+                    <p class="grey-text poppins-400 text-sm-18 line-height letterspace1 mt-3 mb-3">Beton zelf storten kan een mooie kostenbesparing opleveren, maar kan ook een grote mislukking worden. Wij laten u in het artikel <a href="https://www.betonstorten.nl/beton-storten-hoe-doe-je-dat">hoe stort ik beton? </a>De beste methode zien met de benodigde gereedschappen.&nbsp;</p>
+                    
+                    <p class="grey-text poppins-400 text-sm-18 line-height letterspace1 mt-1 mb-3">Gaat u&nbsp;<strong>beton storten, beton bestellen of beton laten storten</strong>? Bijvoorbeeld voor een verbouwing aan uw huis voor een uitbouw, <a href="https://www.betonstorten.nl/betonvloer-garage">garage</a>, tuinhuis, schutting, noem maar op, dan is vaak hiervoor <a href="https://www.betonstorten.nl/fundering-storten">een fundering</a> nodig. Deze fundering wordt over het algemeen gemaakt van&nbsp;beton. Voor een echte “doe het zelver” volgt dan direct de vraag: ga ik zelf beton bestellen en beton storten of<a href="https://www.betonstorten.nl/beton-laten-storten"> laat ik beton storten</a>?&nbsp;Waar moet ik op letten bij het bestellen van beton? Wat komt er allemaal bij kijken? <a href="https://www.betonstorten.nl/beton-storten-hoe-doe-je-dat">Beton storten, hoe doe je dat?</a> Een aantal dingen zijn belangrijk, zoals bijvoorbeeld <a href="https://www.betonstorten.nl/dikte-betonvloer">de dikte van de betonvloer</a>&nbsp;en de <a href="https://www.betonstorten.nl/droogtijd-beton">droogtijd van beton</a>.</p>
+
+                    <p class="grey-text poppins-400 text-sm-18 line-height letterspace1 mt-1 mb-3">Op BetonStorten.nl vindt u alle informatie over beton bestellen en uw beton stort. Van&nbsp;<a href="https://www.betonstorten.nl/beton-storten-prijs/">prijs</a>&nbsp;tot uitvoering. Wij voorzien u graag van de benodigde informatie om te bepalen of u zelf uw beton gaat storten en hoe u dat het beste kunt doen.</p>
+                    
+                    <!-- <p class="grey-text poppins-400 text-sm-18 line-height letterspace1 mt-1 mb-3">
                     Of je nu beton stort voor een huisrenovatie, een uitbouw, een garage, of zelfs een tuinhuis of schutting, een goede fundering is essentieel. Beton vormt de basis van bijna elk bouwproject, en vragen zoals "Ga ik zelf beton storten of huur ik professionals in?" komen vaak naar boven. Je moet rekening houden met zaken zoals de dikte van de betonlaag, de voorbereiding van de ondergrond en de droogtijd.
-                    </p>
-                    <p class="grey-text poppins-400 text-sm-18 line-height letterspace1 mt-1 mb-3">
+                    </p> -->
+                    <!-- <p class="grey-text poppins-400 text-sm-18 line-height letterspace1 mt-1 mb-3">
                     Op onze website vind je alle informatie die je nodig hebt, van het bestellen van het juiste type beton tot het succesvol uitvoeren van de stort. Leer over gereedschappen, technieken en prijzen, zodat je kunt beslissen of je het project zelf aanpakt of het aan experts overlaat.
-                    </p>
+                    </p> -->
                 </div>  
             </div>
             <div class="col-lg-5 col-12 px-lg-0 px-4" >
                 <!-- <img class="img-fluid" src="" alt="Concrete Pouring"> -->
                 <div class="home-bg-image-h" style="background-image: url('https://images.unsplash.com/photo-1672748341520-6a839e6c05bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"></div>
                 <div class="bg-orange p-4">
-                    <h4 class="oswald-600 text-26 text-white m-0 letter-spacing-four">BELLEN: 06-27016082</h4>
+                    <h4 class="oswald-600 text-26 text-white m-0 letter-spacing-four">BELLEN: <a class="oswald-600 text-26 text-white m-0 letter-spacing-four" href="tel:06-27016082">06-27016082</a></h4>
                 </div>
             </div>
         </div>
@@ -106,24 +108,31 @@ get_header();
                 <!-- <img class="img-fluid custom-550-image" src="" alt="Concrete Pouring"> -->
                 <div class="home-bg-image-h" style="background-image: url('https://images.unsplash.com/photo-1603814929895-f68fc3d4c89d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"></div>
                 <div class="bg-orange p-4">
-                    <h4 class="oswald-600 text-26 text-white m-0 letter-spacing-four">BELLEN: 06-27016082</h4>
+                    <h4 class="oswald-600 text-26 text-white m-0 letter-spacing-four">BELLEN: <a class="oswald-600 text-26 text-white m-0 letter-spacing-four" href="tel:06-27016082">06-27016082</a></h4>
                 </div>
             </div>
             <div class="col-lg-7 col-12 z-1 position-relative px-lg-2 px-4 py-lg-2 pt-4 pb-4 mb-md-2 mb-0 d-flex align-items-center">
                 <div class="ps-lg-5 ps-0">
                     <div class="row align-items-center col-12">
                         <div class="col-lg-8 col-12">
-                            <h1 class="d-block d-sm-none oswald-600 text-dark-blue display-3 text-40 m-0 text-black text-uppercase mb-1 letter-spacing-four d-sm-flex flex-sm-row flex-column">
+                            <!-- <h1 class="d-block d-sm-none oswald-600 text-dark-blue display-3 text-40 m-0 text-black text-uppercase mb-1 letter-spacing-four d-sm-flex flex-sm-row flex-column">
                                 <span>Zie je jezelf nog niet</span> 
                                 <div class="h-14 mt-sm-0 mt-1 mb-sm-0 mb-2" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
                                 <span class="">beton storten?</span>
                             </h1>
                             <h1 class="d-sm-block d-none oswald-600 text-dark-blue display-3 text-40 m-0 text-black text-uppercase mb-1 letter-spacing-four d-sm-flex flex-sm-row flex-column">
                                 <span>Zie je jezelf nog niet beton storten?</span>
-                            </h1>
+                            </h1> -->
                             <div class="h-14 d-sm-block d-none" style="background: linear-gradient(90deg, #FDD401 0%, rgba(253, 212, 1, 0) 100%);"></div>
                         </div>
-                        <p class="grey-text poppins-400 text-sm-18 line-height letterspace1 mt-3 mb-3">
+
+                        <p class="grey-text poppins-400 text-sm-18 line-height letterspace1 mt-1 mb-3">Ziet u uzelf nog geen <strong>beton storten</strong>? Geen probleem! Voor een strak eindresultaat kunt u kiezen voor een <strong>all-in</strong> beton stort. In dat geval verzorgen wij het hele stortproces. En bent u verzekert van een geslaagde beton stort.</p>
+
+                        <p class="grey-text poppins-400 text-sm-18 line-height letterspace1 mt-1 mb-3">Bij Betonstorten.nl bespaart u tientallen euro’s op uw betonstort, want wij hebben korte lijnen met betoncentrales en bieden daardoor beton voor de scherpste prijs en dat tegen de beste kwaliteit. Profiteren van onze lage beton prijzen? Vraag dan een <a href="https://www.betonstorten.nl/offerte-aanvragen">gratis offerte</a> aan, of <a href="https://www.betonstorten.nl/offerte-aanvragen" title="Beton Prijs Berekenen">bereken uw beton prijs</a>.</p>
+                        
+                        <p class="grey-text poppins-400 text-sm-18 line-height letterspace1 mt-1 mb-3">Wilt u een <a href="https://www.betonstorten.nl/betonpomp">betonpomp huren</a>&nbsp;Of beton bestellen met pomp? Bereken eenvoudig uw prijs met onze <a href="https://www.betonstorten.nl/betonpomp">betoncalculator</a>.</p>
+                        
+                        <!-- <p class="grey-text poppins-400 text-sm-18 line-height letterspace1 mt-3 mb-3">
                         Lijkt het idee van zelf beton storten overweldigend? Geen probleem—wij helpen je graag! Met onze all-in-one service kun je ontspannen terwijl wij het hele proces verzorgen, van begin tot eind, met een strak en kwalitatief eindresultaat als gevolg.
                         </p>
                         <p class="grey-text poppins-400 text-sm-18 line-height letterspace1 mt-1 mb-3">
@@ -131,7 +140,7 @@ get_header();
                         </p>
                         <p class="grey-text poppins-400 text-sm-18 line-height letterspace1 mt-1 mb-md-3 mb-0">
                         Heb je een betonpomp nodig of wil je beton bestellen in combinatie met een pompservice? Onze handige betoncalculator maakt het eenvoudig om te plannen en de kosten te berekenen. Klaar voor een zorgeloos project? Vraag vandaag nog een gratis offerte aan en zet de eerste stap naar een perfect resultaat!
-                        </p>
+                        </p> -->
                     </div>
                 </div>
                 
@@ -341,9 +350,6 @@ get_header();
     </div>
     <div class="py-4 py-md-5 padding7"></div>
 </div>
-
-
-
 
 <?php
 get_footer();

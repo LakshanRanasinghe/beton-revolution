@@ -14,7 +14,8 @@
 	<footer id="colophon" class="site-footer darker-blue">
 		<div class="beton-footer-wrapper container text-white pt-5">
 			<div class="footer-logo pb-5">
-				<a><?php echo get_custom_logo(); ?></a>
+				<!-- <a><?php //echo get_custom_logo(); ?></a> -->
+				<a href="<?php echo site_url(); ?>" class="custom-logo-link" rel="home" aria-current="page"><img width="278" height="55" src="<?php echo site_url(); ?>/wp-content/uploads/2025/03/betonstorten-logo-optimized-footer.png" class="custom-logo" alt="Beton" decoding="async"></a>
 			</div>
 			
 			<!-- Top Footer Section -->
@@ -43,7 +44,7 @@
 								endif; 
 							?>
 						</div>
-						<div class="footer-section col-lg-4 col-md-4 col-sm-12 text-uppercase">
+						<div class="footer-section beton-footer-section-contact col-lg-4 col-md-4 col-sm-12 text-uppercase">
 							<?php 
 								if (is_active_sidebar('footer-widget-4')) :
 									dynamic_sidebar('footer-widget-4'); 
