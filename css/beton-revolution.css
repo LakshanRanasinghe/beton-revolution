@@ -575,6 +575,18 @@ body {
     object-fit: contain;
 }
 
+.bpc-mobile-card-icon.bpc-minipump-icon {
+    width: 50px;
+    height: 50px;
+    margin-left: -12px; /* slight pull left to balance the larger size */
+}
+
+.bpc-minipump-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .bpc-mobile-card-body {
     display: flex;
     flex-direction: column;
@@ -788,6 +800,42 @@ body {
     background-repeat: no-repeat;
     background-position: right 14px center;
     cursor: pointer;
+}
+
+.bpc-small-select-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bpc-small-select-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #4B5563;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.bpc-small-select {
+    height: 36px;
+    padding: 0 32px 0 12px;
+    background: #F6F8FB;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1f2937;
+    outline: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 11 7'%3E%3Cpath fill='%239CA3AF' d='M5.5 7L0 0h11z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.bpc-small-select:focus {
+    border-color: #1ACB23;
 }
 
 .bpc-vlinder-note {

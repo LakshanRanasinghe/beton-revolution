@@ -397,10 +397,16 @@ jQuery(document).ready(function ($) {
 
     // Release method change
     $('input[name="releaseMethod"]').on("change", function () {
-        if(!$('input[name="pump-type"]').is(':checked')){
-            $('#miniPump').click();
-            $('select[name="mini_pumping_distance"]').addClass('blink-shadow');
-        }else{
+        if ($('input[name="releaseMethod"]:checked').val() === "pump") {
+            $("#kies-pomp-section").show();
+            if(!$('#miniPump').is(':checked')){
+                $('#miniPump').prop('checked', true).trigger('change');
+                $('select[name="mini_pumping_distance"]').addClass('blink-shadow');
+            }
+        } else {
+            $("#kies-pomp-section").hide();
+            $('#miniPump').prop('checked', false).trigger('change');
+
             $('#hoog-vloeibaar_input').prop('disabled', false);
             $('#fijn-grind_input').prop('disabled', false);
 
@@ -408,8 +414,24 @@ jQuery(document).ready(function ($) {
             $('#fijn-grind_input').prop('checked', true).trigger('change');
         }
         trigger_calculator();
-
     });
+
+    // Prevent deselecting miniPump if pump is selected
+    $("#miniPump").on("click", function(e) {
+        if ($('input[name="releaseMethod"]:checked').val() === "pump") {
+            e.preventDefault();
+        }
+    });
+
+    // Run on load
+    if ($('input[name="releaseMethod"]:checked').val() === "pump") {
+        $("#kies-pomp-section").show();
+        if(!$('#miniPump').is(':checked')){
+            $('#miniPump').prop('checked', true);
+        }
+    } else {
+        $("#kies-pomp-section").hide();
+    }
 
     // Pump type change
     $('input[name="pump-type"]').on("change", function () {
@@ -467,11 +489,10 @@ jQuery(document).ready(function ($) {
     $('input[name="performance"]').on("change", function () {
         if ($('input[name="performance"]:checked').val() == "allIn") {
             $('.release-method-section-1').removeClass('d-sm-block');
-            $("#pump").click();
+            $("#pump").prop("checked", true).trigger("change");
             $(".all-in-cost-wrapper").removeClass("d-none");
             $(".execution-section").addClass("d-block").removeClass('d-none');
-            $("#miniPump").click();
-            //$('.pump-wrap').addClass('show-pump-distance');
+            // $("#miniPump").click(); // Removed to prevent conflict with our click interceptor
             $('.release-method-pump-wrapper').find('.section-title').text('Pompafstand');
             var defaultValue = $('select[name="mini_pumping_distance"] option[selected]').val();
             $('select[name="mini_pumping_distance"]').val(defaultValue).trigger('change');
@@ -503,7 +524,7 @@ jQuery(document).ready(function ($) {
             $("#surface").removeClass("blink-shadow");
             $("#num-rooms").removeClass("blink-shadow");
 
-            $('#fromGutter').click();
+            $('#fromGutter').prop("checked", true).trigger("change");
             $('.release-method-section-1').addClass('d-sm-block');
             $('.pump-wrap').removeClass('show-pump-distance');
             $('.release-method-pump-wrapper').find('.section-title').text('KIES POMP');

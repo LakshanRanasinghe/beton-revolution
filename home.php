@@ -230,28 +230,37 @@ $pricingData = get_field('application', 'option');
                     <div class="bpc-section-head">
                         <div class="bpc-section-head-title">Loswijze</div>
                         <div class="bpc-section-hr"></div>
+                        <div class="bpc-info-btn">
+                            <?php if (!empty($pricingData['loose_method_tooltips'])) { ?>
+                                <a class="beton-popover text-success" tabindex="0" role="button" data-bs-toggle="popover"
+                                    data-bs-trigger="focus" title="<?php echo $pricingData['loose_method_title']; ?>"
+                                    data-bs-placement="top"
+                                    data-bs-content="<?php echo $pricingData['loose_method_tooltips']; ?>"
+                                    style="margin-left: 1px;"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <mask id="mask0_272_967" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
+                                            y="0" width="18" height="18">
+                                            <rect width="18" height="18" fill="#D9D9D9" />
+                                        </mask>
+                                        <g mask="url(#mask0_272_967)">
+                                            <path
+                                                d="M8.9997 12.5626C9.1592 12.5626 9.29276 12.5087 9.40039 12.4008C9.50814 12.2931 9.56201 12.1595 9.56201 12.0001V8.81262C9.56201 8.65325 9.50807 8.51962 9.4002 8.41175C9.29232 8.304 9.1587 8.25012 8.99932 8.25012C8.83982 8.25012 8.70626 8.304 8.59864 8.41175C8.49089 8.51962 8.43701 8.65325 8.43701 8.81262V12.0001C8.43701 12.1595 8.49095 12.2931 8.59882 12.4008C8.7067 12.5087 8.84032 12.5626 8.9997 12.5626ZM8.99951 6.9665C9.17114 6.9665 9.31501 6.90843 9.43114 6.79231C9.54726 6.67618 9.60532 6.53231 9.60532 6.36068C9.60532 6.18906 9.54726 6.04519 9.43114 5.92906C9.31501 5.81306 9.17114 5.75506 8.99951 5.75506C8.82789 5.75506 8.68401 5.81306 8.56789 5.92906C8.45176 6.04519 8.3937 6.18906 8.3937 6.36068C8.3937 6.53231 8.45176 6.67618 8.56789 6.79231C8.68401 6.90843 8.82789 6.9665 8.99951 6.9665ZM9.00082 16.1251C8.01532 16.1251 7.08901 15.9381 6.22189 15.5641C5.35476 15.1901 4.60051 14.6826 3.95914 14.0414C3.31776 13.4003 2.80995 12.6464 2.4357 11.7796C2.06157 10.9129 1.87451 9.98681 1.87451 9.00143C1.87451 8.01593 2.06151 7.08962 2.43551 6.2225C2.80951 5.35537 3.31707 4.60112 3.9582 3.95975C4.59932 3.31837 5.35326 2.81056 6.22001 2.43631C7.08676 2.06218 8.01282 1.87512 8.9982 1.87512C9.9837 1.87512 10.91 2.06212 11.7771 2.43612C12.6443 2.81012 13.3985 3.31768 14.0399 3.95881C14.6813 4.59993 15.1891 5.35387 15.5633 6.22062C15.9374 7.08737 16.1245 8.01343 16.1245 8.99881C16.1245 9.98431 15.9375 10.9106 15.5635 11.7777C15.1895 12.6449 14.6819 13.3991 14.0408 14.0405C13.3997 14.6819 12.6458 15.1897 11.779 15.5639C10.9123 15.9381 9.9862 16.1251 9.00082 16.1251Z"
+                                                fill="#9CA3AF" />
+                                        </g>
+                                    </svg>
+                                </a>
+                            <?php } ?>
+
+                        </div>
                     </div>
                     <div style="display:flex;flex-direction:column;gap:16px;">
                         <div class="bpc-option-grid-2">
                             <!-- Kruiwagen -->
                             <label class="bpc-option-card">
-                                <input type="radio" name="loswijze" value="kruiwagen" class="bpc-radio-input">
+                                <input type="radio" name="releaseMethod" value="gutter" id="fromGutter"
+                                    class="bpc-radio-input" checked>
                                 <div class="bpc-card-meta">
                                     <div class="bpc-radio"></div>
-                                    <div class="bpc-info-btn">
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <mask id="mask0_272_967" style="mask-type:alpha" maskUnits="userSpaceOnUse"
-                                                x="0" y="0" width="18" height="18">
-                                                <rect width="18" height="18" fill="#D9D9D9" />
-                                            </mask>
-                                            <g mask="url(#mask0_272_967)">
-                                                <path
-                                                    d="M8.9997 12.5626C9.1592 12.5626 9.29276 12.5087 9.40039 12.4008C9.50814 12.2931 9.56201 12.1595 9.56201 12.0001V8.81262C9.56201 8.65325 9.50807 8.51962 9.4002 8.41175C9.29232 8.304 9.1587 8.25012 8.99932 8.25012C8.83982 8.25012 8.70626 8.304 8.59864 8.41175C8.49089 8.51962 8.43701 8.65325 8.43701 8.81262V12.0001C8.43701 12.1595 8.49095 12.2931 8.59882 12.4008C8.7067 12.5087 8.84032 12.5626 8.9997 12.5626ZM8.99951 6.9665C9.17114 6.9665 9.31501 6.90843 9.43114 6.79231C9.54726 6.67618 9.60532 6.53231 9.60532 6.36068C9.60532 6.18906 9.54726 6.04519 9.43114 5.92906C9.31501 5.81306 9.17114 5.75506 8.99951 5.75506C8.82789 5.75506 8.68401 5.81306 8.56789 5.92906C8.45176 6.04519 8.3937 6.18906 8.3937 6.36068C8.3937 6.53231 8.45176 6.67618 8.56789 6.79231C8.68401 6.90843 8.82789 6.9665 8.99951 6.9665ZM9.00082 16.1251C8.01532 16.1251 7.08901 15.9381 6.22189 15.5641C5.35476 15.1901 4.60051 14.6826 3.95914 14.0414C3.31776 13.4003 2.80995 12.6464 2.4357 11.7796C2.06157 10.9129 1.87451 9.98681 1.87451 9.00143C1.87451 8.01593 2.06151 7.08962 2.43551 6.2225C2.80951 5.35537 3.31707 4.60112 3.9582 3.95975C4.59932 3.31837 5.35326 2.81056 6.22001 2.43631C7.08676 2.06218 8.01282 1.87512 8.9982 1.87512C9.9837 1.87512 10.91 2.06212 11.7771 2.43612C12.6443 2.81012 13.3985 3.31768 14.0399 3.95881C14.6813 4.59993 15.1891 5.35387 15.5633 6.22062C15.9374 7.08737 16.1245 8.01343 16.1245 8.99881C16.1245 9.98431 15.9375 10.9106 15.5635 11.7777C15.1895 12.6449 14.6819 13.3991 14.0408 14.0405C13.3997 14.6819 12.6458 15.1897 11.779 15.5639C10.9123 15.9381 9.9862 16.1251 9.00082 16.1251Z"
-                                                    fill="#9CA3AF" />
-                                            </g>
-                                        </svg>
-                                    </div>
                                 </div>
                                 <div class="bpc-option-card-icon">
                                     <svg width="41" height="30" viewBox="0 0 41 30" fill="none"
@@ -268,53 +277,26 @@ $pricingData = get_field('application', 'option');
                                     </svg>
 
                                 </div>
-                                <div class="bpc-option-card-name">Kruiwagen</div>
+                                <div class="bpc-option-card-name"><?php echo $pricingData['loose_method_01']; ?></div>
                             </label>
                             <!-- Pomp -->
                             <label class="bpc-option-card">
-                                <input type="radio" name="loswijze" value="pomp" class="bpc-radio-input">
+                                <input type="radio" name="releaseMethod" value="pump" id="pump" class="bpc-radio-input">
                                 <div class="bpc-card-meta">
                                     <div class="bpc-radio"></div>
-                                    <div class="bpc-info-btn">
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <mask id="mask0_272_967" style="mask-type:alpha" maskUnits="userSpaceOnUse"
-                                                x="0" y="0" width="18" height="18">
-                                                <rect width="18" height="18" fill="#D9D9D9" />
-                                            </mask>
-                                            <g mask="url(#mask0_272_967)">
-                                                <path
-                                                    d="M8.9997 12.5626C9.1592 12.5626 9.29276 12.5087 9.40039 12.4008C9.50814 12.2931 9.56201 12.1595 9.56201 12.0001V8.81262C9.56201 8.65325 9.50807 8.51962 9.4002 8.41175C9.29232 8.304 9.1587 8.25012 8.99932 8.25012C8.83982 8.25012 8.70626 8.304 8.59864 8.41175C8.49089 8.51962 8.43701 8.65325 8.43701 8.81262V12.0001C8.43701 12.1595 8.49095 12.2931 8.59882 12.4008C8.7067 12.5087 8.84032 12.5626 8.9997 12.5626ZM8.99951 6.9665C9.17114 6.9665 9.31501 6.90843 9.43114 6.79231C9.54726 6.67618 9.60532 6.53231 9.60532 6.36068C9.60532 6.18906 9.54726 6.04519 9.43114 5.92906C9.31501 5.81306 9.17114 5.75506 8.99951 5.75506C8.82789 5.75506 8.68401 5.81306 8.56789 5.92906C8.45176 6.04519 8.3937 6.18906 8.3937 6.36068C8.3937 6.53231 8.45176 6.67618 8.56789 6.79231C8.68401 6.90843 8.82789 6.9665 8.99951 6.9665ZM9.00082 16.1251C8.01532 16.1251 7.08901 15.9381 6.22189 15.5641C5.35476 15.1901 4.60051 14.6826 3.95914 14.0414C3.31776 13.4003 2.80995 12.6464 2.4357 11.7796C2.06157 10.9129 1.87451 9.98681 1.87451 9.00143C1.87451 8.01593 2.06151 7.08962 2.43551 6.2225C2.80951 5.35537 3.31707 4.60112 3.9582 3.95975C4.59932 3.31837 5.35326 2.81056 6.22001 2.43631C7.08676 2.06218 8.01282 1.87512 8.9982 1.87512C9.9837 1.87512 10.91 2.06212 11.7771 2.43612C12.6443 2.81012 13.3985 3.31768 14.0399 3.95881C14.6813 4.59993 15.1891 5.35387 15.5633 6.22062C15.9374 7.08737 16.1245 8.01343 16.1245 8.99881C16.1245 9.98431 15.9375 10.9106 15.5635 11.7777C15.1895 12.6449 14.6819 13.3991 14.0408 14.0405C13.3997 14.6819 12.6458 15.1897 11.779 15.5639C10.9123 15.9381 9.9862 16.1251 9.00082 16.1251Z"
-                                                    fill="#9CA3AF" />
-                                            </g>
-                                        </svg>
-                                    </div>
                                 </div>
                                 <div class="bpc-option-card-icon" style="font-size:28px;">
                                     <img src="<?php echo get_template_directory_uri(); ?>/images/pomp.svg">
                                 </div>
-                                <div class="bpc-option-card-name">Pomp</div>
+                                <div class="bpc-option-card-name"><?php echo $pricingData['loose_method_02']; ?></div>
                             </label>
                         </div>
                         <!-- Mobiele betoncentrale -->
                         <label class="bpc-mobile-card">
-                            <input type="radio" name="loswijze" value="mobiel" class="bpc-radio-input">
+                            <input type="radio" name="releaseMethod" value="gutter" id="fromGutter"
+                                class="bpc-radio-input">
                             <div class="bpc-mobile-card-meta">
                                 <div class="bpc-radio"></div>
-                                <div class="bpc-info-btn">
-                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <mask id="mask0_272_967" style="mask-type:alpha" maskUnits="userSpaceOnUse"
-                                            x="0" y="0" width="18" height="18">
-                                            <rect width="18" height="18" fill="#D9D9D9" />
-                                        </mask>
-                                        <g mask="url(#mask0_272_967)">
-                                            <path
-                                                d="M8.9997 12.5626C9.1592 12.5626 9.29276 12.5087 9.40039 12.4008C9.50814 12.2931 9.56201 12.1595 9.56201 12.0001V8.81262C9.56201 8.65325 9.50807 8.51962 9.4002 8.41175C9.29232 8.304 9.1587 8.25012 8.99932 8.25012C8.83982 8.25012 8.70626 8.304 8.59864 8.41175C8.49089 8.51962 8.43701 8.65325 8.43701 8.81262V12.0001C8.43701 12.1595 8.49095 12.2931 8.59882 12.4008C8.7067 12.5087 8.84032 12.5626 8.9997 12.5626ZM8.99951 6.9665C9.17114 6.9665 9.31501 6.90843 9.43114 6.79231C9.54726 6.67618 9.60532 6.53231 9.60532 6.36068C9.60532 6.18906 9.54726 6.04519 9.43114 5.92906C9.31501 5.81306 9.17114 5.75506 8.99951 5.75506C8.82789 5.75506 8.68401 5.81306 8.56789 5.92906C8.45176 6.04519 8.3937 6.18906 8.3937 6.36068C8.3937 6.53231 8.45176 6.67618 8.56789 6.79231C8.68401 6.90843 8.82789 6.9665 8.99951 6.9665ZM9.00082 16.1251C8.01532 16.1251 7.08901 15.9381 6.22189 15.5641C5.35476 15.1901 4.60051 14.6826 3.95914 14.0414C3.31776 13.4003 2.80995 12.6464 2.4357 11.7796C2.06157 10.9129 1.87451 9.98681 1.87451 9.00143C1.87451 8.01593 2.06151 7.08962 2.43551 6.2225C2.80951 5.35537 3.31707 4.60112 3.9582 3.95975C4.59932 3.31837 5.35326 2.81056 6.22001 2.43631C7.08676 2.06218 8.01282 1.87512 8.9982 1.87512C9.9837 1.87512 10.91 2.06212 11.7771 2.43612C12.6443 2.81012 13.3985 3.31768 14.0399 3.95881C14.6813 4.59993 15.1891 5.35387 15.5633 6.22062C15.9374 7.08737 16.1245 8.01343 16.1245 8.99881C16.1245 9.98431 15.9375 10.9106 15.5635 11.7777C15.1895 12.6449 14.6819 13.3991 14.0408 14.0405C13.3997 14.6819 12.6458 15.1897 11.779 15.5639C10.9123 15.9381 9.9862 16.1251 9.00082 16.1251Z"
-                                                fill="#9CA3AF" />
-                                        </g>
-                                    </svg>
-                                </div>
                             </div>
                             <div class="bpc-mobile-card-icon">
                                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
@@ -356,6 +338,51 @@ $pricingData = get_field('application', 'option');
                                 </div>
                                 <p class="bpc-mobile-card-desc">Beton ter plekke gemaakt per 100L. Extra accuraat,
                                     minder verspilling en milieuvriendelijk!</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- ── 3.5. Kies pomp ── -->
+                <div class="bpc-section" id="kies-pomp-section" style="display: none;">
+                    <div class="bpc-section-head">
+                        <div class="bpc-section-head-title">Kies pomp</div>
+                        <div class="bpc-section-hr"></div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:16px;">
+                        <!-- Minibeton pump -->
+                        <label class="bpc-mobile-card">
+                            <input type="checkbox" name="pump-type" id="miniPump" value="mini" class="bpc-radio-input">
+                            <div class="bpc-mobile-card-meta">
+                                <div class="bpc-radio"></div>
+                                <div class="pompafstand-section bpc-small-select-wrapper">
+                                    <label class="bpc-small-select-label d-none d-sm-block" for="">Pompafstand:</label>
+                                    <select class="bpc-small-select custom-select-box blink-shadow"
+                                        name="mini_pumping_distance">
+                                        <?php
+                                        for ($i = 5; $i <= 300; $i = $i + 5) {
+                                            echo "<option value='$i' " . ($i == 5 ? 'selected' : '') . ">$i m</option>";
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="bpc-mobile-card-icon bpc-minipump-icon">
+                                <img src="<?php echo site_url(); ?>/wp-content/uploads/2026/04/mini-betonpump.svg"
+                                    alt="">
+                            </div>
+                            <div class="bpc-mobile-card-body">
+                                <div class="bpc-mobile-card-title-row">
+                                    <span class="bpc-mobile-card-name">Betonpomp</span>
+                                </div>
+                                <ul class="list-unstyled text-custom-gray-2 text-12 poppins-400">
+                                    <li><i class="icon-tick bi bi-check"></i> Dunne, handzame slangen</li>
+                                    <li><i class="icon-tick bi bi-check"></i> Weinig arbeiders benodigd</li>
+                                    <li><i class="icon-tick bi bi-check"></i> Kosten voordelig</li>
+                                    <li><i class="icon-tick bi bi-check"></i> Ook voor lange afstanden (&gt; 250 meter)
+                                    </li>
+                                    <li><i class="icon-cross bi bi-x"></i> Kan alleen klein grind (16 mm) verpompen</li>
+                                </ul>
                             </div>
                         </label>
                     </div>
@@ -450,7 +477,7 @@ $pricingData = get_field('application', 'option');
                     <div class="bpc-uitv-grid">
                         <!-- Doe het zelf -->
                         <label class="bpc-uitv-card">
-                            <input type="radio" name="uitvoering" value="doe_het_zelf" class="bpc-radio-input" checked>
+                            <input type="radio" name="performance" value="performSelf" id="performSelf"  class="bpc-radio-input" checked>
                             <div class="bpc-uitv-top">
                                 <div class="bpc-radio"></div>
                                 <div class="bpc-uitv-title">Doe het zelf</div>
@@ -460,7 +487,7 @@ $pricingData = get_field('application', 'option');
                         </label>
                         <!-- All-in -->
                         <label class="bpc-uitv-card">
-                            <input type="radio" name="uitvoering" value="all_in" class="bpc-radio-input">
+                            <input type="radio" name="performance" id="allIn" value="allIn" class="bpc-radio-input">
                             <div class="bpc-uitv-top">
                                 <div class="bpc-radio"></div>
                                 <div class="bpc-uitv-title">All-in</div>
