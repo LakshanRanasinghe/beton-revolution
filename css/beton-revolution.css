@@ -241,6 +241,8 @@ body {
     background: #ff6600;
     border-radius: 8px;
     padding: 12px;
+    min-width: 280px;
+    justify-content: space-between;
 }
 
 .bpc-price-badge-label {
@@ -1476,4 +1478,66 @@ BETON HOME PAGE
     top: 8%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+/* Disabled state for the Vlindervloer section */
+.bpc-section-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    user-select: none;
+}
+
+/* Add a visual indicator for form elements when disabled */
+.bpc-section-disabled .bpc-select-input,
+.bpc-section-disabled .bpc-radio-input,
+.bpc-section-disabled .bpc-uitv-card {
+    cursor: not-allowed !important;
+    background-color: #f3f4f6; /* Optional: light grey background */
+}
+
+/* Match your .bpc-date-input style */
+.select2-container--default .select2-selection--multiple {
+    width: 100%;
+    min-height: 56px;
+    padding: 10px 16px !important;
+    border: 1px solid #D1D5DB !important;
+    border-radius: 8px !important;
+    font-size: 15px;
+    font-weight: 500;
+    background: #f6f7f9;
+    display: flex;
+    align-items: center;
+}
+
+/* Text color */
+.select2-container--default .select2-selection__rendered {
+    color: #9CA3AF !important;
+    padding: 0 !important;
+}
+
+/* Selected tags */
+.select2-container--default .select2-selection__choice {
+    background: #F3F4F6;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 8px;
+    margin-top: 4px;
+}
+
+/* Remove default weird spacing */
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    margin-right: 6px;
+}
+
+/* Dropdown styling */
+.select2-dropdown {
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+}
+
+/* Highlight option */
+.select2-results__option--highlighted {
+    background: #23568b !important;
+    color: #fff;
 }

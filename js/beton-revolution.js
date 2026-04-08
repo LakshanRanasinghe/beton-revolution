@@ -51,6 +51,38 @@ jQuery(document).ready(function ($) {
     // Run on change
     $('#bpc-btw-toggle').on('change', toggleBTW);
 
+    // Price update on the checkout button
+    var $sourcePrice = $('#sub_total_formatted');
+    var $targetButtonPrice = $('#total_formatted_price');
+
+    // Make sure both elements exist on the page before running
+    if ($sourcePrice.length && $targetButtonPrice.length) {
+        
+        // 2. Create the observer callback
+        var observer = new MutationObserver(function() {
+            // Update the button's HTML with the source's HTML using jQuery's .html()
+            $targetButtonPrice.html($sourcePrice.html());
+        });
+
+        // 3. Start observing the source element 
+        // Note: We use [0] to pass the raw DOM element to the observer
+        observer.observe($sourcePrice[0], { 
+            childList: true, 
+            characterData: true, 
+            subtree: true 
+        });
+        
+        // 4. (Optional) Sync the initial value on page load
+        $targetButtonPrice.html($sourcePrice.html());
+    }
+
+    // Initialize Select2 on the timeslot dropdown
+    $('#dayz_date_mapper_timeslots').select2({
+        placeholder: "Select timeslots",
+        allowClear: true,
+        width: '100%'
+    });
+
 
     /**===========================================
      * Main functions
@@ -487,8 +519,9 @@ jQuery(document).ready(function ($) {
 
     // Performance change
     $('input[name="performance"]').on("change", function () {
+        const $vlinderSection = $('.bpc-vlinder-row').closest('.bpc-section');
+
         if ($('input[name="performance"]:checked').val() == "allIn") {
-            $('.release-method-section-1').removeClass('d-sm-block');
             $("#pump").prop("checked", true).trigger("change");
             $(".all-in-cost-wrapper").removeClass("d-none");
             $(".execution-section").addClass("d-block").removeClass('d-none');
@@ -512,13 +545,11 @@ jQuery(document).ready(function ($) {
                 $("#num-rooms").removeClass("blink-shadow");
             }
 
-            // if ($(document).width() <= 576) {
-            //    $(".release-method-pump-wrapper").removeClass('d-none').addClass("d-block");
-            //    $(".release-method-section-2-wrapper").removeClass('d-none').addClass("d-block");
-            // }
-            //$(".pompafstand-section").addClass("all-in-one-selected");
 
             $('#butterfly-floor').prop('checked', false);
+
+            $vlinderSection.removeClass('bpc-section-disabled');
+            $vlinderSection.find('input, select').prop('disabled', false);
 
         } else {
             $("#surface").removeClass("blink-shadow");
@@ -548,9 +579,19 @@ jQuery(document).ready(function ($) {
                     new Event('change', { bubbles: true })
                 );
             });
+
+            $vlinderSection.addClass('bpc-section-disabled');
+            $vlinderSection.find('input, select').prop('disabled', true);
+            
+            // Optional: Reset the fields when disabled so hidden values aren't submitted
+            $vlinderSection.find('input[type="checkbox"]').prop('checked', false);
+            $vlinderSection.find('select').val('0'); // Resets selects to their default "0" value
+            $('#layer-thickness').val('5-10'); // Resets laagdikte to its default
         }
     
     });
+
+    $('input[name="performance"]:checked').trigger('change');
 
     $('select[name="num-rooms"]').on("change", function () {
         if ($(this).val() != 0) {
@@ -567,5 +608,7 @@ jQuery(document).ready(function ($) {
     $("#mezzanine-floor").on("change", function () {
         trigger_calculator();
     });
+
+
    
 });
