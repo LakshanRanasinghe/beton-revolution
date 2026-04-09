@@ -492,7 +492,8 @@ $pricingData = get_field('application', 'option');
                             <div class="bpc-uitv-top">
                                 <div class="bpc-radio"></div>
                                 <div class="bpc-uitv-title">All-in</div>
-                                <div class="bpc-uitv-price">Prijs = €350.00</div>
+                                <div class="bpc-uitv-price"><span id="allIn_formatted"><?php echo wc_price(0); ?></span>
+                                </div>
                             </div>
                             <div class="bpc-uitv-desc">Wij verzorgen alles: de vloer wordt gestort, gelijkmatig verdeeld
                                 en grof afgewerkt met een hark. De klant hoeft niets te doen.</div>
@@ -645,9 +646,10 @@ $pricingData = get_field('application', 'option');
 
                 <!-- ── 8. Checkout ── -->
                 <div class="bpc-checkout">
-                    <button class="bpc-checkout-btn" type="button">
+                    <button class="submit-btn bpc-checkout-btn" type="button">
                         <span class="bpc-checkout-label">Afrekenen en betalen</span>
                         <span class="bpc-checkout-price" id="total_formatted_price"><?php echo wc_price(0) ?></span>
+                        <span class="loader-wrapper"></span>
                     </button>
                 </div>
 

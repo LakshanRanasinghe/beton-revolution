@@ -1123,7 +1123,7 @@ SIDEBAR
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #FCA01A;
+    background: #ff6600;
     padding: 14px 20px;
     border-radius: 12px;
     margin: 0 0 24px;
@@ -1540,4 +1540,20 @@ BETON HOME PAGE
 .select2-results__option--highlighted {
     background: #23568b !important;
     color: #fff;
+}
+
+.select2-selection.valid {
+    background: #e5ffe0 !important;
+    box-shadow: inset 0 0 0 2px #3fd526 !important;
+}
+
+.bpc-text-input.bpc-input-error,
+.dayz-date-mapper-date-picker.bpc-input-error {
+    border-color: #DC2626 !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15) !important;
+}
+
+.select2-selection.bpc-input-error {
+    border-color: #DC2626 !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15) !important;
 }

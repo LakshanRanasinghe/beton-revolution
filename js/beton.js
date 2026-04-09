@@ -152,82 +152,7 @@ jQuery(document).ready(function ($) {
       trigger_calculator();
    }
 
-   $(".submit-btn").on("click", function (e) {
-      e.preventDefault();
-      if ($(this).val() == "quote") {
-         const pdfEmail = $('#email').val().trim();
-
-         e.stopPropagation();
-         $('.voer-uw-e-mailadres-wrapper').removeClass('d-none');
-
-         if ($('.voer-uw-e-mailadres-wrapper').hasClass('selected')) {
-            if (isValidEmail(pdfEmail)) {
-
-               if ($('input[name="performance"]:checked').val() == "allIn") {
-                  if (($("#num-rooms").val() != 0) && ($("#surface").val() != 0)) {
-                     $('.submit-btn[value="quote"] span').addClass('dayz-loader');
-                     send_to_quotation();
-                  } else {
-                     alert("Gelieve zowel oppervlak als aantal Kamers in te vullen."); 
-                     $('#surface').focus(); 
-                  }
-               } else {
-                  $('.submit-btn[value="quote"] span').addClass('dayz-loader');
-                  send_to_quotation();
-               }
-
-               var orderTotalExclTax = $('#sub_total_formatted bdi').text().replace('€', '').trim();
-               var orderTotalInclTax = $('#total_formatted bdi').text().replace('€', '').trim();
-
-               dataLayer.push({
-                  'event': 'gaEvent',
-					   'eventAction': 'quoteRequestSend',
-                  'orderTotalExclTax': orderTotalExclTax,
-                  'orderTotalInclTax': orderTotalInclTax,
-                  'timestamp': new Date().toISOString()
-               });
-
-            } else {
-               alert("Vul alstublieft uw e-mailadres in."); 
-               $('#email').focus(); 
-            }
-         } else {
-            $('.voer-uw-e-mailadres-wrapper').addClass('selected');
-            $(this).addClass('selected');
-         }
-
-         var orderTotalExclTax = $('#sub_total_formatted bdi').text().replace('€', '').trim();
-         var orderTotalInclTax = $('#total_formatted bdi').text().replace('€', '').trim();
-
-         dataLayer.push({
-            'event': 'gaEvent',
-			   'eventAction': 'quoteRequestBtnClick',
-            'timestamp': new Date().toISOString()
-         });
-
-      } else {
-         
-         if ($('input[name="performance"]:checked').val() == "allIn") {
-            if (($("#num-rooms").val() != 0) && ($("#surface").val() != 0)) {
-               $('.submit-btn[value="checkout"] span').addClass('dayz-loader');
-               send_to_cart();
-            } else {
-               alert("Gelieve zowel oppervlak als aantal Kamers in te vullen."); 
-               $('#surface').focus(); 
-            }
-         } else {
-            $('.submit-btn[value="checkout"] span').addClass('dayz-loader');
-            send_to_cart();
-         }
-
-         dataLayer.push({
-            'event': 'gaEvent',
-			   'eventAction': 'orderBtnClick',
-            'timestamp': new Date().toISOString()
-         });
-      }
-      console.log($(this).val());
-   });
+   
 
    function isValidEmail(pdfEmail) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -300,51 +225,6 @@ jQuery(document).ready(function ($) {
       });
    }
 
-   function send_to_cart() {
-      let compositions = [];
-      $('input[name="compound"]:checked').each(function () {
-         compositions.push($(this).attr("value"));
-      });
-
-      var dataSet = {
-         action: 'concrete_add_to_cart',
-         user_email: $("#email").val(),
-         area_code: $.cookie("selected_area_code"),
-         postalcode: $("#postcode-input").val(),
-         cubic_meters: currentCubicMeters,
-         application_product: $('input[name="application"]:checked').val(),
-         composition: compositions,
-         unloading: $('input[name="releaseMethod"]:checked').val(),
-         pump_type: $('input[name="pump-type"]:checked').val(),
-         pumping_distance: $('select[name="mini_pumping_distance"]').val(),
-         boom_pumping_distance: $('select[name="boom_pumping_distance"]').val(),
-         uitvoering: $('input[name="performance"]:checked').val(),
-         "surace-sqm": $('select[name="surface"]').val(),
-         "layer-thickness": $("#layer-thickness").val(),
-         nos_rooms: $("#num-rooms").val(),
-         flooring: $("#mezzanine-floor").is(":checked") ? 1 : 0,
-         "butterfly-floor": $("#butterfly-floor").is(":checked") ? 1 : 0,
-      };
-
-      $.ajax({
-         type: "post",
-         url: betonData.ajax_url,
-         data: dataSet,
-         success: function (response) {
-            console.log(response);
-            if(response.data.redirect !== undefined){
-               window.location.href = response.data.redirect;
-            }
-
-            // $(".type-and-kind-section").addClass("inactive");
-            // $(".type-and-kind-form").addClass("d-none");
-            // $(".type-and-kind-form").removeClass("pending");
-            // $(".type-and-kind-section").removeClass("pending");
-            // $(".confirm-and-pay-section").addClass("active");
-            // $(".confirm-and-pay-form").removeClass("d-none");
-         }
-      });
-   }
 
    
 

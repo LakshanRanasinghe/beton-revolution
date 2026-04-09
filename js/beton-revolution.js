@@ -83,6 +83,54 @@ jQuery(document).ready(function ($) {
         width: '100%'
     });
 
+     // Helper to set cookie
+    function setCookie(name, value, days = 7) {
+        let expires = "";
+        if (days) {
+            let date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + encodeURIComponent(value) + "; path=/" + expires;
+    }
+
+    // DATE CHANGE
+    $('.dayz-date-mapper-date-picker').on('change', function() {
+        let selectedDate = $(this).val();
+
+        // also update hidden field if needed
+        $('#dayz_date_mapper_date').val(selectedDate);
+        setCookie('ddm_selected_date', selectedDate);
+    });
+
+    // TIMESLOT CHANGE (Select2 compatible)
+    $('#dayz_date_mapper_timeslots').on('change', function() {
+        let selectedSlots = $(this).val(); // array
+        let container = $(this).next('.select2-container');
+
+        if ($(this).val() && $(this).val().length > 0) {
+            container.find('.select2-selection').addClass('valid');
+        } else {
+            container.find('.select2-selection').removeClass('valid');
+        }
+
+        // convert array to string
+        let slotsString = selectedSlots ? selectedSlots.join(',') : '';
+        setCookie('ddm_selected_timeslots', slotsString);
+    });
+
+    // Remove error class when user types
+    $('.bpc-text-input, .dayz-date-mapper-date-picker').on('input change', function () {
+        if ($(this).val().trim() !== '') {
+            $(this).removeClass('bpc-input-error');
+        }
+    });
+
+    // Remove error class when user selects timeslots
+    $('#dayz_date_mapper_timeslots').on('change', function () {
+        $(this).next('.select2-container').find('.select2-selection').removeClass('bpc-input-error');
+    });
+
 
     /**===========================================
      * Main functions
@@ -609,6 +657,183 @@ jQuery(document).ready(function ($) {
         trigger_calculator();
     });
 
+    // Submit to checkout button
+    $(".submit-btn").on("click", function (e) {
+        e.preventDefault();
+        if ($(this).val() == "quote") {
+            const pdfEmail = $('#email').val().trim();
 
+            e.stopPropagation();
+            $('.voer-uw-e-mailadres-wrapper').removeClass('d-none');
+
+            if ($('.voer-uw-e-mailadres-wrapper').hasClass('selected')) {
+                if (isValidEmail(pdfEmail)) {
+
+                if ($('input[name="performance"]:checked').val() == "allIn") {
+                    if (($("#num-rooms").val() != 0) && ($("#surface").val() != 0)) {
+                        $('.submit-btn[value="quote"] span').addClass('dayz-loader');
+                        send_to_quotation();
+                    } else {
+                        alert("Gelieve zowel oppervlak als aantal Kamers in te vullen."); 
+                        $('#surface').focus(); 
+                    }
+                } else {
+                    $('.submit-btn[value="quote"] span').addClass('dayz-loader');
+                    send_to_quotation();
+                }
+
+                var orderTotalExclTax = $('#sub_total_formatted bdi').text().replace('€', '').trim();
+                var orderTotalInclTax = $('#total_formatted bdi').text().replace('€', '').trim();
+
+                dataLayer.push({
+                    'event': 'gaEvent',
+                        'eventAction': 'quoteRequestSend',
+                    'orderTotalExclTax': orderTotalExclTax,
+                    'orderTotalInclTax': orderTotalInclTax,
+                    'timestamp': new Date().toISOString()
+                });
+
+                } else {
+                alert("Vul alstublieft uw e-mailadres in."); 
+                $('#email').focus(); 
+                }
+            } else {
+                $('.voer-uw-e-mailadres-wrapper').addClass('selected');
+                $(this).addClass('selected');
+            }
+
+            var orderTotalExclTax = $('#sub_total_formatted bdi').text().replace('€', '').trim();
+            var orderTotalInclTax = $('#total_formatted bdi').text().replace('€', '').trim();
+
+            dataLayer.push({
+                'event': 'gaEvent',
+                'eventAction': 'quoteRequestBtnClick',
+                'timestamp': new Date().toISOString()
+            });
+
+        } else {
+            
+            if (!validateFields()) {
+                return false; // HARD STOP
+            }
+           
+            if ($('input[name="performance"]:checked').val() == "allIn") {
+                if (($("#num-rooms").val() != 0) && ($("#surface").val() != 0)) {
+                    $('.submit-btn[value="checkout"] span.loader-wrapper').addClass('dayz-loader');
+                    send_to_cart();
+                } else {
+                    alert("Gelieve zowel oppervlak als aantal Kamers in te vullen."); 
+                    $('#surface').focus(); 
+                }
+            } else {
+                $('.submit-btn[value="checkout"] span.loader-wrapper').addClass('dayz-loader');
+                send_to_cart();
+            }
+
+            dataLayer.push({
+                'event': 'gaEvent',
+                'eventAction': 'orderBtnClick',
+                'timestamp': new Date().toISOString()
+            });
+            
+        }
+        console.log($(this).val());
+    });
+
+    // Send to cart
+    function send_to_cart() {
+        let compositions = [];
+        $('input[name="compound"]:checked').each(function () {
+            compositions.push($(this).attr("value"));
+        });
+
+        var dataSet = {
+            action: 'concrete_add_to_cart',
+            user_email: $("#email").val(),
+            area_code: $.cookie("selected_area_code"),
+            postalcode: $("#postcode-input").val(),
+            cubic_meters: currentCubicMeters,
+            application_product: $('input[name="application"]:checked').val(),
+            composition: compositions,
+            unloading: $('input[name="releaseMethod"]:checked').val(),
+            pump_type: $('input[name="pump-type"]:checked').val(),
+            pumping_distance: $('select[name="mini_pumping_distance"]').val(),
+            boom_pumping_distance: $('select[name="boom_pumping_distance"]').val(),
+            uitvoering: $('input[name="performance"]:checked').val(),
+            "surace-sqm": $('select[name="surface"]').val(),
+            "layer-thickness": $("#layer-thickness").val(),
+            nos_rooms: $("#num-rooms").val(),
+            flooring: $("#mezzanine-floor").is(":checked") ? 1 : 0,
+            "butterfly-floor": $("#butterfly-floor").is(":checked") ? 1 : 0,
+        };
+
+        $.ajax({
+            type: "post",
+            url: betonData.ajax_url,
+            data: dataSet,
+            success: function (response) {
+                console.log(response);
+                if(response.data.redirect !== undefined){
+                window.location.href = response.data.redirect;
+                }
+            }
+        });
+    }
+
+    // Validate fields
+    function validateFields() {
+        let isValid = true;
+        let firstInvalid = null;
+
+        // Remove all previous errors
+        $('.bpc-input-error').removeClass('bpc-input-error');
+
+        // Fields
+        let cubic = $('#cubic-meters');
+        let postcode = $('#postcode-input');
+        let date = $('#dayz_date_mapper_date'); // hidden input
+        let timeslots = $('#dayz_date_mapper_timeslots');
+
+        // --- cubic meters ---
+        if (!cubic.val().trim() || parseFloat(cubic.val()) <= 0) {
+            cubic.addClass('bpc-input-error');
+            firstInvalid = firstInvalid || cubic;
+            isValid = false;
+        }
+
+        // --- postcode ---
+        if (!postcode.val().trim()) {
+            postcode.addClass('bpc-input-error');
+            firstInvalid = firstInvalid || postcode;
+            isValid = false;
+        }
+
+        // --- date (IMPORTANT: hidden field) ---
+        if (!date.val().trim()) {
+            $('.dayz-date-mapper-date-picker').addClass('bpc-input-error');
+            firstInvalid = firstInvalid || $('.dayz-date-mapper-date-picker');
+            isValid = false;
+        }
+
+        // --- select2 timeslots ---
+        if (!timeslots.val() || timeslots.val().length === 0) {
+            let select2Box = timeslots.next('.select2-container').find('.select2-selection');
+            select2Box.addClass('bpc-input-error');
+
+            firstInvalid = firstInvalid || select2Box;
+            isValid = false;
+        }
+
+        // --- show alert once ---
+        if (!isValid) {
+            alert("Gelieve alle verplichte velden in te vullen.");
+
+            if (firstInvalid) {
+                firstInvalid.focus();
+            }
+        }
+
+        return isValid;
+    }
    
 });
