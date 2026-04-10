@@ -221,6 +221,7 @@ function beton_scripts()
 
 	//New styles for beton revolution - 25.03.2026
 	wp_enqueue_style('beton-revolution', get_stylesheet_directory_uri() . '/css/beton-revolution.css', array(), '1.0.0');
+	wp_enqueue_style('beton-checkout', get_stylesheet_directory_uri() . '/css/checkout.css', array(), '1.0.0');
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');

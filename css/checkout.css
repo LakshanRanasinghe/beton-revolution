@@ -1,0 +1,771 @@
+
+/* ─────────────────────────────────────────────────────────
+CHECKOUT PAGE  (prefix: bpc-)
+───────────────────────────────────────────────────────── */
+
+/* ── Page wrapper ── */
+.bpc-checkout-page {
+    min-height: 100vh;
+    padding: 48px 0 80px;
+    font-family: 'Manrope', sans-serif;
+}
+
+/* ══════════════════════════════════════════════════════════
+LEFT: FORM CARD
+══════════════════════════════════════════════════════════ */
+.bpc-form-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 2px 2px 16px rgba(109, 109, 120, .20);
+    border: 1px solid #F4F4F4;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow: hidden;
+}
+
+/* ── Section block inside form card ── */
+.bpc-form-section {
+    padding: 24px 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.bpc-form-section:last-of-type {
+    padding-bottom: 24px;
+}
+
+/* ── Section heading row (title + hr line) ── */
+.bpc-form-section-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bpc-form-section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #060C35;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.bpc-form-section-hr {
+    flex: 1;
+    height: 1px;
+    background: #E5E7EB;
+}
+
+/* ── Input grid ── */
+.bpc-input-grid,
+.checkout-personal-info-fields,
+.checkout-shipping-fields .woocommerce-shipping-fields__field-wrapper,
+.checkout-billing-fields .woocommerce-billing-fields__field-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    align-items: start;
+}
+
+.bpc-form-card .form-row {
+    margin: 0 !important;
+    width: 100% !important;
+    float: none !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.bpc-form-card .form-row.mb-2 {
+    grid-column: 1 / -1;
+}
+
+/* Force standard text inputs in WooCommerce to span 1 column, but textareas span full row */
+.bpc-form-card .checkout-personal-info-fields .form-row.form-row-wide,
+.bpc-form-card .checkout-shipping-fields .form-row.form-row-wide,
+.bpc-form-card .checkout-billing-fields .form-row.form-row-wide {
+    grid-column: span 1;
+}
+
+.bpc-form-card .form-row.notes,
+.bpc-form-card .form-row:has(textarea) {
+    grid-column: 1 / -1 !important;
+}
+
+.bpc-form-card .form-row label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #060C35;
+    margin-bottom: 6px;
+}
+
+.bpc-form-card .d-if {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.bpc-form-card .d-if label {
+    margin: 0 !important;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.bpc-form-card .d-if input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #1ACB23;
+}
+
+@media (max-width: 991px) {
+    .checkout-personal-info-fields,
+    .checkout-shipping-fields .woocommerce-shipping-fields__field-wrapper,
+    .checkout-billing-fields .woocommerce-billing-fields__field-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .bpc-input-grid,
+    .checkout-personal-info-fields,
+    .checkout-shipping-fields .woocommerce-shipping-fields__field-wrapper,
+    .checkout-billing-fields .woocommerce-billing-fields__field-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Generic input ── */
+.bpc-input,
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row select,
+.woocommerce form .form-row .select2-selection {
+    width: 100%;
+    height: 56px;
+    padding: 10px 16px !important;
+    border-radius: 8px !important;
+    border: 1px solid #D1D5DB !important;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333 !important;
+    font-family: 'Manrope', sans-serif;
+    background: #fff;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+    box-sizing: border-box;
+}
+
+.woocommerce form .form-row .select2-selection {
+    height: 56px;
+    display: flex;
+    align-items: center;
+}
+.woocommerce form .form-row .select2-selection__rendered {
+    line-height: normal !important;
+    padding-left: 0 !important;
+}
+.woocommerce form .form-row .select2-selection__arrow {
+    height: 54px !important;
+}
+
+.bpc-input::placeholder,
+.woocommerce form .form-row input.input-text::placeholder,
+.woocommerce form .form-row select::placeholder {
+    color: #9CA3AF;
+}
+
+.bpc-input:focus,
+.woocommerce form .form-row input.input-text:focus,
+.woocommerce form .form-row select:focus {
+    border-color: #1ACB23 !important;
+    box-shadow: 0 0 0 3px rgba(26, 203, 35, .10) !important;
+}
+
+/* ── Textarea ── */
+.bpc-textarea,
+.woocommerce form .form-row textarea {
+    width: 100%;
+    min-height: 56px;
+    padding: 12px 16px !important;
+    border-radius: 8px !important;
+    border: 1px solid #D1D5DB !important;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333 !important;
+    font-family: 'Manrope', sans-serif;
+    background: #fff;
+    outline: none;
+    resize: vertical;
+    transition: border-color .2s, box-shadow .2s;
+    box-sizing: border-box;
+}
+
+.bpc-textarea::placeholder,
+.woocommerce form .form-row textarea::placeholder {
+    color: #9CA3AF;
+}
+
+.bpc-textarea:focus,
+.woocommerce form .form-row textarea:focus {
+    border-color: #1ACB23 !important;
+    box-shadow: 0 0 0 3px rgba(26, 203, 35, .10) !important;
+}
+
+/* ── Divider between form sections ── */
+.bpc-form-divider {
+    height: 1px;
+    background: #F3F4F6;
+    margin: 8px 0 0;
+}
+
+/* ══ PAYMENT METHODS ══ */
+.bpc-payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bpc-payment-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+}
+
+.bpc-payment-option:has(input:checked) {
+    border-color: #1ACB23;
+    background: rgba(26, 203, 35, .04);
+}
+
+.bpc-payment-option input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #1ACB23;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.bpc-payment-option-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    flex: 1;
+}
+
+.bpc-payment-logos {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+}
+
+/* ── Payment logo badge ── */
+.bpc-logo-badge {
+    height: 24px;
+    border-radius: 4px;
+    border: 1px solid #F3F4F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* ── Card fields area ── */
+.bpc-card-fields {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.bpc-card-field-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bpc-card-field-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: #060C35;
+    display: block;
+}
+
+.bpc-card-number-wrap {
+    position: relative;
+}
+
+.bpc-card-number-wrap .bpc-input {
+    padding-right: 124px;
+}
+
+.bpc-card-logos-inline {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+@media (max-width: 640px) {
+    .bpc-card-fields {
+        flex-direction: column;
+    }
+}
+
+/* ── Privacy note ── */
+.bpc-privacy-note {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.6;
+}
+
+.bpc-privacy-note a {
+    color: #1ACB23;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* ── Terms row ── */
+.bpc-terms-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bpc-terms-row input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #1ACB23;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.bpc-terms-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.5;
+    cursor: pointer;
+    flex: 1;
+}
+
+.bpc-terms-label a {
+    color: #1ACB23;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.bpc-terms-note {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* ── Pay button ── */
+.bpc-pay-btn {
+    width: 100%;
+    height: 56px;
+    background: #1ACB23;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Manrope', sans-serif;
+    cursor: pointer;
+    transition: background .2s, transform .1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bpc-pay-btn:hover {
+    background: #15a81d;
+    transform: translateY(-1px);
+}
+
+.bpc-pay-btn:active {
+    transform: translateY(0);
+}
+
+.bpc-pay-btn:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ══════════════════════════════════════════════════════════
+RIGHT: ORDER SUMMARY
+══════════════════════════════════════════════════════════ */
+.bpc-summary {
+    background: #060C35;
+    border-radius: 12px;
+    overflow: hidden;
+    color: #fff;
+    position: sticky;
+    top: 20px;
+}
+
+/* ── Summary header ── */
+.bpc-summary-header {
+    background: #1A1F45;
+    padding: 20px 24px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, .20);
+}
+
+.bpc-summary-header h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* ── Summary body ── */
+.bpc-summary-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ── Summary section ── */
+.bpc-sum-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Section heading: icon + title + divider */
+.bpc-sum-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bpc-sum-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* SVG icon fill helper */
+.bpc-sum-icon svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+.bpc-sum-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.bpc-sum-hr {
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, .20);
+}
+
+/* ── Summary row ── */
+.bpc-sum-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.bpc-sum-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, .80);
+    flex: 1;
+    line-height: 1.5;
+}
+
+.bpc-sum-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.bpc-sum-sub {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, .60);
+    margin-top: -6px;
+}
+
+/* ── Totals ── */
+.bpc-summary-totals {
+    padding: 20px 24px;
+    border-top: 1px solid rgba(255, 255, 255, .20);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bpc-totals-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bpc-totals-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, .80);
+}
+
+.bpc-totals-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.bpc-totals-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, .20);
+}
+
+.bpc-totals-grand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 4px;
+}
+
+.bpc-totals-grand-label {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.bpc-totals-grand-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+    .bpc-summary {
+        position: static;
+        margin-top: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bpc-checkout-page {
+        padding: 24px 0 48px;
+    }
+
+    .bpc-form-section {
+        padding: 16px 16px 0;
+    }
+
+    .bpc-summary-body {
+        padding: 16px;
+    }
+
+    .bpc-summary-totals {
+        padding: 16px;
+    }
+}
+
+/* ── Layout: 40px gap between CHECKOUT FORM and ORDER SUMMARY columns ── */
+
+/* The two columns live inside the <form class="checkout woocommerce-checkout row">
+   so we target that form directly to apply the gap. */
+.bpc-checkout-page form.checkout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 40px;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+@media (min-width: 992px) {
+    .bpc-checkout-page form.checkout {
+        flex-wrap: nowrap;
+    }
+
+    .bpc-checkout-page form.checkout > .col-lg-8 {
+        flex: 0 0 calc(66.666667% - 20px);
+        width: calc(66.666667% - 20px);
+        max-width: none;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .bpc-checkout-page form.checkout > .col-lg-4 {
+        flex: 0 0 calc(33.333333% - 20px);
+        width: calc(33.333333% - 20px);
+        max-width: none;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+/* Mobile & tablet: stack columns, full width, no side gutter */
+@media (max-width: 991px) {
+    .bpc-checkout-page form.checkout {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .bpc-checkout-page form.checkout > .col-lg-8,
+    .bpc-checkout-page form.checkout > .col-lg-4 {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+/* Keep the outer .bpc-main-row clean */
+.bpc-main-row {
+    margin: 0 !important;
+    align-items: flex-start;
+}
+
+/* ══════════════════════════════════════════════════════════
+PAYMENT METHODS (WooCommerce to BPC format)
+══════════════════════════════════════════════════════════ */
+ul.wc_payment_methods {
+    list-style: none;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+ul.wc_payment_methods li.wc_payment_method {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 10px;
+    background: #fff;
+    padding: 0 !important;
+    margin: 0 !important;
+    transition: border-color .2s, background .2s;
+}
+
+ul.wc_payment_methods li.wc_payment_method > label {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px 14px 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    margin-left: 10px;
+}
+
+ul.wc_payment_methods li.wc_payment_method > label img {
+    margin-left: auto; /* Push logos to the right */
+    height: 24px;
+    object-fit: contain;
+}
+
+ul.wc_payment_methods li.wc_payment_method input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #1ACB23;
+    flex-shrink: 0;
+    margin-left: 10px;
+}
+
+ul.wc_payment_methods li.wc_payment_method:has(input:checked) {
+    border-color: #1ACB23;
+    background: rgba(26, 203, 35, .04);
+}
+
+ul.wc_payment_methods li.wc_payment_method .payment_box {
+    width: 100%;
+    padding: 0 16px 16px 40px; /* Align text roughly with the label's text (accounting for radio) */
+    margin: 0; 
+    font-size: 14px;
+    color: #555;
+    background: transparent !important;
+}
+ul.wc_payment_methods li.wc_payment_method .payment_box::before {
+    display: none !important; /* Hide woocommerce default triangle */
+}
+
+/* ── Privacy note and Terms ── */
+.woocommerce-privacy-policy-text p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.6;
+}
+
+.woocommerce-privacy-policy-text a,
+.woocommerce-terms-and-conditions-checkbox-text a {
+    color: #1ACB23;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.woocommerce-terms-and-conditions-wrapper .form-row {
+    display: flex !important;
+    flex-direction: row !important; /* Override the column flex layout */
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px !important;
+}
+
+.woocommerce-terms-and-conditions-wrapper .form-row label.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.5;
+    cursor: pointer;
+    flex: 1;
+    margin: 0;
+}
+
+.woocommerce-terms-and-conditions-wrapper input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #1ACB23;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* Hide empty elements in payment section */
+#woocommerce-checkout-payment-methods-wrapper hr.text-light-gray {
+    display: none;
+}
+
+.woocommerce-checkout #page {
+    background-color: #F6F8FB;
+}
