@@ -9,798 +9,857 @@ $pricingData = get_field('application', 'option');
 
     <!-- ════════════ HERO ════════════ -->
     <div class="bpc-hero">
-        <div class="bpc-hero-bg">
-            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
-                <source src="<?php echo get_template_directory_uri(); ?>/images/home-video.mp4" type="video/mp4">
-            </video>
-            <div
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1;">
-            </div>
-        </div>
-        <!-- concave wave curve – not border-radius, SVG shape mask -->
-        <div class="bpc-hero-wave">
-            <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                <path d="M0,0 Q720,160 1440,0 L1440,80 L0,80 Z" fill="#E8EDF4" />
-            </svg>
-        </div>
         <div class="bpc-hero-inner">
-            <div class="bpc-hero-tag">
-                <span class="bpc-hero-tag-dot"></span>
-                Voor particulieren en professionals
+            <div class="bpc-hero-content">
+                <h1 class="bpc-hero-title">Mobiele betonwagen</h1>
+                <p class="bpc-hero-desc">
+                    Beton gemengd op locatie. Betaal alleen voor wat je gebruikt geen overschot, geen tekort, gewoon
+                    efficiënt en precies op tijd.
+                </p>
+                <ul class="bpc-hero-list">
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.6667 5L7.49999 14.1667L3.33333 10" stroke="#34C759" stroke-width="1.66667"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Geproduceerd per 100 liter
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.6667 5L7.49999 14.1667L3.33333 10" stroke="#34C759" stroke-width="1.66667"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Geen risico op restbeton
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.6667 5L7.49999 14.1667L3.33333 10" stroke="#34C759" stroke-width="1.66667"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Extra beton direct gemaakt
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.6667 5L7.49999 14.1667L3.33333 10" stroke="#34C759" stroke-width="1.66667"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Ideaal voor renovaties & kleinere projecten
+                    </li>
+                </ul>
+                <a href="#calculator" class="bpc-hero-btn">Start Configuratie</a>
             </div>
-            <h1>De eenvoudigste manier om betaalbaar beton te bestellen voor uw project</h1>
-            <p class="bpc-hero-sub">Weet u niet zeker hoeveel beton u nodig heeft of hoe de levering werkt? Wij
-                begeleiden u bij elke stap, van het berekenen van de juiste samenstelling tot levering op het juiste
-                moment. Eenvoudig bestellen, betrouwbare service en betrouwbare resultaten.</p>
-            <div class="bpc-hero-btns">
-                <a href="#calculator" class="bpc-btn-green">Offerte aanvragen</a>
-                <a href="#calculator" class="bpc-btn-outline-white"><svg width="12" height="17" viewBox="0 0 12 17"
-                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M5.61127 16.5965C5.48683 16.5965 5.36773 16.5723 5.25398 16.524C5.14009 16.4758 5.03648 16.405 4.94315 16.3117L0.26669 11.6558C0.0905786 11.4799 0.00168967 11.2597 2.30061e-05 10.9952C-0.00164366 10.7309 0.0872453 10.5038 0.26669 10.314C0.456551 10.124 0.680995 10.029 0.940023 10.029C1.19905 10.029 1.42356 10.124 1.61356 10.314L4.66336 13.3796V8.70708C4.66336 8.44097 4.75481 8.21646 4.93773 8.03354C5.12079 7.85063 5.3453 7.75917 5.61127 7.75917C5.87724 7.75917 6.10176 7.85063 6.28481 8.03354C6.46773 8.21646 6.55919 8.44097 6.55919 8.70708V13.3796L9.61981 10.309C9.79593 10.1295 10.0152 10.0406 10.2775 10.0423C10.5399 10.044 10.7643 10.1398 10.9509 10.3298C11.127 10.5058 11.215 10.7267 11.215 10.9927C11.215 11.2588 11.127 11.4799 10.9509 11.6558L6.2744 16.3117C6.18106 16.405 6.07829 16.4758 5.96606 16.524C5.85398 16.5723 5.73572 16.5965 5.61127 16.5965ZM5.61127 6.0925C5.3453 6.0925 5.12079 6.00097 4.93773 5.81792C4.75481 5.635 4.66336 5.41056 4.66336 5.14458V4.51042C4.66336 4.24444 4.75481 4.02 4.93773 3.83708C5.12079 3.65403 5.3453 3.5625 5.61127 3.5625C5.87724 3.5625 6.10176 3.65403 6.28481 3.83708C6.46773 4.02 6.55919 4.24444 6.55919 4.51042V5.14458C6.55919 5.41056 6.46773 5.635 6.28481 5.81792C6.10176 6.00097 5.87724 6.0925 5.61127 6.0925ZM5.61127 1.89583C5.3453 1.89583 5.12079 1.80437 4.93773 1.62146C4.75481 1.4384 4.66336 1.21389 4.66336 0.947917C4.66336 0.681944 4.75481 0.4575 4.93773 0.274583C5.12079 0.0915276 5.3453 0 5.61127 0C5.87724 0 6.10176 0.0915276 6.28481 0.274583C6.46773 0.4575 6.55919 0.681944 6.55919 0.947917C6.55919 1.21389 6.46773 1.4384 6.28481 1.62146C6.10176 1.80437 5.87724 1.89583 5.61127 1.89583Z"
-                            fill="white" />
-                    </svg>
-                    Of bereken direct de prijs</a>
-            </div>
-            <div class="bpc-hero-trust">
-                <div class="bpc-hero-trust-item"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_262_143)">
-                            <path
-                                d="M20 12.9297H12.8906V12.3438C12.8906 9.43604 10.5249 7.07031 7.61719 7.07031C4.70947 7.07031 2.34375 9.43604 2.34375 12.3438V12.9297H0V12.3438C0 9.6727 1.04019 7.16141 2.92892 5.27267C4.81766 3.38394 7.32895 2.34375 10 2.34375C12.6711 2.34375 15.1823 3.38394 17.0711 5.27267C18.9598 7.16141 20 9.6727 20 12.3438V12.9297Z"
-                                fill="#FFCE2E" />
-                            <path
-                                d="M17.0716 5.27267C15.1828 3.38394 12.6715 2.34375 10.0005 2.34375C7.32944 2.34375 4.81815 3.38394 2.92941 5.27267C2.79056 5.41138 2.65704 5.55405 2.52734 5.69931L4.74902 7.92099C5.57529 7.38327 6.56055 7.07031 7.61768 7.07031C10.0376 7.07031 12.0818 8.70895 12.6996 10.9349L19.9909 11.9165C19.886 9.40582 18.8593 7.06039 17.0716 5.27267Z"
-                                fill="#FF9900" />
-                            <path
-                                d="M12.8906 12.3438V12.9297H20V12.3438C20 9.6727 18.9598 7.16141 17.0711 5.27267C15.1823 3.38394 12.6711 2.34375 10 2.34375V7.64023C11.7137 8.51196 12.8906 10.293 12.8906 12.3438Z"
-                                fill="#FF6A00" />
-                            <path
-                                d="M17.5069 5.27344L8.51258 13.4796C8.18344 13.7799 8.17154 14.2941 8.48664 14.6091L10.6831 16.8056C10.9985 17.1211 11.5138 17.1088 11.8138 16.7784L19.9995 7.7655V5.27344H17.5069Z"
-                                fill="#B7E4F8" />
-                            <path
-                                d="M10.6831 16.8056C10.9986 17.1211 11.5139 17.1088 11.8139 16.7784L19.9996 7.7655V5.27344L9.58398 15.7065L10.6831 16.8056Z"
-                                fill="#6FC8F1" />
-                            <path
-                                d="M9.99893 17.6369C9.37286 17.6369 8.78418 17.393 8.34152 16.9504C7.42783 16.0365 7.42783 14.5496 8.34152 13.6357C8.78418 13.1931 9.37286 12.9492 9.99893 12.9492C10.6248 12.9492 11.2135 13.1931 11.6562 13.6357C12.57 14.5496 12.57 16.0364 11.6562 16.9504C11.2135 17.393 10.6248 17.6369 9.99893 17.6369Z"
-                                fill="#388CB3" />
-                            <path
-                                d="M11.6584 13.6357L8.34375 16.9504C8.78641 17.3931 9.37509 17.6369 10.0012 17.6369C10.6271 17.6369 11.2158 17.3931 11.6584 16.9504C12.5721 16.0366 12.5721 14.5496 11.6584 13.6357Z"
-                                fill="#265D77" />
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_262_143">
-                                <rect width="20" height="20" fill="white" />
-                            </clipPath>
-                        </defs>
-                    </svg>
-                    Supersnelle levering
-                </div>
-                <div class="bpc-hero-trust-sep"></div>
-                <div class="bpc-hero-trust-item"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M10.0352 1C5.08874 1 1 5.01836 1 9.96484C1 14.9113 5.08874 19 10.0352 19C14.9816 19 19 14.9113 19 9.96484C19 5.01836 14.9816 1 10.0352 1Z"
-                            fill="#FEDB41" />
-                        <path d="M19 9.96484C19 14.9113 14.9816 19 10.0352 19V1C14.9816 1 19 5.01836 19 9.96484Z"
-                            fill="#FFCC33" />
-                        <path
-                            d="M10.0352 3.10938C6.2593 3.10938 3.10938 6.18903 3.10938 9.96484C3.10938 13.7407 6.2593 16.8906 10.0352 16.8906C13.811 16.8906 16.8906 13.7407 16.8906 9.96484C16.8906 6.18903 13.811 3.10938 10.0352 3.10938Z"
-                            fill="#FEA832" />
-                        <path
-                            d="M16.8906 9.96484C16.8906 13.7407 13.811 16.8906 10.0352 16.8906V3.10938C13.811 3.10938 16.8906 6.18903 16.8906 9.96484Z"
-                            fill="#FE9923" />
-                        <path
-                            d="M10.5625 11.6169H10.0352V10.5623H10.5625C11.2585 10.5623 11.2585 11.6169 10.5625 11.6169Z"
-                            fill="#FFCC33" />
-                        <path
-                            d="M10.5625 9.43726H10.0352V8.38257H10.5625C11.2585 8.38257 11.2585 9.43726 10.5625 9.43726Z"
-                            fill="#FFCC33" />
-                        <path
-                            d="M13.1992 12.9883C12.3238 14.0008 11.1426 14.391 10.0352 14.2117V13.1043C10.8789 13.3152 11.7858 13.02 12.3977 12.3028C12.8616 11.7754 13.6527 12.4609 13.1992 12.9883Z"
-                            fill="#FFCC33" />
-                        <path
-                            d="M10.0352 6.89571V5.83047C11.1743 5.65114 12.3765 6.05192 13.1992 7.01172C13.6527 7.53907 12.8616 8.22458 12.3977 7.69724C11.7858 6.98001 10.8789 6.68474 10.0352 6.89571Z"
-                            fill="#FFCC33" />
-                        <path
-                            d="M13.1992 12.9883C12.3238 14.0008 11.1426 14.391 10.0352 14.2117C8.80124 14.0113 7.60234 13.1254 7.06445 11.6172H6.27344C5.57745 11.6172 5.57745 10.5625 6.27344 10.5625H6.843C6.79023 10.014 6.79023 9.98594 6.843 9.43747H6.27344C5.97809 9.43747 5.74609 9.20548 5.74609 8.91013C5.74609 8.61478 5.97809 8.38278 6.27344 8.38278H7.06445C7.60234 6.86403 8.82223 6.02028 10.0352 5.83047C11.1743 5.65114 12.3765 6.05192 13.1992 7.01173C13.6527 7.53907 12.8616 8.22458 12.3977 7.69724C11.7859 6.98005 10.879 6.68477 10.0352 6.89574C9.34957 7.05388 8.63594 7.52849 8.22457 8.38278H10.5625C11.2585 8.38278 11.2585 9.43747 10.5625 9.43747H7.89769C7.84492 9.85938 7.84492 10.1406 7.89769 10.5625H10.5625C11.2585 10.5625 11.2585 11.6172 10.5625 11.6172H8.22457C8.6359 12.4609 9.34957 12.9461 10.0352 13.1042C10.8789 13.3152 11.7858 13.0199 12.3977 12.3027C12.8616 11.7754 13.6527 12.4609 13.1992 12.9883Z"
-                            fill="#FEDB41" />
-                    </svg>
-                    Scherpe prijzen
-                </div>
-                <div class="bpc-hero-trust-sep"></div>
-                <div class="bpc-hero-trust-item"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M18.8243 11.9218C18.4312 11.3103 18.0381 10.7207 17.645 10.1092C17.5577 9.97816 17.5577 9.89081 17.645 9.75977C18.0381 9.17012 18.4094 8.58046 18.8025 7.99081C19.2611 7.29196 19.0209 6.61494 18.2347 6.33103C17.5795 6.0908 16.9243 5.82874 16.2692 5.58851C16.1381 5.54483 16.0726 5.45747 16.0726 5.3046C16.0508 4.58391 16.0071 3.86322 15.9634 3.16437C15.9197 2.4 15.3301 1.96322 14.5876 2.15977C13.8887 2.33448 13.1899 2.53103 12.5128 2.72759C12.36 2.77127 12.2726 2.72759 12.1634 2.61839C11.7266 2.05058 11.268 1.5046 10.8312 0.958621C10.3508 0.347126 9.60825 0.347126 9.10595 0.958621C8.66917 1.5046 8.21055 2.05057 7.7956 2.59655C7.68641 2.74942 7.57721 2.77126 7.4025 2.72759C6.72549 2.53104 6.04848 2.35632 5.56802 2.22529C4.62894 2.0069 4.06113 2.37816 4.01744 3.16437C3.97377 3.88506 3.93009 4.60575 3.90825 5.34828C3.90825 5.50115 3.84273 5.56667 3.7117 5.63218C3.03469 5.89425 2.35768 6.15632 1.68066 6.41839C0.981814 6.7023 0.763423 7.37931 1.17836 8.01265C1.57147 8.62414 1.96457 9.21379 2.35767 9.82529C2.44503 9.95632 2.44503 10.0437 2.35767 10.1966C1.94273 10.808 1.54963 11.4195 1.15652 12.0529C0.78526 12.6425 1.02549 13.3414 1.68066 13.6035C2.35767 13.8655 3.05652 14.1276 3.73353 14.3897C3.8864 14.4333 3.93008 14.5207 3.93008 14.6736C3.95192 15.3724 4.03928 16.0494 4.03928 16.7483C4.03928 17.4471 4.65077 18.0805 5.5025 17.8184C6.17951 17.6 6.85652 17.4471 7.53353 17.2506C7.66457 17.2069 7.75192 17.2287 7.83928 17.3598C8.2979 17.9276 8.73468 18.4736 9.1933 19.0414C9.6956 19.6529 10.4163 19.6529 10.8967 19.0414C11.3554 18.4736 11.7922 17.9276 12.2508 17.3598C12.3381 17.2506 12.4036 17.2069 12.5565 17.2506C13.2554 17.4471 13.9542 17.6218 14.6531 17.8184C15.3738 18.0149 15.9853 17.5782 16.0071 16.8356C16.0508 16.1149 16.0944 15.3942 16.1163 14.6517C16.1163 14.477 16.2036 14.4115 16.3347 14.3678C16.9898 14.1276 17.6669 13.8655 18.322 13.6035C19.0209 13.254 19.2393 12.5552 18.8243 11.9218ZM13.6048 8.34023L9.23699 12.708C9.12779 12.8172 8.97492 12.9046 8.82204 12.9264C8.77837 12.9264 8.71285 12.9483 8.66917 12.9483C8.47262 12.9483 8.25423 12.8609 8.10135 12.708L6.31055 10.9172C6.0048 10.6115 6.0048 10.1092 6.31055 9.80345C6.6163 9.4977 7.1186 9.4977 7.42434 9.80345L8.64733 11.0264L12.4473 7.22644C12.7531 6.92069 13.2554 6.92069 13.5611 7.22644C13.9105 7.53218 13.9105 8.03448 13.6048 8.34023Z"
-                            fill="url(#paint0_linear_262_173)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_262_173" x1="0.834879" y1="6.66669" x2="10.0014" y2="19.5"
-                                gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#14AF14" />
-                                <stop offset="1" stop-color="#5CDE5C" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                    Topkwaliteit
-                </div>
-                <div class="bpc-hero-trust-sep"></div>
-                <div class="bpc-hero-trust-item"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M10.0018 15.7953L6.09529 17.8485C5.25354 18.2913 4.27021 17.5766 4.43063 16.6391L5.17654 12.2888L2.01596 9.20738C1.33454 8.5438 1.71063 7.38747 2.65129 7.24997L7.0193 6.61555L8.97255 2.65696C9.39338 1.8038 10.6091 1.8038 11.03 2.65696L12.9832 6.61555L17.3513 7.24997C18.292 7.38647 18.668 8.54272 17.9868 9.20738L14.8261 12.2888L15.572 16.6391C15.7325 17.5767 14.749 18.2913 13.9074 17.8485L10.0018 15.7953Z"
-                            fill="url(#paint0_linear_262_180)" />
-                        <defs>
-                            <linearGradient id="paint0_linear_262_180" x1="10.0013" y1="2.01671" x2="10.0013"
-                                y2="17.9834" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FFE61C" />
-                                <stop offset="1" stop-color="#FFA929" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                    4.9/5 klanttevredenheid
-                </div>
+            <div class="bpc-hero-image">
+                <img src="<?php echo get_template_directory_uri() . '/images/home-hero-truck.png'; ?>"
+                    alt="Mobiele betonwagen">
             </div>
         </div>
     </div>
 
     <!-- ════════════ BODY ════════════ -->
     <div class="bpc-body" id="calculator">
-        <div class="bpc-layout container py-lg-5">
+        <div class="container mx-auto bpc-card-wrapper">
+            <!--Stepper-->
+            <div class="bpc-stepper">
+                <div class="bpc-stepper-inner">
+                    <div class="bpc-stepper-track-bg"></div>
+                    <div class="bpc-stepper-track-progress" style="width: 40%;"></div>
 
-            <!-- ══════ LEFT: CALCULATOR CARD ══════ -->
-            <div class="bpc-card">
+                    <div class="bpc-step is-completed">
+                        <div class="bpc-step-circle">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16Z"
+                                    fill="#009966" />
+                                <path d="M10 16L14 20L22 12" stroke="white" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="bpc-step-label">Volume</div>
+                    </div>
 
-                <!-- Header: Title + Orange Price Badge -->
-                <div class="bpc-card-header">
-                    <div class="bpc-card-header-title">BETON PRIJS CALCULATOR</div>
-                    <div class="bpc-price-badge">
-                        <span class="bpc-price-badge-label">Prijs:</span>
-                        <div class="bpc-btw-toggle-wrap">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch" id="bpc-btw-toggle">
-                                <label class="form-check-label bpc-btw-label" for="bpc-btw-toggle">Incl. btw</label>
+                    <div class="bpc-step is-completed">
+                        <div class="bpc-step-circle">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16Z"
+                                    fill="#009966" />
+                                <path d="M10 16L14 20L22 12" stroke="white" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="bpc-step-label">Toepassing</div>
+                    </div>
+
+                    <div class="bpc-step is-active">
+                        <div class="bpc-step-circle">3</div>
+                        <div class="bpc-step-label">Condities</div>
+                    </div>
+
+                    <div class="bpc-step is-upcoming">
+                        <div class="bpc-step-circle">4</div>
+                        <div class="bpc-step-label">Uitvoering</div>
+                    </div>
+
+                    <div class="bpc-step is-upcoming">
+                        <div class="bpc-step-circle">5</div>
+                        <div class="bpc-step-label">Vlindervloer</div>
+                    </div>
+
+                    <div class="bpc-step is-upcoming">
+                        <div class="bpc-step-circle">6</div>
+                        <div class="bpc-step-label">Datum en tijd</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bpc-layout">
+
+                <!-- ══════ LEFT: CALCULATOR CARD ══════ -->
+                <div class="bpc-card">
+
+                    <!-- ── 1. Hoeveelheid & Locatie ── -->
+                    <div class="bpc-section bpc-step-container">
+                        <div class="bpc-step-head">
+                            <div class="bpc-step-head-title">STAP 1</div>
+                            <div class="bpc-step-head-hr"></div>
+                        </div>
+
+                        <div class="bpc-step-inputs">
+                            <div class="bpc-step-input-col">
+                                <div class="bpc-step-input-header">
+                                    <div class="bpc-step-input-title">Hoeveel beton (m³)</div>
+                                    <div class="bpc-step-input-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <mask id="mask0_67_23_1" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="24" height="24">
+                                                <rect width="24" height="24" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_67_23_1)">
+                                                <path
+                                                    d="M12.7127 17.3199C12.9095 17.1228 13.0079 16.8813 13.0079 16.5957C13.0079 16.3102 12.9094 16.069 12.7122 15.8722C12.515 15.6755 12.2737 15.5772 11.9882 15.5772C11.7027 15.5772 11.4615 15.6758 11.2647 15.8729C11.0678 16.0701 10.9694 16.3114 10.9694 16.5969C10.9694 16.8824 11.068 17.1236 11.2652 17.3204C11.4623 17.5171 11.7037 17.6154 11.9892 17.6154C12.2747 17.6154 12.5159 17.5169 12.7127 17.3199ZM12.0019 21.5002C10.6879 21.5002 9.45285 21.2509 8.29668 20.7522C7.14052 20.2535 6.13485 19.5768 5.27968 18.7219C4.42452 17.8671 3.74743 16.8618 3.24843 15.7062C2.7496 14.5505 2.50018 13.3158 2.50018 12.0019C2.50018 10.6879 2.74952 9.45285 3.24818 8.29668C3.74685 7.14052 4.4236 6.13485 5.27843 5.27968C6.13327 4.42452 7.13852 3.74743 8.29418 3.24843C9.44985 2.7496 10.6846 2.50018 11.9984 2.50018C13.3124 2.50018 14.5475 2.74952 15.7037 3.24818C16.8599 3.74685 17.8655 4.4236 18.7207 5.27843C19.5759 6.13327 20.2529 7.13852 20.7519 8.29418C21.2508 9.44985 21.5002 10.6846 21.5002 11.9984C21.5002 13.3124 21.2509 14.5475 20.7522 15.7037C20.2535 16.8599 19.5768 17.8655 18.7219 18.7207C17.8671 19.5759 16.8618 20.2529 15.7062 20.7519C14.5505 21.2508 13.3158 21.5002 12.0019 21.5002ZM12.0002 20.0002C14.2335 20.0002 16.1252 19.2252 17.6752 17.6752C19.2252 16.1252 20.0002 14.2335 20.0002 12.0002C20.0002 9.76685 19.2252 7.87518 17.6752 6.32518C16.1252 4.77518 14.2335 4.00018 12.0002 4.00018C9.76685 4.00018 7.87518 4.77518 6.32518 6.32518C4.77518 7.87518 4.00018 9.76685 4.00018 12.0002C4.00018 14.2335 4.77518 16.1252 6.32518 17.6752C7.87518 19.2252 9.76685 20.0002 12.0002 20.0002ZM12.0812 7.71943C12.5425 7.71943 12.9418 7.86468 13.2789 8.15518C13.6163 8.44568 13.7849 8.80877 13.7849 9.24443C13.7849 9.6111 13.6772 9.93927 13.4617 10.2289C13.2464 10.5188 13.0002 10.7887 12.7232 11.0387C12.3602 11.3607 12.0406 11.7149 11.7644 12.1014C11.4883 12.4878 11.3406 12.9181 11.3214 13.3924C11.3149 13.5746 11.379 13.7272 11.5137 13.8502C11.6483 13.9732 11.8053 14.0347 11.9847 14.0347C12.177 14.0347 12.3399 13.9706 12.4732 13.8424C12.6065 13.7143 12.6918 13.5573 12.7289 13.3714C12.7956 13.0278 12.9376 12.7217 13.1549 12.4532C13.3723 12.1845 13.6077 11.9291 13.8612 11.6869C14.2257 11.3316 14.5438 10.9443 14.8154 10.5249C15.0873 10.1054 15.2232 9.6376 15.2232 9.12143C15.2232 8.3291 14.911 7.6781 14.2867 7.16843C13.6624 6.65893 12.9335 6.40418 12.1002 6.40418C11.5054 6.40418 10.9444 6.53585 10.4174 6.79918C9.8906 7.06268 9.48035 7.44702 9.18668 7.95218C9.09568 8.10735 9.06652 8.2706 9.09918 8.44193C9.13168 8.61343 9.2196 8.7436 9.36293 8.83243C9.54543 8.93393 9.73285 8.96293 9.92518 8.91943C10.1175 8.87577 10.2809 8.76618 10.4154 8.59068C10.6181 8.32785 10.8633 8.11693 11.1512 7.95793C11.439 7.79893 11.749 7.71943 12.0812 7.71943Z"
+                                                    fill="#888888" />
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="bpc-step-input-wrap">
+                                    <input type="text" inputmode="decimal" placeholder="1.5" id="cubic-meters">
+                                </div>
+                            </div>
+
+                            <div class="bpc-step-input-col position-relative">
+                                <div class="bpc-step-input-header">
+                                    <div class="bpc-step-input-title">Locatie</div>
+                                    <div class="bpc-step-input-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <mask id="mask0_67_23_2" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="24" height="24">
+                                                <rect width="24" height="24" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_67_23_2)">
+                                                <path
+                                                    d="M12.7127 17.3199C12.9095 17.1228 13.0079 16.8813 13.0079 16.5957C13.0079 16.3102 12.9094 16.069 12.7122 15.8722C12.515 15.6755 12.2737 15.5772 11.9882 15.5772C11.7027 15.5772 11.4615 15.6758 11.2647 15.8729C11.0678 16.0701 10.9694 16.3114 10.9694 16.5969C10.9694 16.8824 11.068 17.1236 11.2652 17.3204C11.4623 17.5171 11.7037 17.6154 11.9892 17.6154C12.2747 17.6154 12.5159 17.5169 12.7127 17.3199ZM12.0019 21.5002C10.6879 21.5002 9.45285 21.2509 8.29668 20.7522C7.14052 20.2535 6.13485 19.5768 5.27968 18.7219C4.42452 17.8671 3.74743 16.8618 3.24843 15.7062C2.7496 14.5505 2.50018 13.3158 2.50018 12.0019C2.50018 10.6879 2.74952 9.45285 3.24818 8.29668C3.74685 7.14052 4.4236 6.13485 5.27843 5.27968C6.13327 4.42452 7.13852 3.74743 8.29418 3.24843C9.44985 2.7496 10.6846 2.50018 11.9984 2.50018C13.3124 2.50018 14.5475 2.74952 15.7037 3.24818C16.8599 3.74685 17.8655 4.4236 18.7207 5.27843C19.5759 6.13327 20.2529 7.13852 20.7519 8.29418C21.2508 9.44985 21.5002 10.6846 21.5002 11.9984C21.5002 13.3124 21.2509 14.5475 20.7522 15.7037C20.2535 16.8599 19.5768 17.8655 18.7219 18.7207C17.8671 19.5759 16.8618 20.2529 15.7062 20.7519C14.5505 21.2508 13.3158 21.5002 12.0019 21.5002ZM12.0002 20.0002C14.2335 20.0002 16.1252 19.2252 17.6752 17.6752C19.2252 16.1252 20.0002 14.2335 20.0002 12.0002C20.0002 9.76685 19.2252 7.87518 17.6752 6.32518C16.1252 4.77518 14.2335 4.00018 12.0002 4.00018C9.76685 4.00018 7.87518 4.77518 6.32518 6.32518C4.77518 7.87518 4.00018 9.76685 4.00018 12.0002C4.00018 14.2335 4.77518 16.1252 6.32518 17.6752C7.87518 19.2252 9.76685 20.0002 12.0002 20.0002ZM12.0812 7.71943C12.5425 7.71943 12.9418 7.86468 13.2789 8.15518C13.6163 8.44568 13.7849 8.80877 13.7849 9.24443C13.7849 9.6111 13.6772 9.93927 13.4617 10.2289C13.2464 10.5188 13.0002 10.7887 12.7232 11.0387C12.3602 11.3607 12.0406 11.7149 11.7644 12.1014C11.4883 12.4878 11.3406 12.9181 11.3214 13.3924C11.3149 13.5746 11.379 13.7272 11.5137 13.8502C11.6483 13.9732 11.8053 14.0347 11.9847 14.0347C12.177 14.0347 12.3399 13.9706 12.4732 13.8424C12.6065 13.7143 12.6918 13.5573 12.7289 13.3714C12.7956 13.0278 12.9376 12.7217 13.1549 12.4532C13.3723 12.1845 13.6077 11.9291 13.8612 11.6869C14.2257 11.3316 14.5438 10.9443 14.8154 10.5249C15.0873 10.1054 15.2232 9.6376 15.2232 9.12143C15.2232 8.3291 14.911 7.6781 14.2867 7.16843C13.6624 6.65893 12.9335 6.40418 12.1002 6.40418C11.5054 6.40418 10.9444 6.53585 10.4174 6.79918C9.8906 7.06268 9.48035 7.44702 9.18668 7.95218C9.09568 8.10735 9.06652 8.2706 9.09918 8.44193C9.13168 8.61343 9.2196 8.7436 9.36293 8.83243C9.54543 8.93393 9.73285 8.96293 9.92518 8.91943C10.1175 8.87577 10.2809 8.76618 10.4154 8.59068C10.6181 8.32785 10.8633 8.11693 11.1512 7.95793C11.439 7.79893 11.749 7.71943 12.0812 7.71943Z"
+                                                    fill="#888888" />
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="bpc-step-input-wrap">
+                                    <input type="text" placeholder="Voer de postcode of plaatsnaam in"
+                                        id="postcode-input">
+                                </div>
                             </div>
                         </div>
-                        <span class="bpc-price-amount" id="total_formatted"><?php echo wc_price(10) ?></span>
-                        <span class="bpc-price-amount" id="sub_total_formatted"
-                            style="display: none;"><?php echo wc_price(0) ?></span>
-                    </div>
-                </div>
 
-                <!-- ── 1. Hoeveelheid & Locatie ── -->
-                <div class="bpc-section">
-                    <div class="bpc-input-row">
-                        <div class="bpc-input-group">
-                            <div class="bpc-input-label">Hoeveel beton (m³)</div>
-                            <input type="text" inputmode="decimal" class="bpc-text-input"
-                                placeholder="Vul het aantal m³ beton in." id="cubic-meters">
+                        <div class="bpc-step-info-row">
+                            <div class="bpc-step-info-icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13.3333 4L6 11.3333L2.66667 8" stroke="#34C759" stroke-width="1.66667"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="bpc-step-info-text">Definitieve facturering is gebaseerd op werkelijke
+                                productie.</div>
                         </div>
-                        <div class="bpc-input-group position-relative">
-                            <div class="bpc-input-label">Locatie</div>
-                            <input type="text" class="bpc-text-input" placeholder="Amsterdam" id="postcode-input">
-                        </div>
-                    </div>
-                </div>
 
-                <!-- ── 2. Toepassing ── -->
-                <div class="bpc-section">
-                    <div class="bpc-section-head">
-                        <div class="bpc-section-head-title"><?php echo $pricingData['application_items_title']; ?></div>
-                        <div class="bpc-section-hr"></div>
+                        <div class="bpc-step-calc-row">
+                            <div class="bpc-step-calc-text">Niet zeker? Bereken uw volume </div>
+                            <div class="bpc-step-calc-icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 12L10 8L6 4" stroke="#FF8D28" stroke-width="1.33333"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bpc-option-grid-2">
-                        <?php foreach ($pricingData['application_items'] as $index => $application_item) { ?>
-                            <label class="bpc-option-card">
-                                <input type="radio" name="application" class="bpc-radio-input"
-                                    id="<?php echo sanitize_title($application_item['product_name']); ?>"
-                                    value="<?php echo sanitize_title($application_item['product_name']); ?>" <?php echo $index == 0 ? 'checked' : ''; ?>>
-                                <div class="bpc-card-meta">
-                                    <div class="bpc-radio"></div>
-                                    <div class="bpc-info-btn">
-                                        <?php if ($application_item['tooltips'] == 1) { ?>
+
+                    <!-- ── 2. Toepassing ── -->
+                    <div class="bpc-section bpc-step-container">
+                        <div class="bpc-step-head">
+                            <div class="bpc-step-head-title">STAP 2</div>
+                            <div class="bpc-step-head-hr"></div>
+                        </div>
+
+                        <div class="bpc-step-input-header">
+                            <div class="bpc-step-input-title"><?php echo $pricingData['application_items_title']; ?>
+                            </div>
+
+                            <div class="bpc-step-input-icon">
+                                <?php if ($pricingData['application_items_tooltips'] !== '') { ?>
+                                    <a class="beton-popover text-success" tabindex="0" role="button"
+                                        data-bs-toggle="popover" data-bs-trigger="focus"
+                                        title="<?php echo $pricingData['application_items_title']; ?>"
+                                        data-bs-placement="top"
+                                        data-bs-content="<?php echo $pricingData['application_items_tooltips']; ?>">
+
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <mask id="mask0_67_23_3" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="24" height="24">
+                                                <rect width="24" height="24" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_67_23_3)">
+                                                <path
+                                                    d="M12.7127 17.3199C12.9095 17.1228 13.0079 16.8813 13.0079 16.5957C13.0079 16.3102 12.9094 16.069 12.7122 15.8722C12.515 15.6755 12.2737 15.5772 11.9882 15.5772C11.7027 15.5772 11.4615 15.6758 11.2647 15.8729C11.0678 16.0701 10.9694 16.3114 10.9694 16.5969C10.9694 16.8824 11.068 17.1236 11.2652 17.3204C11.4623 17.5171 11.7037 17.6154 11.9892 17.6154C12.2747 17.6154 12.5159 17.5169 12.7127 17.3199ZM12.0019 21.5002C10.6879 21.5002 9.45285 21.2509 8.29668 20.7522C7.14052 20.2535 6.13485 19.5768 5.27968 18.7219C4.42452 17.8671 3.74743 16.8618 3.24843 15.7062C2.7496 14.5505 2.50018 13.3158 2.50018 12.0019C2.50018 10.6879 2.74952 9.45285 3.24818 8.29668C3.74685 7.14052 4.4236 6.13485 5.27843 5.27968C6.13327 4.42452 7.13852 3.74743 8.29418 3.24843C9.44985 2.7496 10.6846 2.50018 11.9984 2.50018C13.3124 2.50018 14.5475 2.74952 15.7037 3.24818C16.8599 3.74685 17.8655 4.4236 18.7207 5.27843C19.5759 6.13327 20.2529 7.13852 20.7519 8.29418C21.2508 9.44985 21.5002 10.6846 21.5002 11.9984C21.5002 13.3124 21.2509 14.5475 20.7522 15.7037C20.2535 16.8599 19.5768 17.8655 18.7219 18.7207C17.8671 19.5759 16.8618 20.2529 15.7062 20.7519C14.5505 21.2508 13.3158 21.5002 12.0019 21.5002ZM12.0002 20.0002C14.2335 20.0002 16.1252 19.2252 17.6752 17.6752C19.2252 16.1252 20.0002 14.2335 20.0002 12.0002C20.0002 9.76685 19.2252 7.87518 17.6752 6.32518C16.1252 4.77518 14.2335 4.00018 12.0002 4.00018C9.76685 4.00018 7.87518 4.77518 6.32518 6.32518C4.77518 7.87518 4.00018 9.76685 4.00018 12.0002C4.00018 14.2335 4.77518 16.1252 6.32518 17.6752C7.87518 19.2252 9.76685 20.0002 12.0002 20.0002ZM12.0812 7.71943C12.5425 7.71943 12.9418 7.86468 13.2789 8.15518C13.6163 8.44568 13.7849 8.80877 13.7849 9.24443C13.7849 9.6111 13.6772 9.93927 13.4617 10.2289C13.2464 10.5188 13.0002 10.7887 12.7232 11.0387C12.3602 11.3607 12.0406 11.7149 11.7644 12.1014C11.4883 12.4878 11.3406 12.9181 11.3214 13.3924C11.3149 13.5746 11.379 13.7272 11.5137 13.8502C11.6483 13.9732 11.8053 14.0347 11.9847 14.0347C12.177 14.0347 12.3399 13.9706 12.4732 13.8424C12.6065 13.7143 12.6918 13.5573 12.7289 13.3714C12.7956 13.0278 12.9376 12.7217 13.1549 12.4532C13.3723 12.1845 13.6077 11.9291 13.8612 11.6869C14.2257 11.3316 14.5438 10.9443 14.8154 10.5249C15.0873 10.1054 15.2232 9.6376 15.2232 9.12143C15.2232 8.3291 14.911 7.6781 14.2867 7.16843C13.6624 6.65893 12.9335 6.40418 12.1002 6.40418C11.5054 6.40418 10.9444 6.53585 10.4174 6.79918C9.8906 7.06268 9.48035 7.44702 9.18668 7.95218C9.09568 8.10735 9.06652 8.2706 9.09918 8.44193C9.13168 8.61343 9.2196 8.7436 9.36293 8.83243C9.54543 8.93393 9.73285 8.96293 9.92518 8.91943C10.1175 8.87577 10.2809 8.76618 10.4154 8.59068C10.6181 8.32785 10.8633 8.11693 11.1512 7.95793C11.439 7.79893 11.749 7.71943 12.0812 7.71943Z"
+                                                    fill="#888888" />
+                                            </g>
+                                        </svg>
+                                    </a>
+                                <?php } ?>
+                            </div>
+                        </div>
+
+                        <div class="bpc-step-inputs" style="flex-wrap: wrap;">
+                            <?php foreach ($pricingData['application_items'] as $index => $application_item) {
+                                $input_id = sanitize_title($application_item['product_name']);
+                                ?>
+                                <label class="bpc-app-card" for="<?php echo $input_id; ?>">
+                                    <input type="radio" name="application" class="bpc-radio-input"
+                                        id="<?php echo $input_id; ?>" value="<?php echo $input_id; ?>" <?php echo $index == 0 ? 'checked' : ''; ?>>
+                                    <div class="bpc-app-card-icon">
+                                        <img src="<?php echo $application_item['icon']; ?>">
+                                    </div>
+                                    <div class="bpc-app-card-name"><?php echo $application_item['preview_name']; ?></div>
+                                    <?php if ($application_item['tooltips'] == 1) { ?>
+                                        <div class="bpc-app-card-info ms-auto">
                                             <a class="beton-popover text-success" tabindex="0" role="button"
                                                 data-bs-toggle="popover" data-bs-trigger="focus"
                                                 title="<?php echo $application_item['product_name']; ?>" data-bs-placement="top"
-                                                data-bs-content="<?php echo $application_item['tooltip_text']; ?>"
-                                                style="margin-left: 1px;">
+                                                data-bs-content="<?php echo $application_item['tooltip_text']; ?>">
                                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <mask id="mask0_272_967" style="mask-type:alpha" maskUnits="userSpaceOnUse"
-                                                        x="0" y="0" width="18" height="18">
+                                                    <mask id="mask0_272_967_<?php echo $index; ?>" style="mask-type:alpha"
+                                                        maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
                                                         <rect width="18" height="18" fill="#D9D9D9" />
                                                     </mask>
-                                                    <g mask="url(#mask0_272_967)">
+                                                    <g mask="url(#mask0_272_967_<?php echo $index; ?>)">
                                                         <path
                                                             d="M8.9997 12.5626C9.1592 12.5626 9.29276 12.5087 9.40039 12.4008C9.50814 12.2931 9.56201 12.1595 9.56201 12.0001V8.81262C9.56201 8.65325 9.50807 8.51962 9.4002 8.41175C9.29232 8.304 9.1587 8.25012 8.99932 8.25012C8.83982 8.25012 8.70626 8.304 8.59864 8.41175C8.49089 8.51962 8.43701 8.65325 8.43701 8.81262V12.0001C8.43701 12.1595 8.49095 12.2931 8.59882 12.4008C8.7067 12.5087 8.84032 12.5626 8.9997 12.5626ZM8.99951 6.9665C9.17114 6.9665 9.31501 6.90843 9.43114 6.79231C9.54726 6.67618 9.60532 6.53231 9.60532 6.36068C9.60532 6.18906 9.54726 6.04519 9.43114 5.92906C9.31501 5.81306 9.17114 5.75506 8.99951 5.75506C8.82789 5.75506 8.68401 5.81306 8.56789 5.92906C8.45176 6.04519 8.3937 6.18906 8.3937 6.36068C8.3937 6.53231 8.45176 6.67618 8.56789 6.79231C8.68401 6.90843 8.82789 6.9665 8.99951 6.9665ZM9.00082 16.1251C8.01532 16.1251 7.08901 15.9381 6.22189 15.5641C5.35476 15.1901 4.60051 14.6826 3.95914 14.0414C3.31776 13.4003 2.80995 12.6464 2.4357 11.7796C2.06157 10.9129 1.87451 9.98681 1.87451 9.00143C1.87451 8.01593 2.06151 7.08962 2.43551 6.2225C2.80951 5.35537 3.31707 4.60112 3.9582 3.95975C4.59932 3.31837 5.35326 2.81056 6.22001 2.43631C7.08676 2.06218 8.01282 1.87512 8.9982 1.87512C9.9837 1.87512 10.91 2.06212 11.7771 2.43612C12.6443 2.81012 13.3985 3.31768 14.0399 3.95881C14.6813 4.59993 15.1891 5.35387 15.5633 6.22062C15.9374 7.08737 16.1245 8.01343 16.1245 8.99881C16.1245 9.98431 15.9375 10.9106 15.5635 11.7777C15.1895 12.6449 14.6819 13.3991 14.0408 14.0405C13.3997 14.6819 12.6458 15.1897 11.779 15.5639C10.9123 15.9381 9.9862 16.1251 9.00082 16.1251Z"
                                                             fill="#9CA3AF" />
                                                     </g>
                                                 </svg>
                                             </a>
-                                        <?php } ?>
-                                    </div>
-                                </div>
-                                <div class="bpc-option-card-icon">
-                                    <img src="<?php echo $application_item['icon']; ?>">
-                                </div>
-                                <div class="bpc-option-card-name"><?php echo $application_item['preview_name']; ?></div>
-                            </label>
-                        <?php } ?>
-
-                    </div>
-                </div>
-
-                <!-- ── 3. Loswijze ── -->
-                <div class="bpc-section">
-                    <div class="bpc-section-head">
-                        <div class="bpc-section-head-title">Loswijze</div>
-                        <div class="bpc-section-hr"></div>
-                        <div class="bpc-info-btn">
-                            <?php if (!empty($pricingData['loose_method_tooltips'])) { ?>
-                                <a class="beton-popover text-success" tabindex="0" role="button" data-bs-toggle="popover"
-                                    data-bs-trigger="focus" title="<?php echo $pricingData['loose_method_title']; ?>"
-                                    data-bs-placement="top"
-                                    data-bs-content="<?php echo $pricingData['loose_method_tooltips']; ?>"
-                                    style="margin-left: 1px;"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <mask id="mask0_272_967" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
-                                            y="0" width="18" height="18">
-                                            <rect width="18" height="18" fill="#D9D9D9" />
-                                        </mask>
-                                        <g mask="url(#mask0_272_967)">
-                                            <path
-                                                d="M8.9997 12.5626C9.1592 12.5626 9.29276 12.5087 9.40039 12.4008C9.50814 12.2931 9.56201 12.1595 9.56201 12.0001V8.81262C9.56201 8.65325 9.50807 8.51962 9.4002 8.41175C9.29232 8.304 9.1587 8.25012 8.99932 8.25012C8.83982 8.25012 8.70626 8.304 8.59864 8.41175C8.49089 8.51962 8.43701 8.65325 8.43701 8.81262V12.0001C8.43701 12.1595 8.49095 12.2931 8.59882 12.4008C8.7067 12.5087 8.84032 12.5626 8.9997 12.5626ZM8.99951 6.9665C9.17114 6.9665 9.31501 6.90843 9.43114 6.79231C9.54726 6.67618 9.60532 6.53231 9.60532 6.36068C9.60532 6.18906 9.54726 6.04519 9.43114 5.92906C9.31501 5.81306 9.17114 5.75506 8.99951 5.75506C8.82789 5.75506 8.68401 5.81306 8.56789 5.92906C8.45176 6.04519 8.3937 6.18906 8.3937 6.36068C8.3937 6.53231 8.45176 6.67618 8.56789 6.79231C8.68401 6.90843 8.82789 6.9665 8.99951 6.9665ZM9.00082 16.1251C8.01532 16.1251 7.08901 15.9381 6.22189 15.5641C5.35476 15.1901 4.60051 14.6826 3.95914 14.0414C3.31776 13.4003 2.80995 12.6464 2.4357 11.7796C2.06157 10.9129 1.87451 9.98681 1.87451 9.00143C1.87451 8.01593 2.06151 7.08962 2.43551 6.2225C2.80951 5.35537 3.31707 4.60112 3.9582 3.95975C4.59932 3.31837 5.35326 2.81056 6.22001 2.43631C7.08676 2.06218 8.01282 1.87512 8.9982 1.87512C9.9837 1.87512 10.91 2.06212 11.7771 2.43612C12.6443 2.81012 13.3985 3.31768 14.0399 3.95881C14.6813 4.59993 15.1891 5.35387 15.5633 6.22062C15.9374 7.08737 16.1245 8.01343 16.1245 8.99881C16.1245 9.98431 15.9375 10.9106 15.5635 11.7777C15.1895 12.6449 14.6819 13.3991 14.0408 14.0405C13.3997 14.6819 12.6458 15.1897 11.779 15.5639C10.9123 15.9381 9.9862 16.1251 9.00082 16.1251Z"
-                                                fill="#9CA3AF" />
-                                        </g>
-                                    </svg>
-                                </a>
-                            <?php } ?>
-
-                        </div>
-                    </div>
-                    <div style="display:flex;flex-direction:column;gap:16px;">
-                        <div class="bpc-option-grid-2">
-                            <!-- Kruiwagen -->
-                            <label class="bpc-option-card">
-                                <input type="radio" name="releaseMethod" value="gutter" id="fromGutter"
-                                    class="bpc-radio-input" checked>
-                                <div class="bpc-card-meta">
-                                    <div class="bpc-radio"></div>
-                                </div>
-                                <div class="bpc-option-card-icon">
-                                    <svg width="41" height="30" viewBox="0 0 41 30" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M7.09424 7.64368V10.0362H8.29068V12.7H39.5197V10.0362H40.833V7.64368H7.09424Z"
-                                            fill="#555555" />
-                                        <path
-                                            d="M8.29085 15.0925V17.5862L4.57162 16.7452V0H0V2.39254H2.17906V18.657L8.29085 20.0391V26.086C8.29085 27.9684 9.82225 29.4998 11.7046 29.4998C13.2355 29.4998 14.5889 28.469 14.9957 26.993L16.4063 21.8744L32.1987 25.4457C32.3306 27.7034 34.2092 29.4997 36.4994 29.4997C38.8748 29.4997 40.8074 27.5672 40.8074 25.1916C40.8074 22.8162 38.8748 20.8836 36.4994 20.8836C35.2956 20.8836 34.2055 21.38 33.423 22.1787L38.3874 15.0923H8.29085V15.0925ZM12.6891 26.3573C12.5674 26.7988 12.1626 27.1072 11.7046 27.1072C11.1415 27.1072 10.6834 26.6491 10.6834 26.086V20.5802L14.0702 21.3461L12.6891 26.3573Z"
-                                            fill="#555555" />
-                                        <path
-                                            d="M30.004 2.23664C28.3234 0.794327 26.1783 0 23.9639 0C21.7494 0 19.6042 0.794327 17.9237 2.23664L14.4116 5.25101H33.5161L30.004 2.23664Z"
-                                            fill="#555555" />
-                                    </svg>
-
-                                </div>
-                                <div class="bpc-option-card-name"><?php echo $pricingData['loose_method_01']; ?></div>
-                            </label>
-                            <!-- Pomp -->
-                            <label class="bpc-option-card">
-                                <input type="radio" name="releaseMethod" value="pump" id="pump" class="bpc-radio-input">
-                                <div class="bpc-card-meta">
-                                    <div class="bpc-radio"></div>
-                                </div>
-                                <div class="bpc-option-card-icon" style="font-size:28px;">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/pomp.svg">
-                                </div>
-                                <div class="bpc-option-card-name"><?php echo $pricingData['loose_method_02']; ?></div>
-                            </label>
-                        </div>
-                        <!-- Mobiele betoncentrale -->
-                        <label class="bpc-mobile-card">
-                            <input type="radio" name="releaseMethod" value="gutter" id="fromGutter"
-                                class="bpc-radio-input">
-                            <div class="bpc-mobile-card-meta">
-                                <div class="bpc-radio"></div>
-                            </div>
-                            <div class="bpc-mobile-card-icon">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M39.3272 12.6788L37.4302 9.55758C37.3454 9.42424 37.1999 9.33939 37.0423 9.33939H33.7938V8.47273C33.7938 8.22424 33.5878 8.01818 33.3393 8.01818H30.4848C30.2363 8.01818 30.0302 8.22424 30.0302 8.47273V11.0909H28.5635C28.3575 10.1697 28.1029 9.25455 27.7878 8.37576L26.1211 3.75152C26.0544 3.5697 25.8848 3.44849 25.6908 3.44849H15.2423C15.0605 3.44849 14.8969 3.55758 14.8241 3.72121L13.0484 7.82424C12.5938 8.86061 12.2241 9.95758 11.9332 11.0909H10.2969V8.47273C10.2969 8.22424 10.0908 8.01818 9.84232 8.01818H6.98778C6.73929 8.01818 6.53323 8.22424 6.53323 8.47273V11.0909H5.76959L3.04838 8.37576V7.66061C3.04838 6.99394 2.50899 6.46061 1.80596 6.46061C1.14535 6.46061 0.605957 6.99394 0.605957 7.66061V18.2848C0.605957 18.9455 1.14535 19.4848 1.80596 19.4848H1.84838C2.50899 19.4848 3.04838 18.9455 3.04838 18.2848V17.5697L5.76353 14.8545H6.53323V29.2848C5.34535 29.9455 4.53929 31.2182 4.53929 32.6727C4.53929 34.8121 6.27869 36.5515 8.41808 36.5515C10.5514 36.5515 12.2908 34.8121 12.2908 32.6727C12.2908 31.8424 12.0302 31.0788 11.5878 30.4485H28.7393C28.2969 31.0788 28.0363 31.8424 28.0363 32.6727C28.0363 34.8121 29.7757 36.5515 31.9151 36.5515C34.0484 36.5515 35.7878 34.8121 35.7878 32.6727C35.7878 31.2182 34.9817 29.9455 33.7938 29.2848V26.9939H35.8302C36.0787 26.9939 36.2848 26.7879 36.2848 26.5394V25.4061H36.606C37.606 25.4061 38.4181 24.5879 38.4181 23.5879V20.7818H38.9393C39.1878 20.7818 39.3938 20.5758 39.3938 20.3273V12.9152C39.3938 12.8303 39.3696 12.7455 39.3272 12.6788ZM5.12111 14.2121L3.04838 16.2848V13.4242H5.12111V14.2121ZM5.12111 12.5152H3.04838V9.66061L5.12111 11.7333V12.5152ZM16.6423 5.32121H21.9635C22.212 5.32121 22.4181 5.52727 22.4181 5.77576C22.4181 6.02424 22.212 6.2303 21.9635 6.2303H16.6423C16.3878 6.2303 16.1878 6.02424 16.1878 5.77576C16.1878 5.52727 16.3878 5.32121 16.6423 5.32121ZM14.6666 8.81212C14.7938 8.49697 14.9272 8.18788 15.0605 7.87879L15.2847 7.36364C15.3878 7.12727 15.6544 7.02424 15.8847 7.12121C16.1151 7.21818 16.2241 7.48485 16.1211 7.71515L15.8969 8.24243C15.7635 8.54546 15.6302 8.84849 15.509 9.15152C15.4363 9.32727 15.2666 9.43636 15.0847 9.43636C15.0302 9.43636 14.9757 9.42424 14.9151 9.40606C14.6847 9.30909 14.5696 9.04243 14.6666 8.81212ZM10.2969 12H30.0302V13.9455H10.2969V12ZM25.812 26.6848H15.1514L20.4787 23.1455L25.812 26.6848ZM20.9029 20.2182C20.9029 19.9697 21.109 19.7636 21.3575 19.7636H23.6302C23.7575 19.7576 23.8969 19.7636 24.0363 19.7636C24.2787 19.7697 24.4969 19.7697 24.7151 19.7455C24.9635 19.703 25.2363 19.5697 25.4726 19.3576C25.6605 19.1939 25.9514 19.2121 26.1151 19.4C26.2787 19.5879 26.2605 19.8788 26.0726 20.0424C25.709 20.3636 25.2787 20.5697 24.8423 20.6424C24.6363 20.6727 24.4423 20.6788 24.2605 20.6788C24.1817 20.6788 24.1029 20.6727 24.0241 20.6727C23.8969 20.6727 23.7696 20.6667 23.6423 20.6727H21.3575C21.109 20.6727 20.9029 20.4727 20.9029 20.2182ZM21.1393 22.4909H24.5029C24.5514 22.4909 24.5938 22.4848 24.6423 22.4848L30.0302 26.0545V26.6848H27.4605L21.1393 22.4909ZM25.909 22.2303C27.6848 21.5636 28.9938 19.6727 29.1332 17.4061L30.0302 16.8121V24.9636L25.909 22.2303ZM26.2666 18.0667C26.3757 17.7152 26.4302 17.3152 26.4241 16.8788C26.4241 16.6303 26.6241 16.4242 26.8787 16.4182C27.1272 16.4182 27.3332 16.6182 27.3332 16.8727C27.3393 17.4 27.2726 17.8909 27.1393 18.3333C27.0787 18.5273 26.8969 18.6545 26.7029 18.6545C26.6605 18.6545 26.612 18.6485 26.5696 18.6364C26.3272 18.5576 26.1938 18.303 26.2666 18.0667ZM29.1514 16.303V16.2848C29.1514 15.7939 29.1332 15.3212 29.1029 14.8545H30.0302V15.7212L29.1514 16.303ZM10.2969 14.8545H11.2787C11.2484 15.2 11.2241 15.5515 11.206 15.9091L10.2969 15.303V14.8545ZM10.2969 16.3939L11.1757 16.9758V17.0121C11.1757 18.4667 11.6484 19.8303 12.509 20.8545C13.1575 21.6303 13.9635 22.1455 14.8423 22.3636L10.2969 25.3818V16.3939ZM10.2969 26.4727L16.3029 22.4909H19.8181L13.5029 26.6848H10.2969V26.4727ZM6.0302 13.9455V12.9758C6.0302 12.9758 6.0302 12.9758 6.0302 12.9697V12H6.53323V13.9455H6.0302ZM8.41808 35.6424C6.78172 35.6424 5.44838 34.3091 5.44838 32.6727C5.44838 31.0364 6.78172 29.703 8.41808 29.703C10.0544 29.703 11.3817 31.0364 11.3817 32.6727C11.3817 34.3091 10.0544 35.6424 8.41808 35.6424ZM10.6908 29.5394C10.5635 29.4485 10.4363 29.3636 10.2969 29.2848V27.5939H30.0302V29.2848C29.8908 29.3636 29.7635 29.4485 29.6363 29.5394H10.6908ZM34.8787 32.6727C34.8787 34.3091 33.5514 35.6424 31.9151 35.6424C30.2787 35.6424 28.9454 34.3091 28.9454 32.6727C28.9454 31.0364 30.2787 29.703 31.9151 29.703C33.5514 29.703 34.8787 31.0364 34.8787 32.6727ZM35.3757 26.0849H33.7938V20.7818H35.3757V26.0849ZM37.509 23.5879C37.509 24.0909 37.1029 24.497 36.606 24.497H36.2848V20.7818H37.509V23.5879ZM38.4848 19.8727H33.7938V10.2485H36.7878L38.4848 13.0424V19.8727Z"
-                                        fill="#555555" />
-                                    <path
-                                        d="M10.4726 32.6728C10.4726 33.8061 9.55136 34.7273 8.41803 34.7273C7.27863 34.7273 6.35742 33.8061 6.35742 32.6728C6.35742 31.5395 7.27863 30.6122 8.41803 30.6122C9.55136 30.6122 10.4726 31.5395 10.4726 32.6728Z"
-                                        fill="#555555" />
-                                    <path
-                                        d="M33.9696 32.6728C33.9696 33.8061 33.0484 34.7273 31.9151 34.7273C30.7757 34.7273 29.8545 33.8061 29.8545 32.6728C29.8545 31.5395 30.7757 30.6122 31.9151 30.6122C33.0484 30.6122 33.9696 31.5395 33.9696 32.6728Z"
-                                        fill="#555555" />
-                                    <path
-                                        d="M36.9272 11.1939V12.6485C36.9272 12.897 36.7211 13.103 36.4726 13.103H34.6484C34.3938 13.103 34.1938 12.897 34.1938 12.6485V11.1939C34.1938 10.9454 34.3938 10.7394 34.6484 10.7394H36.4726C36.7211 10.7394 36.9272 10.9454 36.9272 11.1939Z"
-                                        fill="#555555" />
-                                    <path
-                                        d="M36.7999 14.3515V15.8C36.7999 16.0545 36.5938 16.2545 36.3454 16.2545H34.6484C34.3938 16.2545 34.1938 16.0545 34.1938 15.8V14.3515C34.1938 14.103 34.3938 13.897 34.6484 13.897H36.3454C36.5938 13.897 36.7999 14.103 36.7999 14.3515Z"
-                                        fill="#555555" />
-                                    <path
-                                        d="M36.7999 17.5091V18.9576C36.7999 19.2121 36.5938 19.4121 36.3454 19.4121H34.6484C34.3938 19.4121 34.1938 19.2121 34.1938 18.9576V17.5091C34.1938 17.2606 34.3938 17.0546 34.6484 17.0546H36.3454C36.5938 17.0546 36.7999 17.2606 36.7999 17.5091Z"
-                                        fill="#555555" />
-                                    <path
-                                        d="M37.5395 14.7939C37.788 14.7939 37.9941 14.5879 37.9941 14.3394V13.5576C37.9941 13.3091 37.788 13.103 37.5395 13.103C37.291 13.103 37.085 13.3091 37.085 13.5576V14.3394C37.085 14.5879 37.291 14.7939 37.5395 14.7939Z"
-                                        fill="#555555" />
-                                    <path
-                                        d="M37.5395 17.0243C37.788 17.0243 37.9941 16.8182 37.9941 16.5697V15.7879C37.9941 15.5394 37.788 15.3334 37.5395 15.3334C37.291 15.3334 37.085 15.5394 37.085 15.7879V16.5697C37.085 16.8182 37.291 17.0243 37.5395 17.0243Z"
-                                        fill="#555555" />
-                                    <path
-                                        d="M37.5395 19.2545C37.788 19.2545 37.9941 19.0484 37.9941 18.8V18.0181C37.9941 17.7697 37.788 17.5636 37.5395 17.5636C37.291 17.5636 37.085 17.7697 37.085 18.0181V18.8C37.085 19.0545 37.291 19.2545 37.5395 19.2545Z"
-                                        fill="#555555" />
-                                </svg>
-
-                            </div>
-                            <div class="bpc-mobile-card-body">
-                                <div class="bpc-mobile-card-title-row">
-                                    <span class="bpc-mobile-card-name">Mobile betoncentral</span>
-                                    <span class="bpc-eco-badge">ECO <span class="bpc-eco-badge-dot"></span> NIEUW</span>
-                                </div>
-                                <p class="bpc-mobile-card-desc">Beton ter plekke gemaakt per 100L. Extra accuraat,
-                                    minder verspilling en milieuvriendelijk!</p>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- ── 3.5. Kies pomp ── -->
-                <div class="bpc-section" id="kies-pomp-section" style="display: none;">
-                    <div class="bpc-section-head">
-                        <div class="bpc-section-head-title">Kies pomp</div>
-                        <div class="bpc-section-hr"></div>
-                    </div>
-                    <div style="display:flex;flex-direction:column;gap:16px;">
-                        <!-- Minibeton pump -->
-                        <label class="bpc-mobile-card">
-                            <input type="checkbox" name="pump-type" id="miniPump" value="mini" class="bpc-radio-input">
-                            <div class="bpc-mobile-card-meta">
-                                <div class="bpc-radio"></div>
-                                <div class="pompafstand-section bpc-small-select-wrapper">
-                                    <label class="bpc-small-select-label d-none d-sm-block" for="">Pompafstand:</label>
-                                    <select class="bpc-small-select custom-select-box blink-shadow"
-                                        name="mini_pumping_distance">
-                                        <?php
-                                        for ($i = 5; $i <= 300; $i = $i + 5) {
-                                            echo "<option value='$i' " . ($i == 5 ? 'selected' : '') . ">$i m</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="bpc-mobile-card-icon bpc-minipump-icon">
-                                <img src="<?php echo site_url(); ?>/wp-content/uploads/2026/04/mini-betonpump.svg"
-                                    alt="">
-                            </div>
-                            <div class="bpc-mobile-card-body">
-                                <div class="bpc-mobile-card-title-row">
-                                    <span class="bpc-mobile-card-name">Betonpomp</span>
-                                </div>
-                                <ul class="list-unstyled text-custom-gray-2 text-12 poppins-400">
-                                    <li><i class="icon-tick bi bi-check"></i> Dunne, handzame slangen</li>
-                                    <li><i class="icon-tick bi bi-check"></i> Weinig arbeiders benodigd</li>
-                                    <li><i class="icon-tick bi bi-check"></i> Kosten voordelig</li>
-                                    <li><i class="icon-tick bi bi-check"></i> Ook voor lange afstanden (&gt; 250 meter)
-                                    </li>
-                                    <li><i class="icon-cross bi bi-x"></i> Kan alleen klein grind (16 mm) verpompen</li>
-                                </ul>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- ── 4. Beton Samenstelling ── -->
-                <div class="bpc-section">
-                    <div class="bpc-section-head">
-                        <div class="bpc-section-head-title">Beton samenstelling</div>
-                        <div class="bpc-section-hr"></div>
-                        <div class="bpc-info-btn">
-                            <?php if (!empty($pricingData['compound_items_tooltips'])) { ?>
-                                <a class="beton-popover text-success" tabindex="0" role="button" data-bs-toggle="popover"
-                                    data-bs-trigger="focus" title="<?php echo $pricingData['compound_items_title']; ?>"
-                                    data-bs-placement="top"
-                                    data-bs-content="<?php echo $pricingData['compound_items_tooltips']; ?>"
-                                    style="margin-left: 1px;">
-                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <mask id="mask0_272_967" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
-                                            y="0" width="18" height="18">
-                                            <rect width="18" height="18" fill="#D9D9D9"></rect>
-                                        </mask>
-                                        <g mask="url(#mask0_272_967)">
-                                            <path
-                                                d="M8.9997 12.5626C9.1592 12.5626 9.29276 12.5087 9.40039 12.4008C9.50814 12.2931 9.56201 12.1595 9.56201 12.0001V8.81262C9.56201 8.65325 9.50807 8.51962 9.4002 8.41175C9.29232 8.304 9.1587 8.25012 8.99932 8.25012C8.83982 8.25012 8.70626 8.304 8.59864 8.41175C8.49089 8.51962 8.43701 8.65325 8.43701 8.81262V12.0001C8.43701 12.1595 8.49095 12.2931 8.59882 12.4008C8.7067 12.5087 8.84032 12.5626 8.9997 12.5626ZM8.99951 6.9665C9.17114 6.9665 9.31501 6.90843 9.43114 6.79231C9.54726 6.67618 9.60532 6.53231 9.60532 6.36068C9.60532 6.18906 9.54726 6.04519 9.43114 5.92906C9.31501 5.81306 9.17114 5.75506 8.99951 5.75506C8.82789 5.75506 8.68401 5.81306 8.56789 5.92906C8.45176 6.04519 8.3937 6.18906 8.3937 6.36068C8.3937 6.53231 8.45176 6.67618 8.56789 6.79231C8.68401 6.90843 8.82789 6.9665 8.99951 6.9665ZM9.00082 16.1251C8.01532 16.1251 7.08901 15.9381 6.22189 15.5641C5.35476 15.1901 4.60051 14.6826 3.95914 14.0414C3.31776 13.4003 2.80995 12.6464 2.4357 11.7796C2.06157 10.9129 1.87451 9.98681 1.87451 9.00143C1.87451 8.01593 2.06151 7.08962 2.43551 6.2225C2.80951 5.35537 3.31707 4.60112 3.9582 3.95975C4.59932 3.31837 5.35326 2.81056 6.22001 2.43631C7.08676 2.06218 8.01282 1.87512 8.9982 1.87512C9.9837 1.87512 10.91 2.06212 11.7771 2.43612C12.6443 2.81012 13.3985 3.31768 14.0399 3.95881C14.6813 4.59993 15.1891 5.35387 15.5633 6.22062C15.9374 7.08737 16.1245 8.01343 16.1245 8.99881C16.1245 9.98431 15.9375 10.9106 15.5635 11.7777C15.1895 12.6449 14.6819 13.3991 14.0408 14.0405C13.3997 14.6819 12.6458 15.1897 11.779 15.5639C10.9123 15.9381 9.9862 16.1251 9.00082 16.1251Z"
-                                                fill="#9CA3AF"></path>
-                                        </g>
-                                    </svg>
-                                </a>
-                            <?php } ?>
-                        </div>
-                    </div>
-                    <div style="display:flex;flex-direction:column;gap:16px;">
-                        <div class="bpc-samen-grid">
-                            <!-- Standaard -->
-                            <label class="bpc-samen-card">
-                                <input type="checkbox" name="compound" value="standaard" id="standaard_input"
-                                    class="bpc-radio-input" checked>
-                                <div class="bpc-card-meta">
-                                    <div class="bpc-radio"></div>
-                                    <div class="bpc-info-btn"></div>
-                                </div>
-                                <span class="bpc-samen-icon">
-                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M8.50756 6.62345H12.6763C12.9053 6.62345 13.0927 6.81083 13.0927 7.03983V9.99789H8.09125V7.03983C8.09125 6.81083 8.27856 6.62345 8.50756 6.62345ZM30.2368 9.25902C30.7796 9.25902 31.1426 9.8087 30.9459 10.3034L30.283 12.4525C30.7449 14.4601 31 16.6595 31 18.9658C31 21.272 30.7448 23.4711 30.2829 25.4786L30.9459 27.6282C31.1426 28.1229 30.7796 28.6726 30.2368 28.6726H16.7585C16.2157 28.6726 15.8527 28.123 16.0494 27.6282L16.7124 25.4786C16.2505 23.4711 15.9953 21.272 15.9953 18.9658C15.9953 16.6595 16.2503 14.4601 16.7122 12.4525L16.0494 10.3034C15.8527 9.8087 16.2157 9.25902 16.7584 9.25902H30.2368ZM19.7495 25.9786H27.2458C27.3784 25.9786 27.5055 25.926 27.5993 25.8322C27.6931 25.7384 27.7458 25.6112 27.7458 25.4786C27.7458 25.346 27.6931 25.2189 27.5993 25.1251C27.5055 25.0313 27.3784 24.9786 27.2458 24.9786H19.7495C19.6169 24.9786 19.4897 25.0313 19.3959 25.1251C19.3022 25.2189 19.2495 25.346 19.2495 25.4786C19.2495 25.6112 19.3022 25.7384 19.3959 25.8322C19.4897 25.926 19.6169 25.9786 19.7495 25.9786ZM25.9957 22.5095H20.9996C20.867 22.5095 20.7398 22.5621 20.646 22.6559C20.5522 22.7497 20.4996 22.8768 20.4996 23.0095C20.4996 23.1421 20.5522 23.2692 20.646 23.363C20.7398 23.4568 20.867 23.5095 20.9996 23.5095H25.9957C26.1283 23.5095 26.2555 23.4568 26.3492 23.363C26.443 23.2692 26.4957 23.1421 26.4957 23.0095C26.4957 22.8768 26.443 22.7497 26.3492 22.6559C26.2555 22.5621 26.1283 22.5095 25.9957 22.5095ZM19.7495 12.9525H27.2458C27.3784 12.9525 27.5055 12.8998 27.5993 12.806C27.6931 12.7122 27.7458 12.5851 27.7458 12.4525C27.7458 12.3198 27.6931 12.1927 27.5993 12.0989C27.5055 12.0051 27.3784 11.9525 27.2458 11.9525H19.7495C19.6169 11.9525 19.4897 12.0051 19.3959 12.0989C19.3022 12.1927 19.2495 12.3198 19.2495 12.4525C19.2495 12.5851 19.3022 12.7122 19.3959 12.806C19.4897 12.8998 19.6169 12.9525 19.7495 12.9525ZM25.9957 14.4216H20.9996C20.867 14.4216 20.7398 14.4743 20.646 14.5681C20.5522 14.6619 20.4996 14.789 20.4996 14.9216C20.4996 15.0542 20.5522 15.1814 20.646 15.2752C20.7398 15.369 20.867 15.4216 20.9996 15.4216H25.9957C26.1283 15.4216 26.2555 15.369 26.3492 15.2752C26.443 15.1814 26.4957 15.0542 26.4957 14.9216C26.4957 14.789 26.443 14.6619 26.3492 14.5681C26.2555 14.4743 26.1283 14.4216 25.9957 14.4216ZM8.77337 23.1743C10.2917 23.1743 11.5225 24.4051 11.5225 25.9234C11.5225 27.4417 10.2917 28.6725 8.77337 28.6725C7.25506 28.6725 6.02425 27.4417 6.02425 25.9234C6.02425 24.4051 7.25506 23.1743 8.77337 23.1743ZM8.77337 24.8041C8.15519 24.8041 7.65406 25.3052 7.65406 25.9234C7.65406 26.5416 8.15519 27.0427 8.77337 27.0427C9.39156 27.0427 9.89269 26.5416 9.89269 25.9234C9.89269 25.3052 9.39156 24.8041 8.77337 24.8041ZM15.5288 25.9234L15.6784 25.4383C15.2126 23.3183 14.9953 21.1345 14.9953 18.9658C14.9953 17.3614 15.1142 15.7488 15.3646 14.1599H2.10344L4.83375 23.0118C4.97069 23.4558 5.1745 23.862 5.43225 24.2212C6.05256 23.0063 7.31594 22.1743 8.77337 22.1743C10.8436 22.1743 12.5225 23.8531 12.5225 25.9234H15.5288ZM1.375 10.9979H15.2172L15.6783 12.4928C15.6296 12.7146 15.5836 12.937 15.5403 13.1599H1.375C1.16875 13.1599 1 12.9911 1 12.7849V11.3728C1 11.1666 1.16875 10.9979 1.375 10.9979ZM14.0926 7.94389V9.99789H14.9948C15.0083 9.07658 15.7574 8.25902 16.7585 8.25902H17.5851C17.5396 8.07852 17.3754 7.94389 17.1813 7.94389H14.0926ZM2.45881 7.85152L6.06906 5.76714C6.26737 5.65264 6.52331 5.7212 6.63781 5.91958L7.12019 6.75508C7.10089 6.84877 7.0912 6.94418 7.09125 7.03983V9.99789H3.21731L2.30644 8.42027C2.19194 8.22196 2.2605 7.96602 2.45881 7.85152ZM10.226 5.62345H12.6763C13.4231 5.62345 14.0396 6.20914 14.0893 6.94389H15.2274V3.74377C15.2274 3.51477 15.0401 3.32739 14.8111 3.32739H10.6423C10.4133 3.32739 10.2259 3.51477 10.2259 3.74377L10.226 5.62345Z"
-                                            fill="#444444" />
-                                    </svg>
-                                </span>
-                                <div class="bpc-samen-inner">
-                                    <div class="bpc-samen-name">Standaard</div>
-                                    <div class="bpc-samen-price">€0,00 / m<sup>3</sup></div>
-                                </div>
-                            </label>
-
-                            <?php foreach ($pricingData['compound_items'] as $index => $compound_item) { ?>
-                                <label class="bpc-samen-card">
-                                    <input type="checkbox"
-                                        id="<?php echo sanitize_title($compound_item['product_name']); ?>_input"
-                                        name="compound"
-                                        value="<?php echo sanitize_title($compound_item['product_name']); ?>"
-                                        class="bpc-radio-input">
-                                    <div class="bpc-card-meta">
-                                        <div class="bpc-radio"></div>
-                                        <div class="bpc-info-btn"></div>
-                                    </div>
-                                    <span class="bpc-samen-icon">
-                                        <img width="32" height="32" src="<?php echo $compound_item['icon']; ?>"
-                                            alt="Vloeibaar">
-
-                                    </span>
-                                    <div class="bpc-samen-inner">
-                                        <div class="bpc-samen-name"><?php echo $compound_item['preview_name']; ?></div>
-                                        <div class="bpc-samen-price">
-                                            <?php echo wc_price($compound_item['price_excl_tax']); ?> / m<sup>3</sup>
                                         </div>
-                                    </div>
+                                    <?php } ?>
                                 </label>
                             <?php } ?>
                         </div>
                     </div>
-                </div>
 
-                <!-- ── 5. Uitvoering ── -->
-                <div class="bpc-section">
-                    <div class="bpc-section-head">
-                        <div class="bpc-section-head-title">Uitvoering</div>
-                        <div class="bpc-section-hr"></div>
-                    </div>
-                    <div class="bpc-uitv-grid">
-                        <!-- Doe het zelf -->
-                        <label class="bpc-uitv-card">
-                            <input type="radio" name="performance" value="performSelf" id="performSelf"
-                                class="bpc-radio-input" checked>
-                            <div class="bpc-uitv-top">
-                                <div class="bpc-radio"></div>
-                                <div class="bpc-uitv-title">Doe het zelf</div>
-                            </div>
-                            <div class="bpc-uitv-desc">De klant stort het beton zelf en helpt de chauffeur na levering
-                                met het uitrollen en reinigen van de slangen. Afwerking is niet inbegrepen.</div>
-                        </label>
-                        <!-- All-in -->
-                        <label class="bpc-uitv-card">
-                            <input type="radio" name="performance" id="allIn" value="allIn" class="bpc-radio-input">
-                            <div class="bpc-uitv-top">
-                                <div class="bpc-radio"></div>
-                                <div class="bpc-uitv-title">All-in</div>
-                                <div class="bpc-uitv-price"><span id="allIn_formatted"><?php echo wc_price(0); ?></span>
-                                </div>
-                            </div>
-                            <div class="bpc-uitv-desc">Wij verzorgen alles: de vloer wordt gestort, gelijkmatig verdeeld
-                                en grof afgewerkt met een hark. De klant hoeft niets te doen.</div>
-                        </label>
-                    </div>
-                </div>
+                    <!-- ── Loswijze - stop ── -->
+                    <div class="bpc-section d-none">
+                        <div class="bpc-section-head">
+                            <div class="bpc-section-head-title">Loswijze</div>
+                            <div class="bpc-section-hr"></div>
+                            <div class="bpc-info-btn">
+                                <?php if (!empty($pricingData['loose_method_tooltips'])) { ?>
+                                    <a class="beton-popover text-success" tabindex="0" role="button"
+                                        data-bs-toggle="popover" data-bs-trigger="focus"
+                                        title="<?php echo $pricingData['loose_method_title']; ?>" data-bs-placement="top"
+                                        data-bs-content="<?php echo $pricingData['loose_method_tooltips']; ?>"
+                                        style="margin-left: 1px;"><svg width="18" height="18" viewBox="0 0 18 18"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <mask id="mask0_272_967" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="18" height="18">
+                                                <rect width="18" height="18" fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_272_967)">
+                                                <path
+                                                    d="M8.9997 12.5626C9.1592 12.5626 9.29276 12.5087 9.40039 12.4008C9.50814 12.2931 9.56201 12.1595 9.56201 12.0001V8.81262C9.56201 8.65325 9.50807 8.51962 9.4002 8.41175C9.29232 8.304 9.1587 8.25012 8.99932 8.25012C8.83982 8.25012 8.70626 8.304 8.59864 8.41175C8.49089 8.51962 8.43701 8.65325 8.43701 8.81262V12.0001C8.43701 12.1595 8.49095 12.2931 8.59882 12.4008C8.7067 12.5087 8.84032 12.5626 8.9997 12.5626ZM8.99951 6.9665C9.17114 6.9665 9.31501 6.90843 9.43114 6.79231C9.54726 6.67618 9.60532 6.53231 9.60532 6.36068C9.60532 6.18906 9.54726 6.04519 9.43114 5.92906C9.31501 5.81306 9.17114 5.75506 8.99951 5.75506C8.82789 5.75506 8.68401 5.81306 8.56789 5.92906C8.45176 6.04519 8.3937 6.18906 8.3937 6.36068C8.3937 6.53231 8.45176 6.67618 8.56789 6.79231C8.68401 6.90843 8.82789 6.9665 8.99951 6.9665ZM9.00082 16.1251C8.01532 16.1251 7.08901 15.9381 6.22189 15.5641C5.35476 15.1901 4.60051 14.6826 3.95914 14.0414C3.31776 13.4003 2.80995 12.6464 2.4357 11.7796C2.06157 10.9129 1.87451 9.98681 1.87451 9.00143C1.87451 8.01593 2.06151 7.08962 2.43551 6.2225C2.80951 5.35537 3.31707 4.60112 3.9582 3.95975C4.59932 3.31837 5.35326 2.81056 6.22001 2.43631C7.08676 2.06218 8.01282 1.87512 8.9982 1.87512C9.9837 1.87512 10.91 2.06212 11.7771 2.43612C12.6443 2.81012 13.3985 3.31768 14.0399 3.95881C14.6813 4.59993 15.1891 5.35387 15.5633 6.22062C15.9374 7.08737 16.1245 8.01343 16.1245 8.99881C16.1245 9.98431 15.9375 10.9106 15.5635 11.7777C15.1895 12.6449 14.6819 13.3991 14.0408 14.0405C13.3997 14.6819 12.6458 15.1897 11.779 15.5639C10.9123 15.9381 9.9862 16.1251 9.00082 16.1251Z"
+                                                    fill="#9CA3AF" />
+                                            </g>
+                                        </svg>
+                                    </a>
+                                <?php } ?>
 
-                <div class="bpc-notice-box">
-                    <div class="bpc-notice-box-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V11H13V17ZM13 9H11V7H13V9Z"
-                                fill="currentColor" />
-                        </svg>
-                    </div>
-                    <div class="bpc-notice-box-content">
-                        <strong>Let op:</strong> Onderstaande opties zijn alleen beschikbaar in
-                        combinatie met de All-in uitvoering.
-                    </div>
-                </div>
+                            </div>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:16px;">
+                            <div class="bpc-option-grid-2">
+                                <!-- Kruiwagen -->
+                                <label class="bpc-option-card">
+                                    <input type="radio" name="releaseMethod" value="gutter" id="fromGutter"
+                                        class="bpc-radio-input" checked>
+                                    <div class="bpc-card-meta">
+                                        <div class="bpc-radio"></div>
+                                    </div>
+                                    <div class="bpc-option-card-icon">
+                                        <svg width="41" height="30" viewBox="0 0 41 30" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M7.09424 7.64368V10.0362H8.29068V12.7H39.5197V10.0362H40.833V7.64368H7.09424Z"
+                                                fill="#555555" />
+                                            <path
+                                                d="M8.29085 15.0925V17.5862L4.57162 16.7452V0H0V2.39254H2.17906V18.657L8.29085 20.0391V26.086C8.29085 27.9684 9.82225 29.4998 11.7046 29.4998C13.2355 29.4998 14.5889 28.469 14.9957 26.993L16.4063 21.8744L32.1987 25.4457C32.3306 27.7034 34.2092 29.4997 36.4994 29.4997C38.8748 29.4997 40.8074 27.5672 40.8074 25.1916C40.8074 22.8162 38.8748 20.8836 36.4994 20.8836C35.2956 20.8836 34.2055 21.38 33.423 22.1787L38.3874 15.0923H8.29085V15.0925ZM12.6891 26.3573C12.5674 26.7988 12.1626 27.1072 11.7046 27.1072C11.1415 27.1072 10.6834 26.6491 10.6834 26.086V20.5802L14.0702 21.3461L12.6891 26.3573Z"
+                                                fill="#555555" />
+                                            <path
+                                                d="M30.004 2.23664C28.3234 0.794327 26.1783 0 23.9639 0C21.7494 0 19.6042 0.794327 17.9237 2.23664L14.4116 5.25101H33.5161L30.004 2.23664Z"
+                                                fill="#555555" />
+                                        </svg>
 
-                <!-- ── 6. Vlindervloer ── -->
-                <div class="bpc-section">
-                    <div class="bpc-section-head">
-                        <div class="bpc-section-head-title">Vlindervloer</div>
-                        <div class="bpc-section-hr"></div>
-                    </div>
-                    <div class="bpc-vlinder-row">
-                        <select class="bpc-select-input" id="surface" name="surface">
-                            <option value="0">Selecteer oppervlak</option>
-                            <?php
-                            foreach (get_field('oppervlakte', 'option') as $i => $surface_option) {
-                                echo '<option value="' . $surface_option['size'] . '">' . $surface_option['size'] . ' m2</option>';
-                            }
-                            ?>
-                        </select>
-                        <select class="bpc-select-input" id="num-rooms" name="num-rooms">
-                            <option value="0">Selecteer aantal ruimtes</option>
-                            <?php for ($i = 1; $i < 11; $i++) {
-                                echo "<option value='$i'>$i</option>";
-                            } ?>
-                        </select>
-                    </div>
-                    <div class="bpc-input-group position-relative">
-                        <label for="layer-thickness" class="bpc-input-label">Laagdikte</label>
-                        <select class="bpc-select-input" id="layer-thickness" name="layer-thickness">
-                            <option value="5-10" selected>5-10 cm</option>
-                            <option value="11-15">11-15 cm</option>
-                            <option value="15-20">15-20 cm</option>
-                            <option value="20-9999">&gt;20 cm</option>
-                        </select>
-                    </div>
-                    <!-- Vloer afwerking -->
-                    <div class="bpc-uitv-grid">
-                        <!-- Verdiepingsvloer -->
-                        <label class="bpc-uitv-card">
-                            <input type="checkbox" id="mezzanine-floor" name="floor_selection" value="1"
-                                class="bpc-radio-input">
-                            <div class="bpc-uitv-top">
-                                <div class="bpc-radio"></div>
-                                <div class="bpc-uitv-title">Verdiepingsvloer</div>
-                                <div class="bpc-uitv-price">
-                                    <?php
-                                    $verdiepingsvloer_tooltip = get_field('opties_verdiepingsvloer_tooltip', 'option');
-                                    if (!empty($verdiepingsvloer_tooltip)) { ?>
-                                        <a class="beton-popover text-success" tabindex="0" role="button"
-                                            data-bs-toggle="popover" data-bs-trigger="focus" title="Verdiepingsvloer"
-                                            data-bs-placement="top"
-                                            data-bs-content="<?php echo esc_html($verdiepingsvloer_tooltip); ?>">
-                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <mask id="mask0_272_967" style="mask-type:alpha" maskUnits="userSpaceOnUse"
-                                                    x="0" y="0" width="18" height="18">
-                                                    <rect width="18" height="18" fill="#D9D9D9"></rect>
-                                                </mask>
-                                                <g mask="url(#mask0_272_967)">
-                                                    <path
-                                                        d="M8.9997 12.5626C9.1592 12.5626 9.29276 12.5087 9.40039 12.4008C9.50814 12.2931 9.56201 12.1595 9.56201 12.0001V8.81262C9.56201 8.65325 9.50807 8.51962 9.4002 8.41175C9.29232 8.304 9.1587 8.25012 8.99932 8.25012C8.83982 8.25012 8.70626 8.304 8.59864 8.41175C8.49089 8.51962 8.43701 8.65325 8.43701 8.81262V12.0001C8.43701 12.1595 8.49095 12.2931 8.59882 12.4008C8.7067 12.5087 8.84032 12.5626 8.9997 12.5626ZM8.99951 6.9665C9.17114 6.9665 9.31501 6.90843 9.43114 6.79231C9.54726 6.67618 9.60532 6.53231 9.60532 6.36068C9.60532 6.18906 9.54726 6.04519 9.43114 5.92906C9.31501 5.81306 9.17114 5.75506 8.99951 5.75506C8.82789 5.75506 8.68401 5.81306 8.56789 5.92906C8.45176 6.04519 8.3937 6.18906 8.3937 6.36068C8.3937 6.53231 8.45176 6.67618 8.56789 6.79231C8.68401 6.90843 8.82789 6.9665 8.99951 6.9665ZM9.00082 16.1251C8.01532 16.1251 7.08901 15.9381 6.22189 15.5641C5.35476 15.1901 4.60051 14.6826 3.95914 14.0414C3.31776 13.4003 2.80995 12.6464 2.4357 11.7796C2.06157 10.9129 1.87451 9.98681 1.87451 9.00143C1.87451 8.01593 2.06151 7.08962 2.43551 6.2225C2.80951 5.35537 3.31707 4.60112 3.9582 3.95975C4.59932 3.31837 5.35326 2.81056 6.22001 2.43631C7.08676 2.06218 8.01282 1.87512 8.9982 1.87512C9.9837 1.87512 10.91 2.06212 11.7771 2.43612C12.6443 2.81012 13.3985 3.31768 14.0399 3.95881C14.6813 4.59993 15.1891 5.35387 15.5633 6.22062C15.9374 7.08737 16.1245 8.01343 16.1245 8.99881C16.1245 9.98431 15.9375 10.9106 15.5635 11.7777C15.1895 12.6449 14.6819 13.3991 14.0408 14.0405C13.3997 14.6819 12.6458 15.1897 11.779 15.5639C10.9123 15.9381 9.9862 16.1251 9.00082 16.1251Z"
-                                                        fill="#9CA3AF"></path>
-                                                </g>
-                                            </svg>
-                                        </a>
-                                    <?php } ?>
-                                </div>
+                                    </div>
+                                    <div class="bpc-option-card-name"><?php echo $pricingData['loose_method_01']; ?>
+                                    </div>
+                                </label>
+                                <!-- Pomp -->
+                                <label class="bpc-option-card">
+                                    <input type="radio" name="releaseMethod" value="pump" id="pump"
+                                        class="bpc-radio-input">
+                                    <div class="bpc-card-meta">
+                                        <div class="bpc-radio"></div>
+                                    </div>
+                                    <div class="bpc-option-card-icon" style="font-size:28px;">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/pomp.svg">
+                                    </div>
+                                    <div class="bpc-option-card-name"><?php echo $pricingData['loose_method_02']; ?>
+                                    </div>
+                                </label>
                             </div>
-                        </label>
-                        <!-- Vlindervloer -->
-                        <label class="bpc-uitv-card">
-                            <input type="checkbox" id="butterfly-floor" name="butterfly-floor" value="1"
-                                class="bpc-radio-input">
-                            <div class="bpc-uitv-top">
-                                <div class="bpc-radio"></div>
-                                <div class="bpc-uitv-title">Vlindervloer</div>
-                                <div class="bpc-uitv-price">
-                                    <?php
-                                    $vlindervloer_tooltip = get_field('opties_vlindervloer_tooltip', 'option');
-                                    if (!empty($vlindervloer_tooltip)) { ?>
-                                        <a class="beton-popover text-success" tabindex="0" role="button"
-                                            data-bs-toggle="popover" data-bs-trigger="focus" title="Vlindervloer"
-                                            data-bs-placement="top"
-                                            data-bs-content="<?php echo esc_html($vlindervloer_tooltip); ?>">
-                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <mask id="mask0_272_967" style="mask-type:alpha" maskUnits="userSpaceOnUse"
-                                                    x="0" y="0" width="18" height="18">
-                                                    <rect width="18" height="18" fill="#D9D9D9"></rect>
-                                                </mask>
-                                                <g mask="url(#mask0_272_967)">
-                                                    <path
-                                                        d="M8.9997 12.5626C9.1592 12.5626 9.29276 12.5087 9.40039 12.4008C9.50814 12.2931 9.56201 12.1595 9.56201 12.0001V8.81262C9.56201 8.65325 9.50807 8.51962 9.4002 8.41175C9.29232 8.304 9.1587 8.25012 8.99932 8.25012C8.83982 8.25012 8.70626 8.304 8.59864 8.41175C8.49089 8.51962 8.43701 8.65325 8.43701 8.81262V12.0001C8.43701 12.1595 8.49095 12.2931 8.59882 12.4008C8.7067 12.5087 8.84032 12.5626 8.9997 12.5626ZM8.99951 6.9665C9.17114 6.9665 9.31501 6.90843 9.43114 6.79231C9.54726 6.67618 9.60532 6.53231 9.60532 6.36068C9.60532 6.18906 9.54726 6.04519 9.43114 5.92906C9.31501 5.81306 9.17114 5.75506 8.99951 5.75506C8.82789 5.75506 8.68401 5.81306 8.56789 5.92906C8.45176 6.04519 8.3937 6.18906 8.3937 6.36068C8.3937 6.53231 8.45176 6.67618 8.56789 6.79231C8.68401 6.90843 8.82789 6.9665 8.99951 6.9665ZM9.00082 16.1251C8.01532 16.1251 7.08901 15.9381 6.22189 15.5641C5.35476 15.1901 4.60051 14.6826 3.95914 14.0414C3.31776 13.4003 2.80995 12.6464 2.4357 11.7796C2.06157 10.9129 1.87451 9.98681 1.87451 9.00143C1.87451 8.01593 2.06151 7.08962 2.43551 6.2225C2.80951 5.35537 3.31707 4.60112 3.9582 3.95975C4.59932 3.31837 5.35326 2.81056 6.22001 2.43631C7.08676 2.06218 8.01282 1.87512 8.9982 1.87512C9.9837 1.87512 10.91 2.06212 11.7771 2.43612C12.6443 2.81012 13.3985 3.31768 14.0399 3.95881C14.6813 4.59993 15.1891 5.35387 15.5633 6.22062C15.9374 7.08737 16.1245 8.01343 16.1245 8.99881C16.1245 9.98431 15.9375 10.9106 15.5635 11.7777C15.1895 12.6449 14.6819 13.3991 14.0408 14.0405C13.3997 14.6819 12.6458 15.1897 11.779 15.5639C10.9123 15.9381 9.9862 16.1251 9.00082 16.1251Z"
-                                                        fill="#9CA3AF"></path>
-                                                </g>
-                                            </svg>
-                                        </a>
-                                    <?php } ?>
+                            <!-- Mobiele betoncentrale -->
+                            <label class="bpc-mobile-card">
+                                <input type="radio" name="releaseMethod" value="gutter" id="fromGutter"
+                                    class="bpc-radio-input">
+                                <div class="bpc-mobile-card-meta">
+                                    <div class="bpc-radio"></div>
                                 </div>
-                            </div>
-                        </label>
+                                <div class="bpc-mobile-card-icon">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M39.3272 12.6788L37.4302 9.55758C37.3454 9.42424 37.1999 9.33939 37.0423 9.33939H33.7938V8.47273C33.7938 8.22424 33.5878 8.01818 33.3393 8.01818H30.4848C30.2363 8.01818 30.0302 8.22424 30.0302 8.47273V11.0909H28.5635C28.3575 10.1697 28.1029 9.25455 27.7878 8.37576L26.1211 3.75152C26.0544 3.5697 25.8848 3.44849 25.6908 3.44849H15.2423C15.0605 3.44849 14.8969 3.55758 14.8241 3.72121L13.0484 7.82424C12.5938 8.86061 12.2241 9.95758 11.9332 11.0909H10.2969V8.47273C10.2969 8.22424 10.0908 8.01818 9.84232 8.01818H6.98778C6.73929 8.01818 6.53323 8.22424 6.53323 8.47273V11.0909H5.76959L3.04838 8.37576V7.66061C3.04838 6.99394 2.50899 6.46061 1.80596 6.46061C1.14535 6.46061 0.605957 6.99394 0.605957 7.66061V18.2848C0.605957 18.9455 1.14535 19.4848 1.80596 19.4848H1.84838C2.50899 19.4848 3.04838 18.9455 3.04838 18.2848V17.5697L5.76353 14.8545H6.53323V29.2848C5.34535 29.9455 4.53929 31.2182 4.53929 32.6727C4.53929 34.8121 6.27869 36.5515 8.41808 36.5515C10.5514 36.5515 12.2908 34.8121 12.2908 32.6727C12.2908 31.8424 12.0302 31.0788 11.5878 30.4485H28.7393C28.2969 31.0788 28.0363 31.8424 28.0363 32.6727C28.0363 34.8121 29.7757 36.5515 31.9151 36.5515C34.0484 36.5515 35.7878 34.8121 35.7878 32.6727C35.7878 31.2182 34.9817 29.9455 33.7938 29.2848V26.9939H35.8302C36.0787 26.9939 36.2848 26.7879 36.2848 26.5394V25.4061H36.606C37.606 25.4061 38.4181 24.5879 38.4181 23.5879V20.7818H38.9393C39.1878 20.7818 39.3938 20.5758 39.3938 20.3273V12.9152C39.3938 12.8303 39.3696 12.7455 39.3272 12.6788ZM5.12111 14.2121L3.04838 16.2848V13.4242H5.12111V14.2121ZM5.12111 12.5152H3.04838V9.66061L5.12111 11.7333V12.5152ZM16.6423 5.32121H21.9635C22.212 5.32121 22.4181 5.52727 22.4181 5.77576C22.4181 6.02424 22.212 6.2303 21.9635 6.2303H16.6423C16.3878 6.2303 16.1878 6.02424 16.1878 5.77576C16.1878 5.52727 16.3878 5.32121 16.6423 5.32121ZM14.6666 8.81212C14.7938 8.49697 14.9272 8.18788 15.0605 7.87879L15.2847 7.36364C15.3878 7.12727 15.6544 7.02424 15.8847 7.12121C16.1151 7.21818 16.2241 7.48485 16.1211 7.71515L15.8969 8.24243C15.7635 8.54546 15.6302 8.84849 15.509 9.15152C15.4363 9.32727 15.2666 9.43636 15.0847 9.43636C15.0302 9.43636 14.9757 9.42424 14.9151 9.40606C14.6847 9.30909 14.5696 9.04243 14.6666 8.81212ZM10.2969 12H30.0302V13.9455H10.2969V12ZM25.812 26.6848H15.1514L20.4787 23.1455L25.812 26.6848ZM20.9029 20.2182C20.9029 19.9697 21.109 19.7636 21.3575 19.7636H23.6302C23.7575 19.7576 23.8969 19.7636 24.0363 19.7636C24.2787 19.7697 24.4969 19.7697 24.7151 19.7455C24.9635 19.703 25.2363 19.5697 25.4726 19.3576C25.6605 19.1939 25.9514 19.2121 26.1151 19.4C26.2787 19.5879 26.2605 19.8788 26.0726 20.0424C25.709 20.3636 25.2787 20.5697 24.8423 20.6424C24.6363 20.6727 24.4423 20.6788 24.2605 20.6788C24.1817 20.6788 24.1029 20.6727 24.0241 20.6727C23.8969 20.6727 23.7696 20.6667 23.6423 20.6727H21.3575C21.109 20.6727 20.9029 20.4727 20.9029 20.2182ZM21.1393 22.4909H24.5029C24.5514 22.4909 24.5938 22.4848 24.6423 22.4848L30.0302 26.0545V26.6848H27.4605L21.1393 22.4909ZM25.909 22.2303C27.6848 21.5636 28.9938 19.6727 29.1332 17.4061L30.0302 16.8121V24.9636L25.909 22.2303ZM26.2666 18.0667C26.3757 17.7152 26.4302 17.3152 26.4241 16.8788C26.4241 16.6303 26.6241 16.4242 26.8787 16.4182C27.1272 16.4182 27.3332 16.6182 27.3332 16.8727C27.3393 17.4 27.2726 17.8909 27.1393 18.3333C27.0787 18.5273 26.8969 18.6545 26.7029 18.6545C26.6605 18.6545 26.612 18.6485 26.5696 18.6364C26.3272 18.5576 26.1938 18.303 26.2666 18.0667ZM29.1514 16.303V16.2848C29.1514 15.7939 29.1332 15.3212 29.1029 14.8545H30.0302V15.7212L29.1514 16.303ZM10.2969 14.8545H11.2787C11.2484 15.2 11.2241 15.5515 11.206 15.9091L10.2969 15.303V14.8545ZM10.2969 16.3939L11.1757 16.9758V17.0121C11.1757 18.4667 11.6484 19.8303 12.509 20.8545C13.1575 21.6303 13.9635 22.1455 14.8423 22.3636L10.2969 25.3818V16.3939ZM10.2969 26.4727L16.3029 22.4909H19.8181L13.5029 26.6848H10.2969V26.4727ZM6.0302 13.9455V12.9758C6.0302 12.9758 6.0302 12.9758 6.0302 12.9697V12H6.53323V13.9455H6.0302ZM8.41808 35.6424C6.78172 35.6424 5.44838 34.3091 5.44838 32.6727C5.44838 31.0364 6.78172 29.703 8.41808 29.703C10.0544 29.703 11.3817 31.0364 11.3817 32.6727C11.3817 34.3091 10.0544 35.6424 8.41808 35.6424ZM10.6908 29.5394C10.5635 29.4485 10.4363 29.3636 10.2969 29.2848V27.5939H30.0302V29.2848C29.8908 29.3636 29.7635 29.4485 29.6363 29.5394H10.6908ZM34.8787 32.6727C34.8787 34.3091 33.5514 35.6424 31.9151 35.6424C30.2787 35.6424 28.9454 34.3091 28.9454 32.6727C28.9454 31.0364 30.2787 29.703 31.9151 29.703C33.5514 29.703 34.8787 31.0364 34.8787 32.6727ZM35.3757 26.0849H33.7938V20.7818H35.3757V26.0849ZM37.509 23.5879C37.509 24.0909 37.1029 24.497 36.606 24.497H36.2848V20.7818H37.509V23.5879ZM38.4848 19.8727H33.7938V10.2485H36.7878L38.4848 13.0424V19.8727Z"
+                                            fill="#555555" />
+                                        <path
+                                            d="M10.4726 32.6728C10.4726 33.8061 9.55136 34.7273 8.41803 34.7273C7.27863 34.7273 6.35742 33.8061 6.35742 32.6728C6.35742 31.5395 7.27863 30.6122 8.41803 30.6122C9.55136 30.6122 10.4726 31.5395 10.4726 32.6728Z"
+                                            fill="#555555" />
+                                        <path
+                                            d="M33.9696 32.6728C33.9696 33.8061 33.0484 34.7273 31.9151 34.7273C30.7757 34.7273 29.8545 33.8061 29.8545 32.6728C29.8545 31.5395 30.7757 30.6122 31.9151 30.6122C33.0484 30.6122 33.9696 31.5395 33.9696 32.6728Z"
+                                            fill="#555555" />
+                                        <path
+                                            d="M36.9272 11.1939V12.6485C36.9272 12.897 36.7211 13.103 36.4726 13.103H34.6484C34.3938 13.103 34.1938 12.897 34.1938 12.6485V11.1939C34.1938 10.9454 34.3938 10.7394 34.6484 10.7394H36.4726C36.7211 10.7394 36.9272 10.9454 36.9272 11.1939Z"
+                                            fill="#555555" />
+                                        <path
+                                            d="M36.7999 14.3515V15.8C36.7999 16.0545 36.5938 16.2545 36.3454 16.2545H34.6484C34.3938 16.2545 34.1938 16.0545 34.1938 15.8V14.3515C34.1938 14.103 34.3938 13.897 34.6484 13.897H36.3454C36.5938 13.897 36.7999 14.103 36.7999 14.3515Z"
+                                            fill="#555555" />
+                                        <path
+                                            d="M36.7999 17.5091V18.9576C36.7999 19.2121 36.5938 19.4121 36.3454 19.4121H34.6484C34.3938 19.4121 34.1938 19.2121 34.1938 18.9576V17.5091C34.1938 17.2606 34.3938 17.0546 34.6484 17.0546H36.3454C36.5938 17.0546 36.7999 17.2606 36.7999 17.5091Z"
+                                            fill="#555555" />
+                                        <path
+                                            d="M37.5395 14.7939C37.788 14.7939 37.9941 14.5879 37.9941 14.3394V13.5576C37.9941 13.3091 37.788 13.103 37.5395 13.103C37.291 13.103 37.085 13.3091 37.085 13.5576V14.3394C37.085 14.5879 37.291 14.7939 37.5395 14.7939Z"
+                                            fill="#555555" />
+                                        <path
+                                            d="M37.5395 17.0243C37.788 17.0243 37.9941 16.8182 37.9941 16.5697V15.7879C37.9941 15.5394 37.788 15.3334 37.5395 15.3334C37.291 15.3334 37.085 15.5394 37.085 15.7879V16.5697C37.085 16.8182 37.291 17.0243 37.5395 17.0243Z"
+                                            fill="#555555" />
+                                        <path
+                                            d="M37.5395 19.2545C37.788 19.2545 37.9941 19.0484 37.9941 18.8V18.0181C37.9941 17.7697 37.788 17.5636 37.5395 17.5636C37.291 17.5636 37.085 17.7697 37.085 18.0181V18.8C37.085 19.0545 37.291 19.2545 37.5395 19.2545Z"
+                                            fill="#555555" />
+                                    </svg>
+
+                                </div>
+                                <div class="bpc-mobile-card-body">
+                                    <div class="bpc-mobile-card-title-row">
+                                        <span class="bpc-mobile-card-name">Mobile betoncentral</span>
+                                        <span class="bpc-eco-badge">ECO <span class="bpc-eco-badge-dot"></span>
+                                            NIEUW</span>
+                                    </div>
+                                    <p class="bpc-mobile-card-desc">Beton ter plekke gemaakt per 100L. Extra accuraat,
+                                        minder verspilling en milieuvriendelijk!</p>
+                                </div>
+                            </label>
+                        </div>
                     </div>
-                    <div class="bpc-vlinder-note">
-                        <div class="bpc-vlinder-note-icon">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+
+
+                    <!-- ── Kies pomp  - stop ── -->
+                    <div class="bpc-section" id="kies-pomp-section" style="display: none;">
+                        <div class="bpc-section-head">
+                            <div class="bpc-section-head-title">Kies pomp</div>
+                            <div class="bpc-section-hr"></div>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:16px;">
+                            <!-- Minibeton pump -->
+                            <label class="bpc-mobile-card">
+                                <input type="checkbox" name="pump-type" id="miniPump" value="mini"
+                                    class="bpc-radio-input">
+                                <div class="bpc-mobile-card-meta">
+                                    <div class="bpc-radio"></div>
+                                    <div class="pompafstand-section bpc-small-select-wrapper">
+                                        <label class="bpc-small-select-label d-none d-sm-block"
+                                            for="">Pompafstand:</label>
+                                        <select class="bpc-small-select custom-select-box blink-shadow"
+                                            name="mini_pumping_distance">
+                                            <?php
+                                            for ($i = 5; $i <= 300; $i = $i + 5) {
+                                                echo "<option value='$i' " . ($i == 5 ? 'selected' : '') . ">$i m</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="bpc-mobile-card-icon bpc-minipump-icon">
+                                    <img src="<?php echo site_url(); ?>/wp-content/uploads/2026/04/mini-betonpump.svg"
+                                        alt="">
+                                </div>
+                                <div class="bpc-mobile-card-body">
+                                    <div class="bpc-mobile-card-title-row">
+                                        <span class="bpc-mobile-card-name">Betonpomp</span>
+                                    </div>
+                                    <ul class="list-unstyled text-custom-gray-2 text-12 poppins-400">
+                                        <li><i class="icon-tick bi bi-check"></i> Dunne, handzame slangen</li>
+                                        <li><i class="icon-tick bi bi-check"></i> Weinig arbeiders benodigd</li>
+                                        <li><i class="icon-tick bi bi-check"></i> Kosten voordelig</li>
+                                        <li><i class="icon-tick bi bi-check"></i> Ook voor lange afstanden (&gt; 250
+                                            meter)
+                                        </li>
+                                        <li><i class="icon-cross bi bi-x"></i> Kan alleen klein grind (16 mm) verpompen
+                                        </li>
+                                    </ul>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- ── 3. Beton Samenstelling ── -->
+                    <div class="bpc-section">
+                        <div class="bpc-section-head">
+                            <div class="bpc-section-head-title">Beton samenstelling</div>
+                            <div class="bpc-section-hr"></div>
+                            <div class="bpc-info-btn">
+                                <?php if (!empty($pricingData['compound_items_tooltips'])) { ?>
+                                    <a class="beton-popover text-success" tabindex="0" role="button"
+                                        data-bs-toggle="popover" data-bs-trigger="focus"
+                                        title="<?php echo $pricingData['compound_items_title']; ?>" data-bs-placement="top"
+                                        data-bs-content="<?php echo $pricingData['compound_items_tooltips']; ?>"
+                                        style="margin-left: 1px;">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <mask id="mask0_272_967" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="0" y="0" width="18" height="18">
+                                                <rect width="18" height="18" fill="#D9D9D9"></rect>
+                                            </mask>
+                                            <g mask="url(#mask0_272_967)">
+                                                <path
+                                                    d="M8.9997 12.5626C9.1592 12.5626 9.29276 12.5087 9.40039 12.4008C9.50814 12.2931 9.56201 12.1595 9.56201 12.0001V8.81262C9.56201 8.65325 9.50807 8.51962 9.4002 8.41175C9.29232 8.304 9.1587 8.25012 8.99932 8.25012C8.83982 8.25012 8.70626 8.304 8.59864 8.41175C8.49089 8.51962 8.43701 8.65325 8.43701 8.81262V12.0001C8.43701 12.1595 8.49095 12.2931 8.59882 12.4008C8.7067 12.5087 8.84032 12.5626 8.9997 12.5626ZM8.99951 6.9665C9.17114 6.9665 9.31501 6.90843 9.43114 6.79231C9.54726 6.67618 9.60532 6.53231 9.60532 6.36068C9.60532 6.18906 9.54726 6.04519 9.43114 5.92906C9.31501 5.81306 9.17114 5.75506 8.99951 5.75506C8.82789 5.75506 8.68401 5.81306 8.56789 5.92906C8.45176 6.04519 8.3937 6.18906 8.3937 6.36068C8.3937 6.53231 8.45176 6.67618 8.56789 6.79231C8.68401 6.90843 8.82789 6.9665 8.99951 6.9665ZM9.00082 16.1251C8.01532 16.1251 7.08901 15.9381 6.22189 15.5641C5.35476 15.1901 4.60051 14.6826 3.95914 14.0414C3.31776 13.4003 2.80995 12.6464 2.4357 11.7796C2.06157 10.9129 1.87451 9.98681 1.87451 9.00143C1.87451 8.01593 2.06151 7.08962 2.43551 6.2225C2.80951 5.35537 3.31707 4.60112 3.9582 3.95975C4.59932 3.31837 5.35326 2.81056 6.22001 2.43631C7.08676 2.06218 8.01282 1.87512 8.9982 1.87512C9.9837 1.87512 10.91 2.06212 11.7771 2.43612C12.6443 2.81012 13.3985 3.31768 14.0399 3.95881C14.6813 4.59993 15.1891 5.35387 15.5633 6.22062C15.9374 7.08737 16.1245 8.01343 16.1245 8.99881C16.1245 9.98431 15.9375 10.9106 15.5635 11.7777C15.1895 12.6449 14.6819 13.3991 14.0408 14.0405C13.3997 14.6819 12.6458 15.1897 11.779 15.5639C10.9123 15.9381 9.9862 16.1251 9.00082 16.1251Z"
+                                                    fill="#9CA3AF"></path>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                <?php } ?>
+                            </div>
+                        </div>
+
+                        <div class="bpc-samen-grid">
+                            <!-- Standaard -->
+                                <label class="bpc-samen-card">
+                                    <input type="checkbox" name="compound" value="standaard" id="standaard_input"
+                                        class="bpc-radio-input" checked>
+                                    <span class="bpc-samen-icon">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_51_2503)">
+                                                <path
+                                                    d="M26.6039 3.79617H14.5568C14.4237 3.79617 14.296 3.84906 14.2019 3.94319C14.1077 4.03733 14.0548 4.165 14.0548 4.29813C14.0548 4.43126 14.1077 4.55894 14.2019 4.65307C14.296 4.74721 14.4237 4.80009 14.5568 4.80009H26.6039C26.737 4.80009 26.8647 4.74721 26.9588 4.65307C27.0529 4.55894 27.1058 4.43126 27.1058 4.29813C27.1058 4.165 27.0529 4.03733 26.9588 3.94319C26.8647 3.84906 26.737 3.79617 26.6039 3.79617ZM14.3058 2.38441C14.3058 2.25128 14.2529 2.1236 14.1588 2.02947C14.0647 1.93533 13.937 1.88245 13.8039 1.88245H12.6745C12.5413 1.88245 12.4136 1.93533 12.3195 2.02947C12.2254 2.1236 12.1725 2.25128 12.1725 2.38441C12.1725 2.51754 12.2254 2.64521 12.3195 2.73935C12.4136 2.83348 12.5413 2.88637 12.6745 2.88637H13.8039C13.937 2.88637 14.0647 2.83348 14.1588 2.73935C14.2529 2.64521 14.3058 2.51754 14.3058 2.38441ZM15.74 2.88637H17.6762C17.8093 2.88637 17.937 2.83348 18.0311 2.73935C18.1253 2.64521 18.1781 2.51754 18.1781 2.38441C18.1781 2.25128 18.1253 2.1236 18.0311 2.02947C17.937 1.93533 17.8093 1.88245 17.6762 1.88245H15.74C15.6069 1.88245 15.4792 1.93533 15.3851 2.02947C15.2909 2.1236 15.238 2.25128 15.238 2.38441C15.238 2.51754 15.2909 2.64521 15.3851 2.73935C15.4792 2.83348 15.6069 2.88637 15.74 2.88637ZM19.6122 2.88637H21.5484C21.6816 2.88637 21.8092 2.83348 21.9034 2.73935C21.9975 2.64521 22.0504 2.51754 22.0504 2.38441C22.0504 2.25128 21.9975 2.1236 21.9034 2.02947C21.8092 1.93533 21.6816 1.88245 21.5484 1.88245H19.6122C19.4791 1.88245 19.3514 1.93533 19.2572 2.02947C19.1631 2.1236 19.1102 2.25128 19.1102 2.38441C19.1102 2.51754 19.1631 2.64521 19.2572 2.73935C19.3514 2.83348 19.4791 2.88637 19.6122 2.88637H19.6122ZM23.4846 2.88637H25.4207C25.5539 2.88637 25.6815 2.83348 25.7757 2.73935C25.8698 2.64521 25.9227 2.51754 25.9227 2.38441C25.9227 2.25128 25.8698 2.1236 25.7757 2.02947C25.6815 1.93533 25.5539 1.88245 25.4207 1.88245H23.4846C23.3514 1.88245 23.2238 1.93533 23.1296 2.02947C23.0355 2.1236 22.9826 2.25128 22.9826 2.38441C22.9826 2.51754 23.0355 2.64521 23.1296 2.73935C23.2238 2.83348 23.3514 2.88637 23.4846 2.88637ZM28.4862 1.88245H27.3568C27.2237 1.88245 27.096 1.93533 27.0019 2.02947C26.9077 2.1236 26.8548 2.25128 26.8548 2.38441C26.8548 2.51754 26.9077 2.64521 27.0019 2.73935C27.096 2.83348 27.2237 2.88637 27.3568 2.88637H28.4862C28.6193 2.88637 28.747 2.83348 28.8412 2.73935C28.9353 2.64521 28.9882 2.51754 28.9882 2.38441C28.9882 2.25128 28.9353 2.1236 28.8412 2.02947C28.747 1.93533 28.6193 1.88245 28.4862 1.88245ZM24.7215 7.65499H16.4392C15.332 7.65499 14.4313 8.5557 14.4313 9.66284V13.3021C14.4313 14.4092 15.332 15.3099 16.4392 15.3099H24.7215C25.8286 15.3099 26.7294 14.4092 26.7294 13.3021V9.66284C26.7294 8.5557 25.8286 7.65499 24.7215 7.65499ZM25.7254 13.3021C25.7254 13.8556 25.275 14.306 24.7215 14.306H16.4392C15.8856 14.306 15.4352 13.8556 15.4352 13.3021V9.66284C15.4352 9.1093 15.8856 8.65892 16.4392 8.65892H24.7215C25.275 8.65892 25.7254 9.1093 25.7254 9.66284V13.3021ZM25.2235 26.2275H24.0941C23.9609 26.2275 23.8333 26.2804 23.7391 26.3746C23.645 26.4687 23.5921 26.5964 23.5921 26.7295C23.5921 26.8626 23.645 26.9903 23.7391 27.0844C23.8333 27.1786 23.9609 27.2315 24.0941 27.2315H25.2235C25.3566 27.2315 25.4843 27.1786 25.5784 27.0844C25.6725 26.9903 25.7254 26.8626 25.7254 26.7295C25.7254 26.5964 25.6725 26.4687 25.5784 26.3746C25.4843 26.2804 25.3566 26.2275 25.2235 26.2275ZM28.4862 26.2275H27.3568C27.2237 26.2275 27.096 26.2804 27.0019 26.3746C26.9077 26.4687 26.8548 26.5964 26.8548 26.7295C26.8548 26.8626 26.9077 26.9903 27.0019 27.0844C27.096 27.1786 27.2237 27.2315 27.3568 27.2315H28.4862C28.6193 27.2315 28.747 27.1786 28.8412 27.0844C28.9353 26.9903 28.9882 26.8626 28.9882 26.7295C28.9882 26.5964 28.9353 26.4687 28.8412 26.3746C28.747 26.2804 28.6193 26.2275 28.4862 26.2275ZM9.51806 19.9899C8.32842 20.4625 7.74489 21.8147 8.21729 23.0045C8.25441 23.0979 8.31873 23.1781 8.40193 23.2346C8.48512 23.2911 8.58336 23.3213 8.68393 23.3213C8.76586 23.3213 8.84654 23.3012 8.91893 23.2629C8.99132 23.2245 9.05322 23.169 9.09923 23.1012C9.14524 23.0334 9.17395 22.9554 9.18287 22.874C9.19178 22.7925 9.18063 22.7101 9.15038 22.634C8.88227 21.9587 9.21343 21.1911 9.88863 20.923C10.5638 20.655 11.3314 20.9861 11.5997 21.6613C11.6488 21.785 11.7451 21.8841 11.8673 21.9369C11.9896 21.9896 12.1277 21.9916 12.2514 21.9425C12.3127 21.9182 12.3686 21.882 12.4159 21.8361C12.4631 21.7902 12.5009 21.7354 12.527 21.6748C12.5531 21.6143 12.5671 21.5492 12.568 21.4833C12.569 21.4174 12.5569 21.352 12.5326 21.2907C12.0601 20.1009 10.7076 19.5177 9.51806 19.9899ZM16.8196 26.2486C16.0335 25.8486 15.0681 26.1625 14.6679 26.9489C14.6075 27.0675 14.5968 27.2053 14.638 27.3319C14.6792 27.4585 14.769 27.5635 14.8876 27.6239C15.0063 27.6843 15.1441 27.6951 15.2707 27.6539C15.3972 27.6127 15.5023 27.5229 15.5627 27.4042C15.7116 27.1114 16.0713 26.9942 16.3642 27.1434C16.6572 27.2925 16.7742 27.652 16.6251 27.9449C16.5952 28.0037 16.5771 28.0678 16.572 28.1335C16.5668 28.1992 16.5747 28.2653 16.5951 28.328C16.6155 28.3907 16.648 28.4487 16.6909 28.4988C16.7337 28.5489 16.786 28.5901 16.8447 28.62C16.9035 28.6499 16.9676 28.668 17.0333 28.6731C17.099 28.6782 17.1651 28.6704 17.2278 28.65C17.2905 28.6296 17.3485 28.597 17.3986 28.5542C17.4487 28.5114 17.4899 28.4591 17.5198 28.4003C17.92 27.6141 17.6059 26.6488 16.8196 26.2486ZM7.8747 26.8688C6.84067 26.9581 6.07185 27.8719 6.16101 28.9059C6.17245 29.0386 6.23612 29.1613 6.338 29.247C6.43989 29.3327 6.57164 29.3744 6.70429 29.3629C6.83694 29.3515 6.9596 29.2878 7.04531 29.186C7.13101 29.0841 7.17273 28.9523 7.16129 28.8197C7.11969 28.3372 7.47841 27.9107 7.96098 27.8691C8.44374 27.8278 8.86997 28.1863 8.91157 28.6688C8.93541 28.945 9.17886 29.148 9.45481 29.1257C9.58746 29.1143 9.71012 29.0506 9.79583 28.9488C9.88154 28.8469 9.92327 28.7151 9.91185 28.5825C9.82263 27.5485 8.90943 26.7791 7.8747 26.8689V26.8688Z"
+                                                    fill="#888888" />
+                                                <path
+                                                    d="M32 20.6784V8.45189C32.0001 7.0884 31.5053 5.77122 30.6073 4.74516L30.5386 4.66667C30.4761 4.59484 30.4352 4.50677 30.4206 4.41266C30.4061 4.31855 30.4185 4.22225 30.4565 4.1349L31.5733 1.58212C31.6488 1.41031 31.6802 1.22234 31.6646 1.03532C31.649 0.848298 31.5868 0.668147 31.4839 0.511249C31.3814 0.354007 31.2413 0.224872 31.0762 0.135584C30.9111 0.0462963 30.7263 -0.000310524 30.5387 1.55701e-06H10.5682C10.3857 4.55121e-05 10.2059 0.044295 10.0443 0.128964C9.88265 0.213633 9.74392 0.336201 9.63999 0.486181C9.53605 0.636162 9.46999 0.809089 9.44747 0.990169C9.42494 1.17125 9.44662 1.35509 9.51065 1.52596L10.5056 4.17901C10.5354 4.2579 10.5447 4.34303 10.5327 4.4265C10.5208 4.50996 10.4879 4.58904 10.4371 4.65638L10.3726 4.74234C9.59122 5.78422 9.16078 7.07545 9.16078 8.37798V17.4488C6.64696 18.2849 4.8256 20.6682 4.83137 23.4487C4.83231 23.8968 4.88031 24.3412 4.97443 24.7756C4.44046 24.9632 3.96753 25.2925 3.60622 25.7281C3.24491 26.1638 3.00881 26.6894 2.92317 27.2489C1.28301 27.4193 0 28.8097 0 30.4941C0 31.3244 0.675576 32 1.50588 32H22.902C23.7323 32 24.4078 31.3244 24.4078 30.4941C24.4078 30.0009 24.2972 29.5333 24.1005 29.1137H30.5387C30.7263 29.114 30.9111 29.0674 31.0762 28.9781C31.2413 28.8889 31.3814 28.7597 31.4839 28.6025C31.5868 28.4456 31.649 28.2654 31.6646 28.0784C31.6802 27.8914 31.6488 27.7035 31.5733 27.5317L30.461 24.9889C30.4224 24.9004 30.4101 24.8026 30.4256 24.7072C30.441 24.6119 30.4837 24.523 30.5483 24.4513C31.4835 23.4173 32.0009 22.0726 32 20.6784ZM22.902 30.9961H1.50588C1.22911 30.9961 1.00392 30.7709 1.00392 30.4941C1.00392 29.2486 2.01725 28.2353 3.26274 28.2353H3.38824C3.52136 28.2353 3.64904 28.1824 3.74317 28.0883C3.83731 27.9941 3.8902 27.8665 3.8902 27.7333C3.8902 26.6867 4.63837 25.802 5.66914 25.6299C5.73962 25.6181 5.80677 25.5914 5.8661 25.5516C5.92543 25.5118 5.97558 25.4597 6.01319 25.399C6.0508 25.3382 6.075 25.2701 6.08419 25.1993C6.09337 25.1284 6.08732 25.0564 6.06645 24.988C5.9139 24.4884 5.83601 23.969 5.83529 23.4466C5.82921 20.5518 8.17845 18.1685 11.0719 18.1336C11.0939 18.1334 11.1157 18.1333 11.1377 18.1333C12.5423 18.1333 13.8633 18.6753 14.8635 19.6636C15.8797 20.6675 16.4392 22.007 16.4392 23.4352C16.4392 23.5516 16.435 23.6735 16.4267 23.7975C16.4212 23.8785 16.4355 23.9597 16.4683 24.034C16.5011 24.1083 16.5515 24.1736 16.6151 24.2242C16.6787 24.2747 16.7536 24.3091 16.8334 24.3243C16.9132 24.3396 16.9955 24.3352 17.0733 24.3116C17.3393 24.2309 17.6186 24.2028 17.8954 24.2288C18.9324 24.3244 19.7613 25.181 19.8236 26.2213C19.8499 26.6642 19.7422 27.096 19.5117 27.4699C19.4648 27.546 19.4391 27.6332 19.4371 27.7225C19.4352 27.8118 19.4572 27.9 19.5007 27.978C19.5443 28.056 19.6078 28.1209 19.6849 28.1662C19.7619 28.2114 19.8496 28.2352 19.9389 28.2352H21.1451C22.3906 28.2352 23.4039 29.2486 23.4039 30.4941C23.4039 30.7708 23.1787 30.996 22.902 30.996V30.9961ZM29.5412 25.3913L30.6536 27.9341C30.6761 27.9854 30.6606 28.0271 30.6437 28.053C30.6268 28.0789 30.5948 28.1098 30.5387 28.1098H23.369C22.7858 27.5654 22.0039 27.2314 21.1451 27.2314H20.7066C20.8075 26.8842 20.8477 26.5223 20.8256 26.1614C20.8083 25.8735 20.7506 25.5895 20.6543 25.3176H26.6039C26.737 25.3176 26.8647 25.2648 26.9589 25.1706C27.053 25.0765 27.1059 24.9488 27.1059 24.8157C27.1059 24.6826 27.053 24.5549 26.9589 24.4607C26.8647 24.3666 26.737 24.3137 26.6039 24.3137H20.0713C19.5547 23.7128 18.8165 23.3056 17.9875 23.2292C17.8054 23.2123 17.6221 23.2111 17.4397 23.2258C17.3874 21.606 16.7278 20.0943 15.5692 18.9495C14.3794 17.7739 12.8086 17.1294 11.1381 17.1294C10.8121 17.1294 10.4867 17.1547 10.1647 17.2051V8.37804C10.1647 7.2913 10.5238 6.21396 11.1758 5.34469L11.2402 5.25873C11.5502 4.84562 11.6269 4.31015 11.4455 3.82645L10.4507 1.17359C10.4316 1.1227 10.4479 1.08261 10.465 1.05788C10.4821 1.03329 10.5138 1.00392 10.5682 1.00392H30.5387C30.5948 1.00392 30.6267 1.03479 30.6437 1.06071C30.6606 1.08662 30.6761 1.12828 30.6536 1.17973L29.5368 3.73252C29.304 4.2646 29.4007 4.89079 29.7831 5.32781L29.8518 5.40624C30.5896 6.24931 30.9962 7.33157 30.9961 8.45189V20.6784C30.9969 21.8239 30.5717 22.9289 29.8033 23.7784C29.4072 24.217 29.3045 24.8501 29.5412 25.3913Z"
+                                                    fill="#888888" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_51_2503">
+                                                    <rect width="32" height="32" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+
+                                    </span>
+                                    <div class="bpc-samen-inner">
+                                        <div class="bpc-samen-name">Standaard</div>
+                                        <div class="bpc-samen-price">€0,00 / m<sup>3</sup></div>
+                                    </div>
+                                </label>
+
+                                <?php foreach ($pricingData['compound_items'] as $index => $compound_item) { ?>
+                                    <label class="bpc-samen-card">
+                                        <input type="checkbox"
+                                            id="<?php echo sanitize_title($compound_item['product_name']); ?>_input"
+                                            name="compound"
+                                            value="<?php echo sanitize_title($compound_item['product_name']); ?>"
+                                            class="bpc-radio-input">
+                                        <span class="bpc-samen-icon">
+                                            <img width="32" height="32" src="<?php echo $compound_item['icon']; ?>"
+                                                alt="Vloeibaar">
+                                        </span>
+                                        <div class="bpc-samen-inner">
+                                            <div class="bpc-samen-name"><?php echo $compound_item['preview_name']; ?></div>
+                                            <div class="bpc-samen-price">
+                                                <?php echo wc_price($compound_item['price_excl_tax']); ?> / m<sup>3</sup>
+                                            </div>
+                                        </div>
+                                    </label>
+                                <?php } ?>
+                        </div>
+                    </div>
+
+                    <!-- ── 4. Uitvoering ── -->
+                    <div class="bpc-section">
+                        <div class="bpc-section-head">
+                            <div class="bpc-section-head-title">Uitvoering</div>
+                            <div class="bpc-section-hr"></div>
+                        </div>
+                        <div class="bpc-uitv-grid">
+                            <!-- Doe het zelf -->
+                            <label class="bpc-uitv-card">
+                                <input type="radio" name="performance" value="performSelf" id="performSelf"
+                                    class="bpc-radio-input" checked>
+                                <div class="bpc-uitv-top">
+                                    <div class="bpc-radio"></div>
+                                    <div class="bpc-uitv-title">Doe het zelf</div>
+                                </div>
+                                <div class="bpc-uitv-desc">De klant stort het beton zelf en helpt de chauffeur na
+                                    levering
+                                    met het uitrollen en reinigen van de slangen. Afwerking is niet inbegrepen.</div>
+                            </label>
+                            <!-- All-in -->
+                            <label class="bpc-uitv-card">
+                                <input type="radio" name="performance" id="allIn" value="allIn" class="bpc-radio-input">
+                                <div class="bpc-uitv-top">
+                                    <div class="bpc-radio"></div>
+                                    <div class="bpc-uitv-title">All-in</div>
+                                    <div class="bpc-uitv-price"><span
+                                            id="allIn_formatted"><?php echo wc_price(0); ?></span>
+                                    </div>
+                                </div>
+                                <div class="bpc-uitv-desc">Wij verzorgen alles: de vloer wordt gestort, gelijkmatig
+                                    verdeeld
+                                    en grof afgewerkt met een hark. De klant hoeft niets te doen.</div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bpc-notice-box">
+                        <div class="bpc-notice-box-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <mask id="mask0_272_1127" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
-                                    width="16" height="16">
-                                    <rect width="16" height="16" transform="matrix(1 0 0 -1 0 16)" fill="#D9D9D9" />
-                                </mask>
-                                <g mask="url(#mask0_272_1127)">
-                                    <path
-                                        d="M8 4.83325C8.14178 4.83325 8.2605 4.8812 8.35617 4.97709C8.45195 5.07286 8.49984 5.19158 8.49984 5.33325V8.16658C8.49984 8.30825 8.45189 8.42703 8.356 8.52292C8.26012 8.6187 8.14134 8.66658 7.99967 8.66658C7.85789 8.66658 7.73917 8.6187 7.6435 8.52292C7.54773 8.42703 7.49984 8.30825 7.49984 8.16658V5.33325C7.49984 5.19158 7.54778 5.07286 7.64367 4.97709C7.73956 4.8812 7.85834 4.83325 8 4.83325ZM7.99984 9.80759C8.15239 9.80759 8.28028 9.8592 8.3835 9.96242C8.48673 10.0656 8.53834 10.1935 8.53834 10.3461C8.53834 10.4986 8.48673 10.6265 8.3835 10.7298C8.28028 10.8329 8.15239 10.8844 7.99984 10.8844C7.84728 10.8844 7.71939 10.8329 7.61617 10.7298C7.51295 10.6265 7.46134 10.4986 7.46134 10.3461C7.46134 10.1935 7.51295 10.0656 7.61617 9.96242C7.71939 9.8592 7.84728 9.80759 7.99984 9.80759ZM8.001 1.66658C7.125 1.66658 6.30161 1.83281 5.53084 2.16525C4.76006 2.4977 4.08961 2.94886 3.5195 3.51875C2.94939 4.08864 2.498 4.75881 2.16534 5.52925C1.83278 6.2997 1.6665 7.12286 1.6665 7.99875C1.6665 8.87475 1.83273 9.69814 2.16517 10.4689C2.49762 11.2397 2.94878 11.9101 3.51867 12.4803C4.08856 13.0504 4.75873 13.5018 5.52917 13.8344C6.29962 14.167 7.12278 14.3333 7.99867 14.3333C8.87467 14.3333 9.69806 14.167 10.4688 13.8346C11.2396 13.5021 11.9101 13.051 12.4802 12.4811C13.0503 11.9112 13.5017 11.241 13.8343 10.4706C14.1669 9.70014 14.3332 8.87697 14.3332 8.00109C14.3332 7.12508 14.1669 6.3017 13.8345 5.53092C13.5021 4.76014 13.0509 4.08969 12.481 3.51958C11.9111 2.94947 11.2409 2.49808 10.4705 2.16542C9.70006 1.83286 8.87689 1.66658 8.001 1.66658Z"
-                                        fill="#9CA3AF" />
-                                </g>
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V11H13V17ZM13 9H11V7H13V9Z"
+                                    fill="currentColor" />
                             </svg>
                         </div>
-                        Voor een vlindervloer zijn snelhardend, extra sterk en all-in vereist.
-                    </div>
-                </div>
-
-                <!-- ── 7. Datum & Tijd ── -->
-                <div class="bpc-section">
-                    <div class="bpc-section-head">
-                        <div class="bpc-section-head-title">Selecteer gewenste datum en tijd</div>
-                        <div class="bpc-section-hr"></div>
-                    </div>
-                    <!-- <div class="bpc-datetime-row">
-                        <input type="date" class="bpc-date-input" placeholder="Selecteer datum">
-                        <select class="bpc-select-input"
-                            style="background-color:#fff;border-color:#D1D5DB;color:#9CA3AF;">
-                            <option value="">Selecteer tijd</option>
-                            <option>07:00</option>
-                            <option>08:00</option>
-                            <option>09:00</option>
-                            <option>10:00</option>
-                            <option>11:00</option>
-                            <option>12:00</option>
-                            <option>13:00</option>
-                            <option>14:00</option>
-                            <option>15:00</option>
-                            <option>16:00</option>
-                        </select>
-                    </div> -->
-                    <?php echo do_shortcode('[dayz_date_mapper_revolution_snippet placeholder="Selecteer datum" class="bpc-date-input"]'); ?>
-                </div>
-
-                <!-- ── 8. Checkout ── -->
-                <div class="bpc-checkout">
-                    <button class="submit-btn bpc-checkout-btn" type="button">
-                        <span class="bpc-checkout-label">Afrekenen en betalen</span>
-                        <span class="bpc-checkout-price" id="total_formatted_price"><?php echo wc_price(0) ?></span>
-                        <span class="loader-wrapper"></span>
-                    </button>
-                </div>
-
-            </div><!-- /.bpc-card -->
-
-
-            <!-- ══════ RIGHT: SIDEBAR ══════ -->
-            <div class="bpc-sidebar-wrap">
-                <div class="bpc-sidebar">
-
-                    <!-- Intro -->
-                    <div class="bpc-sb-intro">
-                        <h2>Reserveer uw datum in enkele minuten</h2>
-                        <p>Kies voor directe betaling of vraag een offerte aan. We bevestigen alle details met u voordat
-                            er iets definitief wordt vastgelegd.</p>
-                    </div>
-
-                    <!-- Kuub Calculator -->
-                    <div class="bpc-sb-block">
-                        <div class="bpc-sb-block-title">Beton Kuub calculator</div>
-                        <div class="bpc-kuub-fields">
-                            <div class="bpc-kuub-field">
-                                <label class="bpc-kuub-field-label">Lengte (meters)</label>
-                                <input type="text" inputmode="decimal" class="bpc-kuub-field-input"
-                                    id="bpc-kuub-length-input" placeholder="Voer lengte in meters in">
-                            </div>
-                            <div class="bpc-kuub-field">
-                                <label class="bpc-kuub-field-label">Breedte (meters)</label>
-                                <input type="text" inputmode="decimal" class="bpc-kuub-field-input"
-                                    id="bpc-kuub-width-input" placeholder="Voer breedte in meters in">
-                            </div>
-                            <div class="bpc-kuub-field">
-                                <label class="bpc-kuub-field-label">Hoogte (meters)</label>
-                                <input type="text" inputmode="decimal" class="bpc-kuub-field-input"
-                                    id="bpc-kuub-height-input" placeholder="Voer hoogte in meters in">
-                            </div>
-                        </div>
-                        <div class="bpc-kuub-result"><span id="bpc-kuub-result-value">0</span> <sup>m³</sup></div>
-                        <div class="bpc-kuub-actions">
-                            <button class="bpc-kuub-btn" type="button" id="bpc-kuub-result-calc-btn">Direct
-                                berekenen</button>
-                            <p class="bpc-kuub-tip">Tip: Bestel extra 0,5 m³ om tekorten te voorkomen.</p>
+                        <div class="bpc-notice-box-content">
+                            <strong>Let op:</strong> Onderstaande opties zijn alleen beschikbaar in
+                            combinatie met de All-in uitvoering.
                         </div>
                     </div>
 
-                    <!-- FAQ -->
-                    <div class="bpc-sb-block">
-                        <div class="bpc-sb-block-title">Vragen en antwoorden over beton bestellen</div>
-                        <div class="bpc-faq-items">
-                            <div class="bpc-faq-item">
-                                <div class="bpc-faq-thumb">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/beton-zelf-mixen-of-bestellen.png"
-                                        alt="Beton mixen">
-                                </div>
-                                <div class="bpc-faq-content">
-                                    <div class="bpc-faq-title">Beton zelf mixen of bestellen?</div>
-                                    <div class="bpc-faq-desc">Wat is goedkoper beton zelf mixen of bestellen? Je leest
-                                        het in het artikel goedkoop beton bestellen.</div>
-                                    <a href="#" class="bpc-faq-link">Bekijk antwoord <span
-                                            class="bpc-faq-link-arrow">→</span></a>
-                                </div>
-                            </div>
-                            <div class="bpc-faq-item">
-                                <div class="bpc-faq-thumb">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/wat-zijn-de-kosten-voor-beton.png"
-                                        alt="Kosten beton">
-                                </div>
-                                <div class="bpc-faq-content">
-                                    <div class="bpc-faq-title">Wat zijn de kosten voor beton?</div>
-                                    <div class="bpc-faq-desc">Ontdek wat de kosten van beton zijn in het artikel wat
-                                        kost beton.</div>
-                                    <a href="#" class="bpc-faq-link">Bekijk antwoord <span
-                                            class="bpc-faq-link-arrow">→</span></a>
-                                </div>
-                            </div>
-                            <div class="bpc-faq-item">
-                                <div class="bpc-faq-thumb">
-                                    <img src="<?php echo get_template_directory_uri(); ?>/images/beton-zelf-storten-of-laten.png"
-                                        alt="Beton storten">
-                                </div>
-                                <div class="bpc-faq-content">
-                                    <div class="bpc-faq-title">Beton zelf storten of laten?</div>
-                                    <div class="bpc-faq-desc">Zelf beton storten of laten storten? Ontdek wat er komt
-                                        kijken bij het storten van beton.</div>
-                                    <a href="#" class="bpc-faq-link">Bekijk antwoord <span
-                                            class="bpc-faq-link-arrow">→</span></a>
-                                </div>
-                            </div>
+                    <!-- ── 6. Vlindervloer ── -->
+                    <div class="bpc-section">
+                        <div class="bpc-section-head">
+                            <div class="bpc-section-head-title">Vlindervloer</div>
+                            <div class="bpc-section-hr"></div>
                         </div>
-                        <!-- Besteprijsgarantie -->
-                        <div class="bpc-garantie">
-                            <div class="bpc-garantie-left">
-                                <div class="bpc-garantie-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="24" height="24" rx="12" fill="white" />
-                                        <mask id="mask0_272_1215" style="mask-type:alpha" maskUnits="userSpaceOnUse"
-                                            x="5" y="5" width="14" height="14">
-                                            <rect x="5.14307" y="5.14282" width="13.7143" height="13.7143"
-                                                fill="#D9D9D9" />
-                                        </mask>
-                                        <g mask="url(#mask0_272_1215)">
-                                            <path
-                                                d="M11.9997 17.7145C10.6758 17.3811 9.58298 16.6216 8.72108 15.4359C7.85917 14.2502 7.42822 12.9335 7.42822 11.4859V8.00017L11.9997 6.28589L16.5711 8.00017V11.4859C16.5711 12.9335 16.1401 14.2502 15.2782 15.4359C14.4163 16.6216 13.3235 17.3811 11.9997 17.7145ZM11.9997 16.5145C12.9235 16.2287 13.6949 15.6645 14.3139 14.8216C14.933 13.9787 15.2949 13.0383 15.3996 12.0002H11.9997V7.50017L8.57108 8.78589V11.743C8.57108 11.8097 8.5806 11.8954 8.59965 12.0002H11.9997V16.5145Z"
-                                                fill="#FCA01A" />
-                                        </g>
-                                    </svg>
+                        <div class="bpc-vlinder-row">
+                            <select class="bpc-select-input" id="surface" name="surface">
+                                <option value="0">Selecteer oppervlak</option>
+                                <?php
+                                foreach (get_field('oppervlakte', 'option') as $i => $surface_option) {
+                                    echo '<option value="' . $surface_option['size'] . '">' . $surface_option['size'] . ' m2</option>';
+                                }
+                                ?>
+                            </select>
+                            <select class="bpc-select-input" id="num-rooms" name="num-rooms">
+                                <option value="0">Selecteer aantal ruimtes</option>
+                                <?php for ($i = 1; $i < 11; $i++) {
+                                    echo "<option value='$i'>$i</option>";
+                                } ?>
+                            </select>
+                        </div>
+                        <div class="bpc-input-group position-relative">
+                            <label for="layer-thickness" class="bpc-input-label">Laagdikte</label>
+                            <select class="bpc-select-input" id="layer-thickness" name="layer-thickness">
+                                <option value="5-10" selected>5-10 cm</option>
+                                <option value="11-15">11-15 cm</option>
+                                <option value="15-20">15-20 cm</option>
+                                <option value="20-9999">&gt;20 cm</option>
+                            </select>
+                        </div>
+                        <!-- Vloer afwerking -->
+                        <div class="bpc-uitv-grid">
+                            <!-- Verdiepingsvloer -->
+                            <label class="bpc-uitv-card">
+                                <input type="checkbox" id="mezzanine-floor" name="floor_selection" value="1"
+                                    class="bpc-radio-input">
+                                <div class="bpc-uitv-top">
+                                    <div class="bpc-radio"></div>
+                                    <div class="bpc-uitv-title">Verdiepingsvloer</div>
+                                    <div class="bpc-uitv-price">
+                                        <?php
+                                        $verdiepingsvloer_tooltip = get_field('opties_verdiepingsvloer_tooltip', 'option');
+                                        if (!empty($verdiepingsvloer_tooltip)) { ?>
+                                            <a class="beton-popover text-success" tabindex="0" role="button"
+                                                data-bs-toggle="popover" data-bs-trigger="focus" title="Verdiepingsvloer"
+                                                data-bs-placement="top"
+                                                data-bs-content="<?php echo esc_html($verdiepingsvloer_tooltip); ?>">
+                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <mask id="mask0_272_967" style="mask-type:alpha"
+                                                        maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
+                                                        <rect width="18" height="18" fill="#D9D9D9"></rect>
+                                                    </mask>
+                                                    <g mask="url(#mask0_272_967)">
+                                                        <path
+                                                            d="M8.9997 12.5626C9.1592 12.5626 9.29276 12.5087 9.40039 12.4008C9.50814 12.2931 9.56201 12.1595 9.56201 12.0001V8.81262C9.56201 8.65325 9.50807 8.51962 9.4002 8.41175C9.29232 8.304 9.1587 8.25012 8.99932 8.25012C8.83982 8.25012 8.70626 8.304 8.59864 8.41175C8.49089 8.51962 8.43701 8.65325 8.43701 8.81262V12.0001C8.43701 12.1595 8.49095 12.2931 8.59882 12.4008C8.7067 12.5087 8.84032 12.5626 8.9997 12.5626ZM8.99951 6.9665C9.17114 6.9665 9.31501 6.90843 9.43114 6.79231C9.54726 6.67618 9.60532 6.53231 9.60532 6.36068C9.60532 6.18906 9.54726 6.04519 9.43114 5.92906C9.31501 5.81306 9.17114 5.75506 8.99951 5.75506C8.82789 5.75506 8.68401 5.81306 8.56789 5.92906C8.45176 6.04519 8.3937 6.18906 8.3937 6.36068C8.3937 6.53231 8.45176 6.67618 8.56789 6.79231C8.68401 6.90843 8.82789 6.9665 8.99951 6.9665ZM9.00082 16.1251C8.01532 16.1251 7.08901 15.9381 6.22189 15.5641C5.35476 15.1901 4.60051 14.6826 3.95914 14.0414C3.31776 13.4003 2.80995 12.6464 2.4357 11.7796C2.06157 10.9129 1.87451 9.98681 1.87451 9.00143C1.87451 8.01593 2.06151 7.08962 2.43551 6.2225C2.80951 5.35537 3.31707 4.60112 3.9582 3.95975C4.59932 3.31837 5.35326 2.81056 6.22001 2.43631C7.08676 2.06218 8.01282 1.87512 8.9982 1.87512C9.9837 1.87512 10.91 2.06212 11.7771 2.43612C12.6443 2.81012 13.3985 3.31768 14.0399 3.95881C14.6813 4.59993 15.1891 5.35387 15.5633 6.22062C15.9374 7.08737 16.1245 8.01343 16.1245 8.99881C16.1245 9.98431 15.9375 10.9106 15.5635 11.7777C15.1895 12.6449 14.6819 13.3991 14.0408 14.0405C13.3997 14.6819 12.6458 15.1897 11.779 15.5639C10.9123 15.9381 9.9862 16.1251 9.00082 16.1251Z"
+                                                            fill="#9CA3AF"></path>
+                                                    </g>
+                                                </svg>
+                                            </a>
+                                        <?php } ?>
+                                    </div>
                                 </div>
-                                <span class="bpc-garantie-label">Besteprijsgarantie</span>
-                            </div>
-                            <span class="bpc-garantie-arrow">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            </label>
+                            <!-- Vlindervloer -->
+                            <label class="bpc-uitv-card">
+                                <input type="checkbox" id="butterfly-floor" name="butterfly-floor" value="1"
+                                    class="bpc-radio-input">
+                                <div class="bpc-uitv-top">
+                                    <div class="bpc-radio"></div>
+                                    <div class="bpc-uitv-title">Vlindervloer</div>
+                                    <div class="bpc-uitv-price">
+                                        <?php
+                                        $vlindervloer_tooltip = get_field('opties_vlindervloer_tooltip', 'option');
+                                        if (!empty($vlindervloer_tooltip)) { ?>
+                                            <a class="beton-popover text-success" tabindex="0" role="button"
+                                                data-bs-toggle="popover" data-bs-trigger="focus" title="Vlindervloer"
+                                                data-bs-placement="top"
+                                                data-bs-content="<?php echo esc_html($vlindervloer_tooltip); ?>">
+                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <mask id="mask0_272_967" style="mask-type:alpha"
+                                                        maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
+                                                        <rect width="18" height="18" fill="#D9D9D9"></rect>
+                                                    </mask>
+                                                    <g mask="url(#mask0_272_967)">
+                                                        <path
+                                                            d="M8.9997 12.5626C9.1592 12.5626 9.29276 12.5087 9.40039 12.4008C9.50814 12.2931 9.56201 12.1595 9.56201 12.0001V8.81262C9.56201 8.65325 9.50807 8.51962 9.4002 8.41175C9.29232 8.304 9.1587 8.25012 8.99932 8.25012C8.83982 8.25012 8.70626 8.304 8.59864 8.41175C8.49089 8.51962 8.43701 8.65325 8.43701 8.81262V12.0001C8.43701 12.1595 8.49095 12.2931 8.59882 12.4008C8.7067 12.5087 8.84032 12.5626 8.9997 12.5626ZM8.99951 6.9665C9.17114 6.9665 9.31501 6.90843 9.43114 6.79231C9.54726 6.67618 9.60532 6.53231 9.60532 6.36068C9.60532 6.18906 9.54726 6.04519 9.43114 5.92906C9.31501 5.81306 9.17114 5.75506 8.99951 5.75506C8.82789 5.75506 8.68401 5.81306 8.56789 5.92906C8.45176 6.04519 8.3937 6.18906 8.3937 6.36068C8.3937 6.53231 8.45176 6.67618 8.56789 6.79231C8.68401 6.90843 8.82789 6.9665 8.99951 6.9665ZM9.00082 16.1251C8.01532 16.1251 7.08901 15.9381 6.22189 15.5641C5.35476 15.1901 4.60051 14.6826 3.95914 14.0414C3.31776 13.4003 2.80995 12.6464 2.4357 11.7796C2.06157 10.9129 1.87451 9.98681 1.87451 9.00143C1.87451 8.01593 2.06151 7.08962 2.43551 6.2225C2.80951 5.35537 3.31707 4.60112 3.9582 3.95975C4.59932 3.31837 5.35326 2.81056 6.22001 2.43631C7.08676 2.06218 8.01282 1.87512 8.9982 1.87512C9.9837 1.87512 10.91 2.06212 11.7771 2.43612C12.6443 2.81012 13.3985 3.31768 14.0399 3.95881C14.6813 4.59993 15.1891 5.35387 15.5633 6.22062C15.9374 7.08737 16.1245 8.01343 16.1245 8.99881C16.1245 9.98431 15.9375 10.9106 15.5635 11.7777C15.1895 12.6449 14.6819 13.3991 14.0408 14.0405C13.3997 14.6819 12.6458 15.1897 11.779 15.5639C10.9123 15.9381 9.9862 16.1251 9.00082 16.1251Z"
+                                                            fill="#9CA3AF"></path>
+                                                    </g>
+                                                </svg>
+                                            </a>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="bpc-vlinder-note">
+                            <div class="bpc-vlinder-note-icon">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <mask id="mask0_272_1220" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
-                                        y="0" width="24" height="24">
-                                        <rect width="24" height="24" fill="#D9D9D9" />
+                                    <mask id="mask0_272_1127" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
+                                        y="0" width="16" height="16">
+                                        <rect width="16" height="16" transform="matrix(1 0 0 -1 0 16)" fill="#D9D9D9" />
                                     </mask>
-                                    <g mask="url(#mask0_272_1220)">
+                                    <g mask="url(#mask0_272_1127)">
                                         <path
-                                            d="M16.6115 12.7501H5.25C5.03717 12.7501 4.859 12.6782 4.7155 12.5346C4.57183 12.3911 4.5 12.2129 4.5 12.0001C4.5 11.7872 4.57183 11.6091 4.7155 11.4656C4.859 11.3219 5.03717 11.2501 5.25 11.2501H16.6115L13.3193 7.95783C13.1706 7.809 13.0972 7.63491 13.099 7.43558C13.101 7.23625 13.1744 7.059 13.3193 6.90383C13.4744 6.74883 13.6526 6.66875 13.8538 6.66358C14.0551 6.65841 14.2333 6.73341 14.3885 6.88858L18.8673 11.3673C18.9609 11.461 19.0269 11.5597 19.0652 11.6636C19.1037 11.7674 19.123 11.8796 19.123 12.0001C19.123 12.1206 19.1037 12.2327 19.0652 12.3366C19.0269 12.4404 18.9609 12.5392 18.8673 12.6328L14.3885 17.1116C14.2397 17.2602 14.0631 17.3337 13.8587 17.3318C13.6542 17.3298 13.4744 17.2513 13.3193 17.0963C13.1744 16.9412 13.0994 16.7655 13.0943 16.5693C13.0891 16.3732 13.1641 16.1975 13.3193 16.0423L16.6115 12.7501Z"
-                                            fill="white" />
+                                            d="M8 4.83325C8.14178 4.83325 8.2605 4.8812 8.35617 4.97709C8.45195 5.07286 8.49984 5.19158 8.49984 5.33325V8.16658C8.49984 8.30825 8.45189 8.42703 8.356 8.52292C8.26012 8.6187 8.14134 8.66658 7.99967 8.66658C7.85789 8.66658 7.73917 8.6187 7.6435 8.52292C7.54773 8.42703 7.49984 8.30825 7.49984 8.16658V5.33325C7.49984 5.19158 7.54778 5.07286 7.64367 4.97709C7.73956 4.8812 7.85834 4.83325 8 4.83325ZM7.99984 9.80759C8.15239 9.80759 8.28028 9.8592 8.3835 9.96242C8.48673 10.0656 8.53834 10.1935 8.53834 10.3461C8.53834 10.4986 8.48673 10.6265 8.3835 10.7298C8.28028 10.8329 8.15239 10.8844 7.99984 10.8844C7.84728 10.8844 7.71939 10.8329 7.61617 10.7298C7.51295 10.6265 7.46134 10.4986 7.46134 10.3461C7.46134 10.1935 7.51295 10.0656 7.61617 9.96242C7.71939 9.8592 7.84728 9.80759 7.99984 9.80759ZM8.001 1.66658C7.125 1.66658 6.30161 1.83281 5.53084 2.16525C4.76006 2.4977 4.08961 2.94886 3.5195 3.51875C2.94939 4.08864 2.498 4.75881 2.16534 5.52925C1.83278 6.2997 1.6665 7.12286 1.6665 7.99875C1.6665 8.87475 1.83273 9.69814 2.16517 10.4689C2.49762 11.2397 2.94878 11.9101 3.51867 12.4803C4.08856 13.0504 4.75873 13.5018 5.52917 13.8344C6.29962 14.167 7.12278 14.3333 7.99867 14.3333C8.87467 14.3333 9.69806 14.167 10.4688 13.8346C11.2396 13.5021 11.9101 13.051 12.4802 12.4811C13.0503 11.9112 13.5017 11.241 13.8343 10.4706C14.1669 9.70014 14.3332 8.87697 14.3332 8.00109C14.3332 7.12508 14.1669 6.3017 13.8345 5.53092C13.5021 4.76014 13.0509 4.08969 12.481 3.51958C11.9111 2.94947 11.2409 2.49808 10.4705 2.16542C9.70006 1.83286 8.87689 1.66658 8.001 1.66658Z"
+                                            fill="#9CA3AF" />
                                     </g>
                                 </svg>
-
-                            </span>
+                            </div>
+                            Voor een vlindervloer zijn snelhardend, extra sterk en all-in vereist.
                         </div>
                     </div>
 
-                </div><!-- /.bpc-sidebar -->
-            </div><!-- /.bpc-sidebar-wrap -->
+                    <!-- ── 7. Datum & Tijd ── -->
+                    <div class="bpc-section">
+                        <div class="bpc-section-head">
+                            <div class="bpc-section-head-title">Selecteer gewenste datum en tijd</div>
+                            <div class="bpc-section-hr"></div>
+                        </div>
+                        <!-- <div class="bpc-datetime-row">
+                            <input type="date" class="bpc-date-input" placeholder="Selecteer datum">
+                            <select class="bpc-select-input"
+                                style="background-color:#fff;border-color:#D1D5DB;color:#9CA3AF;">
+                                <option value="">Selecteer tijd</option>
+                                <option>07:00</option>
+                                <option>08:00</option>
+                                <option>09:00</option>
+                                <option>10:00</option>
+                                <option>11:00</option>
+                                <option>12:00</option>
+                                <option>13:00</option>
+                                <option>14:00</option>
+                                <option>15:00</option>
+                                <option>16:00</option>
+                            </select>
+                        </div> -->
+                        <?php echo do_shortcode('[dayz_date_mapper_revolution_snippet placeholder="Selecteer datum" class="bpc-date-input"]'); ?>
+                    </div>
 
-        </div><!-- /.bpc-layout -->
+                    <!-- ── 8. Checkout ── -->
+                    <div class="bpc-checkout">
+                        <button class="submit-btn bpc-checkout-btn" type="button">
+                            <span class="bpc-checkout-label">Afrekenen en betalen</span>
+                            <span class="bpc-checkout-price" id="total_formatted_price"><?php echo wc_price(0) ?></span>
+                            <span class="loader-wrapper"></span>
+                        </button>
+                    </div>
+
+                </div><!-- /.bpc-card -->
+
+
+                <!-- ══════ RIGHT: SIDEBAR ══════ -->
+                <div class="bpc-sidebar-wrap">
+                    <div class="bpc-sidebar">
+
+                        <!-- Intro -->
+                        <div class="bpc-sb-intro">
+                            <h2>Reserveer uw datum in enkele minuten</h2>
+                            <p>Kies voor directe betaling of vraag een offerte aan. We bevestigen alle details met u
+                                voordat
+                                er iets definitief wordt vastgelegd.</p>
+                        </div>
+
+                        <!-- Kuub Calculator -->
+                        <div class="bpc-sb-block">
+                            <div class="bpc-sb-block-title">Beton Kuub calculator</div>
+                            <div class="bpc-kuub-fields">
+                                <div class="bpc-kuub-field">
+                                    <label class="bpc-kuub-field-label">Lengte (meters)</label>
+                                    <input type="text" inputmode="decimal" class="bpc-kuub-field-input"
+                                        id="bpc-kuub-length-input" placeholder="Voer lengte in meters in">
+                                </div>
+                                <div class="bpc-kuub-field">
+                                    <label class="bpc-kuub-field-label">Breedte (meters)</label>
+                                    <input type="text" inputmode="decimal" class="bpc-kuub-field-input"
+                                        id="bpc-kuub-width-input" placeholder="Voer breedte in meters in">
+                                </div>
+                                <div class="bpc-kuub-field">
+                                    <label class="bpc-kuub-field-label">Hoogte (meters)</label>
+                                    <input type="text" inputmode="decimal" class="bpc-kuub-field-input"
+                                        id="bpc-kuub-height-input" placeholder="Voer hoogte in meters in">
+                                </div>
+                            </div>
+                            <div class="bpc-kuub-result"><span id="bpc-kuub-result-value">0</span> <sup>m³</sup></div>
+                            <div class="bpc-kuub-actions">
+                                <button class="bpc-kuub-btn" type="button" id="bpc-kuub-result-calc-btn">Direct
+                                    berekenen</button>
+                                <p class="bpc-kuub-tip">Tip: Bestel extra 0,5 m³ om tekorten te voorkomen.</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ -->
+                        <div class="bpc-sb-block">
+                            <div class="bpc-sb-block-title">Vragen en antwoorden over beton bestellen</div>
+                            <div class="bpc-faq-items">
+                                <div class="bpc-faq-item">
+                                    <div class="bpc-faq-thumb">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/beton-zelf-mixen-of-bestellen.png"
+                                            alt="Beton mixen">
+                                    </div>
+                                    <div class="bpc-faq-content">
+                                        <div class="bpc-faq-title">Beton zelf mixen of bestellen?</div>
+                                        <div class="bpc-faq-desc">Wat is goedkoper beton zelf mixen of bestellen? Je
+                                            leest
+                                            het in het artikel goedkoop beton bestellen.</div>
+                                        <a href="#" class="bpc-faq-link">Bekijk antwoord <span
+                                                class="bpc-faq-link-arrow">→</span></a>
+                                    </div>
+                                </div>
+                                <div class="bpc-faq-item">
+                                    <div class="bpc-faq-thumb">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/wat-zijn-de-kosten-voor-beton.png"
+                                            alt="Kosten beton">
+                                    </div>
+                                    <div class="bpc-faq-content">
+                                        <div class="bpc-faq-title">Wat zijn de kosten voor beton?</div>
+                                        <div class="bpc-faq-desc">Ontdek wat de kosten van beton zijn in het artikel wat
+                                            kost beton.</div>
+                                        <a href="#" class="bpc-faq-link">Bekijk antwoord <span
+                                                class="bpc-faq-link-arrow">→</span></a>
+                                    </div>
+                                </div>
+                                <div class="bpc-faq-item">
+                                    <div class="bpc-faq-thumb">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/images/beton-zelf-storten-of-laten.png"
+                                            alt="Beton storten">
+                                    </div>
+                                    <div class="bpc-faq-content">
+                                        <div class="bpc-faq-title">Beton zelf storten of laten?</div>
+                                        <div class="bpc-faq-desc">Zelf beton storten of laten storten? Ontdek wat er
+                                            komt
+                                            kijken bij het storten van beton.</div>
+                                        <a href="#" class="bpc-faq-link">Bekijk antwoord <span
+                                                class="bpc-faq-link-arrow">→</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Besteprijsgarantie -->
+                            <div class="bpc-garantie">
+                                <div class="bpc-garantie-left">
+                                    <div class="bpc-garantie-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="24" height="24" rx="12" fill="white" />
+                                            <mask id="mask0_272_1215" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                                x="5" y="5" width="14" height="14">
+                                                <rect x="5.14307" y="5.14282" width="13.7143" height="13.7143"
+                                                    fill="#D9D9D9" />
+                                            </mask>
+                                            <g mask="url(#mask0_272_1215)">
+                                                <path
+                                                    d="M11.9997 17.7145C10.6758 17.3811 9.58298 16.6216 8.72108 15.4359C7.85917 14.2502 7.42822 12.9335 7.42822 11.4859V8.00017L11.9997 6.28589L16.5711 8.00017V11.4859C16.5711 12.9335 16.1401 14.2502 15.2782 15.4359C14.4163 16.6216 13.3235 17.3811 11.9997 17.7145ZM11.9997 16.5145C12.9235 16.2287 13.6949 15.6645 14.3139 14.8216C14.933 13.9787 15.2949 13.0383 15.3996 12.0002H11.9997V7.50017L8.57108 8.78589V11.743C8.57108 11.8097 8.5806 11.8954 8.59965 12.0002H11.9997V16.5145Z"
+                                                    fill="#FCA01A" />
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <span class="bpc-garantie-label">Besteprijsgarantie</span>
+                                </div>
+                                <span class="bpc-garantie-arrow">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <mask id="mask0_272_1220" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                            x="0" y="0" width="24" height="24">
+                                            <rect width="24" height="24" fill="#D9D9D9" />
+                                        </mask>
+                                        <g mask="url(#mask0_272_1220)">
+                                            <path
+                                                d="M16.6115 12.7501H5.25C5.03717 12.7501 4.859 12.6782 4.7155 12.5346C4.57183 12.3911 4.5 12.2129 4.5 12.0001C4.5 11.7872 4.57183 11.6091 4.7155 11.4656C4.859 11.3219 5.03717 11.2501 5.25 11.2501H16.6115L13.3193 7.95783C13.1706 7.809 13.0972 7.63491 13.099 7.43558C13.101 7.23625 13.1744 7.059 13.3193 6.90383C13.4744 6.74883 13.6526 6.66875 13.8538 6.66358C14.0551 6.65841 14.2333 6.73341 14.3885 6.88858L18.8673 11.3673C18.9609 11.461 19.0269 11.5597 19.0652 11.6636C19.1037 11.7674 19.123 11.8796 19.123 12.0001C19.123 12.1206 19.1037 12.2327 19.0652 12.3366C19.0269 12.4404 18.9609 12.5392 18.8673 12.6328L14.3885 17.1116C14.2397 17.2602 14.0631 17.3337 13.8587 17.3318C13.6542 17.3298 13.4744 17.2513 13.3193 17.0963C13.1744 16.9412 13.0994 16.7655 13.0943 16.5693C13.0891 16.3732 13.1641 16.1975 13.3193 16.0423L16.6115 12.7501Z"
+                                                fill="white" />
+                                        </g>
+                                    </svg>
+
+                                </span>
+                            </div>
+                        </div>
+
+                    </div><!-- /.bpc-sidebar -->
+                </div><!-- /.bpc-sidebar-wrap -->
+
+            </div><!-- /.bpc-layout -->
+        </div>
     </div><!-- /.bpc-body -->
 
 </div><!-- /.bpc -->
@@ -812,35 +871,45 @@ $pricingData = get_field('application', 'option');
     <div class="container">
         <div class="bpc-why-choose-grid">
             <div class="bpc-why-choose-images">
-                <img class="bpc-why-choose-img1" src="<?php echo get_template_directory_uri(); ?>/images/home-track1.png" alt="Beton mixer truck">
-                <img class="bpc-why-choose-img2" src="<?php echo get_template_directory_uri(); ?>/images/home-track2.png" alt="Pouring concrete">
+                <img class="bpc-why-choose-img1"
+                    src="<?php echo get_template_directory_uri(); ?>/images/home-track1.png" alt="Beton mixer truck">
+                <img class="bpc-why-choose-img2"
+                    src="<?php echo get_template_directory_uri(); ?>/images/home-track2.png" alt="Pouring concrete">
             </div>
             <div class="bpc-why-choose-content">
                 <div class="bpc-why-choose-header">
                     <h2>Waarom kiezen voor Mobiele Beton?</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.
+                    </p>
                 </div>
                 <ul class="bpc-why-choose-list">
                     <li>
                         <div class="bpc-check-icon">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.3334 4L6.00002 11.3333L2.66669 8" stroke="#34C759" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.3334 4L6.00002 11.3333L2.66669 8" stroke="#34C759" stroke-width="1.66667"
+                                    stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
                         <span>Flexibel volume</span>
                     </li>
                     <li>
                         <div class="bpc-check-icon">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.3334 4L6.00002 11.3333L2.66669 8" stroke="#34C759" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.3334 4L6.00002 11.3333L2.66669 8" stroke="#34C759" stroke-width="1.66667"
+                                    stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
                         <span>Vaste kosten productie</span>
                     </li>
                     <li>
                         <div class="bpc-check-icon">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.3334 4L6.00002 11.3333L2.66669 8" stroke="#34C759" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.3334 4L6.00002 11.3333L2.66669 8" stroke="#34C759" stroke-width="1.66667"
+                                    stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
                         <span>Flexibele planning mogelijk</span>
@@ -1189,6 +1258,25 @@ $pricingData = get_field('application', 'option');
                 // Toggle current item
                 item.classList.toggle('active');
             });
+        });
+
+        // Fallback for Safari :has() bug and ensuring UI updates
+        document.addEventListener('DOMContentLoaded', function () {
+            const appRadios = document.querySelectorAll('.bpc-app-card .bpc-radio-input');
+
+            function updateAppCards() {
+                document.querySelectorAll('.bpc-app-card').forEach(card => card.classList.remove('selected'));
+                document.querySelectorAll('.bpc-app-card .bpc-radio-input:checked').forEach(checkedRadio => {
+                    checkedRadio.closest('.bpc-app-card').classList.add('selected');
+                });
+            }
+
+            appRadios.forEach(radio => {
+                radio.addEventListener('change', updateAppCards);
+            });
+
+            // Set initial state
+            updateAppCards();
         });
     </script>
 </section>

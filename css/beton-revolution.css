@@ -22,13 +22,9 @@ body {
 /* ── HERO ── */
 .bpc-hero {
     position: relative;
-    min-height: 720px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    padding: 72px 24px 220px;
-    overflow: visible;
-    color: #fff;
+    padding: 80px 24px 220px;
+    background: linear-gradient(135deg, #F5FAEF 0%, #E9F4F0 100%);
+    overflow: hidden;
 }
 
 .bpc-hero-bg {
@@ -61,12 +57,126 @@ body {
 .bpc-hero-inner {
     position: relative;
     z-index: 2;
-    max-width: 1082px;
+    width: 100%;
+    max-width: 1320px;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 32px;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.bpc-hero-content {
+    flex: 1;
+    max-width: 620px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    text-align: left;
+}
+
+.bpc-hero-title {
+    color: #222222;
+    font-size: clamp(40px, 5vw, 62px);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.bpc-hero-desc {
+    color: #444444;
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.bpc-hero-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.bpc-hero-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #444444;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.bpc-hero-list li svg {
+    flex-shrink: 0;
+}
+
+.bpc-hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background: #009966;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    margin-top: 12px;
+}
+
+.bpc-hero-btn:hover {
+    background: #007a52;
+    color: #fff;
+}
+
+.bpc-hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    right: -5%; /* Pull to right edge */
+}
+
+.bpc-hero-image img {
+    max-width: 120%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 991px) {
+    .bpc-hero-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .bpc-hero-content {
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .bpc-hero-list {
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .bpc-hero-image {
+        right: 0;
+        justify-content: center;
+    }
+    
+    .bpc-hero-image img {
+        max-width: 100%;
+    }
+    
+    .bpc-hero-title {
+        font-size: 42px;
+    }
 }
 
 .bpc-hero-tag {
@@ -87,12 +197,6 @@ body {
     background: #FCA01A;
     border-radius: 9999px;
     flex-shrink: 0;
-}
-
-.bpc-hero h1 {
-    font-size: clamp(28px, 4.5vw, 56px);
-    font-weight: 700;
-    line-height: 1.2;
 }
 
 .bpc-hero-sub {
@@ -189,7 +293,7 @@ body {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 436px;
-    gap: 44px;
+    gap: 24px;
     align-items: start;
 }
 
@@ -201,16 +305,23 @@ body {
 
 /* ── CALCULATOR CARD ── */
 .bpc-card {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 2px 2px 16px rgba(109, 109, 120, .2);
-    border: 1px solid #F4F4F4;
     display: flex;
     flex-direction: column;
     gap: 24px;
     padding-bottom: 24px;
     width: 100%;
 }
+
+.bpc-card-wrapper {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 2px 2px 16px rgba(109, 109, 120, .2);
+    border: 1px solid #F4F4F4;
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
 
 /* Card header */
 .bpc-card-header {
@@ -386,6 +497,227 @@ body {
     box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15) !important;
 }
 
+/* ── STAP 1 & INPUTS ── */
+.bpc-step-container {
+    background: #fff;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.bpc-step-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    height: 20px;
+}
+
+.bpc-step-head-title {
+    color: #888888;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 16px;
+    white-space: nowrap;
+}
+
+.bpc-step-head-hr {
+    flex: 1;
+    height: 1px;
+    background: #ECEEF2;
+    border-radius: 5px;
+}
+
+.bpc-step-inputs {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+}
+
+@media (max-width: 540px) {
+    .bpc-step-inputs {
+        flex-direction: column;
+    }
+}
+
+.bpc-step-input-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bpc-step-input-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bpc-step-input-title {
+    color: #222222;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.bpc-step-input-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.bpc-step-input-wrap {
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    border: 1px solid #DDE1EA;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 0 16px;
+    transition: border-color 0.2s;
+}
+
+.bpc-step-input-wrap:focus-within {
+    border-color: #1ACB23;
+}
+
+.bpc-step-input-wrap input {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    color: #444444;
+    font-size: 16px;
+    font-weight: 400;
+    background: transparent;
+}
+
+.bpc-step-input-wrap input::placeholder {
+    color: #888888;
+}
+
+.bpc-step-info-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.bpc-step-info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+}
+
+.bpc-step-info-text {
+    color: #444444;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.bpc-step-calc-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.bpc-step-calc-text {
+    color: #FF8D28;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.bpc-step-calc-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+}
+
+/* ── APP CARDS (Toepassing) ── */
+.bpc-app-card {
+    flex: 1 1 0;
+    min-width: 200px;
+    padding: 16px;
+    background: #F8FBFF;
+    border-radius: 10px;
+    outline: 1px solid #ECEEF2;
+    outline-offset: -1px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.bpc-app-card:hover {
+    outline-color: #009966;
+}
+
+.bpc-app-card:has(.bpc-radio-input:checked) {
+    background: #E6F5F0;
+    outline-color: #009966;
+}
+
+.bpc-app-card-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bpc-app-card-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.bpc-app-card:has(.bpc-radio-input:checked) .bpc-app-card-icon img {
+    filter: brightness(0) saturate(100%) invert(35%) sepia(85%) saturate(1917%) hue-rotate(134deg) brightness(96%) contrast(101%);
+}
+
+.bpc-app-card-name {
+    color: #444444;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.bpc-app-card:has(.bpc-radio-input:checked) .bpc-app-card-name {
+    color: #009966;
+}
+
+.bpc-app-card-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bpc-app-card .bpc-radio-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
 /* ── OPTION CARDS (Toepassing / Loswijze) ── */
 .bpc-option-grid-2 {
     display: grid;
@@ -475,8 +807,8 @@ body {
 }
 
 .bpc-samen-card:has(.bpc-radio-input:checked) {
-    border-color: #1ACB23;
-    background: rgba(26, 203, 35, .1);
+    border-color: #009966;
+    background: #E6F5F0;
 }
 
 .bpc-mobile-card:has(.bpc-radio-input:checked) {
@@ -487,13 +819,13 @@ body {
 .bpc-option-card:has(.bpc-radio-input:checked) .bpc-option-card-icon svg path,
 .bpc-samen-card:has(.bpc-radio-input:checked) .bpc-samen-icon svg path,
 .bpc-mobile-card:has(.bpc-radio-input:checked) .bpc-mobile-card-icon svg path {
-    fill: #1ACB23;
+    fill: #009966;
 }
 
 .bpc-option-card:has(.bpc-radio-input:checked) .bpc-option-card-icon img,
 .bpc-samen-card:has(.bpc-radio-input:checked) .bpc-samen-icon img,
 .bpc-mobile-card:has(.bpc-radio-input:checked) .bpc-mobile-card-icon img {
-    filter: brightness(0) saturate(100%) invert(56%) sepia(48%) saturate(2222%) hue-rotate(75deg) brightness(97%) contrast(90%);
+    filter: brightness(0) saturate(100%) invert(35%) sepia(85%) saturate(1917%) hue-rotate(134deg) brightness(96%) contrast(101%);
 }
 
 /* Radio dot driven by :checked */
@@ -501,7 +833,7 @@ body {
 .bpc-samen-card:has(.bpc-radio-input:checked) .bpc-radio,
 .bpc-mobile-card:has(.bpc-radio-input:checked) .bpc-radio,
 .bpc-uitv-card:has(.bpc-radio-input:checked) .bpc-radio {
-    border-color: #1ACB23;
+    border-color: #009966;
 }
 
 .bpc-option-card:has(.bpc-radio-input:checked) .bpc-radio::after,
@@ -512,7 +844,7 @@ body {
     width: 12px;
     height: 12px;
     border-radius: 9999px;
-    background: #1ACB23;
+    background: #009966;
 }
 
 .bpc-radio {
@@ -667,21 +999,22 @@ body {
 
 .bpc-samen-card {
     position: relative;
-    background: #F6F8FB;
-    border: 1px solid #F3F4F6;
+    background: #F8F9FB;
+    border: 1px solid #EAECF0;
     border-radius: 12px;
-    padding: 20px 12px;
+    padding: 14px 16px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
-    gap: 12px;
+    gap: 14px;
     cursor: pointer;
     transition: border-color .2s, background .2s;
+    min-height: 72px;
 }
 
 .bpc-samen-card:hover {
     border-color: #1ACB23;
+    background: #F3FBF4;
 }
 
 .bpc-samen-card.selected {
@@ -690,26 +1023,45 @@ body {
 }
 
 .bpc-samen-icon {
-    font-size: 28px;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bpc-samen-icon svg,
+.bpc-samen-icon img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
 }
 
 .bpc-samen-inner {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 6px;
+    align-items: flex-start;
+    gap: 2px;
+    flex: 1;
 }
 
 .bpc-samen-name {
     font-size: 15px;
     font-weight: 700;
-    color: #333;
+    color: #222;
+    line-height: 1.3;
+}
+
+.bpc-samen-card:has(.bpc-radio-input:checked) .bpc-samen-name {
+    color: #009966;
 }
 
 .bpc-samen-price {
     font-size: 13px;
-    font-weight: 500;
-    color: #555;
+    font-weight: 400;
+    color: #6B7280;
+    line-height: 1.3;
 }
 
 /* ── UITVOERING ── */
@@ -929,7 +1281,7 @@ SIDEBAR
 
 /* Intro block */
 .bpc-sb-intro {
-    padding: 24px;
+    padding: 24px 16px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -2269,4 +2621,119 @@ BETON HOME PAGE
         height: auto;
         aspect-ratio: 4/3;
     }
+}
+
+/* ── STEPPER ── */
+.bpc-stepper {
+    width: 100%;
+    padding: 24px;
+    border-bottom: 1px solid #ECEEF2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+@media(max-width: 768px) {
+    .bpc-stepper {
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+    .bpc-step-label {
+        font-size: 11px;
+    }
+}
+
+.bpc-stepper-inner {
+    align-self: stretch;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.bpc-stepper-track-bg {
+    position: absolute;
+    top: 15px;
+    left: calc(100% / 12);
+    right: calc(100% / 12);
+    height: 2px;
+    background: #EFEFEF;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.bpc-stepper-track-progress {
+    position: absolute;
+    top: 15px;
+    left: calc(100% / 12);
+    height: 2px;
+    background: #009966;
+    border-radius: 5px;
+    z-index: 2;
+    transition: width 0.3s ease;
+}
+
+.bpc-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 3;
+}
+
+.bpc-step-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.bpc-step-label {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    word-wrap: break-word;
+    color: #888888;
+}
+
+/* Step States */
+.bpc-step.is-upcoming .bpc-step-circle {
+    background: #F3F4F6;
+    color: #888888;
+}
+
+.bpc-step.is-active .bpc-step-circle {
+    background: white;
+    outline: 2px #009966 solid;
+    outline-offset: -2px;
+    color: #009966;
+}
+
+.bpc-step.is-active .bpc-step-label {
+    color: #009966;
+}
+
+.bpc-step.is-completed .bpc-step-circle {
+    background: transparent;
+}
+
+.bpc-step.is-completed .bpc-step-circle svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.bpc-step.is-completed .bpc-step-label {
+    color: #444444;
 }
