@@ -1,5 +1,5 @@
-.font-manrope { font-family: 'Manrope', sans-serif; }
-.font-poppins { font-family: 'Poppins', sans-serif; }
+.font-manrope { font-family:  'Public Sans', sans-serif; }
+.font-poppins { font-family:  'Public Sans', sans-serif; }
 
 
 /* ─────────────────────────────────────────────────────────
@@ -9,13 +9,14 @@ BETON PRICE CALCULATOR
 body {
     overflow-x: hidden;
     width: 100%;
+    font-family: 'Public Sans', sans-serif;
 }
 
 .bpc * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Manrope', sans-serif;
+    font-family:  'Public Sans', sans-serif;
 }
 
 /* ── HERO ── */
@@ -1204,7 +1205,7 @@ BETON HOME PAGE
     width: 100%;
     height: 56px;
     padding: 0.375rem 1.5rem;
-    font-family: 'Manrope', sans-serif;
+    font-family:  'Public Sans', sans-serif;
     font-size: 15px;
     font-weight: 500;
     line-height: 1.5;
@@ -1222,7 +1223,7 @@ BETON HOME PAGE
     min-height: 125px;
     height: 100%;
     padding: 1rem 1.5rem;
-    font-family: 'Manrope', sans-serif;
+    font-family:  'Public Sans', sans-serif;
     font-size: 15px;
     font-weight: 500;
     line-height: 1.5;
@@ -1254,7 +1255,7 @@ BETON HOME PAGE
     display: inline-block;
     width: 100%;
     padding: 1rem;
-    font-family: 'Manrope', sans-serif;
+    font-family:  'Public Sans', sans-serif;
     font-size: 18px;
     font-weight: 800;
     line-height: 1.5;
@@ -1290,7 +1291,7 @@ BETON HOME PAGE
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Manrope', sans-serif;
+    font-family:  'Public Sans', sans-serif;
 }
 
 /* Modal box */
@@ -1326,7 +1327,7 @@ BETON HOME PAGE
     line-height: 1.3;
     margin: 0;
     padding-right: 16px;
-    font-family: 'Manrope', sans-serif;
+    font-family:  'Public Sans', sans-serif;
 }
 
 /* Close button */
@@ -1361,7 +1362,7 @@ BETON HOME PAGE
     margin-bottom: 20px;
     line-height: 1.6;
     font-weight: 500;
-    font-family: 'Manrope', sans-serif;
+    font-family:  'Public Sans', sans-serif;
 }
 
 .bpc-custom-modal-container .custom-modal .modal-body p strong {
@@ -1389,7 +1390,7 @@ BETON HOME PAGE
     font-weight: 800;
     cursor: pointer;
     transition: background 0.2s;
-    font-family: 'Manrope', sans-serif;
+    font-family:  'Public Sans', sans-serif;
 }
 
 .bpc-custom-modal-container .modal-ok:hover {
@@ -1438,47 +1439,6 @@ BETON HOME PAGE
    Styles of Home Page Google Review Widget
    ───────────────────────────────────────────────────────── */
 
-.bpc-google-review-wrapper .ti-widget.ti-goog .ti-review-item .ti-inner .ti-platform-icon {
-    top: 40px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 56px !important;
-    height: 56px !important;
-    padding: 10px;
-    border: 2px solid rgba(0, 0, 0, 0.04);
-    border-radius: 50%;
-}
-
-.bpc-google-review-wrapper .ti-widget.ti-goog .ti-review-item>.ti-inner {
-    padding-top: 80px !important;
-    border-radius: 12px !important;
-    outline: 1px solid #F3F4F6;
-    box-shadow: 2px 6px 20px rgba(17, 17, 17, 0.04);
-}
-
-.bpc-google-review-wrapper .ti-platform-icon.ti-with-tooltip img {
-    width: 32px !important;
-    height: 32px !important;
-}
-
-.bpc-google-review-wrapper .ti-widget.ti-goog .ti-profile-details .ti-date {
-    display: none;
-}
-
-.bpc-google-review-wrapper .ti-review-header {
-    display: flex !important;
-    justify-content: center !important; /* center whole group */
-    align-items: center !important;
-    gap: 6px !important; /* control spacing between image & name */
-    width: fit-content !important;
-    margin: 0 auto !important; /* force center */
-}
-
-.bpc-google-review-wrapper .ti-widget.ti-goog .ti-review-header:before {
-    top: 8%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
 /* Disabled state for the Vlindervloer section */
 .bpc-section-disabled {
@@ -1556,4 +1516,757 @@ BETON HOME PAGE
 .select2-selection.bpc-input-error {
     border-color: #DC2626 !important;
     box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15) !important;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Vlindervloer info box notice styles
+   ───────────────────────────────────────────────────────── */
+.bpc-notice-box {
+    margin-bottom: 24px;
+    margin-left: 24px;
+    margin-right: 24px;
+    padding: 16px;
+    background-color: #FFF9F0;
+    border: 1px solid #FCA01A;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.bpc-notice-box-icon {
+    color: #FCA01A;
+    flex-shrink: 0;
+}
+
+.bpc-notice-box-content {
+    color: #444444;
+    font-family:  'Public Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.bpc-notice-box-content strong {
+    color: #222222;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Section 6: CTA Section (Klaar om te beginnen?)
+   ───────────────────────────────────────────────────────── */
+.bpc-cta-section {
+    position: relative;
+    padding: 80px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    min-height: 480px;
+}
+
+.bpc-cta-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.bpc-cta-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bpc-cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+}
+
+.bpc-cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.bpc-cta-title {
+    font-size: clamp(32px, 5vw, 40px);
+    font-weight: 700;
+    margin-bottom: 0;
+    color: #fff;
+    font-family:  'Public Sans', sans-serif;
+}
+
+.bpc-cta-desc {
+    font-size: 18px;
+    color: #ECEEF2;
+    margin-bottom: 16px;
+    line-height: 1.5;
+    font-family:  'Public Sans', sans-serif;
+    font-weight: 400;
+}
+
+.bpc-cta-btns {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.bpc-cta-btn-primary {
+    background: #009966;
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+}
+
+.bpc-cta-btn-primary:hover {
+    background: #008055;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.bpc-cta-btn-outline {
+    background: transparent;
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid #fff;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 56px;
+}
+
+.bpc-cta-btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.bpc-cta-btn-outline i {
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .bpc-cta-section {
+        padding: 60px 20px;
+        min-height: 400px;
+    }
+    
+    .bpc-cta-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .bpc-cta-btn-primary, .bpc-cta-btn-outline {
+        width: 100%;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────
+   FAQ SECTION
+   ───────────────────────────────────────────────────────── */
+.bpc-faq-section {
+    padding: 100px 20px;
+    background-color: #F8FAFC;
+}
+
+.bpc-faq-container {
+    max-width: 860px;
+    margin: 48px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.bpc-faq-item {
+    border-bottom: 1px solid #ECEEF2;
+    padding: 16px 0 0 0;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.bpc-faq-item:first-child {
+    padding-top: 0;
+}
+
+.bpc-faq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    gap: 20px;
+    width: 100%;
+}
+
+.bpc-faq-question {
+    color: #222;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+    transition: color 0.3s ease;
+}
+
+.bpc-faq-item:hover .bpc-faq-question {
+    color: #009966;
+}
+
+.bpc-faq-icon-wrapper {
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.bpc-faq-icon {
+    position: relative;
+    width: 12px;
+    height: 12px;
+}
+
+.bpc-faq-icon::before,
+.bpc-faq-icon::after {
+    content: "";
+    position: absolute;
+    background-color: #888;
+    transition: all 0.3s ease;
+}
+
+/* Horizontal line */
+.bpc-faq-icon::before {
+    top: 50%;
+    left: 0;
+    width: 12px;
+    height: 2px;
+    transform: translateY(-50%);
+}
+
+/* Vertical line */
+.bpc-faq-icon::after {
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 12px;
+    transform: translateX(-50%);
+}
+
+/* Active state: minus icon and green color */
+.bpc-faq-item.active .bpc-faq-icon::after {
+    transform: translateX(-50%) rotate(90deg);
+    opacity: 0;
+}
+
+.bpc-faq-item.active .bpc-faq-icon::before {
+    background-color: #009966;
+}
+
+.bpc-faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bpc-faq-item.active .bpc-faq-content {
+    max-height: 1000px;
+}
+
+.bpc-faq-answer {
+    color: #444;
+    font-size: 16px;
+    line-height: 1.6;
+    padding-top: 12px;
+    padding-bottom: 16px;
+    max-width: 100%;
+}
+
+
+@media (max-width: 768px) {
+    .bpc-faq-section {
+        padding: 60px 20px;
+    }
+    .bpc-faq-question {
+        font-size: 18px;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────
+   Section 5: Hoe werkt het
+   ───────────────────────────────────────────────────────── */
+.bpc-how-it-works-section {
+    background-color: #009966;
+    padding: 120px 20px;
+    font-family: 'Public Sans', sans-serif;
+}
+
+.bpc-how-it-works-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 72px;
+}
+
+.bpc-how-it-works-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.bpc-how-it-works-header h2 {
+    color: #fff;
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.bpc-how-it-works-header p {
+    color: #ECEEF2;
+    font-size: 18px;
+    margin: 0;
+    font-weight: 400;
+}
+
+.bpc-how-it-works-steps-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.bpc-how-it-works-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.bpc-how-it-works-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: calc(50% + 45px);
+    width: calc(100% - 90px);
+    height: 37px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+}
+
+.bpc-how-it-works-step:nth-child(1)::after {
+    background-image: url("data:image/svg+xml,%3Csvg width='225' height='37' viewBox='0 0 225 37' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M224.298 22.5772C224.721 21.865 224.487 20.9446 223.775 20.5214L212.169 13.6251C211.457 13.2019 210.536 13.4362 210.113 14.1484C209.69 14.8606 209.924 15.781 210.636 16.2041L220.953 22.3342L214.822 32.6503C214.399 33.3625 214.634 34.2829 215.346 34.7061C216.058 35.1293 216.978 34.895 217.402 34.1828L224.298 22.5772ZM1.0083 1.11035L-1.22786e-05 2.22089C22.6178 22.7566 98.581 55.0294 223.378 23.2646L223.008 21.8109L222.638 20.3573C98.5005 51.9543 23.6759 19.6652 2.01661 -0.000190973L1.0083 1.11035Z' fill='white' fill-opacity='0.2'/%3E%3C/svg%3E");
+    top: 32px;
+}
+
+.bpc-how-it-works-step:nth-child(2)::after {
+    background-image: url("data:image/svg+xml,%3Csvg width='225' height='34' viewBox='0 0 225 34' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M223.201 15.1006C223.952 14.7512 224.278 13.859 223.928 13.1079L218.233 0.867766C217.884 0.116653 216.992 -0.208952 216.241 0.140506C215.49 0.489965 215.164 1.38215 215.513 2.13327L220.575 13.0133L209.695 18.0753C208.944 18.4248 208.619 19.317 208.968 20.0681C209.318 20.8192 210.21 21.1448 210.961 20.7954L223.201 15.1006ZM0.568176 32.4668L1.13637 33.855C22.502 25.1102 59.2491 13.6625 99.9346 7.79637C140.643 1.92691 185.122 1.6713 222.054 15.1497L222.568 13.7406L223.082 12.3315C185.478 -1.39234 140.428 -1.07303 99.5064 4.82708C58.5618 10.7306 21.5773 22.2471 -1.51992e-05 31.0786L0.568176 32.4668Z' fill='white' fill-opacity='0.2'/%3E%3C/svg%3E");
+}
+
+.bpc-how-it-works-step:nth-child(3)::after {
+    background-image: url("data:image/svg+xml,%3Csvg width='225' height='34' viewBox='0 0 225 34' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M223.998 20.5485C224.396 19.8222 224.13 18.9104 223.404 18.5119L211.569 12.018C210.842 11.6195 209.93 11.8852 209.532 12.6115C209.133 13.3378 209.399 14.2496 210.125 14.6481L220.646 20.4204L214.874 30.9409C214.475 31.6672 214.741 32.579 215.467 32.9775C216.193 33.376 217.105 33.1103 217.504 32.384L223.998 20.5485ZM0.682495 1.33594L-2.96235e-05 2.67166C34.7887 20.4479 127.97 48.9907 223.102 21.267L222.683 19.8269L222.263 18.3868C128.071 45.8363 35.6913 17.5401 1.36502 0.000213027L0.682495 1.33594Z' fill='white' fill-opacity='0.2'/%3E%3C/svg%3E");
+    top: 32px;
+}
+
+.bpc-how-it-works-icon {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.bpc-how-it-works-icon > svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.bpc-step-number {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.bpc-how-it-works-content h3 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    line-height: 1.2;
+}
+
+.bpc-how-it-works-content p {
+    color: #ECEEF2;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.bpc-how-it-works-content {
+    max-width: 260px;
+}
+
+@media (max-width: 991px) {
+    .bpc-how-it-works-step::after {
+        display: none;
+    }
+    .bpc-how-it-works-steps-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 48px;
+    }
+    .bpc-how-it-works-step {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .bpc-how-it-works-section {
+        padding: 60px 20px;
+    }
+    .bpc-how-it-works-header h2 {
+        font-size: 32px;
+    }
+}
+
+/* ── WAAROM MOBIELE BETON (FEATURES) ── */
+.bpc-features-section {
+    padding: 100px 20px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bpc-features-header {
+    text-align: center;
+    margin-bottom: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.bpc-features-header h2 {
+    color: #222222;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.bpc-features-header p {
+    color: #444444;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.bpc-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bpc-feature-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 40px;
+    outline: 1px solid #ECEEF2;
+    outline-offset: -1px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    transition: box-shadow 0.3s ease;
+}
+
+.bpc-feature-card:hover {
+    box-shadow: 0px 4px 60px rgba(0, 0, 0, 0.08);
+}
+
+.bpc-feature-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    background: rgba(0, 153, 102, 0.05);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bpc-feature-icon-wrapper svg {
+    width: 32px;
+    height: 32px;
+}
+
+.bpc-feature-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bpc-feature-title {
+    color: #222222;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.bpc-feature-desc {
+    color: #444444;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    opacity: 0.7;
+    margin: 0;
+}
+
+.bpc-features-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.bpc-features-btn-primary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 56px;
+    padding: 0 24px;
+    background: #009966;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.bpc-features-btn-primary:hover {
+    background: #008055;
+    color: #ffffff;
+}
+
+.bpc-features-btn-outline {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 56px;
+    padding: 0 24px;
+    border: 2px solid #009966;
+    color: #009966;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.bpc-features-btn-outline:hover {
+    background: #009966;
+    color: #ffffff;
+}
+
+@media (max-width: 991px) {
+    .bpc-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .bpc-features-section {
+        padding: 60px 20px;
+    }
+    .bpc-features-header h2 {
+        font-size: 32px;
+    }
+    .bpc-features-grid {
+        grid-template-columns: 1fr;
+    }
+    .bpc-features-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    .bpc-features-btn-primary, .bpc-features-btn-outline {
+        width: 100%;
+    }
+}
+
+/* ── WAAROM KIEZEN VOOR MOBIELE BETON (WHY CHOOSE) ── */
+.bpc-why-choose-section {
+    padding: 100px 20px;
+    background-color: #F8FAFC;
+    display: flex;
+    justify-content: center;
+}
+
+.bpc-why-choose-grid {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.bpc-why-choose-images {
+    flex: 1;
+    display: flex;
+    gap: 16px;
+}
+
+.bpc-why-choose-img1 {
+    width: 368px;
+    height: 400px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.bpc-why-choose-img2 {
+    flex: 1;
+    height: 400px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.bpc-why-choose-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.bpc-why-choose-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.bpc-why-choose-header h2 {
+    color: #222222;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.bpc-why-choose-header p {
+    color: #444444;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 594px;
+}
+
+.bpc-why-choose-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 580px;
+}
+
+.bpc-why-choose-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bpc-check-icon {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.bpc-why-choose-list span {
+    color: #444444;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+@media (max-width: 991px) {
+    .bpc-why-choose-grid {
+        flex-direction: column;
+    }
+    .bpc-why-choose-images {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .bpc-why-choose-img1 {
+        width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .bpc-why-choose-section {
+        padding: 60px 20px;
+    }
+    .bpc-why-choose-header h2 {
+        font-size: 32px;
+    }
+    .bpc-why-choose-images {
+        flex-direction: column;
+    }
+    .bpc-why-choose-img1, .bpc-why-choose-img2 {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4/3;
+    }
 }

@@ -23,14 +23,7 @@
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-		rel="stylesheet">
-
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Public Sans:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 	<meta name="google-site-verification" content="WYLMZJRSlm_3dAd0-ngtlSBjgkpEwLhTKZ2-WgFJyng" />
 	<!-- Google Tag Manager -->
@@ -181,7 +174,7 @@
 							<a href="<?php echo site_url(); ?>/contact" class="figma-contact-btn"
 								style="width: 100%; height: 100%; padding-left: 20px; padding-right: 20px; padding-top: 9px; padding-bottom: 9px; border-radius: 10px; outline: 1px #1ACB23 solid; outline-offset: -0.50px; justify-content: center; align-items: center; gap: 6px; display: inline-flex; text-decoration: none; transition: background-color 0.3s;">
 								<div class="figma-contact-text"
-									style="text-align: center; justify-content: center; display: flex; flex-direction: column; color: #1ACB23; font-size: 16px; font-family: Manrope; font-weight: 700; line-height: 22.40px; word-wrap: break-word; transition: color 0.3s;">
+									style="text-align: center; justify-content: center; display: flex; flex-direction: column; color: #1ACB23; font-size: 16px; font-family: Public Sans; font-weight: 700; line-height: 22.40px; word-wrap: break-word; transition: color 0.3s;">
 									Contact</div>
 							</a>
 						</div>
@@ -222,7 +215,7 @@
 									<a href="<?php echo site_url(); ?>/contact" class="figma-contact-btn"
 										style="width: 100%; height: 100%; padding-left: 20px; padding-right: 20px; padding-top: 9px; padding-bottom: 9px; border-radius: 10px; outline: 1px #1ACB23 solid; outline-offset: -0.50px; justify-content: center; align-items: center; gap: 6px; display: inline-flex; text-decoration: none; transition: background-color 0.3s;">
 										<div class="figma-contact-text"
-											style="text-align: center; justify-content: center; display: flex; flex-direction: column; color: #1ACB23; font-size: 16px; font-family: Manrope; font-weight: 700; line-height: 22.40px; word-wrap: break-word; transition: color 0.3s;">
+											style="text-align: center; justify-content: center; display: flex; flex-direction: column; color: #1ACB23; font-size: 16px; font-family: Public Sans; font-weight: 700; line-height: 22.40px; word-wrap: break-word; transition: color 0.3s;">
 											Contact</div>
 									</a>
 								</div>

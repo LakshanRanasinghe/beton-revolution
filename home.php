@@ -5,12 +5,17 @@ get_header();
 $pricingData = get_field('application', 'option');
 ?>
 
-<div class="bpc">
+<div class="bpc" id="calculator">
 
     <!-- ════════════ HERO ════════════ -->
     <div class="bpc-hero">
-        <div class="bpc-hero-bg"
-            style="background: url('<?php echo get_template_directory_uri(); ?>/images/price-calculator-banner.png') center/cover no-repeat;">
+        <div class="bpc-hero-bg">
+            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                <source src="<?php echo get_template_directory_uri(); ?>/images/home-video.mp4" type="video/mp4">
+            </video>
+            <div
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1;">
+            </div>
         </div>
         <!-- concave wave curve – not border-radius, SVG shape mask -->
         <div class="bpc-hero-wave">
@@ -501,10 +506,24 @@ $pricingData = get_field('application', 'option');
                     </div>
                 </div>
 
+                <div class="bpc-notice-box">
+                    <div class="bpc-notice-box-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V11H13V17ZM13 9H11V7H13V9Z"
+                                fill="currentColor" />
+                        </svg>
+                    </div>
+                    <div class="bpc-notice-box-content">
+                        <strong>Let op:</strong> Onderstaande opties zijn alleen beschikbaar in
+                        combinatie met de All-in uitvoering.
+                    </div>
+                </div>
+
                 <!-- ── 6. Vlindervloer ── -->
                 <div class="bpc-section">
                     <div class="bpc-section-head">
-                        <div class="bpc-section-head-title">Vlindervloer (optioneel)</div>
+                        <div class="bpc-section-head-title">Vlindervloer</div>
                         <div class="bpc-section-hr"></div>
                     </div>
                     <div class="bpc-vlinder-row">
@@ -788,370 +807,260 @@ $pricingData = get_field('application', 'option');
 
 
 
-<!-- Section 1: Hoe werkt het? -->
-<section class="py-5 bg-white">
-    <div class="container py-lg-5 px-md-0 px-3">
-        <div class="text-center mb-5 mx-auto" style="max-width: 600px;">
-            <h2 class="text-custom-black text-40 mb-3" style="font-family: 'Poppins', sans-serif; font-weight: 600;">Hoe
-                werkt het?</h2>
-            <p class="text-dark-gray text-16" style="font-family: 'Manrope', sans-serif; font-weight: 500;">Bestel
-                uw
-                beton in 3 eenvoudige stappen – snel, duidelijk en zonder gedoe.</p>
+<!-- Section 2: Waarom kiezen voor Mobiele Beton? -->
+<section class="bpc-why-choose-section">
+    <div class="container">
+        <div class="bpc-why-choose-grid">
+            <div class="bpc-why-choose-images">
+                <img class="bpc-why-choose-img1" src="<?php echo get_template_directory_uri(); ?>/images/home-track1.png" alt="Beton mixer truck">
+                <img class="bpc-why-choose-img2" src="<?php echo get_template_directory_uri(); ?>/images/home-track2.png" alt="Pouring concrete">
+            </div>
+            <div class="bpc-why-choose-content">
+                <div class="bpc-why-choose-header">
+                    <h2>Waarom kiezen voor Mobiele Beton?</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.</p>
+                </div>
+                <ul class="bpc-why-choose-list">
+                    <li>
+                        <div class="bpc-check-icon">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.3334 4L6.00002 11.3333L2.66669 8" stroke="#34C759" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span>Flexibel volume</span>
+                    </li>
+                    <li>
+                        <div class="bpc-check-icon">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.3334 4L6.00002 11.3333L2.66669 8" stroke="#34C759" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span>Vaste kosten productie</span>
+                    </li>
+                    <li>
+                        <div class="bpc-check-icon">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.3334 4L6.00002 11.3333L2.66669 8" stroke="#34C759" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span>Flexibele planning mogelijk</span>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="row g-4 d-flex align-items-stretch justify-content-center">
+    </div>
+</section>
+
+<!-- Section 5: Waarom Mobiele Beton -->
+<section class="bpc-features-section">
+    <div class="container">
+        <div class="bpc-features-header">
+            <h2>Waarom Mobiele Beton?</h2>
+            <p>Ontdek de voordelen van onze mobiele betonservice</p>
+        </div>
+
+        <div class="bpc-features-grid">
+            <div class="bpc-feature-card">
+                <div class="bpc-feature-icon-wrapper">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M24 2.66675H7.99999C6.52724 2.66675 5.33333 3.86066 5.33333 5.33341V26.6667C5.33333 28.1395 6.52724 29.3334 7.99999 29.3334H24C25.4728 29.3334 26.6667 28.1395 26.6667 26.6667V5.33341C26.6667 3.86066 25.4728 2.66675 24 2.66675Z"
+                            stroke="#009966" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10.6667 8H21.3333" stroke="#009966" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M21.3333 18.6667V24.0001" stroke="#009966" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M21.3333 13.3333H21.3467" stroke="#009966" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M16 13.3333H16.0133" stroke="#009966" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M10.6667 13.3333H10.68" stroke="#009966" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M16 18.6667H16.0133" stroke="#009966" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M10.6667 18.6667H10.68" stroke="#009966" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M16 24H16.0133" stroke="#009966" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M10.6667 24H10.68" stroke="#009966" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="bpc-feature-content">
+                    <h3 class="bpc-feature-title">Betaal per 100 liter</h3>
+                    <p class="bpc-feature-desc">Alleen betalen voor wat je daadwerkelijk gebruikt. Geen verspilling.</p>
+                </div>
+            </div>
+
+            <div class="bpc-feature-card">
+                <div class="bpc-feature-icon-wrapper">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M18.6667 23.9999V7.99992C18.6667 7.29267 18.3857 6.6144 17.8856 6.1143C17.3855 5.6142 16.7073 5.33325 16 5.33325H5.33335C4.62611 5.33325 3.94783 5.6142 3.44774 6.1143C2.94764 6.6144 2.66669 7.29267 2.66669 7.99992V22.6666C2.66669 23.0202 2.80716 23.3593 3.05721 23.6094C3.30726 23.8594 3.6464 23.9999 4.00002 23.9999H6.66669"
+                            stroke="#009966" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M20 24H12" stroke="#009966" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path
+                            d="M25.3334 24.0001H28C28.3536 24.0001 28.6928 23.8596 28.9428 23.6096C29.1929 23.3595 29.3334 23.0204 29.3334 22.6667V17.8001C29.3328 17.4975 29.2294 17.2041 29.04 16.9681L24.4 11.1681C24.2753 11.0119 24.1171 10.8858 23.9371 10.799C23.7571 10.7122 23.5599 10.667 23.36 10.6667H18.6667"
+                            stroke="#009966" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M22.6667 26.6666C24.1394 26.6666 25.3333 25.4727 25.3333 23.9999C25.3333 22.5272 24.1394 21.3333 22.6667 21.3333C21.1939 21.3333 20 22.5272 20 23.9999C20 25.4727 21.1939 26.6666 22.6667 26.6666Z"
+                            stroke="#009966" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M9.33335 26.6666C10.8061 26.6666 12 25.4727 12 23.9999C12 22.5272 10.8061 21.3333 9.33335 21.3333C7.86059 21.3333 6.66669 22.5272 6.66669 23.9999C6.66669 25.4727 7.86059 26.6666 9.33335 26.6666Z"
+                            stroke="#009966" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="bpc-feature-content">
+                    <h3 class="bpc-feature-title">Levering op locatie</h3>
+                    <p class="bpc-feature-desc">Beton wordt direct op uw locatie gemengd en geleverd.</p>
+                </div>
+            </div>
+
+            <div class="bpc-feature-card">
+                <div class="bpc-feature-icon-wrapper">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M16 29.3334C23.3638 29.3334 29.3333 23.3639 29.3333 16.0001C29.3333 8.63628 23.3638 2.66675 16 2.66675C8.63616 2.66675 2.66663 8.63628 2.66663 16.0001C2.66663 23.3639 8.63616 29.3334 16 29.3334Z"
+                            stroke="#009966" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M16 8V16L21.3333 18.6667" stroke="#009966" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="bpc-feature-content">
+                    <h3 class="bpc-feature-title">Flexibele planning</h3>
+                    <p class="bpc-feature-desc">Kies zelf uw gewenste leveringstijd en datum.</p>
+                </div>
+            </div>
+
+            <div class="bpc-feature-card">
+                <div class="bpc-feature-icon-wrapper">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.33333 13.3333V29.3333" stroke="#009966" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path
+                            d="M20 7.84008L18.6667 13.3334H26.44C26.854 13.3334 27.2623 13.4298 27.6326 13.6149C28.0029 13.8001 28.3249 14.0689 28.5733 14.4001C28.8217 14.7313 28.9896 15.1157 29.0637 15.5231C29.1377 15.9304 29.1159 16.3493 29 16.7467L25.8933 27.4134C25.7318 27.9673 25.3949 28.4539 24.9333 28.8001C24.4718 29.1463 23.9103 29.3334 23.3333 29.3334H5.33334C4.62609 29.3334 3.94782 29.0525 3.44772 28.5524C2.94762 28.0523 2.66667 27.374 2.66667 26.6667V16.0001C2.66667 15.2928 2.94762 14.6146 3.44772 14.1145C3.94782 13.6144 4.62609 13.3334 5.33334 13.3334H9.01334C9.50945 13.3332 9.99565 13.1945 10.4173 12.933C10.8389 12.6716 11.1792 12.2977 11.4 11.8534L16 2.66675C16.6288 2.67453 17.2477 2.82431 17.8104 3.10488C18.3732 3.38545 18.8652 3.78956 19.2499 4.28702C19.6345 4.78448 19.9018 5.36243 20.0317 5.97768C20.1615 6.59294 20.1507 7.22959 20 7.84008Z"
+                            stroke="#009966" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="bpc-feature-content">
+                    <h3 class="bpc-feature-title">Hoge kwaliteit</h3>
+                    <p class="bpc-feature-desc">Vers gemengd beton van topkwaliteit gegarandeerd.</p>
+                </div>
+            </div>
+
+            <div class="bpc-feature-card">
+                <div class="bpc-feature-icon-wrapper">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M26.6666 17.3333C26.6666 23.9999 22 27.3333 16.4533 29.2666C16.1629 29.365 15.8474 29.3603 15.56 29.2533C9.99998 27.3333 5.33331 23.9999 5.33331 17.3333V7.99995C5.33331 7.64633 5.47379 7.30719 5.72384 7.05714C5.97389 6.80709 6.31302 6.66662 6.66665 6.66662C9.33331 6.66662 12.6666 5.06662 14.9866 3.03995C15.2691 2.79861 15.6285 2.66602 16 2.66602C16.3715 2.66602 16.7308 2.79861 17.0133 3.03995C19.3466 5.07995 22.6666 6.66662 25.3333 6.66662C25.6869 6.66662 26.0261 6.80709 26.2761 7.05714C26.5262 7.30719 26.6666 7.64633 26.6666 7.99995V17.3333Z"
+                            stroke="#009966" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="bpc-feature-content">
+                    <h3 class="bpc-feature-title">Betrouwbare service</h3>
+                    <p class="bpc-feature-desc">Professionele chauffeurs met jarenlange ervaring.</p>
+                </div>
+            </div>
+
+            <div class="bpc-feature-card">
+                <div class="bpc-feature-icon-wrapper">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M19.6001 8.40006C19.3557 8.64929 19.2189 8.98438 19.2189 9.33339C19.2189 9.68239 19.3557 10.0175 19.6001 10.2667L21.7334 12.4001C21.9826 12.6444 22.3177 12.7812 22.6667 12.7812C23.0157 12.7812 23.3508 12.6444 23.6001 12.4001L28.6267 7.37339C29.2972 8.85497 29.5002 10.5057 29.2087 12.1056C28.9172 13.7055 28.145 15.1785 26.9951 16.3284C25.8452 17.4783 24.3721 18.2505 22.7722 18.542C21.1724 18.8335 19.5216 18.6305 18.0401 17.9601L8.82672 27.1734C8.29629 27.7038 7.57686 28.0018 6.82672 28.0018C6.07657 28.0018 5.35715 27.7038 4.82672 27.1734C4.29629 26.643 3.99829 25.9235 3.99829 25.1734C3.99829 24.4232 4.29629 23.7038 4.82672 23.1734L14.0401 13.9601C13.3696 12.4785 13.1666 10.8277 13.4581 9.22786C13.7496 7.62798 14.5218 6.15493 15.6717 5.00502C16.8216 3.8551 18.2946 3.08295 19.8945 2.79144C21.4944 2.49994 23.1451 2.70294 24.6267 3.37339L19.6134 8.38672L19.6001 8.40006Z"
+                            stroke="#009966" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="bpc-feature-content">
+                    <h3 class="bpc-feature-title">Maatwerk oplossingen</h3>
+                    <p class="bpc-feature-desc">Verschillende consistenties en mengsels beschikbaar.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bpc-features-actions">
+            <a href="#" class="bpc-features-btn-primary">Neem contact op</a>
+            <a href="#" class="bpc-features-btn-outline">Bestel nu</a>
+        </div>
+    </div>
+</section>
+
+<!-- Section 5: Hoe werkt het -->
+<section class="bpc-how-it-works-section">
+    <div class="bpc-how-it-works-container container">
+        <div class="bpc-how-it-works-header">
+            <h2>Hoe werkt het?</h2>
+            <p>In 4 eenvoudige stappen naar uw verse beton</p>
+        </div>
+
+        <div class="bpc-how-it-works-steps-wrapper">
             <!-- Step 1 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 d-flex flex-column"
-                    style="background: white; box-shadow: 2px 6px 20px rgba(17, 17, 17, 0.04); border-radius: 12px; outline: 1px #E5E7EB solid; outline-offset: -1px; overflow: hidden;">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/home-page/hpme-page-prijs.png"
-                        class="card-img-top w-100" style="object-fit: cover; height: 280px;" alt="Stap 1">
-                    <div class="card-body flex-grow-1 d-flex flex-column justify-content-start align-items-start"
-                        style="padding: 24px; gap: 16px;">
-                        <div class="d-inline-flex align-items-center"
-                            style="height: 28px; padding: 6px 8px; background: rgba(255, 204, 0, 0.10); border-radius: 100px; outline: 1px #FCA01A solid; outline-offset: -1px; gap: 4px;">
-                            <div style="width: 8px; height: 8px; background: #FCA01A; border-radius: 9999px;"></div>
-                            <span
-                                style="color: #FCA01A; font-size: 14px; font-family: 'Manrope', sans-serif; font-weight: 500;">Stap
-                                1</span>
-                        </div>
-                        <h3 class="w-100 mb-0"
-                            style="color: #222222; font-size: 24px; font-family: 'Manrope', sans-serif; font-weight: 700; line-height: 32.4px;">
-                            Prijs berekenen</h3>
-                        <p class="w-100 mb-0"
-                            style="color: #333333; font-size: 16px; font-family: 'Manrope', sans-serif; font-weight: 500; line-height: 24px;">
-                            Voer in stap 1 de postcode en de hoeveelheid beton in de betoncalculator in.</p>
-                    </div>
+            <div class="bpc-how-it-works-step">
+                <div class="bpc-how-it-works-icon">
+                    <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="35" cy="35" r="35" fill="white" fill-opacity="0.2" />
+                    </svg>
+                    <span class="bpc-step-number">1</span>
+                </div>
+                <div class="bpc-how-it-works-content">
+                    <h3>Bereken uw behoefte</h3>
+                    <p>Gebruik onze handige calculator om te bepalen hoeveel beton u nodig heeft voor uw project.</p>
                 </div>
             </div>
+
             <!-- Step 2 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 d-flex flex-column"
-                    style="background: white; box-shadow: 2px 6px 20px rgba(17, 17, 17, 0.04); border-radius: 12px; outline: 1px #E5E7EB solid; outline-offset: -1px; overflow: hidden;">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/home-page/home-page-kies.png"
-                        class="card-img-top w-100" style="object-fit: cover; height: 280px;" alt="Stap 2">
-                    <div class="card-body flex-grow-1 d-flex flex-column justify-content-start align-items-start"
-                        style="padding: 24px; gap: 16px;">
-                        <div class="d-inline-flex align-items-center"
-                            style="height: 28px; padding: 6px 8px; background: rgba(255, 204, 0, 0.10); border-radius: 100px; outline: 1px #FCA01A solid; outline-offset: -1px; gap: 4px;">
-                            <div style="width: 8px; height: 8px; background: #FCA01A; border-radius: 9999px;"></div>
-                            <span
-                                style="color: #FCA01A; font-size: 14px; font-family: 'Manrope', sans-serif; font-weight: 500;">Stap
-                                2</span>
-                        </div>
-                        <h3 class="w-100 mb-0"
-                            style="color: #222222; font-size: 24px; font-family: 'Manrope', sans-serif; font-weight: 700; line-height: 32.4px;">
-                            Kies type en soort</h3>
-                        <p class="w-100 mb-0"
-                            style="color: #333333; font-size: 16px; font-family: 'Manrope', sans-serif; font-weight: 500; line-height: 24px;">
-                            In stap 2 wordt de betonstort gespecificeerd op basis van de lossingsmethode, uitvoering
-                            en
-                            het type beton.</p>
-                    </div>
+            <div class="bpc-how-it-works-step">
+                <div class="bpc-how-it-works-icon">
+                    <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="35" cy="35" r="35" fill="white" fill-opacity="0.2" />
+                    </svg>
+                    <span class="bpc-step-number">2</span>
+                </div>
+                <div class="bpc-how-it-works-content">
+                    <h3>Plan uw levering</h3>
+                    <p>Kies een datum en tijdstip dat het beste bij u past. Flexibele planning mogelijk.</p>
                 </div>
             </div>
+
             <!-- Step 3 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 d-flex flex-column"
-                    style="background: white; box-shadow: 2px 6px 20px rgba(17, 17, 17, 0.04); border-radius: 12px; outline: 1px #E5E7EB solid; outline-offset: -1px; overflow: hidden;">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/home-page/home-page-bevestigen.png"
-                        class="card-img-top w-100" style="object-fit: cover; height: 280px;" alt="Stap 3">
-                    <div class="card-body flex-grow-1 d-flex flex-column justify-content-start align-items-start"
-                        style="padding: 24px; gap: 16px;">
-                        <div class="d-inline-flex align-items-center"
-                            style="height: 28px; padding: 6px 8px; background: rgba(255, 204, 0, 0.10); border-radius: 100px; outline: 1px #FCA01A solid; outline-offset: -1px; gap: 4px;">
-                            <div style="width: 8px; height: 8px; background: #FCA01A; border-radius: 9999px;"></div>
-                            <span
-                                style="color: #FCA01A; font-size: 14px; font-family: 'Manrope', sans-serif; font-weight: 500;">Stap
-                                3</span>
-                        </div>
-                        <h3 class="w-100 mb-0"
-                            style="color: #222222; font-size: 24px; font-family: 'Manrope', sans-serif; font-weight: 700; line-height: 32.4px;">
-                            Bevestigen en betalen</h3>
-                        <p class="w-100 mb-0"
-                            style="color: #333333; font-size: 16px; font-family: 'Manrope', sans-serif; font-weight: 500; line-height: 24px;">
-                            In de laatste stap kan de betonstort in de kalender worden ingepland en kunt u eenvoudig
-                            betalen met iDEAL.</p>
-                    </div>
+            <div class="bpc-how-it-works-step">
+                <div class="bpc-how-it-works-icon">
+                    <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="35" cy="35" r="35" fill="white" fill-opacity="0.2" />
+                    </svg>
+                    <span class="bpc-step-number">3</span>
+                </div>
+                <div class="bpc-how-it-works-content">
+                    <h3>Ontvang uw beton</h3>
+                    <p>Onze mobiele betonwagen komt naar uw locatie en mengt het beton ter plekke.</p>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
 
-<!-- Section 2: Helder Uitgelegd & Stats -->
-<section class="py-5" style="background-color: #F6F8FB;">
-    <div class="container py-lg-5 px-0">
-        <div class="row g-5 px-md-0 px-3">
-            <!-- Left Column: Text & Slider -->
-            <div class="col-lg-7 d-flex flex-column" style="gap: 2rem;">
-                <div>
-                    <h2 class="fw-bolder text-40 text-custom-black mb-4" style="font-family: 'Manrope', sans-serif;">
-                        Beton bestellen, helder uitgelegd</h2>
-                    <p class="text-16 text-custom-gray-2"
-                        style="font-family: 'Manrope', sans-serif; font-weight: 500; line-height: 1.5;">Van de
-                        eerste
-                        berekening tot de uiteindelijke levering begeleiden wij u met een duidelijk en
-                        overzichtelijk
-                        bestelproces.<br />Met onze betoncalculator ziet u snel de prijs, kiest u het juiste
-                        betontype
-                        en plant u de levering. Alles wordt duidelijk uitgelegd, zodat u precies weet wat u kunt
-                        verwachten — zonder verrassingen.</p>
+            <!-- Step 4 -->
+            <div class="bpc-how-it-works-step">
+                <div class="bpc-how-it-works-icon">
+                    <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="35" cy="35" r="35" fill="white" fill-opacity="0.2" />
+                    </svg>
+                    <span class="bpc-step-number">4</span>
                 </div>
-
-                <!-- Custom Static Slider Structure -->
-                <div class="bpc-custom-slider position-relative w-100 mt-3" style="min-height: 333px;">
-
-                    <!-- Hidden images -->
-                    <div class="slides d-none">
-                        <img
-                            src="<?php echo site_url(); ?>/wp-content/themes/beton/images/home-page/home-page-slider-1.jpg">
-                        <img
-                            src="<?php echo site_url(); ?>/wp-content/themes/beton/images/home-page/home-page-slider-2.jpg">
-                        <img
-                            src="<?php echo site_url(); ?>/wp-content/themes/beton/images/home-page/home-page-slider-3.png">
-                    </div>
-
-                    <!-- Left -->
-                    <div class="slider-left position-absolute h-100" style="width: 80px; left: 0; z-index:1;">
-                        <img class="left-img w-100 h-100" style="object-fit: cover; opacity:.5; border-radius:12px;">
-                        <div class="nav-left position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center"
-                            style="background: rgba(0,0,0,.3); border-radius:12px; cursor:pointer;">
-                            <i class="bi bi-chevron-left text-white fs-3"></i>
-                        </div>
-                    </div>
-
-                    <!-- Center -->
-                    <div class="slider-center position-absolute h-100" style="left:88px; right:88px; z-index:2;">
-                        <img class="center-img w-100 h-100" style="object-fit: cover; border-radius:10px;">
-                    </div>
-
-                    <!-- Right -->
-                    <div class="slider-right position-absolute h-100" style="width: 80px; right: 0; z-index:1;">
-                        <img class="right-img w-100 h-100" style="object-fit: cover; opacity:.5; border-radius:12px;">
-                        <div class="nav-right position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center"
-                            style="background: rgba(0,0,0,.3); border-radius:12px; cursor:pointer;">
-                            <i class="bi bi-chevron-right text-white fs-3"></i>
-                        </div>
-                    </div>
-
+                <div class="bpc-how-it-works-content">
+                    <h3>Klaar voor gebruik</h3>
+                    <p>Vers gemengd beton direct klaar voor gebruik. Betaal alleen voor wat u gebruikt.</p>
                 </div>
-
-            </div>
-
-            <!-- Right Column: Card & Stats -->
-            <div class="col-lg-5 d-flex flex-column" style="gap: 1rem;">
-                <!-- Top Card: Wie wij zijn -->
-                <div class="card border-0 bg-white p-4 p-lg-5 flex-grow-1 d-flex flex-column justify-content-center"
-                    style="border-radius: 12px; outline: 1px solid #E5E7EB; box-shadow: 2px 6px 20px rgba(17, 17, 17, 0.04);">
-                    <h3 class="fw-bolder text-32 text-custom-black mb-4" style="font-family: 'Manrope', sans-serif;">Wie
-                        wij zijn</h3>
-                    <p class="text-16 text-custom-gray-2 mb-3"
-                        style="font-family: 'Manrope', sans-serif; font-weight: 500;">Wij helpen huiseigenaren,
-                        aannemers en bouwers bij het bestellen van beton voor allerlei projecten, van kleine
-                        renovaties
-                        tot grote bouwprojecten.</p>
-                    <p class="text-16 text-custom-gray-2 mb-4"
-                        style="font-family: 'Manrope', sans-serif; font-weight: 500;">Wij werken met gecertificeerde
-                        betoncentrales en ervaren chauffeurs om elke levering goed te plannen en op tijd te leveren.
-                        Duidelijke communicatie en betrouwbare levering staan centraal in ons werk.</p>
-                    <a href="<?php echo site_url('/contact'); ?>"
-                        class="btn rounded-3 fw-bold text-md-18 text-sm-16 py-3 px-4 d-inline-flex align-items-center justify-content-center gap-2 mt-auto align-self-start"
-                        style="font-family: 'Manrope', sans-serif; border: 1.5px solid #1ACB23; color: #1ACB23; background: transparent;">
-                        <span>Neem contact met ons op</span>
-                        <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M12.1115 6.08675H0.75C0.537167 6.08675 0.359 6.01492 0.2155 5.87125C0.0718332 5.72775 0 5.54958 0 5.33675C0 5.12392 0.0718332 4.94575 0.2155 4.80225C0.359 4.65858 0.537167 4.58675 0.75 4.58675H12.1115L8.81925 1.2945C8.67058 1.14567 8.59717 0.971583 8.599 0.77225C8.601 0.572917 8.67442 0.395668 8.81925 0.240501C8.97442 0.0855009 9.15258 0.00541641 9.35375 0.00024974C9.55508 -0.00491693 9.73333 0.0700831 9.8885 0.22525L14.3673 4.704C14.4609 4.79767 14.5269 4.89642 14.5652 5.00025C14.6037 5.10408 14.623 5.21625 14.623 5.33675C14.623 5.45725 14.6037 5.56942 14.5652 5.67325C14.5269 5.77708 14.4609 5.87583 14.3673 5.9695L9.8885 10.4482C9.73967 10.5969 9.56308 10.6703 9.35875 10.6685C9.15425 10.6665 8.97442 10.588 8.81925 10.433C8.67442 10.2778 8.59942 10.1022 8.59425 9.906C8.58908 9.70983 8.66408 9.53417 8.81925 9.379L12.1115 6.08675Z"
-                                fill="#1ACB23" />
-                        </svg>
-
-                    </a>
-                </div>
-
-                <!-- Bottom Stats Row -->
-                <div class="row g-3">
-                    <div class="col-4">
-                        <div class="card h-100 border-0 bg-white py-4 px-2 text-center justify-content-center d-flex flex-column"
-                            style="border-radius: 12px; outline: 1px solid #F3F4F6; box-shadow: 2px 6px 20px rgba(17, 17, 17, 0.04);">
-                            <h4 class="fw-bolder text-32 text-warning mb-2"
-                                style="font-family: 'Manrope', sans-serif; color: #FCA01A !important;">20k+</h4>
-                            <p class="text-custom-black mb-0 fw-medium"
-                                style="font-size: 14px; font-family: 'Manrope', sans-serif; line-height: 1.2;">
-                                Afgeronde
-                                projecten</p>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card h-100 border-0 bg-white py-4 px-2 text-center justify-content-center d-flex flex-column"
-                            style="border-radius: 12px; outline: 1px solid #F3F4F6; box-shadow: 2px 6px 20px rgba(17, 17, 17, 0.04);">
-                            <h4 class="fw-bolder text-32 text-warning mb-2"
-                                style="font-family: 'Manrope', sans-serif; color: #FCA01A !important;">15+</h4>
-                            <p class="text-custom-black mb-0 fw-medium"
-                                style="font-size: 14px; font-family: 'Manrope', sans-serif; line-height: 1.2;">
-                                Jarenlange<br>ervaring</p>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card h-100 border-0 bg-white py-4 px-2 text-center justify-content-center d-flex flex-column"
-                            style="border-radius: 12px; outline: 1px solid #F3F4F6; box-shadow: 2px 6px 20px rgba(17, 17, 17, 0.04);">
-                            <h4 class="fw-bolder text-32 text-warning mb-2"
-                                style="font-family: 'Manrope', sans-serif; color: #FCA01A !important;">98%</h4>
-                            <p class="text-custom-black mb-0 fw-medium"
-                                style="font-size: 14px; font-family: 'Manrope', sans-serif; line-height: 1.2;">
-                                Tijdige<br>levering</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Section 3: Betonoplossing voor elk project -->
-<section class="position-relative w-100 pb-4">
-    <div class="betonoplossing-section">
-        <div class="container px-md-0 px-3">
-            <div class="row g-5">
-                <div class="col-lg-6 d-flex flex-column align-items-start">
-                    <h2 class="fw-bolder text-40 text-white mb-5" style="font-family: 'Manrope', sans-serif;">Een
-                        uitgebreide betonoplossing voor elk project</h2>
-                    <a href="<?php echo site_url(); ?>"
-                        class="btn btn-success rounded-3 fw-bold text-18 py-3 px-4 d-inline-flex align-items-center gap-2"
-                        style="font-family: 'Manrope', sans-serif; background: #1ACB23; border-color: #1ACB23;">
-                        Bereken uw betonprijs
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
-                </div>
-                <div class="col-lg-6">
-                    <p class="text-16 text-white mb-4 fw-medium"
-                        style="font-family: 'Manrope', sans-serif; opacity: 0.9;">Of u nu bouwt, renoveert of
-                        uitbreidt,
-                        wij leveren het juiste beton – afgestemd op uw behoeften.</p>
-                    <ul class="list-unstyled mb-0 d-flex flex-column gap-3" style="margin-left: 0px;">
-                        <li class="d-flex align-items-center gap-3 text-white fw-bold text-16"
-                            style="font-family: 'Manrope', sans-serif;">
-                            <span
-                                class="rounded-circle bg-warning d-flex align-items-center justify-content-center flex-shrink-0"
-                                style="width: 20px; height: 20px;"><i class="bi bi-check text-dark"
-                                    style="font-size: 16px;"></i></span>
-                            Meerdere betonsterktes beschikbaar
-                        </li>
-                        <li class="d-flex align-items-center gap-3 text-white fw-bold text-16"
-                            style="font-family: 'Manrope', sans-serif;">
-                            <span
-                                class="rounded-circle bg-warning d-flex align-items-center justify-content-center flex-shrink-0"
-                                style="width: 20px; height: 20px;"><i class="bi bi-check text-dark"
-                                    style="font-size: 16px;"></i></span>
-                            Geschikt voor funderingen, vloeren, opritten en aanbouwen
-                        </li>
-                        <li class="d-flex align-items-center gap-3 text-white fw-bold text-16"
-                            style="font-family: 'Manrope', sans-serif;">
-                            <span
-                                class="rounded-circle bg-warning d-flex align-items-center justify-content-center flex-shrink-0"
-                                style="width: 20px; height: 20px;"><i class="bi bi-check text-dark"
-                                    style="font-size: 16px;"></i></span>
-                            Duidelijke specificaties en constante kwaliteit
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Overlapping Image -->
-    <div class="container position-relative betonoplossing-section-bg-image px-0">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/home-page/home-page-browser.png"
-            class="img-fluid w-100 rounded-4 box-shadow"
-            style="object-fit: cover; max-height: 600px; border-radius: 16px !important;"
-            alt="Uitgebreide betonoplossing">
-    </div>
-</section>
-
-<!-- Section 4: Landelijke betonlevering -->
-<section class="py-5 bg-white">
-    <div class="container py-lg-5 px-md-0 px-3">
-        <div class="row g-5 align-items-center">
-            <div class="col-lg-6">
-                <h2 class="fw-bolder text-40 text-custom-black mb-4 text-center"
-                    style="font-family: 'Manrope', sans-serif;">
-                    Landelijke betonlevering</h2>
-                <p class="text-16 text-custom-gray-2 mb-4 text-center"
-                    style="font-family: 'Manrope', sans-serif; font-weight: 500;">Wij leveren beton door heel
-                    Nederland,
-                    zorgvuldig gepland om aan te sluiten bij uw planning en de omstandigheden op locatie.</p>
-
-                <div class="d-flex flex-column gap-3">
-                    <div class="d-flex flex-sm-row flex-column align-items-center bg-white p-4 text-sm-start text-center"
-                        style="border-radius: 12px; outline: 1px solid #F3F4F6; box-shadow: 2px 6px 20px rgba(17, 17, 17, 0.04); gap: 24px;">
-                        <div class="text-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
-                            style="width: 48px; height: 48px; background-color: #FCA01A;">
-                            <i class="bi bi-globe2 fs-5"></i>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <h4 class="fw-bold text-20 text-custom-black mb-1"
-                                style="font-family: 'Manrope', sans-serif;">Landelijke dekking</h4>
-                            <p class="text-custom-gray-2 mb-0"
-                                style="font-size: 15px; font-family: 'Manrope', sans-serif; font-weight: 500; line-height: 1.6;">
-                                Wij leveren kant-en-klaar
-                                beton door heel Nederland en garanderen een betrouwbare service, waar uw project
-                                zich
-                                ook bevindt.</p>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-sm-row flex-column align-items-center bg-white p-4 text-sm-start text-center"
-                        style="border-radius: 12px; outline: 1px solid #F3F4F6; box-shadow: 2px 6px 20px rgba(17, 17, 17, 0.04); gap: 24px;">
-                        <div class="text-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
-                            style="width: 48px; height: 48px; background-color: #FCA01A;">
-                            <i class="bi bi-stopwatch fs-5"></i>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <h4 class="fw-bold text-20 text-custom-black mb-1"
-                                style="font-family: 'Manrope', sans-serif;">Flexibele levertijden</h4>
-                            <p class="text-custom-gray-2 mb-0"
-                                style="font-size: 15px; font-family: 'Manrope', sans-serif; font-weight: 500; line-height: 1.6;">
-                                De levering wordt gepland
-                                rond uw schema, met flexibele tijdvakken voor alle bouwprojecten.</p>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-sm-row flex-column align-items-center bg-white p-4 text-sm-start text-center"
-                        style="border-radius: 12px; outline: 1px solid #F3F4F6; box-shadow: 2px 6px 20px rgba(17, 17, 17, 0.04); gap: 24px;">
-                        <div class="text-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
-                            style="width: 48px; height: 48px; background-color: #FCA01A;">
-                            <i class="bi bi-file-earmark-check fs-5"></i>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <h4 class="fw-bold text-20 text-custom-black mb-1"
-                                style="font-family: 'Manrope', sans-serif;">Voor particuliere en professionele
-                                projecten
-                            </h4>
-                            <p class="text-custom-gray-2 mb-0"
-                                style="font-size: 15px; font-family: 'Manrope', sans-serif; font-weight: 500; line-height: 1.6;">
-                                Of u nu aan een woning of
-                                een professionele bouwplaats werkt, onze betonoplossingen worden afgestemd op uw
-                                behoeften.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 mt-5 mt-lg-0">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/home-page/home-page-map.jpg"
-                    class="img-fluid w-100 rounded-4"
-                    style="box-shadow: 2px 6px 20px rgba(17, 17, 17, 0.04); object-fit: contain;" alt="Map">
             </div>
         </div>
     </div>
 </section>
 
 <!-- Section 5: Klanten Reviews -->
-<section class="py-5 bg-custom-gray-3" style="background-color: #F6F8FB;">
+<section class="py-5" style="background-color: #FFFFFF;">
     <div class="container py-lg-5 px-md-0 px-3">
         <div class="text-center mb-5 mx-auto" style="max-width: 800px;">
-            <h2 class="fw-bolder text-40 text-custom-black mb-4" style="font-family: 'Manrope', sans-serif;">Hoor
-                van
-                onze tevreden klanten</h2>
-            <p class="text-16 text-custom-gray-2" style="font-family: 'Manrope', sans-serif; font-weight: 500;">Van
-                huiseigenaren tot aannemers: onze klanten vertrouwen op ons voor snelle levering, duidelijke prijzen
-                en
-                vlotte betonstortingen. Dit is wat zij zeggen.</p>
+            <h2 class="fw-bolder text-40 text-custom-black mb-4" style="font-family:  'Public Sans', sans-serif;">Wat
+                klanten zeggen</h2>
+            <p class="text-16 text-custom-gray-2" style="font-family:  'Public Sans', sans-serif; font-weight: 500;">
+                Ervaar waarom onze klanten voor ons kiezen</p>
         </div>
 
         <div class="bpc-google-review-wrapper row g-4 justify-content-center d-flex align-items-stretch">
@@ -1161,84 +1070,148 @@ $pricingData = get_field('application', 'option');
     </div>
 </section>
 
-<!-- Section 6: Contactformulier -->
-<section class="py-5 bg-white">
-    <div class="container py-lg-5">
-        <div class="row g-5 align-items-stretch px-md-0 px-1">
-            <div class="col-lg-6">
-                <!-- Informative panel side -->
-                <div class="h-100 p-4 p-lg-5 rounded-4 d-flex flex-column border-0" style="background-color: #F8F9FA;">
-                    <div class="">
-                        <h2 class="fw-bolder text-32 text-custom-black mb-3"
-                            style="font-family: 'Manrope', sans-serif;">Heb je vragen?<br />Bel of mail ons gerust.
-                        </h2>
-                        <p class="text-15 text-custom-gray-2"
-                            style="font-family: 'Manrope', sans-serif; font-weight: 500;">Ons team van
-                            betonbestellen.nl
-                            staat voor je klaar.</p>
+<!-- Section 5: FAQ -->
+<section class="bpc-faq-section">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5" style="font-size: 40px; color: #222;">Veelgestelde vragen</h2>
+        <div class="bpc-faq-container">
+            <!-- Item 1 -->
+            <div class="bpc-faq-item active">
+                <div class="bpc-faq-header">
+                    <span class="bpc-faq-question">Wat is het minimale volume dat ik kan bestellen?</span>
+                    <div class="bpc-faq-icon-wrapper">
+                        <div class="bpc-faq-icon"></div>
                     </div>
-
-                    <div class="d-flex flex-column gap-4 flex-grow-1 justify-content-center">
-                        <div class="d-flex flex-row align-items-center gap-4">
-                            <div class="text-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
-                                style="width: 56px; height: 56px; background-color: #FCA01A;">
-                                <i class="bi bi-envelope-fill fs-4"></i>
-                            </div>
-                            <div>
-                                <h5 class="fw-bold mb-1"
-                                    style="font-family: 'Manrope', sans-serif; font-size: 15px; color: #333333;">
-                                    E-mail
-                                </h5>
-                                <a href="mailto:info@betonbestellen.nl"
-                                    class="fw-medium text-16 text-decoration-underline"
-                                    style="font-family: 'Manrope', sans-serif; color: #FCA01A;">info@betonbestellen.nl</a>
-                            </div>
-                        </div>
-                        <hr class="m-0 my-1" style="border-color: #E5E7EB; border-top-width: 1px; opacity: 1;">
-                        <div class="d-flex flex-row align-items-center gap-4">
-                            <div class="text-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
-                                style="width: 56px; height: 56px; background-color: #FCA01A;">
-                                <i class="bi bi-telephone-fill fs-4"></i>
-                            </div>
-                            <div>
-                                <h5 class="fw-bold mb-1"
-                                    style="font-family: 'Manrope', sans-serif; font-size: 15px; color: #333333;">
-                                    Telefoon</h5>
-                                <a href="tel:084524145547" class="fw-medium text-16 text-decoration-none"
-                                    style="font-family: 'Manrope', sans-serif; color: #FCA01A;">084524145547</a>
-                            </div>
-                        </div>
-                        <hr class="m-0 my-1" style="border-color: #E5E7EB; border-top-width: 1px; opacity: 1;">
-                        <div class="d-flex flex-row align-items-center gap-4">
-                            <div class="text-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
-                                style="width: 56px; height: 56px; background-color: #FCA01A;">
-                                <i class="bi bi-geo-alt-fill fs-4"></i>
-                            </div>
-                            <div>
-                                <h5 class="fw-bold mb-1"
-                                    style="font-family: 'Manrope', sans-serif; font-size: 15px; color: #333333;">
-                                    Locatie
-                                </h5>
-                                <p class="fw-medium text-16 mb-0"
-                                    style="font-family: 'Manrope', sans-serif; color: #FCA01A;">Ondernemersweg 4
-                                    4691
-                                    SL, THOLEN</p>
-                            </div>
-                        </div>
+                </div>
+                <div class="bpc-faq-content">
+                    <div class="bpc-faq-answer">
+                        U kunt al vanaf 0.5 m³ beton bestellen. Dit maakt onze service ideaal voor zowel kleine als
+                        grote projecten.
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-6">
-                <!-- Contact form side -->
-                <div class="h-100 p-4 p-lg-5 bg-white rounded-4 d-flex flex-column"
-                    style="outline: 1px solid #F3F4F6; box-shadow: 2px 6px 20px rgba(17, 17, 17, 0.04);">
-                    <h2 class="fw-bolder text-32 text-custom-black mb-4" style="font-family: 'Manrope', sans-serif;">
-                        Neem contact op</h2>
-                    <div class="bpc-home-contact-form">
-                        <?php echo do_shortcode('[contact-form-7 id="fb1d74e" title="Home Contact Form"]'); ?>
+            <!-- Item 2 -->
+            <div class="bpc-faq-item">
+                <div class="bpc-faq-header">
+                    <span class="bpc-faq-question">Hoe wordt het beton gefactureerd?</span>
+                    <div class="bpc-faq-icon-wrapper">
+                        <div class="bpc-faq-icon"></div>
                     </div>
                 </div>
+                <div class="bpc-faq-content">
+                    <div class="bpc-faq-answer">
+                        Facturatie vindt plaats op basis van de bestelde hoeveelheid m³. Na uw bestelling ontvangt u een
+                        factuur per e-mail die u eenvoudig via iDEAL kunt voldoen.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="bpc-faq-item">
+                <div class="bpc-faq-header">
+                    <span class="bpc-faq-question">Kan ik mijn levering nog wijzigen?</span>
+                    <div class="bpc-faq-icon-wrapper">
+                        <div class="bpc-faq-icon"></div>
+                    </div>
+                </div>
+                <div class="bpc-faq-content">
+                    <div class="bpc-faq-answer">
+                        Ja, wijzigingen kunnen tot 48 uur voor de geplande levering worden doorgegeven. Neem hiervoor
+                        contact op met onze klantenservice.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="bpc-faq-item">
+                <div class="bpc-faq-header">
+                    <span class="bpc-faq-question">Welke betonsoorten zijn beschikbaar?</span>
+                    <div class="bpc-faq-icon-wrapper">
+                        <div class="bpc-faq-icon"></div>
+                    </div>
+                </div>
+                <div class="bpc-faq-content">
+                    <div class="bpc-faq-answer">
+                        Wij leveren diverse soorten beton, waaronder standaard beton, vloeibaar beton en beton met fijne
+                        grind. De beschikbare opties ziet u direct in onze calculator.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="bpc-faq-item">
+                <div class="bpc-faq-header">
+                    <span class="bpc-faq-question">Hoe lang van tevoren moet ik bestellen?</span>
+                    <div class="bpc-faq-icon-wrapper">
+                        <div class="bpc-faq-icon"></div>
+                    </div>
+                </div>
+                <div class="bpc-faq-content">
+                    <div class="bpc-faq-answer">
+                        We raden aan om minimaal 3 tot 5 werkdagen van tevoren te bestellen om zeker te zijn van de
+                        gewenste leverdatum.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="bpc-faq-item">
+                <div class="bpc-faq-header">
+                    <span class="bpc-faq-question">Wat gebeurt er als ik meer beton nodig heb dan verwacht?</span>
+                    <div class="bpc-faq-icon-wrapper">
+                        <div class="bpc-faq-icon"></div>
+                    </div>
+                </div>
+                <div class="bpc-faq-content">
+                    <div class="bpc-faq-answer">
+                        Mocht u tijdens het storten meer nodig hebben, dan kunnen we vaak een extra nalevering regelen.
+                        Houd er rekening mee dat hier extra kosten aan verbonden zijn.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.bpc-faq-header').forEach((header) => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all other items
+                document.querySelectorAll('.bpc-faq-item').forEach((otherItem) => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</section>
+
+
+<!-- Section 6: Contactformulier -->
+<section>
+    <div class="bpc-cta-section">
+        <div class="bpc-cta-bg">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/home-contact-bg.jpg"
+                alt="Klaar om te beginnen?">
+        </div>
+        <div class="bpc-cta-overlay"></div>
+        <div class="bpc-cta-content">
+            <h2 class="bpc-cta-title">Klaar om te beginnen?</h2>
+            <p class="bpc-cta-desc">Configureer uw bestelling in slechts enkele minuten en ontvang direct een
+                kostenberekening</p>
+            <div class="bpc-cta-btns">
+                <a href="#calculator" class="bpc-cta-btn-primary">Start Configuratie</a>
+                <a href="tel:0201234567" class="bpc-cta-btn-outline">
+                    <i class="bi bi-telephone"></i>
+                    020 123 4567
+                </a>
             </div>
         </div>
     </div>

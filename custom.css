@@ -19,31 +19,31 @@
    --bs-btn-disabled-color: #dedede4d;
 }
 .oswald-200 {
-   font-family: "Oswald", serif;
+   font-family: "Public Sans", serif;
    font-optical-sizing: auto;
    font-weight: 200;
    font-style: normal;
 }
 .oswald-400 {
-   font-family: "Oswald", serif;
+   font-family: "Public Sans", serif;
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
 }
 .oswald-500 {
-   font-family: "Oswald", serif;
+   font-family: "Public Sans", serif;
    font-optical-sizing: auto;
    font-weight: 500;
    font-style: normal;
 }
 .oswald-600 {
-   font-family: "Oswald", serif;
+   font-family: "Public Sans", serif;
    font-optical-sizing: auto;
    font-weight: 600;
    font-style: normal;
 }
 .oswald-700 {
-   font-family: "Oswald", serif;
+   font-family: "Public Sans", serif;
    font-optical-sizing: auto;
    font-weight: 700;
    font-style: normal;
@@ -53,52 +53,52 @@
    font-weight: 800 !important;
 }
 .poppins-400 {
-   font-family: "Poppins", serif;
+   font-family: "Public Sans", serif;
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
 }
 .manrope-400 {
-   font-family: "Manrope", sans-serif;
+   font-family: "Public Sans", sans-serif;
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
 }
 .manrope-500 {
-   font-family: "Manrope", sans-serif;
+   font-family: "Public Sans", sans-serif;
    font-optical-sizing: auto;
    font-weight: 500;
    font-style: normal;
 }
 .manrope-600 {
-   font-family: "Manrope", sans-serif;
+   font-family: "Public Sans", sans-serif;
    font-optical-sizing: auto;
    font-weight: 600;
    font-style: normal;
 }
 .manrope-700 {
-   font-family: "Manrope", sans-serif;
+   font-family: "Public Sans", sans-serif;
    font-optical-sizing: auto;
    font-weight: 700;
    font-style: normal;
 }
 .manrope-800 {
-   font-family: "Manrope", sans-serif;
+   font-family: "Public Sans", sans-serif;
    font-optical-sizing: auto;
    font-weight: 800;
    font-style: normal;
 }
 .site-footer, .site-footer h4, .site-footer p, .site-footer a, .site-footer div, .site-footer span {
-   font-family: "Manrope", sans-serif !important;
+   font-family: "Public Sans", sans-serif !important;
 }
 .poppins-500 {
-   font-family: "Poppins", serif;
+   font-family: "Public Sans", serif;
    font-optical-sizing: auto;
    font-weight: 500;
    font-style: normal;
 }
 .poppins-600 {
-   font-family: "Poppins", serif;
+   font-family: "Public Sans", serif;
    font-optical-sizing: auto;
    font-weight: 600;
    font-style: normal;
@@ -260,7 +260,7 @@ a {
    width: 219px;
 }
 .yellow-gradient {
-   background: linear-gradient(90deg, #fdd401 0%, rgba(253, 212, 1, 0) 100%);
+   background: linear-gradient(90deg, #060C35 0%, rgba(253, 212, 1, 0) 100%);
 }
 .pixel-p-1 {
    padding: 1px;
@@ -326,7 +326,7 @@ a {
 #menu-footer-menu-02 li a {
    color: white;
    margin-bottom: 0.5rem;
-   font-family: "Manrope", sans-serif;
+   font-family: "Public Sans", sans-serif;
    font-weight: 400;
 }
 #menu-footer-menu-01 li,
@@ -716,7 +716,7 @@ a {
    padding-top: 24px;
    padding-bottom: 24px;
    font-size: 16px;
-   font-family: "Oswald", serif;
+   font-family: "Public Sans", serif;
    font-weight: 500;
    font-style: normal;
    color: var(--dark-blue);
@@ -773,7 +773,7 @@ a {
     --bs-text-opacity: 1;
     color: rgba(var(--bs-white-rgb),var(--bs-text-opacity))!important;
     border-radius: 0!important;
-    font-family: "Oswald", serif;
+    font-family: "Public Sans", serif;
     font-weight: 600;
     font-style: normal;
     font-size: 20px;
@@ -788,11 +788,11 @@ a {
 }
 
 .page #primary .entry-content {
-	font-family: "Poppins", serif;
+	font-family: "Public Sans", serif;
 }
 
 .beton-page-content h2 {
-	font-family: "Oswald", serif;
+	font-family: "Public Sans", serif;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
@@ -802,7 +802,7 @@ a {
 }  
 
 .beton-page-content h4 {
-	font-family: "Oswald", serif;
+	font-family: "Public Sans", serif;
     font-optical-sizing: auto;
 }  
 
@@ -922,7 +922,7 @@ ul.wc-item-meta > li {
    line-height: 20px;
 }
 .font-oswald{
-	font-family: "Oswald", serif;
+	font-family: "Public Sans", serif;
     font-optical-sizing: auto;
 }
 
@@ -945,7 +945,7 @@ ul.wc-item-meta > li {
 
 #autocomplete-list .dropdown-item {
     padding: 12px 20px;
-    font-family: 'Manrope', sans-serif !important;
+    font-family: 'Public Sans', sans-serif !important;
     font-size: 15px;
     font-weight: 600;
     color: #060C35;
