@@ -23,7 +23,9 @@
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Public Sans:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Public Sans:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+		rel="stylesheet">
 
 	<meta name="google-site-verification" content="WYLMZJRSlm_3dAd0-ngtlSBjgkpEwLhTKZ2-WgFJyng" />
 	<!-- Google Tag Manager -->
@@ -42,7 +44,7 @@
 	<meta property="og:image:type" content="image/jpeg">
 	<meta property="og:image:width" content="200">
 	<meta property="og:image:height" content="200">
-	
+
 
 	<?php wp_head(); ?>
 </head>
@@ -56,8 +58,9 @@
 	<div id="page" class="site">
 		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'beton'); ?></a>
 
-		<header id="masthead" class="site-header bg-white">
-			<div class="top-header container-fluid px-sm-0 px-4" style="background-color: #060C35;">
+		<header id="masthead" class="site-header bg-white"
+			style="background: linear-gradient(90deg, #f7f6de 0%, #E9F4F0 40%, #E9F4F0 100%);">
+			<!-- <div class="top-header container-fluid px-sm-0 px-4" style="background-color: #060C35;">
 				<div class="container py-2 px-0 d-none d-lg-flex justify-content-between align-items-center">
 					<div class="d-flex align-items-center gap-2">
 						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -127,13 +130,15 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="container py-3 px-0">
+			</div> -->
+			<div class="container py-2 px-0">
 				<div class="row align-items-center mx-sm-0 mx-4">
 					<!-- Site Branding -->
 					<div class="site-branding col-lg-4 col-8 px-0">
 						<?php
-						the_custom_logo();
+						if (has_custom_logo()) {
+							the_custom_logo();
+						}
 						$beton_description = get_bloginfo('description', 'display');
 						if ($beton_description || is_customize_preview()): ?>
 							<p class="site-description"><?php echo esc_html($beton_description); ?></p>
@@ -171,11 +176,8 @@
 						</div>
 
 						<div class="d-none d-lg-block ms-lg-4">
-							<a href="<?php echo site_url(); ?>/contact" class="figma-contact-btn"
-								style="width: 100%; height: 100%; padding-left: 20px; padding-right: 20px; padding-top: 9px; padding-bottom: 9px; border-radius: 10px; outline: 1px #1ACB23 solid; outline-offset: -0.50px; justify-content: center; align-items: center; gap: 6px; display: inline-flex; text-decoration: none; transition: background-color 0.3s;">
-								<div class="figma-contact-text"
-									style="text-align: center; justify-content: center; display: flex; flex-direction: column; color: #1ACB23; font-size: 16px; font-family: Public Sans; font-weight: 700; line-height: 22.40px; word-wrap: break-word; transition: color 0.3s;">
-									Contact</div>
+							<a href="<?php echo site_url(); ?>/contact" class="header-cta-btn">
+								<span>Bestel Nu</span>
 							</a>
 						</div>
 

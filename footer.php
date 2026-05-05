@@ -11,12 +11,13 @@
 
 ?>
 
-<footer id="colophon" class="site-footer darker-blue font-manrope">
+<footer id="colophon" class="site-footer darker-blue font-manrope" style="background: #222;">
 	<div class="beton-footer-wrapper container text-white pt-5">
 		<div class="footer-logo pb-3">
 			<!-- <a><?php //echo get_custom_logo(); ?></a> -->
-			<a href="<?php echo site_url(); ?>" class="custom-logo-link" rel="home" aria-current="page"><img width="278"
-					height="55" src="<?php echo get_template_directory_uri() ?>/images/beton-bestellen-white.png"
+			<a href="<?php echo site_url(); ?>" class="custom-logo-link" rel="home" aria-current="page"><img
+					width="360px" height="55"
+					src="<?php echo get_template_directory_uri() ?>/images/mobielebetoncentrale-white.png"
 					class="custom-logo" alt="Beton" decoding="async" style="padding-left: 5px;"></a>
 		</div>
 

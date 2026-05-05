@@ -46,7 +46,7 @@ jQuery(document).ready(function ($) {
     }
 
     // Run on load
-    toggleBTW();
+    //toggleBTW();
 
     // Run on change
     $('#bpc-btw-toggle').on('change', toggleBTW);
@@ -101,22 +101,31 @@ jQuery(document).ready(function ($) {
         // also update hidden field if needed
         $('#dayz_date_mapper_date').val(selectedDate);
         setCookie('ddm_selected_date', selectedDate);
+        updateStepper();
     });
 
-    // TIMESLOT CHANGE (Select2 compatible)
-    $('#dayz_date_mapper_timeslots').on('change', function() {
-        let selectedSlots = $(this).val(); // array
-        let container = $(this).next('.select2-container');
 
-        if ($(this).val() && $(this).val().length > 0) {
-            container.find('.select2-selection').addClass('valid');
-        } else {
-            container.find('.select2-selection').removeClass('valid');
-        }
+    // Listen for changes to the collection field (if updated externally)
+    // $('#dayz_date_mapper_timeslots_collection, #dayz_date_mapper_date').on('change input', function() {
+    //     updateStepper();
+    // });
 
+    $(document).on('change', 'input[name="dayz_date_mapper_timeslots[]"]', function() {
+     
         // convert array to string
-        let slotsString = selectedSlots ? selectedSlots.join(',') : '';
+        let slotsString = $('#dayz_date_mapper_timeslots_collection').val();
         setCookie('ddm_selected_timeslots', slotsString);
+
+        if ($('input[name="dayz_date_mapper_timeslots[]"]:checked').length > 0) {
+            const checkmark = `
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16Z" fill="#009966" />
+                    <path d="M10 16L14 20L22 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>`;
+            const $step6 = $('.bpc-step').eq(5);
+            $step6.removeClass('is-active is-upcoming').addClass('is-completed');
+            $step6.find('.bpc-step-circle').html(checkmark);
+        }
     });
 
     // Restore Date and Timeslots from cookies if available
@@ -136,6 +145,7 @@ jQuery(document).ready(function ($) {
     if (savedSlots) {
         let slotsArray = savedSlots.split(',');
         $('#dayz_date_mapper_timeslots').val(slotsArray).trigger('change');
+        $('#dayz_date_mapper_timeslots_collection').val(savedSlots);
     }
 
 
@@ -149,6 +159,16 @@ jQuery(document).ready(function ($) {
     // Remove error class when user selects timeslots
     $('#dayz_date_mapper_timeslots').on('change', function () {
         $(this).next('.select2-container').find('.select2-selection').removeClass('bpc-input-error');
+    });
+
+    // Mark sections as interacted when user clicks inputs
+    $(document).on('click', '.bpc-section input, .bpc-section select', function() {
+        const $sec = $(this).closest('.bpc-section');
+        $sec.addClass('is-interacted');
+        
+        // After interaction, refresh the UI
+        handleSectionLocking();
+        updateStepper();
     });
 
 
@@ -300,6 +320,7 @@ jQuery(document).ready(function ($) {
 
     // Enable second step
     function enableSecondStep() {
+        handleSectionLocking();
         if ($("#postcode-input").val() == "" || currentCubicMeters == "" || currentCubicMeters <= 0) {
            // Do nothing
         } else {
@@ -478,6 +499,8 @@ jQuery(document).ready(function ($) {
             },
         });
         
+        updateStepper();
+        handleSectionLocking();
     }
 
     // Trigger calculator after page load
@@ -832,6 +855,7 @@ jQuery(document).ready(function ($) {
             cubic.addClass('bpc-input-error');
             firstInvalid = firstInvalid || cubic;
             isValid = false;
+            console.log('cubic meters error');
         }
 
         // --- postcode ---
@@ -839,6 +863,7 @@ jQuery(document).ready(function ($) {
             postcode.addClass('bpc-input-error');
             firstInvalid = firstInvalid || postcode;
             isValid = false;
+            console.log('postcode error');
         }
 
         // --- date (IMPORTANT: hidden field) ---
@@ -846,15 +871,18 @@ jQuery(document).ready(function ($) {
             $('.dayz-date-mapper-date-picker').addClass('bpc-input-error');
             firstInvalid = firstInvalid || $('.dayz-date-mapper-date-picker');
             isValid = false;
+            console.log('date error');
         }
 
-        // --- select2 timeslots ---
-        if (!timeslots.val() || timeslots.val().length === 0) {
-            let select2Box = timeslots.next('.select2-container').find('.select2-selection');
+        // --- timeslots (using collection field for final validation) ---
+        let timeslotsCollection = $('#dayz_date_mapper_timeslots_collection');
+        if (!timeslotsCollection.val() || timeslotsCollection.val().trim() === "") {
+            let select2Box = $('#dayz_date_mapper_timeslots').next('.select2-container').find('.select2-selection');
             select2Box.addClass('bpc-input-error');
 
             firstInvalid = firstInvalid || select2Box;
             isValid = false;
+            console.log('timeslots error');
         }
 
         // --- show alert once ---
@@ -867,6 +895,125 @@ jQuery(document).ready(function ($) {
         }
 
         return isValid;
+    }
+
+    /**
+     * Handle visual locking of sections until Step 1 is complete
+     */
+    function handleSectionLocking() {
+        const isVolumeFilled = $('#cubic-meters').val() > 0 && $('#postcode-input').val().trim() !== "" && $("#postcode-input").hasClass('selected');
+        
+        const sectionIds = [
+            '#bpc-section-volume',
+            '#bpc-section-toepassing',
+            '#bpc-section-samenstelling',
+            '#bpc-section-uitvoering',
+            '#bpc-section-vlindervloer',
+            '#bpc-section-datum'
+        ];
+
+        // Reset: All locked initially (except Volume)
+        $('.bpc-section').addClass('bpc-section-locked');
+        $('#bpc-section-volume').removeClass('bpc-section-locked');
+
+        // Step 1 complete?
+        if (!isVolumeFilled) return;
+        
+        // Step 2 unlocks
+        $('#bpc-section-toepassing').removeClass('bpc-section-locked');
+
+        // Step 3 unlocks ONLY if Step 2 interacted
+        if (!$('#bpc-section-toepassing').hasClass('is-interacted')) return;
+        $('#bpc-section-samenstelling').removeClass('bpc-section-locked');
+
+        // Step 4 unlocks ONLY if Step 3 interacted
+        if (!$('#bpc-section-samenstelling').hasClass('is-interacted')) return;
+        $('#bpc-section-uitvoering').removeClass('bpc-section-locked');
+
+        // Step 5 unlocks ONLY if Step 4 interacted
+        if (!$('#bpc-section-uitvoering').hasClass('is-interacted')) return;
+        
+        const performanceValue = $('input[name="performance"]:checked').val();
+        if (performanceValue === 'allIn') {
+             $('#bpc-section-vlindervloer').removeClass('bpc-section-locked');
+             
+             // Step 6 unlocks if Step 5 interacted
+             if ($('#bpc-section-vlindervloer').hasClass('is-interacted')) {
+                 $('#bpc-section-datum').removeClass('bpc-section-locked');
+             }
+        } else {
+             // If DIY, Step 5 is skipped, Step 6 unlocks immediately after Step 4 interaction
+             $('#bpc-section-datum').removeClass('bpc-section-locked');
+        }
+    }
+
+    /**
+     * Update Stepper UI based on current form state
+     */
+    function updateStepper() {
+        const $steps = $('.bpc-step');
+        let completedCount = 0;
+
+        const isVolumeFilled = $('#cubic-meters').val() > 0 && $('#postcode-input').val().trim() !== "" && $("#postcode-input").hasClass('selected');
+        const isToepassingFilled = isVolumeFilled && $('#bpc-section-toepassing').hasClass('is-interacted');
+        const isSamenstellingFilled = isToepassingFilled && $('#bpc-section-samenstelling').hasClass('is-interacted');
+        const isUitvoeringFilled = isSamenstellingFilled && $('#bpc-section-uitvoering').hasClass('is-interacted');
+        
+        const performanceValue = $('input[name="performance"]:checked').val();
+        let isVlindervloerFilled = false;
+        if (performanceValue === 'allIn') {
+            isVlindervloerFilled = isUitvoeringFilled && $('#bpc-section-vlindervloer').hasClass('is-interacted');
+        } else {
+            isVlindervloerFilled = isUitvoeringFilled; // Skipped
+        }
+
+        // const isDatumFilled = isVlindervloerFilled && 
+        //                      $('#dayz_date_mapper_date').val().trim() !== "" && 
+        //                      $('#dayz_date_mapper_timeslots_collection').val() && 
+        //                      $('#dayz_date_mapper_timeslots_collection').val().trim() !== "";
+
+        const stepStatus = [
+            isVolumeFilled,
+            isToepassingFilled,
+            isSamenstellingFilled,
+            isUitvoeringFilled,
+            isVlindervloerFilled,
+            // isDatumFilled
+        ];
+
+        let activeStepIndex = -1;
+
+        $steps.each(function (index) {
+            const $step = $(this);
+            const $circle = $step.find('.bpc-step-circle');
+            
+            // Checkmark SVG for completed steps
+            const checkmark = `
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16Z" fill="#009966" />
+                    <path d="M10 16L14 20L22 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>`;
+
+            if (stepStatus[index]) {
+                $step.removeClass('is-active is-upcoming').addClass('is-completed');
+                $circle.html(checkmark);
+                completedCount++;
+            } else {
+                if (activeStepIndex === -1) {
+                    activeStepIndex = index;
+                    $step.removeClass('is-completed is-upcoming').addClass('is-active');
+                    $circle.text(index + 1);
+                } else {
+                    $step.removeClass('is-completed is-active').addClass('is-upcoming');
+                    $circle.text(index + 1);
+                }
+            }
+        });
+
+        // Update progress bar width
+        const totalSteps = $steps.length;
+        const progressPercentage = (completedCount / totalSteps) * 100;
+        $('.bpc-stepper-track-progress').css('width', progressPercentage + '%');
     }
    
 });
