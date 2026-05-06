@@ -162,6 +162,14 @@ body {
 }
 
 @media (max-width: 991px) {
+    .bpc-hero {
+        padding: 60px 20px 140px;
+    }
+
+    .bpc-body {
+        margin-top: -120px !important;
+    }
+
     .bpc-hero-inner {
         flex-direction: column;
         text-align: center;
@@ -169,8 +177,6 @@ body {
     
     .bpc-hero-content {
         max-width: 100%;
-        align-items: center;
-        text-align: center;
     }
     
     .bpc-hero-list {
@@ -313,6 +319,28 @@ body {
 @media(max-width:1100px) {
     .bpc-layout {
         grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .bpc-sidebar-wrap {
+        order: 2;
+    }
+}
+
+@media(max-width:420px) {
+    .bpc-layout {
+        display: block;
+    }
+    .bpc-samen-grid {
+        display: block !important;
+    }
+    .bpc-samen-grid .bpc-samen-card {
+        margin-bottom: 16px;
+    }
+    .bpc-sidebar-container {
+        padding: 16px;
+    }
+    .bpc-trust-grid {
+        display: block !important;
     }
 }
 
@@ -695,6 +723,12 @@ body {
     cursor: pointer;
     transition: all 0.2s ease;
     position: relative;
+}
+
+@media (max-width: 768px) {
+    .bpc-app-card {
+        min-width: 100%;
+    }
 }
 
 .bpc-app-card:hover {
@@ -2526,6 +2560,10 @@ BETON HOME PAGE
     .bpc-features-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .bpc-feature-card {
+        align-items: center;
+        text-align: center;
+    }
 }
 
 @media (max-width: 768px) {
@@ -2534,6 +2572,9 @@ BETON HOME PAGE
     }
     .bpc-features-header h2 {
         font-size: 32px;
+    }
+    .bpc-features-header {
+        text-align: center;
     }
     .bpc-features-grid {
         grid-template-columns: 1fr;
@@ -2680,6 +2721,10 @@ BETON HOME PAGE
 
 /* ── STEPPER ── */
 .bpc-stepper {
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    background: #fff;
     width: 100%;
     padding: 24px;
     border-bottom: 1px solid #ECEEF2;
@@ -2689,17 +2734,50 @@ BETON HOME PAGE
     align-items: center;
     gap: 16px;
     margin-bottom: 24px;
+    border-radius: 12px 12px 0 0;
 }
 
 @media(max-width: 768px) {
     .bpc-stepper {
-        padding: 16px;
+        padding: 16px 8px;
         margin-bottom: 16px;
+        position: sticky;
+        top: 0;
+        z-index: 1001;
+        background: #fff;
+        width: 100%;
+        border-radius: 12px 12px 0 0;
     }
     .bpc-step-label {
-        font-size: 11px;
+        font-size: 10px;
+        max-width: 50px;
+        line-height: 1.1;
+    }
+    .bpc-section {
+        padding: 0 15px;
+    }
+    .bpc-card-wrapper {
+        padding-left: 0;
+        padding-right: 0;
+        border-radius: 12px;
+    }
+    .bpc-body {
+        padding-left: 15px;
+        padding-right: 15px;
+        overflow-x: visible; /* Changed from hidden to allow sticky to work */
     }
 }
+
+@media(max-width: 600px) {
+    .bpc-step-label {
+        display: none;
+    }
+    .bpc-stepper {
+        padding: 20px 10px;
+    }
+}
+
+
 
 .bpc-stepper-inner {
     align-self: stretch;
@@ -3239,6 +3317,7 @@ SIDEBAR & SUMMARY BOX
     font-weight: 700;
     text-decoration: none !important;
     transition: all 0.2s ease;
+    text-align: center;
 }
 
 .header-cta-btn:hover {
@@ -3250,4 +3329,11 @@ SIDEBAR & SUMMARY BOX
     .site-logo-text {
         font-size: 20px;
     }
+}
+
+.beton-footer-wrapper .wp-block-heading {
+    font-weight: 500;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 20px;
+    text-transform: capitalize;
 }

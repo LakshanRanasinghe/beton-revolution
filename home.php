@@ -9,7 +9,8 @@ $pricingData = get_field('application', 'option');
 
     <!-- ════════════ HERO ════════════ -->
     <div class="bpc-hero">
-        <img src="<?php echo get_template_directory_uri() . '/images/beton-shade.png'; ?>" class="bpc-hero-shade" alt="">
+        <img src="<?php echo get_template_directory_uri() . '/images/beton-shade.png'; ?>" class="bpc-hero-shade"
+            alt="">
         <div class="bpc-hero-inner">
             <div class="bpc-hero-content">
                 <h1 class="bpc-hero-title">Mobiele betonwagen</h1>
@@ -571,7 +572,7 @@ $pricingData = get_field('application', 'option');
                                 <div class="bpc-uitv-top">
                                     <div class="bpc-uitv-title">All-in</div>
                                     <div class="bpc-uitv-price">Prijs = <span
-                                            id="allIn_formatted"><?php echo wc_price(0); ?></span>
+                                            id="allIn_formatted_clone"><?php echo wc_price(0); ?></span>
                                     </div>
                                 </div>
                                 <div class="bpc-uitv-desc">Wij verzorgen alles: de vloer wordt gestort, gelijkmatig

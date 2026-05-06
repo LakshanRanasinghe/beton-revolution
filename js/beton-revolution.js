@@ -1015,5 +1015,51 @@ jQuery(document).ready(function ($) {
         const progressPercentage = (completedCount / totalSteps) * 100;
         $('.bpc-stepper-track-progress').css('width', progressPercentage + '%');
     }
+
+
+    $("#butterfly-floor").on("change", applyButterflyFloorState);
+
+    function applyButterflyFloorState() {
+        const isChecked = $('#butterfly-floor').is(':checked');
+        const isAllIn = $('input[name="performance"]:checked').val() === "allIn";
+
+        // UI visibility
+        $(".butterfly_floor_wrapper").toggleClass("d-none", !isChecked);
+
+        // Default: enable inputs
+        $('#snelhardend_input, #vlinderbeton_input').prop('disabled', false);
+
+        // Only force + disable when BOTH conditions true
+        if (isChecked && isAllIn) {
+            $('#snelhardend_input, #vlinderbeton_input').each(function () {
+                this.checked = true;
+                this.disabled = true;
+            });
+        }
+
+        trigger_calculator();
+    }
+
+    function syncAllInOnePriceChange() {
+        allInOnePriceClone = $('#allIn_formatted').html();
+        if(allInOnePriceClone) {
+            $('#allIn_formatted_clone').html(allInOnePriceClone);
+        }
+    }
+
+    // Initial sync
+    syncAllInOnePriceChange();
+
+    // Watch for changes
+    const allInOnePriceObserver = new MutationObserver(function () {
+        syncAllInOnePriceChange();
+    });
+
+    allInOnePriceObserver.observe(document.getElementById('allIn_formatted'), {
+        childList: true,
+        subtree: true,
+        characterData: true
+    });
+
    
 });

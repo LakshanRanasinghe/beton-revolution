@@ -151,7 +151,7 @@
 						style="padding-left: 10px;">
 						<div class="d-lg-none">
 							<!-- Offcanvas Toggle Button for Mobile/Tablet -->
-							<button class="navbar-toggler bg-orange" type="button" data-bs-toggle="offcanvas"
+							<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
 								data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu"
 								aria-label="Toggle navigation">
 								<span class="navbar-toggler-icon"
@@ -214,11 +214,8 @@
 								));
 								?>
 								<div class="mt-auto pb-4">
-									<a href="<?php echo site_url(); ?>/contact" class="figma-contact-btn"
-										style="width: 100%; height: 100%; padding-left: 20px; padding-right: 20px; padding-top: 9px; padding-bottom: 9px; border-radius: 10px; outline: 1px #1ACB23 solid; outline-offset: -0.50px; justify-content: center; align-items: center; gap: 6px; display: inline-flex; text-decoration: none; transition: background-color 0.3s;">
-										<div class="figma-contact-text"
-											style="text-align: center; justify-content: center; display: flex; flex-direction: column; color: #1ACB23; font-size: 16px; font-family: Public Sans; font-weight: 700; line-height: 22.40px; word-wrap: break-word; transition: color 0.3s;">
-											Contact</div>
+									<a href="<?php echo site_url(); ?>/contact" class="header-cta-btn w-100">
+										<span>Bestel Nu</span>
 									</a>
 								</div>
 							</div>

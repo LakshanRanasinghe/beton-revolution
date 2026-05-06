@@ -129,29 +129,7 @@ jQuery(document).ready(function ($) {
    //    } 
    // });
 
-   $("#butterfly-floor").on("change", applyButterflyFloorState);
-
-   function applyButterflyFloorState() {
-      const isChecked = $('#butterfly-floor').is(':checked');
-      const isAllIn = $('input[name="performance"]:checked').val() === "allIn";
-
-      // UI visibility
-      $(".butterfly_floor_wrapper").toggleClass("d-none", !isChecked);
-
-      // Default: enable inputs
-      $('#snelhardend_input, #vlinderbeton_input').prop('disabled', false);
-
-      // Only force + disable when BOTH conditions true
-      if (isChecked && isAllIn) {
-         $('#snelhardend_input, #vlinderbeton_input').each(function () {
-               this.checked = true;
-               this.disabled = true;
-         });
-      }
-
-      trigger_calculator();
-   }
-
+   
    
 
    function isValidEmail(pdfEmail) {

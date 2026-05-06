@@ -57,17 +57,19 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="site-info border-top-gray">
-		<div class="container py-4 text-center light-blue text-15 text-sm-14 manrope-400">
-			<div class="row justify-content-center align-items-center">
-				<div class="col-12 d-flex justify-content-center align-items-center text-white">
-					<p class="mb-0 manrope-400 text-15 text-sm-14"><?php _e('Copyright © 2026', 'beton'); ?></p>
-					&nbsp;
-					<a href="<?php echo site_url(); ?>" class="link-hover text-white">Betonbestellen.nl</a>
-				</div>
-				<!-- <div class="col-12 col-sm-auto d-flex align-items-center justify-content-center justify-content-sm-end">
+		<div class="site-info border-top-gray">
+			<div class="container py-4 text-center light-blue text-15 text-sm-14 manrope-400">
+				<div class="row justify-content-center align-items-center">
+					<div class="col-12 d-flex">
+						<p class="mb-0 text-15 text-sm-14" style="color: #ECEEF2; font-weight: 100; opacity: 0.7;">
+							<span><?php _e('© 2026 ', 'beton'); ?></span><a href="<?php echo site_url(); ?>"
+								class="link-hover"
+								style="color: #ECEEF2;">mobielebetoncentrale.</a><?php _e(' Alle rechten voorbehouden.', 'beton'); ?>
+						</p>
+						&nbsp;
+					</div>
+					<!-- <div class="col-12 col-sm-auto d-flex align-items-center justify-content-center justify-content-sm-end">
 					<p class="mb-0 d-none d-sm-block manrope-400 text-15 text-sm-14">Volg ons: </p>
 					<div class="d-flex align-items-center">
 						<a href="#" class="mx-1">
@@ -84,10 +86,12 @@
 						</a>
 					</div>
 				</div> -->
+				</div>
 			</div>
+
 		</div>
-		<!-- .site-info -->
-	</div>
+
+
 </footer><!-- #colophon -->
 </div><!-- #page -->
 

@@ -189,8 +189,10 @@ a {
 .btn-bg-opacity-10 {
    background-color: #ffffff22;
 }
-.site-branding .custom-logo {
-   max-width: 360px;
+@media screen and (min-width: 520px) {
+   .site-branding .custom-logo {
+      max-width: 360px;
+   }
 }
 .w-full {
    width: 100%;
@@ -304,12 +306,16 @@ a {
    padding-top: 1.5rem;
 }
 #menu-footer-menu-01 li a,
-#menu-footer-menu-02 li a {
+#menu-footer-menu-02 li a, .footer-description, .footer-description-bottom, .footer-section-content {
    color: white;
+   font-size: 15px;
    margin-bottom: 0.5rem;
-   font-family: 'Manrope', sans-serif;
-   font-weight: 300;
-   letter-spacing: 0.04em !important;
+   font-family: 'Public Sans', sans-serif;
+   font-weight: 200;
+   text-transform: capitalize;
+}
+.footer-section-content {
+   padding-top: 24px;
 }
 #menu-footer-menu-01 li,
 #menu-footer-menu-02 li {
@@ -749,7 +755,10 @@ a {
    font-family: 'Manrope', sans-serif;
    font-weight: 500;
    font-style: normal;
-   color: var(--dark-blue);
+   color: black;
+}
+.beton-mobile-drawer .nav-link.dropdown-toggle:hover {
+   color: #009966 !important;
 }
 .beton-arrow-menu-icon {
    position: absolute;
@@ -763,6 +772,7 @@ a {
    padding: 2px !important; 
    border-radius: 0; 
    border: none;
+   background: #009966;
 }
 .beton-desktop-menu .nav-link.dropdown-toggle {
    color: #393E50 !important;
