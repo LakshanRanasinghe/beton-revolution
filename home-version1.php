@@ -173,8 +173,21 @@ $pricingData = get_field('application', 'option');
                     <div class="bpc-input-row">
                         <div class="bpc-input-group">
                             <div class="bpc-input-label">Hoeveel beton (m³)</div>
-                            <input type="text" inputmode="decimal" class="bpc-text-input"
-                                placeholder="Vul het aantal m³ beton in." id="cubic-meters">
+                            <div class="bpc-step-input-wrap has-arrows">
+                                <input type="text" inputmode="decimal" placeholder="Vul het aantal m³ beton in." id="cubic-meters">
+                                <div class="bpc-input-arrows">
+                                    <span class="bpc-input-arrow bpc-input-arrow-up">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2 8L6 4L10 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </span>
+                                    <span class="bpc-input-arrow bpc-input-arrow-down">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                         <div class="bpc-input-group position-relative">
                             <div class="bpc-input-label">Locatie</div>

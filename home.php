@@ -102,7 +102,7 @@ $pricingData = get_field('application', 'option');
                                     stroke-linejoin="round" />
                             </svg>
                         </div>
-                        <div class="bpc-step-label">Toepassing</div>
+                        <div class="bpc-step-label">Beton type</div>
                     </div>
 
                     <div class="bpc-step is-active">
@@ -157,8 +157,24 @@ $pricingData = get_field('application', 'option');
                                         </svg>
                                     </div>
                                 </div>
-                                <div class="bpc-step-input-wrap">
+                                <div class="bpc-step-input-wrap has-arrows">
                                     <input type="text" inputmode="decimal" placeholder="1.5" id="cubic-meters">
+                                    <div class="bpc-input-arrows">
+                                        <span class="bpc-input-arrow bpc-input-arrow-up">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M2 8L6 4L10 8" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                        <span class="bpc-input-arrow bpc-input-arrow-down">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
 
@@ -209,6 +225,67 @@ $pricingData = get_field('application', 'option');
                                 </svg>
                             </div>
                         </div>
+
+                        <!-- Kuub Calculator Dropdown -->
+                        <div class="bpc-calculator-dropdown"
+                            style="display: none; width: 100%; box-sizing: border-box; margin-top: 20px; padding: 20px; background: #F8F9FB; border: 1px solid #EAECF0; border-radius: 12px;">
+                            <div style="font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 16px;">Beton
+                                Kuub calculator</div>
+
+                            <div
+                                style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px;">
+                                <!-- Lengte Field -->
+                                <div>
+                                    <div style="font-size: 14px; font-weight: 600; color: #4B5563; margin-bottom: 6px;">
+                                        Lengte (meters)</div>
+                                    <div class="bpc-step-input-wrap">
+                                        <input type="text" inputmode="decimal" id="bpc-kuub-length-input"
+                                            placeholder="Voer lengte in meters in">
+                                    </div>
+                                </div>
+                                <!-- Breedte Field -->
+                                <div>
+                                    <div style="font-size: 14px; font-weight: 600; color: #4B5563; margin-bottom: 6px;">
+                                        Breedte (meters)</div>
+                                    <div class="bpc-step-input-wrap">
+                                        <input type="text" inputmode="decimal" id="bpc-kuub-width-input"
+                                            placeholder="Voer breedte in meters in">
+                                    </div>
+                                </div>
+                                <!-- Hoogte Field -->
+                                <div>
+                                    <div style="font-size: 14px; font-weight: 600; color: #4B5563; margin-bottom: 6px;">
+                                        Hoogte (meters)</div>
+                                    <div class="bpc-step-input-wrap">
+                                        <input type="text" inputmode="decimal" id="bpc-kuub-height-input"
+                                            placeholder="Voer hoogte in meters in">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Result & Actions -->
+                            <div
+                                style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid #EAECF0; padding-top: 16px;">
+                                <div style="display: flex; flex-direction: column;">
+                                    <div style="font-size: 13px; font-weight: 500; color: #6B7280;">Berekend volume:
+                                    </div>
+                                    <div
+                                        style="font-size: 28px; font-weight: 700; color: #009966; display: flex; align-items: baseline; gap: 4px;">
+                                        <span id="bpc-kuub-result-value">0</span>
+                                        <span style="font-size: 16px; font-weight: 600; color: #6B7280;">m³</span>
+                                    </div>
+                                </div>
+
+                                <div
+                                    style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-grow: 1; max-width: 320px;">
+                                    <button class="bpc-kuub-btn" type="button" id="bpc-kuub-result-calc-btn">Direct
+                                        berekenen</button>
+                                    <p
+                                        style="font-size: 12px; color: #6B7280; margin: 0; text-align: right; width: 100%;">
+                                        Tip: Bestel extra 0,5 m³ om tekorten te voorkomen.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- ── 2. Toepassing ── -->
@@ -247,7 +324,7 @@ $pricingData = get_field('application', 'option');
                             </div>
                         </div>
 
-                        <div class="bpc-step-inputs" style="flex-wrap: wrap;">
+                        <div class="bpc-option-grid-2">
                             <?php foreach ($pricingData['application_items'] as $index => $application_item) {
                                 $input_id = sanitize_title($application_item['product_name']);
                                 ?>
@@ -257,7 +334,12 @@ $pricingData = get_field('application', 'option');
                                     <div class="bpc-app-card-icon">
                                         <img src="<?php echo $application_item['icon']; ?>">
                                     </div>
-                                    <div class="bpc-app-card-name"><?php echo $application_item['preview_name']; ?></div>
+                                    <div class="bpc-app-card-name">
+                                        <?php echo $application_item['preview_name']; ?>
+
+                                    </div>
+                                    <span
+                                        class="bpc-app-card-abbrev"><?php echo $application_item['abbreviation']; ?></span>
                                     <?php if ($application_item['tooltips'] == 1) { ?>
                                         <div class="bpc-app-card-info ms-auto">
                                             <a class="beton-popover text-success" tabindex="0" role="button"
@@ -285,7 +367,7 @@ $pricingData = get_field('application', 'option');
                     </div>
 
                     <!-- ── Loswijze - stop ── -->
-                    <div class="bpc-section d-none">
+                    <div class="bpc-section">
                         <div class="bpc-section-head">
                             <div class="bpc-section-head-title">Loswijze</div>
                             <div class="bpc-section-hr"></div>
@@ -354,7 +436,7 @@ $pricingData = get_field('application', 'option');
                                 </label>
                             </div>
                             <!-- Mobiele betoncentrale -->
-                            <label class="bpc-mobile-card">
+                            <!-- <label class="bpc-mobile-card">
                                 <input type="radio" name="releaseMethod" value="gutter" id="fromGutter"
                                     class="bpc-radio-input">
                                 <div class="bpc-mobile-card-meta">
@@ -402,13 +484,13 @@ $pricingData = get_field('application', 'option');
                                     <p class="bpc-mobile-card-desc">Beton ter plekke gemaakt per 100L. Extra accuraat,
                                         minder verspilling en milieuvriendelijk!</p>
                                 </div>
-                            </label>
+                            </label> -->
                         </div>
                     </div>
 
 
                     <!-- ── Kies pomp  - stop ── -->
-                    <div class="bpc-section" id="kies-pomp-section" style="display: none;">
+                    <div class="bpc-section" id="kies-pomp-section">
                         <div class="bpc-section-head">
                             <div class="bpc-section-head-title">Kies pomp</div>
                             <div class="bpc-section-hr"></div>
@@ -491,7 +573,7 @@ $pricingData = get_field('application', 'option');
 
                         <div class="bpc-samen-grid">
                             <!-- Standaard -->
-                            <label class="bpc-samen-card">
+                            <!-- <label class="bpc-samen-card">
                                 <input type="checkbox" name="compound" value="standaard" id="standaard_input"
                                     class="bpc-radio-input" checked>
                                 <span class="bpc-samen-icon">
@@ -517,7 +599,7 @@ $pricingData = get_field('application', 'option');
                                     <div class="bpc-samen-name">Standaard</div>
                                     <div class="bpc-samen-price">€0,00 / m<sup>3</sup></div>
                                 </div>
-                            </label>
+                            </label> -->
 
                             <?php foreach ($pricingData['compound_items'] as $index => $compound_item) { ?>
                                 <label class="bpc-samen-card">
@@ -658,7 +740,7 @@ $pricingData = get_field('application', 'option');
                         </div>
 
                         <!-- Vloer afwerking -->
-                        <div class="bpc-step-inputs mt-3" style="flex-wrap: wrap;">
+                        <div class="bpc-option-grid-2 mt-3">
                             <!-- Verdiepingsvloer -->
                             <label class="bpc-app-card" for="mezzanine-floor">
                                 <input type="checkbox" id="mezzanine-floor" name="floor_selection" value="1"

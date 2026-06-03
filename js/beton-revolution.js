@@ -30,6 +30,11 @@ jQuery(document).ready(function ($) {
         const formattedResult = result.toFixed(2).replace('.00', '').replace('.', ',');
 
         $('#bpc-kuub-result-value').text(formattedResult);
+
+        // Populate the calculated value into the main cubic-meters input field and trigger change
+        if (result > 0) {
+            $('#cubic-meters').val(formattedResult).trigger('change');
+        }
     });
 
     // Toggle BTW
@@ -379,7 +384,7 @@ jQuery(document).ready(function ($) {
         $(this).removeClass("bpc-input-error");
 
         let rawValue = $(this).val();
-        let rounded = cubicMetersChange(rawValue, 0.25);
+        let rounded = cubicMetersChange(rawValue, 0.5);
 
         currentCubicMeters = rounded;
 
@@ -396,8 +401,53 @@ jQuery(document).ready(function ($) {
 
     $("#cubic-meters").on("keyup input", function () {
         $(this).removeClass("bpc-input-error");
-        currentCubicMeters = parseFloat($(this).val().toString().replace(',', '.')) || 0;
+        let rawValue = $(this).val();
+        currentCubicMeters = cubicMetersChange(rawValue, 0.5);
         enableSecondStep();
+    });
+
+    // Adjust volume (Arrow keys / buttons)
+    function adjustVolume(direction) {
+        let $input = $('#cubic-meters');
+        let rawValue = $input.val();
+        let value = parseFloat(rawValue.toString().replace(',', '.')) || 0;
+        
+        let rounded;
+        if (direction === 'up') {
+            rounded = Math.floor((value + 0.5 + 0.0001) * 2) / 2;
+        } else {
+            rounded = Math.ceil((value - 0.5 - 0.0001) * 2) / 2;
+        }
+        
+        if (rounded < 0) {
+            rounded = 0;
+        }
+        
+        let formatted = rounded.toString();
+        if (rawValue.includes(',')) {
+            formatted = formatted.replace('.', ',');
+        }
+        
+        $input.val(formatted).trigger('change');
+    }
+
+    // Keyboard Arrow Keys support
+    $('#cubic-meters').on('keydown', function (e) {
+        if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            adjustVolume('up');
+        } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            adjustVolume('down');
+        }
+    });
+
+    // Click on Arrow Buttons support
+    $(document).on('click', '.bpc-input-arrow-up', function () {
+        adjustVolume('up');
+    });
+    $(document).on('click', '.bpc-input-arrow-down', function () {
+        adjustVolume('down');
     });
 
 
@@ -1061,5 +1111,12 @@ jQuery(document).ready(function ($) {
         characterData: true
     });
 
-   
+    // Toggle Beton Kuub Calculator Dropdown
+    $('.bpc-step-calc-row').on('click', function () {
+        const $dropdown = $('.bpc-calculator-dropdown');
+        const $row = $(this);
+        
+        $dropdown.slideToggle(300);
+        $row.toggleClass('open');
+    });
 });

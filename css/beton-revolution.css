@@ -728,6 +728,24 @@ body {
     height: 16px;
 }
 
+.bpc-step-calc-icon svg {
+    transition: transform 0.3s ease;
+}
+
+.bpc-step-calc-row.open .bpc-step-calc-icon svg {
+    transform: rotate(90deg);
+}
+
+.bpc-calculator-dropdown .bpc-kuub-btn {
+    background: #009966;
+    color: #fff;
+    transition: background 0.2s ease;
+}
+
+.bpc-calculator-dropdown .bpc-kuub-btn:hover {
+    background: #007a52;
+}
+
 /* ── APP CARDS (Toepassing) ── */
 .bpc-app-card {
     flex: 1 1 0;
@@ -791,6 +809,20 @@ body {
     color: #009966;
 }
 
+.bpc-app-card-abbrev {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: #888888;
+    line-height: 1.4;
+    margin-top: 2px;
+}
+
+.bpc-app-card:has(.bpc-radio-input:checked) .bpc-app-card-abbrev {
+    color: #009966;
+    opacity: 0.85;
+}
+
 .bpc-app-card-info {
     display: flex;
     align-items: center;
@@ -810,6 +842,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
+    width: 100%;
 }
 
 @media(max-width:480px) {
@@ -3370,4 +3403,42 @@ SIDEBAR & SUMMARY BOX
 
 .footer-description-bottom a, .beton-page-content .entry-content a {
 	color: #009966 !important;
+}
+
+/* Custom Input Arrows for Cubic Meters */
+.bpc-step-input-wrap.has-arrows {
+    position: relative !important;
+    padding-right: 40px !important;
+}
+
+.bpc-input-arrows {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 14px);
+    justify-content: space-between;
+    width: 24px;
+    z-index: 10;
+}
+
+.bpc-input-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 16px;
+    cursor: pointer;
+    color: #9CA3AF;
+    user-select: none;
+    transition: color 0.15s ease, transform 0.1s ease;
+}
+
+.bpc-input-arrow:hover {
+    color: #009966;
+}
+
+.bpc-input-arrow:active {
+    transform: scale(0.9);
 }
