@@ -19,15 +19,15 @@
    --bs-btn-disabled-color: #dedede4d;
 }
 .oswald-200, .oswald-300, .oswald-400, .oswald-500, .oswald-600, .oswald-700 {
-   font-family: 'Manrope', sans-serif !important;
+   font-family: 'Public Sans', sans-serif !important;
 }
 
-.manrope-400 { font-family: 'Manrope', sans-serif; font-weight: 400; }
-.manrope-500 { font-family: 'Manrope', sans-serif; font-weight: 500; }
-.manrope-600 { font-family: 'Manrope', sans-serif; font-weight: 600; }
-.manrope-700 { font-family: 'Manrope', sans-serif; font-weight: 700; }
-.manrope-800 { font-family: 'Manrope', sans-serif; font-weight: 800; }
-.font-manrope { font-family: 'Manrope', sans-serif; }
+.manrope-400 { font-family: 'Public Sans', sans-serif; font-weight: 400; }
+.manrope-500 { font-family: 'Public Sans', sans-serif; font-weight: 500; }
+.manrope-600 { font-family: 'Public Sans', sans-serif; font-weight: 600; }
+.manrope-700 { font-family: 'Public Sans', sans-serif; font-weight: 700; }
+.manrope-800 { font-family: 'Public Sans', sans-serif; font-weight: 800; }
+.font-manrope { font-family: 'Public Sans', sans-serif; }
 
 .oswald-200 { font-weight: 200; }
 .oswald-300 { font-weight: 300; }
@@ -40,25 +40,25 @@
    font-weight: 800 !important;
 }
 .poppins-300 {
-   font-family: "Poppins", serif;
+   font-family: 'Public Sans', sans-serif;
    font-optical-sizing: auto;
    font-weight: 300;
    font-style: normal;
 }
 .poppins-400 {
-   font-family: "Poppins", serif;
+   font-family: 'Public Sans', sans-serif;
    font-optical-sizing: auto;
    font-weight: 400;
    font-style: normal;
 }
 .poppins-500 {
-   font-family: "Poppins", serif;
+   font-family: 'Public Sans', sans-serif;
    font-optical-sizing: auto;
    font-weight: 500;
    font-style: normal;
 }
 .poppins-600 {
-   font-family: "Poppins", serif;
+   font-family: 'Public Sans', sans-serif;
    font-optical-sizing: auto;
    font-weight: 600;
    font-style: normal;
@@ -752,7 +752,7 @@ a {
    padding-top: 24px;
    padding-bottom: 24px;
    font-size: 16px;
-   font-family: 'Manrope', sans-serif;
+   font-family: 'Public Sans', sans-serif;
    font-weight: 500;
    font-style: normal;
    color: black;
@@ -801,26 +801,30 @@ a {
     line-height: inherit;
     -webkit-appearance: button;
     max-width: 100%;
-    padding-right: calc(var(--bs-gutter-x) * .5);
-    padding-left: calc(var(--bs-gutter-x) * .5);
     margin-top: var(--bs-gutter-y);
     flex: 0 0 auto;
     
-    border-width: 2px!important;
-    padding-top: 1rem!important;
-    padding-bottom: 1rem!important;
+    
     text-transform: uppercase!important;
     --bs-text-opacity: 1;
-    color: rgba(var(--bs-white-rgb),var(--bs-text-opacity))!important;
-    border-radius: 0!important;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 600;
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 700;
     font-style: normal;
     font-size: 20px;
-    background-color: var(--orange);
-    border-color: var(--orange) !important;
-    border: 2px solid;
     cursor: pointer;
+
+    padding: 10px 24px;
+    border-radius: 10px !important;
+    border: 1.5px solid #009966;
+    background: transparent;
+    color: #009966 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+}
+
+.beton-contact-form-wrapper input[type="submit"]:hover, .direct-online-offerte-btn:hover{ 
+   background-color: #009966;
+   color: #fff !important;
 }
 
 .beton-contact-form-wrapper input[type="submit"] {
@@ -828,11 +832,11 @@ a {
 }
 
 .page #primary .entry-content {
-	font-family: "Poppins", serif;
+	font-family: 'Public Sans', sans-serif;
 }
 
 .beton-page-content h2 {
-	font-family: 'Manrope', sans-serif;
+	font-family: 'Public Sans', sans-serif;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
@@ -849,7 +853,7 @@ a {
 }
 
 .beton-page-content h4 {
-	font-family: 'Manrope', sans-serif;
+	font-family: 'Public Sans', sans-serif;
     font-optical-sizing: auto;
 }  
 
@@ -970,7 +974,7 @@ ul.wc-item-meta > li {
    line-height: 20px;
 }
 .font-oswald{
-	font-family: 'Manrope', sans-serif;
+	font-family: 'Public Sans', sans-serif;
     font-optical-sizing: auto;
 }
 
@@ -993,7 +997,7 @@ ul.wc-item-meta > li {
 
 #autocomplete-list .dropdown-item {
     padding: 12px 20px;
-    font-family: 'Manrope', sans-serif !important;
+    font-family: 'Public Sans', sans-serif !important;
     font-size: 15px;
     font-weight: 600;
     color: #060C35;
@@ -1169,7 +1173,7 @@ span.woocommerce-input-wrapper, span.woocommerce-input-wrapper input {width: 100
 
 .beton-hero-google-ratings .ti-widget.ti-goog .ti-profile-details .ti-rating, .beton-hero-google-ratings .ti-widget.ti-goog .ti-header span strong{
    font-size: 22px !important;
-   font-family: "Oswald", serif !important;
+   font-family: 'Public Sans', sans-serif !important;
    font-weight: 600;
    color: #fff !important;
 }

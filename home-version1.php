@@ -813,7 +813,7 @@ $pricingData = get_field('application', 'option');
         <div class="text-center mb-5 mx-auto" style="max-width: 600px;">
             <h2 class="text-custom-black text-40 mb-3" style="font-family: 'Poppins', sans-serif; font-weight: 600;">Hoe
                 werkt het?</h2>
-            <p class="text-dark-gray text-16" style="font-family: 'Manrope', sans-serif; font-weight: 500;">Bestel
+            <p class="text-dark-gray text-16" style="font-family: 'Public Sans', sans-serif; font-weight: 500;">Bestel
                 uw
                 beton in 3 eenvoudige stappen – snel, duidelijk en zonder gedoe.</p>
         </div>
@@ -830,14 +830,14 @@ $pricingData = get_field('application', 'option');
                             style="height: 28px; padding: 6px 8px; background: rgba(255, 204, 0, 0.10); border-radius: 100px; outline: 1px #FCA01A solid; outline-offset: -1px; gap: 4px;">
                             <div style="width: 8px; height: 8px; background: #FCA01A; border-radius: 9999px;"></div>
                             <span
-                                style="color: #FCA01A; font-size: 14px; font-family: 'Manrope', sans-serif; font-weight: 500;">Stap
+                                style="color: #FCA01A; font-size: 14px; font-family: 'Public Sans', sans-serif; font-weight: 500;">Stap
                                 1</span>
                         </div>
                         <h3 class="w-100 mb-0"
-                            style="color: #222222; font-size: 24px; font-family: 'Manrope', sans-serif; font-weight: 700; line-height: 32.4px;">
+                            style="color: #222222; font-size: 24px; font-family: 'Public Sans', sans-serif; font-weight: 700; line-height: 32.4px;">
                             Prijs berekenen</h3>
                         <p class="w-100 mb-0"
-                            style="color: #333333; font-size: 16px; font-family: 'Manrope', sans-serif; font-weight: 500; line-height: 24px;">
+                            style="color: #333333; font-size: 16px; font-family: 'Public Sans', sans-serif; font-weight: 500; line-height: 24px;">
                             Voer in stap 1 de postcode en de hoeveelheid beton in de betoncalculator in.</p>
                     </div>
                 </div>
@@ -854,14 +854,14 @@ $pricingData = get_field('application', 'option');
                             style="height: 28px; padding: 6px 8px; background: rgba(255, 204, 0, 0.10); border-radius: 100px; outline: 1px #FCA01A solid; outline-offset: -1px; gap: 4px;">
                             <div style="width: 8px; height: 8px; background: #FCA01A; border-radius: 9999px;"></div>
                             <span
-                                style="color: #FCA01A; font-size: 14px; font-family: 'Manrope', sans-serif; font-weight: 500;">Stap
+                                style="color: #FCA01A; font-size: 14px; font-family: 'Public Sans', sans-serif; font-weight: 500;">Stap
                                 2</span>
                         </div>
                         <h3 class="w-100 mb-0"
-                            style="color: #222222; font-size: 24px; font-family: 'Manrope', sans-serif; font-weight: 700; line-height: 32.4px;">
+                            style="color: #222222; font-size: 24px; font-family: 'Public Sans', sans-serif; font-weight: 700; line-height: 32.4px;">
                             Kies type en soort</h3>
                         <p class="w-100 mb-0"
-                            style="color: #333333; font-size: 16px; font-family: 'Manrope', sans-serif; font-weight: 500; line-height: 24px;">
+                            style="color: #333333; font-size: 16px; font-family: 'Public Sans', sans-serif; font-weight: 500; line-height: 24px;">
                             In stap 2 wordt de betonstort gespecificeerd op basis van de lossingsmethode, uitvoering
                             en
                             het type beton.</p>
@@ -880,14 +880,14 @@ $pricingData = get_field('application', 'option');
                             style="height: 28px; padding: 6px 8px; background: rgba(255, 204, 0, 0.10); border-radius: 100px; outline: 1px #FCA01A solid; outline-offset: -1px; gap: 4px;">
                             <div style="width: 8px; height: 8px; background: #FCA01A; border-radius: 9999px;"></div>
                             <span
-                                style="color: #FCA01A; font-size: 14px; font-family: 'Manrope', sans-serif; font-weight: 500;">Stap
+                                style="color: #FCA01A; font-size: 14px; font-family: 'Public Sans', sans-serif; font-weight: 500;">Stap
                                 3</span>
                         </div>
                         <h3 class="w-100 mb-0"
-                            style="color: #222222; font-size: 24px; font-family: 'Manrope', sans-serif; font-weight: 700; line-height: 32.4px;">
+                            style="color: #222222; font-size: 24px; font-family: 'Public Sans', sans-serif; font-weight: 700; line-height: 32.4px;">
                             Bevestigen en betalen</h3>
                         <p class="w-100 mb-0"
-                            style="color: #333333; font-size: 16px; font-family: 'Manrope', sans-serif; font-weight: 500; line-height: 24px;">
+                            style="color: #333333; font-size: 16px; font-family: 'Public Sans', sans-serif; font-weight: 500; line-height: 24px;">
                             In de laatste stap kan de betonstort in de kalender worden ingepland en kunt u eenvoudig
                             betalen met iDEAL.</p>
                     </div>
@@ -904,10 +904,10 @@ $pricingData = get_field('application', 'option');
             <!-- Left Column: Text & Slider -->
             <div class="col-lg-7 d-flex flex-column" style="gap: 2rem;">
                 <div>
-                    <h2 class="fw-bolder text-40 text-custom-black mb-4" style="font-family: 'Manrope', sans-serif;">
+                    <h2 class="fw-bolder text-40 text-custom-black mb-4" style="font-family: 'Public Sans', sans-serif;">
                         Beton bestellen, helder uitgelegd</h2>
                     <p class="text-16 text-custom-gray-2"
-                        style="font-family: 'Manrope', sans-serif; font-weight: 500; line-height: 1.5;">Van de
+                        style="font-family: 'Public Sans', sans-serif; font-weight: 500; line-height: 1.5;">Van de
                         eerste
                         berekening tot de uiteindelijke levering begeleiden wij u met een duidelijk en
                         overzichtelijk
@@ -962,20 +962,20 @@ $pricingData = get_field('application', 'option');
                 <!-- Top Card: Wie wij zijn -->
                 <div class="card border-0 bg-white p-4 p-lg-5 flex-grow-1 d-flex flex-column justify-content-center"
                     style="border-radius: 12px; outline: 1px solid #E5E7EB; box-shadow: 2px 6px 20px rgba(17, 17, 17, 0.04);">
-                    <h3 class="fw-bolder text-32 text-custom-black mb-4" style="font-family: 'Manrope', sans-serif;">Wie
+                    <h3 class="fw-bolder text-32 text-custom-black mb-4" style="font-family: 'Public Sans', sans-serif;">Wie
                         wij zijn</h3>
                     <p class="text-16 text-custom-gray-2 mb-3"
-                        style="font-family: 'Manrope', sans-serif; font-weight: 500;">Wij helpen huiseigenaren,
+                        style="font-family: 'Public Sans', sans-serif; font-weight: 500;">Wij helpen huiseigenaren,
                         aannemers en bouwers bij het bestellen van beton voor allerlei projecten, van kleine
                         renovaties
                         tot grote bouwprojecten.</p>
                     <p class="text-16 text-custom-gray-2 mb-4"
-                        style="font-family: 'Manrope', sans-serif; font-weight: 500;">Wij werken met gecertificeerde
+                        style="font-family: 'Public Sans', sans-serif; font-weight: 500;">Wij werken met gecertificeerde
                         betoncentrales en ervaren chauffeurs om elke levering goed te plannen en op tijd te leveren.
                         Duidelijke communicatie en betrouwbare levering staan centraal in ons werk.</p>
                     <a href="<?php echo site_url('/contact'); ?>"
                         class="btn rounded-3 fw-bold text-md-18 text-sm-16 py-3 px-4 d-inline-flex align-items-center justify-content-center gap-2 mt-auto align-self-start"
-                        style="font-family: 'Manrope', sans-serif; border: 1.5px solid #1ACB23; color: #1ACB23; background: transparent;">
+                        style="font-family: 'Public Sans', sans-serif; border: 1.5px solid #1ACB23; color: #1ACB23; background: transparent;">
                         <span>Neem contact met ons op</span>
                         <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -992,9 +992,9 @@ $pricingData = get_field('application', 'option');
                         <div class="card h-100 border-0 bg-white py-4 px-2 text-center justify-content-center d-flex flex-column"
                             style="border-radius: 12px; outline: 1px solid #F3F4F6; box-shadow: 2px 6px 20px rgba(17, 17, 17, 0.04);">
                             <h4 class="fw-bolder text-32 text-warning mb-2"
-                                style="font-family: 'Manrope', sans-serif; color: #FCA01A !important;">20k+</h4>
+                                style="font-family: 'Public Sans', sans-serif; color: #FCA01A !important;">20k+</h4>
                             <p class="text-custom-black mb-0 fw-medium"
-                                style="font-size: 14px; font-family: 'Manrope', sans-serif; line-height: 1.2;">
+                                style="font-size: 14px; font-family: 'Public Sans', sans-serif; line-height: 1.2;">
                                 Afgeronde
                                 projecten</p>
                         </div>
@@ -1003,9 +1003,9 @@ $pricingData = get_field('application', 'option');
                         <div class="card h-100 border-0 bg-white py-4 px-2 text-center justify-content-center d-flex flex-column"
                             style="border-radius: 12px; outline: 1px solid #F3F4F6; box-shadow: 2px 6px 20px rgba(17, 17, 17, 0.04);">
                             <h4 class="fw-bolder text-32 text-warning mb-2"
-                                style="font-family: 'Manrope', sans-serif; color: #FCA01A !important;">15+</h4>
+                                style="font-family: 'Public Sans', sans-serif; color: #FCA01A !important;">15+</h4>
                             <p class="text-custom-black mb-0 fw-medium"
-                                style="font-size: 14px; font-family: 'Manrope', sans-serif; line-height: 1.2;">
+                                style="font-size: 14px; font-family: 'Public Sans', sans-serif; line-height: 1.2;">
                                 Jarenlange<br>ervaring</p>
                         </div>
                     </div>
@@ -1013,9 +1013,9 @@ $pricingData = get_field('application', 'option');
                         <div class="card h-100 border-0 bg-white py-4 px-2 text-center justify-content-center d-flex flex-column"
                             style="border-radius: 12px; outline: 1px solid #F3F4F6; box-shadow: 2px 6px 20px rgba(17, 17, 17, 0.04);">
                             <h4 class="fw-bolder text-32 text-warning mb-2"
-                                style="font-family: 'Manrope', sans-serif; color: #FCA01A !important;">98%</h4>
+                                style="font-family: 'Public Sans', sans-serif; color: #FCA01A !important;">98%</h4>
                             <p class="text-custom-black mb-0 fw-medium"
-                                style="font-size: 14px; font-family: 'Manrope', sans-serif; line-height: 1.2;">
+                                style="font-size: 14px; font-family: 'Public Sans', sans-serif; line-height: 1.2;">
                                 Tijdige<br>levering</p>
                         </div>
                     </div>
@@ -1031,23 +1031,23 @@ $pricingData = get_field('application', 'option');
         <div class="container px-md-0 px-3">
             <div class="row g-5">
                 <div class="col-lg-6 d-flex flex-column align-items-start">
-                    <h2 class="fw-bolder text-40 text-white mb-5" style="font-family: 'Manrope', sans-serif;">Een
+                    <h2 class="fw-bolder text-40 text-white mb-5" style="font-family: 'Public Sans', sans-serif;">Een
                         uitgebreide betonoplossing voor elk project</h2>
                     <a href="<?php echo site_url(); ?>"
                         class="btn btn-success rounded-3 fw-bold text-18 py-3 px-4 d-inline-flex align-items-center gap-2"
-                        style="font-family: 'Manrope', sans-serif; background: #1ACB23; border-color: #1ACB23;">
+                        style="font-family: 'Public Sans', sans-serif; background: #1ACB23; border-color: #1ACB23;">
                         Bereken uw betonprijs
                         <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
                 <div class="col-lg-6">
                     <p class="text-16 text-white mb-4 fw-medium"
-                        style="font-family: 'Manrope', sans-serif; opacity: 0.9;">Of u nu bouwt, renoveert of
+                        style="font-family: 'Public Sans', sans-serif; opacity: 0.9;">Of u nu bouwt, renoveert of
                         uitbreidt,
                         wij leveren het juiste beton – afgestemd op uw behoeften.</p>
                     <ul class="list-unstyled mb-0 d-flex flex-column gap-3" style="margin-left: 0px;">
                         <li class="d-flex align-items-center gap-3 text-white fw-bold text-16"
-                            style="font-family: 'Manrope', sans-serif;">
+                            style="font-family: 'Public Sans', sans-serif;">
                             <span
                                 class="rounded-circle bg-warning d-flex align-items-center justify-content-center flex-shrink-0"
                                 style="width: 20px; height: 20px;"><i class="bi bi-check text-dark"
@@ -1055,7 +1055,7 @@ $pricingData = get_field('application', 'option');
                             Meerdere betonsterktes beschikbaar
                         </li>
                         <li class="d-flex align-items-center gap-3 text-white fw-bold text-16"
-                            style="font-family: 'Manrope', sans-serif;">
+                            style="font-family: 'Public Sans', sans-serif;">
                             <span
                                 class="rounded-circle bg-warning d-flex align-items-center justify-content-center flex-shrink-0"
                                 style="width: 20px; height: 20px;"><i class="bi bi-check text-dark"
@@ -1063,7 +1063,7 @@ $pricingData = get_field('application', 'option');
                             Geschikt voor funderingen, vloeren, opritten en aanbouwen
                         </li>
                         <li class="d-flex align-items-center gap-3 text-white fw-bold text-16"
-                            style="font-family: 'Manrope', sans-serif;">
+                            style="font-family: 'Public Sans', sans-serif;">
                             <span
                                 class="rounded-circle bg-warning d-flex align-items-center justify-content-center flex-shrink-0"
                                 style="width: 20px; height: 20px;"><i class="bi bi-check text-dark"
@@ -1091,10 +1091,10 @@ $pricingData = get_field('application', 'option');
         <div class="row g-5 align-items-center">
             <div class="col-lg-6">
                 <h2 class="fw-bolder text-40 text-custom-black mb-4 text-center"
-                    style="font-family: 'Manrope', sans-serif;">
+                    style="font-family: 'Public Sans', sans-serif;">
                     Landelijke betonlevering</h2>
                 <p class="text-16 text-custom-gray-2 mb-4 text-center"
-                    style="font-family: 'Manrope', sans-serif; font-weight: 500;">Wij leveren beton door heel
+                    style="font-family: 'Public Sans', sans-serif; font-weight: 500;">Wij leveren beton door heel
                     Nederland,
                     zorgvuldig gepland om aan te sluiten bij uw planning en de omstandigheden op locatie.</p>
 
@@ -1107,9 +1107,9 @@ $pricingData = get_field('application', 'option');
                         </div>
                         <div class="d-flex flex-column">
                             <h4 class="fw-bold text-20 text-custom-black mb-1"
-                                style="font-family: 'Manrope', sans-serif;">Landelijke dekking</h4>
+                                style="font-family: 'Public Sans', sans-serif;">Landelijke dekking</h4>
                             <p class="text-custom-gray-2 mb-0"
-                                style="font-size: 15px; font-family: 'Manrope', sans-serif; font-weight: 500; line-height: 1.6;">
+                                style="font-size: 15px; font-family: 'Public Sans', sans-serif; font-weight: 500; line-height: 1.6;">
                                 Wij leveren kant-en-klaar
                                 beton door heel Nederland en garanderen een betrouwbare service, waar uw project
                                 zich
@@ -1124,9 +1124,9 @@ $pricingData = get_field('application', 'option');
                         </div>
                         <div class="d-flex flex-column">
                             <h4 class="fw-bold text-20 text-custom-black mb-1"
-                                style="font-family: 'Manrope', sans-serif;">Flexibele levertijden</h4>
+                                style="font-family: 'Public Sans', sans-serif;">Flexibele levertijden</h4>
                             <p class="text-custom-gray-2 mb-0"
-                                style="font-size: 15px; font-family: 'Manrope', sans-serif; font-weight: 500; line-height: 1.6;">
+                                style="font-size: 15px; font-family: 'Public Sans', sans-serif; font-weight: 500; line-height: 1.6;">
                                 De levering wordt gepland
                                 rond uw schema, met flexibele tijdvakken voor alle bouwprojecten.</p>
                         </div>
@@ -1139,11 +1139,11 @@ $pricingData = get_field('application', 'option');
                         </div>
                         <div class="d-flex flex-column">
                             <h4 class="fw-bold text-20 text-custom-black mb-1"
-                                style="font-family: 'Manrope', sans-serif;">Voor particuliere en professionele
+                                style="font-family: 'Public Sans', sans-serif;">Voor particuliere en professionele
                                 projecten
                             </h4>
                             <p class="text-custom-gray-2 mb-0"
-                                style="font-size: 15px; font-family: 'Manrope', sans-serif; font-weight: 500; line-height: 1.6;">
+                                style="font-size: 15px; font-family: 'Public Sans', sans-serif; font-weight: 500; line-height: 1.6;">
                                 Of u nu aan een woning of
                                 een professionele bouwplaats werkt, onze betonoplossingen worden afgestemd op uw
                                 behoeften.</p>
@@ -1164,10 +1164,10 @@ $pricingData = get_field('application', 'option');
 <section class="py-5 bg-custom-gray-3" style="background-color: #F6F8FB;">
     <div class="container py-lg-5 px-md-0 px-3">
         <div class="text-center mb-5 mx-auto" style="max-width: 800px;">
-            <h2 class="fw-bolder text-40 text-custom-black mb-4" style="font-family: 'Manrope', sans-serif;">Hoor
+            <h2 class="fw-bolder text-40 text-custom-black mb-4" style="font-family: 'Public Sans', sans-serif;">Hoor
                 van
                 onze tevreden klanten</h2>
-            <p class="text-16 text-custom-gray-2" style="font-family: 'Manrope', sans-serif; font-weight: 500;">Van
+            <p class="text-16 text-custom-gray-2" style="font-family: 'Public Sans', sans-serif; font-weight: 500;">Van
                 huiseigenaren tot aannemers: onze klanten vertrouwen op ons voor snelle levering, duidelijke prijzen
                 en
                 vlotte betonstortingen. Dit is wat zij zeggen.</p>
@@ -1189,10 +1189,10 @@ $pricingData = get_field('application', 'option');
                 <div class="h-100 p-4 p-lg-5 rounded-4 d-flex flex-column border-0" style="background-color: #F8F9FA;">
                     <div class="">
                         <h2 class="fw-bolder text-32 text-custom-black mb-3"
-                            style="font-family: 'Manrope', sans-serif;">Heb je vragen?<br />Bel of mail ons gerust.
+                            style="font-family: 'Public Sans', sans-serif;">Heb je vragen?<br />Bel of mail ons gerust.
                         </h2>
                         <p class="text-15 text-custom-gray-2"
-                            style="font-family: 'Manrope', sans-serif; font-weight: 500;">Ons team van
+                            style="font-family: 'Public Sans', sans-serif; font-weight: 500;">Ons team van
                             betonbestellen.nl
                             staat voor je klaar.</p>
                     </div>
@@ -1205,12 +1205,12 @@ $pricingData = get_field('application', 'option');
                             </div>
                             <div>
                                 <h5 class="fw-bold mb-1"
-                                    style="font-family: 'Manrope', sans-serif; font-size: 15px; color: #333333;">
+                                    style="font-family: 'Public Sans', sans-serif; font-size: 15px; color: #333333;">
                                     E-mail
                                 </h5>
                                 <a href="mailto:info@betonbestellen.nl"
                                     class="fw-medium text-16 text-decoration-underline"
-                                    style="font-family: 'Manrope', sans-serif; color: #FCA01A;">info@betonbestellen.nl</a>
+                                    style="font-family: 'Public Sans', sans-serif; color: #FCA01A;">info@betonbestellen.nl</a>
                             </div>
                         </div>
                         <hr class="m-0 my-1" style="border-color: #E5E7EB; border-top-width: 1px; opacity: 1;">
@@ -1221,10 +1221,10 @@ $pricingData = get_field('application', 'option');
                             </div>
                             <div>
                                 <h5 class="fw-bold mb-1"
-                                    style="font-family: 'Manrope', sans-serif; font-size: 15px; color: #333333;">
+                                    style="font-family: 'Public Sans', sans-serif; font-size: 15px; color: #333333;">
                                     Telefoon</h5>
                                 <a href="tel:084524145547" class="fw-medium text-16 text-decoration-none"
-                                    style="font-family: 'Manrope', sans-serif; color: #FCA01A;">084524145547</a>
+                                    style="font-family: 'Public Sans', sans-serif; color: #FCA01A;">084524145547</a>
                             </div>
                         </div>
                         <hr class="m-0 my-1" style="border-color: #E5E7EB; border-top-width: 1px; opacity: 1;">
@@ -1235,11 +1235,11 @@ $pricingData = get_field('application', 'option');
                             </div>
                             <div>
                                 <h5 class="fw-bold mb-1"
-                                    style="font-family: 'Manrope', sans-serif; font-size: 15px; color: #333333;">
+                                    style="font-family: 'Public Sans', sans-serif; font-size: 15px; color: #333333;">
                                     Locatie
                                 </h5>
                                 <p class="fw-medium text-16 mb-0"
-                                    style="font-family: 'Manrope', sans-serif; color: #FCA01A;">Ondernemersweg 4
+                                    style="font-family: 'Public Sans', sans-serif; color: #FCA01A;">Ondernemersweg 4
                                     4691
                                     SL, THOLEN</p>
                             </div>
@@ -1252,7 +1252,7 @@ $pricingData = get_field('application', 'option');
                 <!-- Contact form side -->
                 <div class="h-100 p-4 p-lg-5 bg-white rounded-4 d-flex flex-column"
                     style="outline: 1px solid #F3F4F6; box-shadow: 2px 6px 20px rgba(17, 17, 17, 0.04);">
-                    <h2 class="fw-bolder text-32 text-custom-black mb-4" style="font-family: 'Manrope', sans-serif;">
+                    <h2 class="fw-bolder text-32 text-custom-black mb-4" style="font-family: 'Public Sans', sans-serif;">
                         Neem contact op</h2>
                     <div class="bpc-home-contact-form">
                         <?php echo do_shortcode('[contact-form-7 id="fb1d74e" title="Home Contact Form"]'); ?>

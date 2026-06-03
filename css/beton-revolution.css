@@ -3337,3 +3337,12 @@ SIDEBAR & SUMMARY BOX
     font-size: 20px;
     text-transform: capitalize;
 }
+
+.dropdown-item:focus, .dropdown-item:hover, .dropdown-item:active, .dropdown-item.active {
+    color: white !important;
+    background-color: #009966 !important;
+}
+
+.footer-description-bottom a, .beton-page-content .entry-content a {
+	color: #009966 !important;
+}

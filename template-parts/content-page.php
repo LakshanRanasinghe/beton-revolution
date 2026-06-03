@@ -11,8 +11,8 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title('<div class="mt-4"><h1 class="oswald-500 display-3 text-40 m-0 text-black text-uppercase mb-1">', '</h1>
-                    <div class="p-2" style="background: linear-gradient(90deg, #060C35 0%, rgba(253, 212, 1, 0) 100%);"></div>
+		<?php the_title('<div class="mt-4"><h1 class="oswald-500 display-3 text-40 m-0 text-black mb-1">', '</h1>
+                    <div class="p-2" style="background: linear-gradient(90deg, #009966 0%, #E9F4F0 40%, #E9F4F0 100%);"></div>
                 </div>'); ?>
 	</header><!-- .entry-header -->
 

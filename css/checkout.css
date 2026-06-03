@@ -7,7 +7,7 @@ CHECKOUT PAGE  (prefix: bpc-)
 .bpc-checkout-page {
     min-height: 100vh;
     padding: 48px 0 80px;
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Public Sans', sans-serif;
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -151,7 +151,7 @@ LEFT: FORM CARD
     font-size: 16px;
     font-weight: 500;
     color: #333 !important;
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Public Sans', sans-serif;
     background: #fff;
     outline: none;
     transition: border-color .2s, box-shadow .2s;
@@ -195,7 +195,7 @@ LEFT: FORM CARD
     font-size: 16px;
     font-weight: 500;
     color: #333 !important;
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Public Sans', sans-serif;
     background: #fff;
     outline: none;
     resize: vertical;
@@ -379,7 +379,7 @@ LEFT: FORM CARD
     height: 56px;
     font-size: 18px;
     font-weight: 700;
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Public Sans', sans-serif;
     cursor: pointer;
     transition: background .2s, transform .1s;
     display: flex;
@@ -783,7 +783,7 @@ ul.wc_payment_methods li.wc_payment_method .payment_box::before {
 .direct-online-offerte-btn {
     align-items: center;
     justify-content: space-between;
-    background: #ff6600;
+    background: #fff;
     padding: 14px 20px;
     border-radius: 12px !important;
 }
