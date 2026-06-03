@@ -220,7 +220,7 @@ function beton_scripts()
 	wp_enqueue_script('select2-js', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array('jquery'), '4.1.0', true);
 
 	//New styles for beton revolution - 25.03.2026
-	wp_enqueue_style('beton-revolution', get_stylesheet_directory_uri() . '/css/beton-revolution.css', array(), '1.0.0');
+	wp_enqueue_style('beton-revolution', get_stylesheet_directory_uri() . '/css/beton-revolution.css', array(), '1.0.2');
 	wp_enqueue_style('beton-checkout', get_stylesheet_directory_uri() . '/css/checkout.css', array(), '1.0.0');
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {

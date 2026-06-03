@@ -9,8 +9,23 @@ $pricingData = get_field('application', 'option');
 
     <!-- ════════════ HERO ════════════ -->
     <div class="bpc-hero">
+        <div class="bpc-hero-bg">
+            <video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;">
+                <source src="<?php echo get_template_directory_uri(); ?>/images/home-page/home-hero.mp4"
+                    type="video/mp4">
+            </video>
+            <div
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1;">
+            </div>
+        </div>
         <img src="<?php echo get_template_directory_uri() . '/images/beton-shade.png'; ?>" class="bpc-hero-shade"
             alt="">
+        <!-- concave wave curve – not border-radius, SVG shape mask -->
+        <div class="bpc-hero-wave">
+            <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path d="M0,0 Q720,160 1440,0 L1440,80 L0,80 Z" fill="#fff" />
+            </svg>
+        </div>
         <div class="bpc-hero-inner">
             <div class="bpc-hero-content">
                 <h1 class="bpc-hero-title">Mobiele betonwagen</h1>
@@ -49,10 +64,6 @@ $pricingData = get_field('application', 'option');
                     </li>
                 </ul>
                 <a href="#calculator" class="bpc-hero-btn">Start Configuratie</a>
-            </div>
-            <div class="bpc-hero-image">
-                <img src="<?php echo get_template_directory_uri() . '/images/home-hero-truck.png'; ?>"
-                    alt="Mobiele betonwagen">
             </div>
         </div>
     </div>
@@ -978,9 +989,11 @@ $pricingData = get_field('application', 'option');
         <div class="bpc-why-choose-grid">
             <div class="bpc-why-choose-images">
                 <img class="bpc-why-choose-img1"
-                    src="<?php echo get_template_directory_uri(); ?>/images/home-track1.png" alt="Beton mixer truck">
+                    src="<?php echo get_template_directory_uri(); ?>/images/home-page/home-new-truck2.webp"
+                    alt="Beton mixer truck">
                 <img class="bpc-why-choose-img2"
-                    src="<?php echo get_template_directory_uri(); ?>/images/home-track2.png" alt="Pouring concrete">
+                    src="<?php echo get_template_directory_uri(); ?>/images/home-page/home-new-truck1.webp"
+                    alt="Pouring concrete">
             </div>
             <div class="bpc-why-choose-content">
                 <div class="bpc-why-choose-header">
@@ -1392,7 +1405,7 @@ $pricingData = get_field('application', 'option');
 <section>
     <div class="bpc-cta-section">
         <div class="bpc-cta-bg">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/home-contact-bg.jpg"
+            <img src="<?php echo get_template_directory_uri(); ?>/images/home-page/home-page-bottom.webp"
                 alt="Klaar om te beginnen?">
         </div>
         <div class="bpc-cta-overlay"></div>
