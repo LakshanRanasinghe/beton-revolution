@@ -107,7 +107,7 @@ $pricingData = get_field('application', 'option');
 
                     <div class="bpc-step is-active">
                         <div class="bpc-step-circle">3</div>
-                        <div class="bpc-step-label">Condities</div>
+                        <div class="bpc-step-label">Extra opties</div>
                     </div>
 
                     <div class="bpc-step is-upcoming">
@@ -282,7 +282,7 @@ $pricingData = get_field('application', 'option');
                                         berekenen</button>
                                     <p
                                         style="font-size: 12px; color: #6B7280; margin: 0; text-align: right; width: 100%;">
-                                        Tip: Bestel extra 0,5 m³ om tekorten te voorkomen.</p>
+                                        Tip: Bestel extra 0,05 m³ om tekorten te voorkomen.</p>
                                 </div>
                             </div>
                         </div>
@@ -330,7 +330,7 @@ $pricingData = get_field('application', 'option');
                                 ?>
                                 <label class="bpc-app-card" for="<?php echo $input_id; ?>">
                                     <input type="radio" name="application" class="bpc-radio-input"
-                                        id="<?php echo $input_id; ?>" value="<?php echo $input_id; ?>" <?php echo $index == 0 ? 'checked' : ''; ?>>
+                                        id="<?php echo $input_id; ?>" value="<?php echo $input_id; ?>">
                                     <div class="bpc-app-card-icon">
                                         <img src="<?php echo $application_item['icon']; ?>">
                                     </div>
@@ -366,8 +366,8 @@ $pricingData = get_field('application', 'option');
                         </div>
                     </div>
 
-                    <!-- ── Loswijze - stop ── -->
-                    <div class="bpc-section">
+                    <!-- ── Loswijze -->
+                    <div class="bpc-section" id="bpc-section-loswijze">
                         <div class="bpc-section-head">
                             <div class="bpc-section-head-title">Loswijze</div>
                             <div class="bpc-section-hr"></div>
@@ -546,7 +546,7 @@ $pricingData = get_field('application', 'option');
                         </div>
 
                         <div class="bpc-section-head">
-                            <div class="bpc-step-input-title">Condities</div>
+                            <div class="bpc-step-input-title">Extra opties</div>
                             <div class="bpc-step-input-icon">
                                 <?php if (!empty($pricingData['compound_items_tooltips'])) { ?>
                                     <a class="beton-popover text-success" tabindex="0" role="button"
@@ -867,9 +867,13 @@ $pricingData = get_field('application', 'option');
                                 <div class="bpc-summary-title">Geschatte kosten samenvatting</div>
                             </div>
                             <div class="summary-content p-4 poppins-400 text-18 text-dark-gray">
-                                <div class="d-flex justify-content-between mb-4">
+                                <div class="d-flex justify-content-between mb-2">
                                     <span>Beton: <span id="cubic_meters_formatted">0</span> m³</span>
                                     <span id="beton_price_formatted"><?php //wc_price(0) ?></span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-4">
+                                    <span>Brandstoftoeslag:</span>
+                                    <span id="brandstoftoeslag_formatted"><?php //wc_price(0) ?></span>
                                 </div>
                                 <hr class="text-light-gray">
                                 <h6 class="text-20 poppins-500 text-custom-black mb-2">Betonsamenstelling</h6>

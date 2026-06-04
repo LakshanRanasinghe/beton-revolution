@@ -184,26 +184,17 @@ jQuery(document).ready(function ($) {
     // Global variable
     let currentCubicMeters = 0;
 
-    // Check if the user has already selected a postcode and cubic meters
-    if ($.cookie("selected_area_code") !== undefined && $.cookie("selected_area_code") !== "") {
-        if ($.cookie("selected_city") !== undefined || $.cookie("selected_city") !== "") {
-            $("#postcode-input").val($.cookie("selected_city"));
-            enableSecondStep();
-        }
+    // Restoring values from cookies if set
+    let savedAreaCode = $.cookie("selected_area_code");
+    let savedCity = $.cookie("selected_city");
+    let savedCubicMeters = $.cookie("selected_cubic_meters");
 
-        if ($.cookie("selected_cubic_meters") !== undefined || $.cookie("selected_cubic_meters") !== "") {
-            currentCubicMeters = $.cookie("selected_cubic_meters");
-            $("#cubic-meters").val(currentCubicMeters);
-            enableSecondStep();
-        }
-    } else {
-        if ($.cookie("selected_city") !== undefined || $.cookie("selected_city") !== "") {
-            $("#postcode-input").val($.cookie("selected_city"));
-        }
-        if ($.cookie("selected_cubic_meters") !== undefined || $.cookie("selected_cubic_meters") !== "") {
-            currentCubicMeters = $.cookie("selected_cubic_meters");
-            $("#cubic-meters").val(currentCubicMeters);
-        }
+    if (savedAreaCode && savedCity) {
+        $("#postcode-input").val(savedCity).addClass("selected");
+    }
+    if (savedCubicMeters) {
+        currentCubicMeters = parseInput(savedCubicMeters);
+        $("#cubic-meters").val(savedCubicMeters);
     }
     
     // Always validate on load to ensure proper disabled state
@@ -227,12 +218,21 @@ jQuery(document).ready(function ($) {
 
             // Create a dropdown list for suggestions
             const dropdown = $('<div id="autocomplete-list" class="dropdown-menu mt-1"></div>');
-            filteredResults.forEach((item) => {
-                const suggestion = $(
-                `<a href="#" class="dropdown-item" data-postcodes="${item.zip}" data-id="${item.id}" data-area-code="${item.area_code}">${item.city_name}</a>`
+            if (filteredResults.length === 0) {
+                const errorMsg = $(
+                    `<div style="padding: 12px 20px; font-family: 'Public Sans', sans-serif; font-size: 14px; font-weight: 500; color: #DC2626; line-height: 1.4; pointer-events: none; white-space: normal;">` +
+                    `Ingevoerde regio is ongeldig. U kunt geen beton bestellen voor deze regio. Ga naar <a href="https://betonstorten.nl" target="_blank" style="color: #009966; text-decoration: underline; font-weight: 600; pointer-events: auto;">betonstorten.nl</a>` +
+                    `</div>`
                 );
-                dropdown.append(suggestion);
-            });
+                dropdown.append(errorMsg);
+            } else {
+                filteredResults.forEach((item) => {
+                    const suggestion = $(
+                    `<a href="#" class="dropdown-item" data-postcodes="${item.zip}" data-id="${item.id}" data-area-code="${item.area_code}">${item.city_name}</a>`
+                    );
+                    dropdown.append(suggestion);
+                });
+            }
 
             // Append dropdown to the input field
             $("#postcode-input").after(dropdown);
@@ -367,7 +367,6 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    // Cubic meters change function
     function cubicMetersChange(value, step) {
         step || (step = 1.0);
 
@@ -375,6 +374,9 @@ jQuery(document).ready(function ($) {
 
         var inv = 1.0 / step;
         var rounded = Math.ceil(value * inv) / inv;
+
+        // Clean up floating point representation issues
+        rounded = Math.round(rounded * 100) / 100;
 
         return rounded;
     }
@@ -384,7 +386,7 @@ jQuery(document).ready(function ($) {
         $(this).removeClass("bpc-input-error");
 
         let rawValue = $(this).val();
-        let rounded = cubicMetersChange(rawValue, 0.5);
+        let rounded = cubicMetersChange(rawValue, 0.05);
 
         currentCubicMeters = rounded;
 
@@ -402,7 +404,7 @@ jQuery(document).ready(function ($) {
     $("#cubic-meters").on("keyup input", function () {
         $(this).removeClass("bpc-input-error");
         let rawValue = $(this).val();
-        currentCubicMeters = cubicMetersChange(rawValue, 0.5);
+        currentCubicMeters = cubicMetersChange(rawValue, 0.05);
         enableSecondStep();
     });
 
@@ -414,10 +416,13 @@ jQuery(document).ready(function ($) {
         
         let rounded;
         if (direction === 'up') {
-            rounded = Math.floor((value + 0.5 + 0.0001) * 2) / 2;
+            rounded = Math.floor((value + 0.05 + 0.0001) * 20) / 20;
         } else {
-            rounded = Math.ceil((value - 0.5 - 0.0001) * 2) / 2;
+            rounded = Math.ceil((value - 0.05 - 0.0001) * 20) / 20;
         }
+        
+        // Clean up floating point representation issues
+        rounded = Math.round(rounded * 100) / 100;
         
         if (rounded < 0) {
             rounded = 0;
@@ -901,7 +906,7 @@ jQuery(document).ready(function ($) {
         let timeslots = $('#dayz_date_mapper_timeslots');
 
         // --- cubic meters ---
-        if (!cubic.val().trim() || parseFloat(cubic.val()) <= 0) {
+        if (!cubic.val().trim() || parseInput(cubic.val()) <= 0) {
             cubic.addClass('bpc-input-error');
             firstInvalid = firstInvalid || cubic;
             isValid = false;
@@ -951,11 +956,13 @@ jQuery(document).ready(function ($) {
      * Handle visual locking of sections until Step 1 is complete
      */
     function handleSectionLocking() {
-        const isVolumeFilled = $('#cubic-meters').val() > 0 && $('#postcode-input').val().trim() !== "" && $("#postcode-input").hasClass('selected');
+        const isVolumeFilled = parseInput($('#cubic-meters').val()) > 0 && $('#postcode-input').val().trim() !== "" && $("#postcode-input").hasClass('selected');
         
         const sectionIds = [
             '#bpc-section-volume',
             '#bpc-section-toepassing',
+            '#bpc-section-loswijze',
+            '#kies-pomp-section',
             '#bpc-section-samenstelling',
             '#bpc-section-uitvoering',
             '#bpc-section-vlindervloer',
@@ -971,6 +978,8 @@ jQuery(document).ready(function ($) {
         
         // Step 2 unlocks
         $('#bpc-section-toepassing').removeClass('bpc-section-locked');
+        $('#bpc-section-loswijze').removeClass('bpc-section-locked');
+        $('#kies-pomp-section').removeClass('bpc-section-locked');
 
         // Step 3 unlocks ONLY if Step 2 interacted
         if (!$('#bpc-section-toepassing').hasClass('is-interacted')) return;
@@ -1004,7 +1013,7 @@ jQuery(document).ready(function ($) {
         const $steps = $('.bpc-step');
         let completedCount = 0;
 
-        const isVolumeFilled = $('#cubic-meters').val() > 0 && $('#postcode-input').val().trim() !== "" && $("#postcode-input").hasClass('selected');
+        const isVolumeFilled = parseInput($('#cubic-meters').val()) > 0 && $('#postcode-input').val().trim() !== "" && $("#postcode-input").hasClass('selected');
         const isToepassingFilled = isVolumeFilled && $('#bpc-section-toepassing').hasClass('is-interacted');
         const isSamenstellingFilled = isToepassingFilled && $('#bpc-section-samenstelling').hasClass('is-interacted');
         const isUitvoeringFilled = isSamenstellingFilled && $('#bpc-section-uitvoering').hasClass('is-interacted');

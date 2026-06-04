@@ -183,39 +183,6 @@ add_action('widgets_init', 'beton_widgets_init');
 /**
  * Enqueue scripts and styles.
  */
-// function beton_scripts()
-// {
-// 	wp_enqueue_style('beton-style', get_stylesheet_uri(), array(), _S_VERSION);
-// 	wp_style_add_data('beton-style', 'rtl', 'replace');
-
-// 	wp_enqueue_script('beton-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
-// 	wp_enqueue_script('jquery-cookie', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js', array('jquery'), '1.4.1', true);
-// 	wp_enqueue_script('beton', get_stylesheet_directory_uri() . '/js/beton.js', array('jquery'), '1.2.25', true);
-// 	wp_enqueue_script('beton-checkout', get_stylesheet_directory_uri() . '/js/beton-woocommerce.js', array('jquery'), '1.2.6', true);
-
-// 	global $wpdb;
-// 	$table_name = $wpdb->prefix . 'postcodes';
-
-// 	// Fetch all names
-// 	$postcodes = $wpdb->get_results("SELECT * FROM $table_name", ARRAY_A);
-
-// 	wp_localize_script('beton', 'betonData', [
-// 		'postcodes' => $postcodes,
-// 		'ajax_url' => admin_url('admin-ajax.php')
-// 	]);
-
-// 	wp_enqueue_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', array(), '5.3.3');
-// 	wp_enqueue_style('bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css', array(), '1.11.3');
-// 	wp_enqueue_script('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', array(), '5.3.3', true);
-// 	wp_enqueue_style('custom', get_stylesheet_directory_uri() . '/css/custom.css', array('bootstrap'), '1.0.13');
-// 	// wp_enqueue_style('g-fonts', 'https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap', array(), '1.0.0');
-// 	// wp_enqueue_style( 'fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/regular.min.css', array(), '6.6.0' );
-
-// 	if (is_singular() && comments_open() && get_option('thread_comments')) {
-// 		wp_enqueue_script('comment-reply');
-// 	}
-// }
-
 function beton_scripts()
 {
 	wp_enqueue_style('beton-style', get_stylesheet_uri(), array(), _S_VERSION);
@@ -445,32 +412,13 @@ function beton_calculator($data = null)
 	$response_data_set['beton_price_formatted'] = wc_price($beton_price);
 	$sub_total += $beton_price;
 
-	// New beton fee - 31.03.2026
-	// if ($cubic_meters > 0) {
-	// 	$brandstoftoeslag = $cubic_meters * 3.50;
-	// 	$response_data_set['brandstoftoeslag'] = $brandstoftoeslag;
-	// 	$response_data_set['brandstoftoeslag_formatted'] = wc_price($brandstoftoeslag);
-	// 	$sub_total += $brandstoftoeslag;
-	// }
-
-	// New beton fee - 04.06.2026
-	if ($cubic_meters < 10) {
-		$brandstoftoeslag = $cubic_meters * ($beton_price + 20);
-		$response_data_set['brandstoftoeslag'] = $brandstoftoeslag;
-		$response_data_set['brandstoftoeslag_formatted'] = wc_price($brandstoftoeslag);
-		$sub_total += $brandstoftoeslag;
-	} else {
-		$brandstoftoeslag = $cubic_meters * $beton_price;
-		$response_data_set['brandstoftoeslag'] = $brandstoftoeslag;
-		$response_data_set['brandstoftoeslag_formatted'] = wc_price($brandstoftoeslag);
-		$sub_total += $brandstoftoeslag;
-	}
-
 	$pricingData = get_field('application', 'option');
 	$application_data = getDataByProperty($pricingData['application_items'], 'product_name', $selected_application);
 	$application_price = floatval($application_data['price_excl_tax']) * floatval($cubic_meters);
 
 	$response_data_set['application_price'] = $application_price;
+
+	$response_data_set['application_type'] = $application_data['product_name'];
 
 	$response_data_set['application_price_formatted'] = '<span>' . $pricingData['application_items_title'] . '<span class="text-15 text-light-gray"> : ' . $application_data['product_name'] . '</span></span><span class="' . ($application_price <= 0 ? 'beton-price-zero-entry' : '') . '">' . wc_price($application_price) . '</span>';
 
@@ -1036,7 +984,6 @@ function save_quotation($calc_data = null)
 	wp_update_post($quote_update);
 
 	$totals = array(
-		'totals_brandstoftoeslag' => $calcuated_data['brandstoftoeslag'],  //new line added - 2026.03.31
 		'totals_aantal_cost' => $calcuated_data['sub_total_btw'],
 		'totals_toepassing_cost' => $calcuated_data['application_price'],
 		'totals_hoog_vloeibaar_cost' => $calcuated_data['hoog-vloeibaar'],
@@ -1300,18 +1247,6 @@ function quotation_html($quote_id)
 									</td>
 									<td class="text-right">
 										<?php echo custom_wc_price(get_post_meta($quote_id, 'beton_cost', true)); ?>
-									</td>
-								</tr>
-
-								<!-- new line - 31.03.2026 -->
-								<tr>
-									<td class="space-left">Brandstoftoeslag</td>
-									<td><?php echo $cubic_m; ?></td>
-									<td>
-										<?php echo custom_wc_price(get_post_meta($quote_id, 'totals_brandstoftoeslag', true) / $cubic_m); ?>
-									</td>
-									<td class="text-right">
-										<?php echo custom_wc_price(get_post_meta($quote_id, 'totals_brandstoftoeslag', true)); ?>
 									</td>
 								</tr>
 
@@ -1689,7 +1624,7 @@ function send_quotation_email($data, $email, $quote_id)
 		return 'text/html';
 	};
 	add_filter('wp_mail_content_type', $content_type);
-	//$headers[] = 'Cc: info@betonstorten.nl';
+	// 	$headers[] = 'Cc: info@betonstorten.nl';
 	wp_mail($to, 'Offerte van betonstorten.nl', $html, $headers, $mail_attachment);
 	remove_filter('wp_mail_content_type', $content_type);
 	$url_r = get_permalink(get_page_by_path('offerte-aanvraag'));
@@ -1775,15 +1710,10 @@ function beton_cart_item_data($cart_item_data, $product_id, $variation_id)
 			$cart_item_data['hidden_concrete_qty_label'] = 'Concrete Cubic meters';
 		}
 
-		// New Beton fee - 31.03.2026
-		if (isset($calcuated_data['brandstoftoeslag']) && $calcuated_data['brandstoftoeslag'] > 0) {
-			$cart_item_data['brandstoftoeslag_value'] = $calcuated_data['brandstoftoeslag'];
-			$cart_item_data['brandstoftoeslag_label'] = "Brandstoftoeslag";
-		}
-
 		if (isset($calcuated_data['application_price'])) {
 			$cart_item_data['applications_label'] = "Toepassing";
 			$cart_item_data['applications_value'] = $calcuated_data['application_price'];
+			$cart_item_data['hidden_application_type_label'] = $calcuated_data['application_type'];
 		}
 
 		if ($data['composition']) {
@@ -2204,7 +2134,7 @@ function dayz_moneybird_addon_document_lines($lines, $order)
 						if (isset($deviations[$meta->key])) {
 							$qty = $item->get_meta($deviations[$meta->key]);
 							if ($qty > 0) {
-								$value = floatval($value) / floatval($qty);
+								$value = $value / $qty;
 							}
 						} else {
 							$qty = 1;
@@ -2254,12 +2184,6 @@ function dayz_moneybird_addon_document_lines($lines, $order)
 							$qty = $item->get_meta('raw_pumping_value') / 2.5;
 							$value = 2.5;
 						}
-
-						if (str_contains($description, 'Brandstoftoeslag')) {
-							$qty = $item->get_meta('raw_hidden_concrete_qty_value');
-							$value = 3.5;
-						}
-
 						if (str_contains($description, 'Giekpomp')) {
 							$pompafstand = $item->get_meta('raw_hidden_pumping_distance_value');
 							if (!empty($pompafstand)) {
@@ -2301,7 +2225,6 @@ function dayz_moneybird_addon_document_lines($lines, $order)
 							'price' => floatval($cost),
 							'amount' => floatval($qty),
 							'tax_rate_id' => $lastLineItem['tax_rate_id'],
-							'ledger_account_id' => $ledger_account_id,
 							'row_order' => $lastLineItem['row_order'] + 1
 						);
 
@@ -2332,16 +2255,6 @@ function dayz_moneybird_addon_document_lines($lines, $order)
 
 	// Reindex array
 	$lines = array_values($lines);
-
-	$unique = [];
-	foreach ($lines as $item) {
-		$key = $item['description'];
-
-		if (!isset($unique[$key])) {
-			$unique[$key] = $item;
-		}
-	}
-	$lines = array_values($unique); // reset indexes
 
 	// 	if(!isset($_GET['test'])){
 	array_shift($lines); //remove the first line (main product)
@@ -2453,7 +2366,7 @@ add_action('dayz_moneybird_after_invoice_generate', function ($order, $mb_doc) {
 	}
 }, 10, 2);
 
-add_filter('dayz_moneybird_document_custom_fields', 'dayz_moneybird_addon_document_custom_fields', 10, 2);
+// add_filter('dayz_moneybird_document_custom_fields', 'dayz_moneybird_addon_document_custom_fields', 10, 2);
 function dayz_moneybird_addon_document_custom_fields($custom_fields, $order)
 {
 	$deliveryDate = get_post_meta($order->get_id(), '_shipping_dayz_date_mapper_date', true);
@@ -2582,7 +2495,7 @@ add_action('wp_head', function () {
 		return;
 
 	// 	echo decrypt_code('v+etEB6PxOxCPcvwe3I1KDo6BnrWdGkjEPWte4j4TlHtlA==');
-	$order = wc_get_order(3210);
+	$order = wc_get_order(3472);
 	if (!$order) {
 		echo '<pre>Order not found</pre>';
 		return;
@@ -3563,11 +3476,14 @@ function get_beton_unit_price($request)
 // });
 
 // Looking to send emails in production? Check out our Email API/SMTP product!
+function mailtrap($phpmailer)
+{
+	$phpmailer->isSMTP();
+	$phpmailer->Host = 'sandbox.smtp.mailtrap.io';
+	$phpmailer->SMTPAuth = true;
+	$phpmailer->Port = 2525;
+	$phpmailer->Username = 'eed38a9afbe321';
+	$phpmailer->Password = 'f59464676b3a24';
+}
 
-add_action('send_headers', function () {
-	header('Strict-Transport-Security: max-age=31536000; includeSubDomains');
-	header('X-Content-Type-Options: nosniff');
-	header('Referrer-Policy: strict-origin-when-cross-origin');
-	header('X-Frame-Options: SAMEORIGIN');
-	header("Content-Security-Policy: frame-ancestors 'self';");
-});
+add_action('phpmailer_init', 'mailtrap');

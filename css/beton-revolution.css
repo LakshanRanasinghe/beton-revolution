@@ -272,7 +272,7 @@ body {
 }
 
 .bpc-btn-green:hover {
-    background: #15a81d;
+    background: #008055;
     color: #fff;
 }
 
@@ -868,13 +868,12 @@ body {
 }
 
 .bpc-option-card:hover {
-    border-color: #1ACB23;
+    border-color: #009966;
 }
 
 .bpc-option-card.selected {
-    background: rgba(26, 203, 35, .15);
-    border-color: #1ACB23;
-    box-shadow: 0 5px 15px rgba(26, 203, 35, .2);
+    background: #E6F5F0;
+    border-color: #009966;
 }
 
 /* .bpc-option-card-icon {
@@ -921,9 +920,8 @@ body {
 
 /* Card selected state driven by :checked */
 .bpc-option-card:has(.bpc-radio-input:checked) {
-    background: rgba(26, 203, 35, .15);
-    border-color: #1ACB23;
-    box-shadow: 0 5px 15px rgba(26, 203, 35, .2);
+    background: #E6F5F0;
+    border-color: #009966;
 }
 
 .bpc-samen-card:has(.bpc-radio-input:checked) {
@@ -932,7 +930,8 @@ body {
 }
 
 .bpc-mobile-card:has(.bpc-radio-input:checked) {
-    border-color: #1ACB23;
+    border-color: #009966;
+    background: #E6F5F0;
 }
 
 /* Checked state icons */
@@ -981,7 +980,7 @@ body {
 
 /* Keep legacy .checked class working for static cards */
 .bpc-radio.checked {
-    border-color: #1ACB23;
+    border-color: #009966;
 }
 
 .bpc-radio.checked::after {
@@ -989,7 +988,7 @@ body {
     width: 13px;
     height: 13px;
     border-radius: 9999px;
-    background: #1ACB23;
+    background: #009966;
 }
 
 .bpc-info-btn {
@@ -999,7 +998,7 @@ body {
 /* Mobiele betoncentrale (full-width) */
 .bpc-mobile-card {
     position: relative;
-    background: linear-gradient(0deg, rgba(26, 203, 35, .05), rgba(26, 203, 35, .05)), #F6F8FB;
+    background: linear-gradient(0deg, rgba(0, 153, 102, .05), rgba(0, 153, 102, .05)), #F6F8FB;
     border: 1px solid #F3F4F6;
     border-radius: 12px;
     padding: 24px 12px 24px 48px;
@@ -1012,7 +1011,7 @@ body {
 }
 
 .bpc-mobile-card:hover {
-    border-color: #1ACB23;
+    border-color: #009966;
 }
 
 .bpc-mobile-card-icon {
@@ -1066,7 +1065,7 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(26, 203, 35, .8);
+    background: rgba(0, 153, 102, .8);
     color: #fff;
     font-size: 11px;
     font-weight: 600;
@@ -1098,22 +1097,17 @@ body {
     justify-content: space-between;
 }
 
-/* ── SAMENSTELLING (3-col) ── */
+/* ── SAMENSTELLING (2-col) ── */
 .bpc-samen-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+    width: 100%;
 }
 
 @media(max-width:480px) {
     .bpc-samen-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .bpc-samen-card:nth-child(3) {
-        grid-column: span 2;
-    }
-    .bpc-samen-card:nth-child(6) {
-        grid-column: span 2;
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1133,13 +1127,13 @@ body {
 }
 
 .bpc-samen-card:hover {
-    border-color: #1ACB23;
+    border-color: #009966;
     background: #F3FBF4;
 }
 
 .bpc-samen-card.selected {
-    border-color: #1ACB23;
-    background: rgba(26, 203, 35, .1);
+    border-color: #009966;
+    background: rgba(0, 153, 102, .1);
 }
 
 .bpc-samen-icon {
@@ -1316,7 +1310,7 @@ body {
 }
 
 .bpc-small-select:focus {
-    border-color: #1ACB23;
+    border-color: #009966;
 }
 
 .bpc-vlinder-note {
@@ -1383,7 +1377,7 @@ body {
 .bpc-checkout-btn {
     width: 100%;
     height: 56px;
-    background: #1ACB23;
+    background: #009966;
     color: #fff;
     border: none;
     border-radius: 12px;
@@ -1396,7 +1390,7 @@ body {
 }
 
 .bpc-checkout-btn:hover {
-    background: #15a81d;
+    background: #008055;
 }
 
 .bpc-checkout-label {
@@ -1496,7 +1490,7 @@ SIDEBAR
 }
 
 .bpc-kuub-field-input:focus {
-    border-color: #1ACB23;
+    border-color: #009966;
 }
 
 .bpc-kuub-result {
@@ -1521,7 +1515,7 @@ SIDEBAR
 .bpc-kuub-btn {
     width: 100%;
     height: 48px;
-    background: #1ACB23;
+    background: #009966;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -1532,7 +1526,7 @@ SIDEBAR
 }
 
 .bpc-kuub-btn:hover {
-    background: #15a81d;
+    background: #008055;
 }
 
 .bpc-kuub-tip {
@@ -1601,12 +1595,12 @@ SIDEBAR
     gap: 6px;
     font-size: 15px;
     font-weight: 700;
-    color: #1ACB23;
+    color: #009966;
     text-decoration: none;
 }
 
 .bpc-faq-link:hover {
-    color: #5ce864;
+    color: #008055;
 }
 
 .bpc-faq-link-arrow {
@@ -1740,9 +1734,9 @@ BETON HOME PAGE
 .bpc-home-contact-form .wpcf7-form textarea:focus {
     color: #333333;
     background-color: #ffffff;
-    border-color: #1ACB23;
+    border-color: #009966;
     outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(26, 203, 35, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(0, 153, 102, 0.25);
 }
 
 .bpc-home-contact-form .wpcf7-form .wpcf7-submit {
@@ -1764,8 +1758,8 @@ BETON HOME PAGE
 }
 
 .bpc-home-contact-form .wpcf7-form .wpcf7-submit:hover {
-    background-color: #17b31f;
-    border-color: #17b31f;
+    background-color: #008055;
+    border-color: #008055;
 }
 
 .bpc-home-contact-form .wpcf7-form .wpcf7-spinner {
@@ -1875,7 +1869,7 @@ BETON HOME PAGE
 .bpc-custom-modal-container .modal-ok {
     width: 100%;
     height: 56px;
-    background: #1ACB23;
+    background: #009966;
     color: #fff;
     border: none;
     padding: 0 24px;
@@ -1888,7 +1882,7 @@ BETON HOME PAGE
 }
 
 .bpc-custom-modal-container .modal-ok:hover {
-    background: #17b31f;
+    background: #008055;
 }
 
 /* Animation */
