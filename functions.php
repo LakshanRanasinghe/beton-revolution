@@ -446,21 +446,8 @@ function beton_calculator($data = null)
 	$sub_total += $beton_price;
 
 	// New beton fee - 31.03.2026
-	// if ($cubic_meters > 0) {
-	// 	$brandstoftoeslag = $cubic_meters * 3.50;
-	// 	$response_data_set['brandstoftoeslag'] = $brandstoftoeslag;
-	// 	$response_data_set['brandstoftoeslag_formatted'] = wc_price($brandstoftoeslag);
-	// 	$sub_total += $brandstoftoeslag;
-	// }
-
-	// New beton fee - 04.06.2026
-	if ($cubic_meters < 10) {
-		$brandstoftoeslag = $cubic_meters * ($beton_price + 20);
-		$response_data_set['brandstoftoeslag'] = $brandstoftoeslag;
-		$response_data_set['brandstoftoeslag_formatted'] = wc_price($brandstoftoeslag);
-		$sub_total += $brandstoftoeslag;
-	} else {
-		$brandstoftoeslag = $cubic_meters * $beton_price;
+	if ($cubic_meters > 0) {
+		$brandstoftoeslag = $cubic_meters * 3.50;
 		$response_data_set['brandstoftoeslag'] = $brandstoftoeslag;
 		$response_data_set['brandstoftoeslag_formatted'] = wc_price($brandstoftoeslag);
 		$sub_total += $brandstoftoeslag;
