@@ -2870,6 +2870,25 @@ BETON HOME PAGE
     gap: 8px;
     position: relative;
     z-index: 3;
+    cursor: pointer;
+}
+
+.bpc-step .bpc-step-label,
+.bpc-step .bpc-step-circle {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.bpc-step:hover .bpc-step-label {
+    opacity: 0.7;
+}
+
+.bpc-step:hover .bpc-step-circle {
+    transform: scale(1.08);
+}
+
+.bpc-stepper.bpc-stepper-3-steps .bpc-step {
+    flex: none;
+    width: 16.666%;
 }
 
 .bpc-step-circle {
@@ -3435,4 +3454,24 @@ SIDEBAR & SUMMARY BOX
 
 .bpc-input-arrow:active {
     transform: scale(0.9);
+}
+
+/* Blinking highlight animation for the checkout button when all steps are completed */
+@keyframes bpc-pulse-glow {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    50% {
+        transform: scale(1.03);
+        filter: brightness(1.15);
+    }
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+.bpc-checkout-btn.bpc-blink {
+    animation: bpc-pulse-glow 1.5s infinite ease-in-out !important;
 }

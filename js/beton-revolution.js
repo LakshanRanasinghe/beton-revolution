@@ -106,6 +106,13 @@ jQuery(document).ready(function ($) {
         // also update hidden field if needed
         $('#dayz_date_mapper_date').val(selectedDate);
         setCookie('ddm_selected_date', selectedDate);
+
+        // Clear timeslot selection on date change
+        $('#dayz_date_mapper_timeslots').val(null).trigger('change');
+        $('#dayz_date_mapper_timeslots_collection').val('');
+        setCookie('ddm_selected_timeslots', '');
+        $('input[name="dayz_date_mapper_timeslots[]"]').prop('checked', false);
+
         updateStepper();
     });
 
@@ -131,6 +138,7 @@ jQuery(document).ready(function ($) {
             $step6.removeClass('is-active is-upcoming').addClass('is-completed');
             $step6.find('.bpc-step-circle').html(checkmark);
         }
+        checkAndHighlightCheckout();
     });
 
     // Restore Date and Timeslots from cookies if available
@@ -146,11 +154,12 @@ jQuery(document).ready(function ($) {
         $('#dayz_date_mapper_date').val(savedDate);
     }
 
-    let savedSlots = getCookie('ddm_selected_timeslots');
-    if (savedSlots) {
-        let slotsArray = savedSlots.split(',');
-        $('#dayz_date_mapper_timeslots').val(slotsArray).trigger('change');
-        $('#dayz_date_mapper_timeslots_collection').val(savedSlots);
+    // Always clear timeslot selection on page load of the calculator to prevent validation bypass with cached/stale values
+    if ($('#postcode-input').length > 0) {
+        setCookie('ddm_selected_timeslots', '');
+        $('#dayz_date_mapper_timeslots_collection').val('');
+        $('#dayz_date_mapper_timeslots').val(null).trigger('change');
+        $('input[name="dayz_date_mapper_timeslots[]"]').prop('checked', false);
     }
 
 
@@ -161,9 +170,23 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    // Remove error class when user selects timeslots
+    // Remove error class and save timeslots to cookies when user selects timeslots
     $('#dayz_date_mapper_timeslots').on('change', function () {
-        $(this).next('.select2-container').find('.select2-selection').removeClass('bpc-input-error');
+        let selectedSlots = $(this).val(); // array or string
+        let container = $(this).next('.select2-container');
+
+        container.find('.select2-selection').removeClass('bpc-input-error');
+
+        if (selectedSlots && (Array.isArray(selectedSlots) ? selectedSlots.length > 0 : selectedSlots.trim() !== "")) {
+            container.find('.select2-selection').addClass('valid');
+        } else {
+            container.find('.select2-selection').removeClass('valid');
+        }
+
+        // convert array/string to string and save to cookie
+        let slotsString = Array.isArray(selectedSlots) ? selectedSlots.join(',') : (selectedSlots ? selectedSlots : '');
+        setCookie('ddm_selected_timeslots', slotsString);
+        checkAndHighlightCheckout();
     });
 
     // Mark sections as interacted when user clicks inputs
@@ -199,6 +222,7 @@ jQuery(document).ready(function ($) {
     
     // Always validate on load to ensure proper disabled state
     enableSecondStep();
+    applyApplicationLogic();
 
     
     // Postcode autocomplete
@@ -475,6 +499,9 @@ jQuery(document).ready(function ($) {
 
             pump_type = $('input[name="pump-type"]:checked').val();
 
+            const selectedApp = $('input[name="application"]:checked').val();
+            const isHiddenApp = (selectedApp === 'stampbeton' || selectedApp === 'vloerenspecie');
+
             if (pump_type == "mini") {
                 pumping_distance = $('select[name="mini_pumping_distance"]').val();
                 $("#release_method_name").text(": Pomp");
@@ -485,8 +512,10 @@ jQuery(document).ready(function ($) {
                 if (pump_type == "boom") {
                 $("#release_method_name").text(": Giekpomp");
                 }
-                $('#hoog-vloeibaar_input').prop('disabled', false);
-                $('#fijn-grind_input').prop('disabled', false);
+                if (!isHiddenApp) {
+                    $('#hoog-vloeibaar_input').prop('disabled', false);
+                    $('#fijn-grind_input').prop('disabled', false);
+                }
             }
         } else {
             console.log("no pump");
@@ -565,6 +594,7 @@ jQuery(document).ready(function ($) {
 
     // Application change
     $('input[name="application"]').on("change", function () {
+        applyApplicationLogic();
         trigger_calculator();
     });
 
@@ -575,6 +605,9 @@ jQuery(document).ready(function ($) {
 
     // Release method change
     $('input[name="releaseMethod"]').on("change", function () {
+        const selectedApp = $('input[name="application"]:checked').val();
+        const isHiddenApp = (selectedApp === 'stampbeton' || selectedApp === 'vloerenspecie');
+
         if ($('input[name="releaseMethod"]:checked').val() === "pump") {
             $("#kies-pomp-section").show();
             if(!$('#miniPump').is(':checked')){
@@ -585,11 +618,13 @@ jQuery(document).ready(function ($) {
             $("#kies-pomp-section").hide();
             $('#miniPump').prop('checked', false).trigger('change');
 
-            $('#hoog-vloeibaar_input').prop('disabled', false);
-            $('#fijn-grind_input').prop('disabled', false);
+            if (!isHiddenApp) {
+                $('#hoog-vloeibaar_input').prop('disabled', false);
+                $('#fijn-grind_input').prop('disabled', false);
 
-            $('#hoog-vloeibaar_input').prop('checked', true).trigger('change');
-            $('#fijn-grind_input').prop('checked', true).trigger('change');
+                $('#hoog-vloeibaar_input').prop('checked', false).trigger('change');
+                $('#fijn-grind_input').prop('checked', false).trigger('change');
+            }
         }
         trigger_calculator();
     });
@@ -613,12 +648,16 @@ jQuery(document).ready(function ($) {
 
     // Pump type change
     $('input[name="pump-type"]').on("change", function () {
+        const selectedApp = $('input[name="application"]:checked').val();
+        const isHiddenApp = (selectedApp === 'stampbeton' || selectedApp === 'vloerenspecie');
       
         if ($(this).val() == "boom") {
             $("#mini-pump-breakdown").addClass("d-none");
             //$('.pump-horse').addClass('d-none');
-            $('#hoog-vloeibaar_input').prop('disabled', false);
-            $('#fijn-grind_input').prop('disabled', false);
+            if (!isHiddenApp) {
+                $('#hoog-vloeibaar_input').prop('disabled', false);
+                $('#fijn-grind_input').prop('disabled', false);
+            }
 
             $('#extra_hose_length').text($('select[name="boom_pumping_distance"]').val() + 'm');
 
@@ -629,8 +668,10 @@ jQuery(document).ready(function ($) {
             //$('.pump-horse').removeClass('d-none');
 
             //Mini Pump must have below selections
-            $('#hoog-vloeibaar_input').prop('checked', true).trigger('change').prop('disabled', true);
-            $('#fijn-grind_input').prop('checked', true).trigger('change').prop('disabled', true);
+            if (!isHiddenApp) {
+                $('#hoog-vloeibaar_input').prop('checked', true).trigger('change').prop('disabled', true);
+                $('#fijn-grind_input').prop('checked', true).trigger('change').prop('disabled', true);
+            }
 
             $('#extra_hose_length').text($('select[name="mini_pumping_distance"]').val() + 'm');
         }
@@ -665,6 +706,7 @@ jQuery(document).ready(function ($) {
 
     // Performance change
     $('input[name="performance"]').on("change", function () {
+        applyApplicationLogic();
         const $vlinderSection = $('.bpc-vlinder-row').closest('.bpc-section');
 
         if ($('input[name="performance"]:checked').val() == "allIn") {
@@ -703,7 +745,13 @@ jQuery(document).ready(function ($) {
             $("#surface").removeClass("blink-shadow");
             $("#num-rooms").removeClass("blink-shadow");
 
-            $('.bpc-notice-box').show();
+            const selectedApp = $('input[name="application"]:checked').val();
+            const isHiddenApp = (selectedApp === 'stampbeton' || selectedApp === 'vloerenspecie');
+            if (isHiddenApp) {
+                $('.bpc-notice-box').hide();
+            } else {
+                $('.bpc-notice-box').show();
+            }
 
             $('#fromGutter').prop("checked", true).trigger("change");
             $('.release-method-section-1').addClass('d-sm-block');
@@ -745,11 +793,20 @@ jQuery(document).ready(function ($) {
 
     // Handle form restore when navigating back from checkout
     $(window).on('pageshow', function() {
-        setTimeout(function() {
-            $('input[name="releaseMethod"]:checked').trigger('change');
-            $('input[name="pump-type"]:checked').trigger('change');
-            $('input[name="performance"]:checked').trigger('change');
-        }, 150);
+        if ($('#postcode-input').length > 0) {
+            setTimeout(function() {
+                $('input[name="application"]:checked').trigger('change');
+                $('input[name="releaseMethod"]:checked').trigger('change');
+                $('input[name="pump-type"]:checked').trigger('change');
+                $('input[name="performance"]:checked').trigger('change');
+
+                // Always clear timeslot selection on pageshow to prevent validation bypass with stale cached values
+                setCookie('ddm_selected_timeslots', '');
+                $('#dayz_date_mapper_timeslots_collection').val('');
+                $('#dayz_date_mapper_timeslots').val(null).trigger('change');
+                $('input[name="dayz_date_mapper_timeslots[]"]').prop('checked', false);
+            }, 150);
+        }
     });
 
     $('select[name="num-rooms"]').on("change", function () {
@@ -903,10 +960,10 @@ jQuery(document).ready(function ($) {
         let cubic = $('#cubic-meters');
         let postcode = $('#postcode-input');
         let date = $('#dayz_date_mapper_date'); // hidden input
-        let timeslots = $('#dayz_date_mapper_timeslots');
 
         // --- cubic meters ---
-        if (!cubic.val().trim() || parseInput(cubic.val()) <= 0) {
+        let cubicVal = cubic.val();
+        if (!cubicVal || !cubicVal.trim() || parseInput(cubicVal) <= 0) {
             cubic.addClass('bpc-input-error');
             firstInvalid = firstInvalid || cubic;
             isValid = false;
@@ -914,7 +971,8 @@ jQuery(document).ready(function ($) {
         }
 
         // --- postcode ---
-        if (!postcode.val().trim()) {
+        let postcodeVal = postcode.val();
+        if (!postcodeVal || !postcodeVal.trim()) {
             postcode.addClass('bpc-input-error');
             firstInvalid = firstInvalid || postcode;
             isValid = false;
@@ -922,20 +980,51 @@ jQuery(document).ready(function ($) {
         }
 
         // --- date (IMPORTANT: hidden field) ---
-        if (!date.val().trim()) {
+        let dateVal = date.val();
+        if (!dateVal || !dateVal.trim()) {
             $('.dayz-date-mapper-date-picker').addClass('bpc-input-error');
             firstInvalid = firstInvalid || $('.dayz-date-mapper-date-picker');
             isValid = false;
             console.log('date error');
         }
 
-        // --- timeslots (using collection field for final validation) ---
-        let timeslotsCollection = $('#dayz_date_mapper_timeslots_collection');
-        if (!timeslotsCollection.val() || timeslotsCollection.val().trim() === "") {
-            let select2Box = $('#dayz_date_mapper_timeslots').next('.select2-container').find('.select2-selection');
-            select2Box.addClass('bpc-input-error');
+        // --- timeslots validation ---
+        let hasTimeslot = false;
+        
+        // Check Select2 dropdown value
+        let timeslotsSelect = $('#dayz_date_mapper_timeslots');
+        if (timeslotsSelect.length) {
+            let val = timeslotsSelect.val();
+            if (val && (Array.isArray(val) ? val.length > 0 : val.trim() !== "")) {
+                hasTimeslot = true;
+            }
+        }
+        
+        // Check Checkbox inputs
+        if (!hasTimeslot) {
+            if ($('input[name="dayz_date_mapper_timeslots[]"]:checked').length > 0) {
+                hasTimeslot = true;
+            }
+        }
+        
+        // Check Collection Hidden Input
+        if (!hasTimeslot) {
+            let timeslotsCollection = $('#dayz_date_mapper_timeslots_collection');
+            if (timeslotsCollection.length && timeslotsCollection.val() && timeslotsCollection.val().trim() !== "") {
+                hasTimeslot = true;
+            }
+        }
 
-            firstInvalid = firstInvalid || select2Box;
+        if (!hasTimeslot) {
+            let select2Box = $('#dayz_date_mapper_timeslots').next('.select2-container').find('.select2-selection');
+            if (select2Box.length) {
+                select2Box.addClass('bpc-input-error');
+            } else {
+                $('#dayz_date_mapper_timeslots').addClass('bpc-input-error');
+                $('input[name="dayz_date_mapper_timeslots[]"]').addClass('bpc-input-error');
+            }
+
+            firstInvalid = firstInvalid || ($('#dayz_date_mapper_timeslots').length ? $('#dayz_date_mapper_timeslots') : $('.dayz-date-mapper-date-picker'));
             isValid = false;
             console.log('timeslots error');
         }
@@ -950,6 +1039,78 @@ jQuery(document).ready(function ($) {
         }
 
         return isValid;
+    }
+
+    /**
+     * Hide steps 3, 4, 5 and Loswijze on specific Applications
+     */
+    function applyApplicationLogic() {
+        const selectedApp = $('input[name="application"]:checked').val();
+        const isHiddenApp = (selectedApp === 'stampbeton' || selectedApp === 'vloerenspecie');
+
+        if (isHiddenApp) {
+            // Select performance performSelf if not already checked
+            if (!$('#performSelf').is(':checked')) {
+                $('#performSelf').prop('checked', true).trigger('change');
+            }
+            // Select gutter if not already checked
+            if (!$('#fromGutter').is(':checked')) {
+                $('#fromGutter').prop('checked', true).trigger('change');
+            }
+            // Deselect and disable all compounds
+            $('input[name="compound"]').prop('checked', false).prop('disabled', true);
+
+            // Hide sections
+            $('#bpc-section-loswijze').hide();
+            $('#kies-pomp-section').hide();
+            $('#bpc-section-samenstelling').hide();
+            $('#bpc-section-uitvoering').hide();
+            $('#bpc-section-vlindervloer').hide();
+            $('.bpc-notice-box').hide();
+
+            // Dynamic Step Title update
+            $('#bpc-section-datum').find('.bpc-step-head-title').text('STAP 3');
+
+            // Hide steps in stepper
+            $('.bpc-step').eq(2).hide();
+            $('.bpc-step').eq(3).hide();
+            $('.bpc-step').eq(4).hide();
+
+            $('.bpc-stepper').addClass('bpc-stepper-3-steps');
+        } else {
+            // Enable compounds
+            $('input[name="compound"]').prop('disabled', false);
+            // If no compounds are checked, select 'standaard' by default
+            if ($('input[name="compound"]:checked').length === 0) {
+                $('#standaard_input').prop('checked', true).trigger('change');
+            }
+
+            // Show sections
+            $('#bpc-section-loswijze').show();
+            if ($('input[name="releaseMethod"]:checked').val() === "pump") {
+                $('#kies-pomp-section').show();
+            } else {
+                $('#kies-pomp-section').hide();
+            }
+            $('#bpc-section-samenstelling').show();
+            $('#bpc-section-uitvoering').show();
+            $('#bpc-section-vlindervloer').show();
+            if ($('input[name="performance"]:checked').val() === "allIn") {
+                $('.bpc-notice-box').hide();
+            } else {
+                $('.bpc-notice-box').show();
+            }
+
+            // Dynamic Step Title update
+            $('#bpc-section-datum').find('.bpc-step-head-title').text('STAP 6');
+
+            // Show steps in stepper
+            $('.bpc-step').eq(2).show();
+            $('.bpc-step').eq(3).show();
+            $('.bpc-step').eq(4).show();
+
+            $('.bpc-stepper').removeClass('bpc-stepper-3-steps');
+        }
     }
 
     /**
@@ -978,6 +1139,17 @@ jQuery(document).ready(function ($) {
         
         // Step 2 unlocks
         $('#bpc-section-toepassing').removeClass('bpc-section-locked');
+
+        const selectedApp = $('input[name="application"]:checked').val();
+        const isHiddenApp = (selectedApp === 'stampbeton' || selectedApp === 'vloerenspecie');
+
+        if (isHiddenApp) {
+            if ($('#bpc-section-toepassing').hasClass('is-interacted')) {
+                $('#bpc-section-datum').removeClass('bpc-section-locked');
+            }
+            return;
+        }
+
         $('#bpc-section-loswijze').removeClass('bpc-section-locked');
         $('#kies-pomp-section').removeClass('bpc-section-locked');
 
@@ -1015,21 +1187,25 @@ jQuery(document).ready(function ($) {
 
         const isVolumeFilled = parseInput($('#cubic-meters').val()) > 0 && $('#postcode-input').val().trim() !== "" && $("#postcode-input").hasClass('selected');
         const isToepassingFilled = isVolumeFilled && $('#bpc-section-toepassing').hasClass('is-interacted');
-        const isSamenstellingFilled = isToepassingFilled && $('#bpc-section-samenstelling').hasClass('is-interacted');
-        const isUitvoeringFilled = isSamenstellingFilled && $('#bpc-section-uitvoering').hasClass('is-interacted');
         
-        const performanceValue = $('input[name="performance"]:checked').val();
-        let isVlindervloerFilled = false;
-        if (performanceValue === 'allIn') {
-            isVlindervloerFilled = isUitvoeringFilled && $('#bpc-section-vlindervloer').hasClass('is-interacted');
-        } else {
-            isVlindervloerFilled = isUitvoeringFilled; // Skipped
-        }
+        const selectedApp = $('input[name="application"]:checked').val();
+        const isHiddenApp = (selectedApp === 'stampbeton' || selectedApp === 'vloerenspecie');
 
-        // const isDatumFilled = isVlindervloerFilled && 
-        //                      $('#dayz_date_mapper_date').val().trim() !== "" && 
-        //                      $('#dayz_date_mapper_timeslots_collection').val() && 
-        //                      $('#dayz_date_mapper_timeslots_collection').val().trim() !== "";
+        let isSamenstellingFilled = false;
+        let isUitvoeringFilled = false;
+        let isVlindervloerFilled = false;
+
+        if (!isHiddenApp) {
+            isSamenstellingFilled = isToepassingFilled && $('#bpc-section-samenstelling').hasClass('is-interacted');
+            isUitvoeringFilled = isSamenstellingFilled && $('#bpc-section-uitvoering').hasClass('is-interacted');
+            
+            const performanceValue = $('input[name="performance"]:checked').val();
+            if (performanceValue === 'allIn') {
+                isVlindervloerFilled = isUitvoeringFilled && $('#bpc-section-vlindervloer').hasClass('is-interacted');
+            } else {
+                isVlindervloerFilled = isUitvoeringFilled; // Skipped
+            }
+        }
 
         const stepStatus = [
             isVolumeFilled,
@@ -1041,11 +1217,16 @@ jQuery(document).ready(function ($) {
         ];
 
         let activeStepIndex = -1;
+        let visibleStepIndex = 1;
 
         $steps.each(function (index) {
             const $step = $(this);
             const $circle = $step.find('.bpc-step-circle');
             
+            if ($step.is(':hidden')) {
+                return; // Skip hidden steps
+            }
+
             // Checkmark SVG for completed steps
             const checkmark = `
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1061,18 +1242,20 @@ jQuery(document).ready(function ($) {
                 if (activeStepIndex === -1) {
                     activeStepIndex = index;
                     $step.removeClass('is-completed is-upcoming').addClass('is-active');
-                    $circle.text(index + 1);
+                    $circle.text(visibleStepIndex);
                 } else {
                     $step.removeClass('is-completed is-active').addClass('is-upcoming');
-                    $circle.text(index + 1);
+                    $circle.text(visibleStepIndex);
                 }
             }
+            visibleStepIndex++;
         });
 
         // Update progress bar width
-        const totalSteps = $steps.length;
-        const progressPercentage = (completedCount / totalSteps) * 100;
+        const totalSteps = $steps.filter(':visible').length;
+        const progressPercentage = completedCount * (83.333 / (totalSteps - 1));
         $('.bpc-stepper-track-progress').css('width', progressPercentage + '%');
+        checkAndHighlightCheckout();
     }
 
 
@@ -1127,5 +1310,108 @@ jQuery(document).ready(function ($) {
         
         $dropdown.slideToggle(300);
         $row.toggleClass('open');
+    });
+
+    // Highlight (blink) the checkout button when all steps are completed (including Step 6)
+    function checkAndHighlightCheckout() {
+        const isVolumeFilled = parseInput($('#cubic-meters').val()) > 0 && $('#postcode-input').val().trim() !== "" && $("#postcode-input").hasClass('selected');
+        const isToepassingFilled = isVolumeFilled && $('#bpc-section-toepassing').hasClass('is-interacted');
+        
+        const selectedApp = $('input[name="application"]:checked').val();
+        const isHiddenApp = (selectedApp === 'stampbeton' || selectedApp === 'vloerenspecie');
+
+        let stepsCompleted = false;
+
+        if (isHiddenApp) {
+            stepsCompleted = isVolumeFilled && isToepassingFilled;
+        } else {
+            const isSamenstellingFilled = isToepassingFilled && $('#bpc-section-samenstelling').hasClass('is-interacted');
+            const isUitvoeringFilled = isSamenstellingFilled && $('#bpc-section-uitvoering').hasClass('is-interacted');
+            
+            const performanceValue = $('input[name="performance"]:checked').val();
+            if (performanceValue === 'allIn') {
+                const isVlindervloerFilled = isUitvoeringFilled && $('#bpc-section-vlindervloer').hasClass('is-interacted');
+                stepsCompleted = isVolumeFilled && isToepassingFilled && isSamenstellingFilled && isUitvoeringFilled && isVlindervloerFilled;
+            } else {
+                stepsCompleted = isVolumeFilled && isToepassingFilled && isSamenstellingFilled && isUitvoeringFilled;
+            }
+        }
+
+        // Date selection
+        const dateVal = $('#dayz_date_mapper_date').val();
+        const isDateFilled = dateVal && dateVal.trim() !== "";
+
+        // Timeslot selection
+        let hasTimeslot = false;
+        const timeslotsSelect = $('#dayz_date_mapper_timeslots');
+        if (timeslotsSelect.length) {
+            const val = timeslotsSelect.val();
+            if (val && (Array.isArray(val) ? val.length > 0 : val.trim() !== "")) {
+                hasTimeslot = true;
+            }
+        }
+        if (!hasTimeslot) {
+            if ($('input[name="dayz_date_mapper_timeslots[]"]:checked').length > 0) {
+                hasTimeslot = true;
+            }
+        }
+        if (!hasTimeslot) {
+            const timeslotsCollection = $('#dayz_date_mapper_timeslots_collection');
+            if (timeslotsCollection.length && timeslotsCollection.val() && timeslotsCollection.val().trim() !== "") {
+                hasTimeslot = true;
+            }
+        }
+
+        const allStepsCompleted = stepsCompleted && isDateFilled && hasTimeslot;
+
+        if (allStepsCompleted) {
+            $('.bpc-checkout-btn').addClass('bpc-blink');
+        } else {
+            $('.bpc-checkout-btn').removeClass('bpc-blink');
+        }
+    }
+
+    // Stepper click handler to scroll to and focus the clicked step's section
+    $(document).on('click', '.bpc-step', function () {
+        const stepIndex = $('.bpc-step').index($(this));
+        const stepToSectionIdMap = {
+            0: '#bpc-section-volume',
+            1: '#bpc-section-toepassing',
+            2: '#bpc-section-samenstelling',
+            3: '#bpc-section-uitvoering',
+            4: '#bpc-section-vlindervloer',
+            5: '#bpc-section-datum'
+        };
+
+        const targetId = stepToSectionIdMap[stepIndex];
+        if (targetId) {
+            const $targetSection = $(targetId);
+            if ($targetSection.length) {
+                if ($targetSection.hasClass('bpc-section-locked')) {
+                    // Find the last unlocked step and scroll to it instead
+                    const $unlockedSections = $('.bpc-section:not(.bpc-section-locked)');
+                    const $activeSection = $unlockedSections.last();
+                    
+                    if ($activeSection.length) {
+                        $('html, body').animate({
+                            scrollTop: $activeSection.offset().top - 120
+                        }, 600);
+                        const $input = $activeSection.find('input, select, textarea').filter(':visible').first();
+                        if ($input.length) {
+                            $input.focus();
+                        }
+                    }
+                } else {
+                    // Scroll to target step
+                    $('html, body').animate({
+                        scrollTop: $targetSection.offset().top - 120
+                    }, 600);
+                    const $input = $targetSection.find('input, select, textarea').filter(':visible').first();
+                    if ($input.length) {
+                        $input.focus();
+                    }
+                }
+            }
+        }
     });
 });
