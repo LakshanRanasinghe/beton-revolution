@@ -904,14 +904,14 @@ $dateTooltip = get_field('gewenste_leveringsdatum_tooltip', 'option');
                             <div class="bpc-summary-header">
                                 <div class="bpc-summary-title">Geschatte kosten samenvatting</div>
                             </div>
-                            <div class="summary-content p-4 poppins-400 text-18 text-dark-gray">
+                            <div class="summary-content p-4 poppins-400 text-18 text-dark-gray loading">
                                 <div class="d-flex justify-content-between mb-2">
                                     <span>Beton: <span id="cubic_meters_formatted">0</span> m³</span>
-                                    <span id="beton_price_formatted"><?php wc_price(0); ?></span>
+                                    <span id="beton_price_formatted"><?php echo wc_price(0); ?></span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-4">
                                     <span>Brandstoftoeslag:</span>
-                                    <span id="brandstoftoeslag_formatted"><?php wc_price(0); ?></span>
+                                    <span id="brandstoftoeslag_formatted"><?php echo wc_price(0); ?></span>
                                 </div>
                                 <hr class="text-light-gray">
                                 <h6 class="text-20 poppins-500 text-custom-black mb-2">Betonsamenstelling</h6>
@@ -930,47 +930,47 @@ $dateTooltip = get_field('gewenste_leveringsdatum_tooltip', 'option');
                                 <div class="d-flex justify-content-between dynamic-hide mb-2"
                                     id="extra-hoge-sterkte_formatted"></div>
                                 <div class="d-flex justify-content-between mb-2"
-                                    id="application_compound_total_formatted"><?php //wc_price(0) ?></div>
+                                    id="application_compound_total_formatted"><?php //echo wc_price(0); ?></div>
 
                                 <hr class="text-light-gray">
 
                                 <div class="release-method-pump-cost-wrapper d-flex justify-content-between mt-3 mb-3">
                                     <span><?php echo $pricingData['loose_method_title']; ?> <span
                                             class="text-15 text-light-gray" id="release_method_name"></span></span>
-                                    <span id="pump_cost_formatted"><?php //wc_price(0) ?></span>
+                                    <span id="pump_cost_formatted"><?php echo wc_price(0); ?></span>
                                 </div>
                                 <div id="mini-pump-breakdown" class="release-method-pump-cost-wrapper">
                                     <div
                                         class="d-flex justify-content-between mt-3 mb-3 mini-pump-breakdown-properties">
                                         <span>Voorrijkosten</span>
-                                        <span id="pump_callout_cost_formatted"><?php //wc_price(0) ?></span>
+                                        <span id="pump_callout_cost_formatted"><?php echo wc_price(0); ?></span>
                                     </div>
                                     <div
                                         class="d-flex justify-content-between mt-3 mb-3 mini-pump-breakdown-properties">
                                         <span>Pompkosten</span>
-                                        <span id="pumping_cost_formatted"><?php //wc_price(0) ?></span>
+                                        <span id="pumping_cost_formatted"><?php echo wc_price(0); ?></span>
                                     </div>
 
                                     <div class="d-flex justify-content-between mt-3 mb-3 pump-horse">
                                         <span>Pompafstand : <span id="extra_hose_length"></span></span>
                                         <span id="pumping_extra_hose_cost_formatted"
-                                            class="dynamic-hide"><?php //echo wc_price(0) ?></span>
+                                            class="dynamic-hide"><?php echo wc_price(0); ?></span>
                                     </div>
                                 </div>
                                 <hr class="release-method-pump-cost-wrapper text-light-gray">
                                 <div id="allIn-breakdown" class="all-in-cost-wrapper d-none">
                                     <div class="d-flex justify-content-between mt-3 mb-3">
                                         <span>All-in uitvoering</span>
-                                        <span id="allIn_formatted"><?php //wc_price(0) ?></span>
+                                        <span id="allIn_formatted"><?php echo wc_price(0); ?></span>
                                     </div>
                                     <div class="d-flex justify-content-between mt-3 mb-3 ground_floor_wrapper d-none">
                                         <span>Begane Grond Kosten</span>
-                                        <span id="ground_floor_formatted"><?php //wc_price(0) ?></span>
+                                        <span id="ground_floor_formatted"><?php echo wc_price(0); ?></span>
                                     </div>
                                     <div
                                         class="d-flex justify-content-between mt-3 mb-3 butterfly_floor_wrapper d-none">
                                         <span>Vlindervloer</span>
-                                        <span id="butterfly_floor_formatted"><?php //wc_price(0) ?></span>
+                                        <span id="butterfly_floor_formatted"><?php echo wc_price(0); ?></span>
                                     </div>
                                 </div>
                                 <hr class="all-in-cost-wrapper text-light-gray d-none">
@@ -980,19 +980,32 @@ $dateTooltip = get_field('gewenste_leveringsdatum_tooltip', 'option');
                             </div> -->
                                 <div class="d-flex justify-content-between mb-3">
                                     <span class="poppins-600 text-20 text-custom-black">Subtotaal</span>
-                                    <span id="sub_total_formatted"><?php //wc_price(0) ?></span>
+                                    <span id="sub_total_formatted"><?php echo wc_price(0); ?></span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-3">
                                     <span>BTW 21%</span>
-                                    <span id="btw_formatted"><?php wc_price(0); ?></span>
+                                    <span id="btw_formatted"><?php echo wc_price(0); ?></span>
                                 </div>
                                 <hr class="text-light-gray">
                                 <div class="d-flex justify-content-between poppins-600 text-20 text-custom-black">
                                     <span>Totaal</span>
-                                    <span id="total_formatted"><?php wc_price(0); ?></span>
+                                    <span id="total_formatted"><?php echo wc_price(0); ?></span>
                                 </div>
                             </div>
                             <div class="bpc-summary-footer">
+                                <div class="bpc-coupon-toggle-container mb-3 d-none">
+                                    <a href="#" id="bpc-coupon-toggle" class="bpc-coupon-toggle-link">Ik heb een
+                                        kortingscode</a>
+                                </div>
+                                <div class="bpc-coupon-wrap mb-3 d-none">
+                                    <div class="bpc-coupon-input-group d-flex gap-2">
+                                        <input type="text" id="bpc-coupon-code" class="bpc-coupon-field form-control"
+                                            placeholder="Kortingscode" disabled />
+                                        <button type="button" id="bpc-apply-coupon" class="bpc-coupon-btn-apply"
+                                            disabled>Toepassen</button>
+                                    </div>
+                                    <div id="bpc-coupon-message" class="bpc-coupon-msg mt-2 d-none"></div>
+                                </div>
                                 <button class="submit-btn bpc-checkout-btn" type="button">
                                     <span>Ga door naar Afrekenen</span>
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"

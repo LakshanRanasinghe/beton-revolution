@@ -10,6 +10,15 @@ jQuery(document).ready(function ($) {
         return isNaN(parsedValue) ? 0 : parsedValue; 
     }
 
+    // Helper to check if postcode is filled, selected, and enabled
+    function checkIsVolumeFilled() {
+        const isPostcodeEnabled = $('#postcode-input').attr('data-is-enable') !== '0';
+        return parseInput($('#cubic-meters').val()) > 0 && 
+               $('#postcode-input').val().trim() !== "" && 
+               $('#postcode-input').hasClass('selected') && 
+               isPostcodeEnabled;
+    }
+
     // Calculate Cubic Meters
     $('#bpc-kuub-result-calc-btn').on('click', function () {
         // Read the raw values
@@ -137,7 +146,7 @@ jQuery(document).ready(function ($) {
 
     // Restore calculator state from cookies sequentially
     function restoreCalculatorState() {
-        const isVolumeFilled = parseInput($('#cubic-meters').val()) > 0 && $('#postcode-input').val().trim() !== "" && $("#postcode-input").hasClass('selected');
+        const isVolumeFilled = checkIsVolumeFilled();
         if (!isVolumeFilled) {
             return;
         }
@@ -349,10 +358,12 @@ jQuery(document).ready(function ($) {
         checkAndHighlightCheckout();
     });
 
-    // Mark sections as interacted when user clicks inputs
-    $(document).on('click', '.bpc-section input, .bpc-section select', function() {
+    // Mark sections as interacted when user interacts with inputs
+    $(document).on('click change input', '.bpc-section input, .bpc-section select', function() {
         const $sec = $(this).closest('.bpc-section');
         $sec.addClass('is-interacted');
+        handleSectionLocking();
+        updateStepper();
     });
 
 
@@ -362,14 +373,20 @@ jQuery(document).ready(function ($) {
 
     // Global variable
     let currentCubicMeters = 0;
+    let appliedCouponCode = "";
+    let isProgrammaticVolumeChange = false;
 
     // Restoring values from cookies if set
     let savedAreaCode = $.cookie("selected_area_code");
     let savedCity = $.cookie("selected_city");
     let savedCubicMeters = $.cookie("selected_cubic_meters");
+    let savedIsEnable = $.cookie("selected_is_enable");
 
     if (savedAreaCode && savedCity) {
         $("#postcode-input").val(savedCity).addClass("selected");
+        if (savedIsEnable !== undefined && savedIsEnable !== null) {
+            $("#postcode-input").attr("data-is-enable", savedIsEnable);
+        }
     }
     if (savedCubicMeters) {
         currentCubicMeters = parseInput(savedCubicMeters);
@@ -380,15 +397,20 @@ jQuery(document).ready(function ($) {
     enableSecondStep();
     applyApplicationLogic();
 
-    
+   
     // Postcode autocomplete
     $("#postcode-input").on("keyup", function (e) {
         const query = $(this).val();
-        $("#postcode-input").removeClass("selected");
+        $("#postcode-input").removeClass("selected").removeAttr("data-is-enable");
         // Clear previous autocomplete suggestions
         $("#autocomplete-list").remove();
+        $("#invalid-region-banner").remove();
 
-        if (query.length >= 2) {
+        // For numeric postcodes require 4 digits; for city names keep the 2-char threshold
+        const isPostcode = /^\d+$/.test(query);
+        const minLength = isPostcode ? 4 : 2;
+
+        if (query.length >= minLength) {
             // Filter results based on the input query
             const filteredResults = betonData.postcodes.filter((item) => {
                 // Check if the city name or any zip code matches the query
@@ -408,7 +430,7 @@ jQuery(document).ready(function ($) {
             } else {
                 filteredResults.forEach((item) => {
                     const suggestion = $(
-                    `<a href="#" class="dropdown-item" data-postcodes="${item.zip}" data-id="${item.id}" data-area-code="${item.area_code}">${item.city_name}</a>`
+                    `<a href="#" class="dropdown-item" data-postcodes="${item.zip}" data-id="${item.id}" data-area-code="${item.area_code}" data-is-enable="${item.is_enable}">${item.city_name}</a>`
                     );
                     dropdown.append(suggestion);
                 });
@@ -471,6 +493,17 @@ jQuery(document).ready(function ($) {
         const selectedId = $(this).data("id");
         const selectedPostcodes = $(this).data("postcodes");
         const selectedAreaCode = $(this).data("area-code");
+        const selectedIsEnable = $(this).data("is-enable");
+
+        // Set is_enable status
+        if (selectedIsEnable !== undefined && selectedIsEnable !== null) {
+            $("#postcode-input").attr("data-is-enable", selectedIsEnable);
+            setCookie('selected_is_enable', selectedIsEnable, 2 / 24);
+        } else {
+            $("#postcode-input").removeAttr("data-is-enable");
+            setCookie('selected_is_enable', '', -1);
+        }
+
         // Set input value to selected suggestion
         $("#postcode-input").val(selectedName);
 
@@ -570,6 +603,14 @@ jQuery(document).ready(function ($) {
    $("#cubic-meters").on("change", function () {
         $(this).removeClass("bpc-input-error");
 
+        if (!isProgrammaticVolumeChange && appliedCouponCode) {
+            appliedCouponCode = '';
+            $('#bpc-coupon-code').val('').prop('disabled', false);
+            $('#bpc-apply-coupon').prop('disabled', false);
+            $('#bpc-coupon-message').addClass('d-none').html('');
+            alert("De hoeveelheid beton is gewijzigd. Voer de kortingscode opnieuw in.");
+        }
+
         let rawValue = $(this).val();
         let rounded = cubicMetersChange(rawValue, 0.05);
 
@@ -643,6 +684,35 @@ jQuery(document).ready(function ($) {
 
     //  trigger_calculator();
     function trigger_calculator() {
+        // Check if selected city is disabled
+        let isEnableVal = $("#postcode-input").attr("data-is-enable");
+        
+        // Remove any existing invalid region banner
+        $("#invalid-region-banner").remove();
+
+        if (isEnableVal === "0" || isEnableVal === 0) {
+            const bannerHtml = `<div id="invalid-region-banner" class="bpc-notice-box is-error">` +
+                               `<div class="bpc-notice-box-icon">` +
+                               `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">` +
+                               `<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" fill="currentColor"/>` +
+                               `</svg>` +
+                               `</div>` +
+                               `<div class="bpc-notice-box-content">` +
+                               `Ingevoerde regio is ongeldig. U kunt geen beton bestellen voor deze regio. Ga naar <a href="https://betonstorten.nl" target="_blank" style="color: #009966; text-decoration: underline; font-weight: 600; pointer-events: auto;">betonstorten.nl</a>` +
+                               `</div>` +
+                               `</div>`;
+            $("#bpc-section-volume .bpc-step-info-row").before(bannerHtml);
+            
+            // Set all prices to €0,00
+            const zeroPriceHtml = '<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&euro;</span>0,00</bdi></span>';
+            $('#sub_total_formatted, #btw_formatted, #total_formatted, #total_formatted_price').html(zeroPriceHtml);
+            
+            $(".summary-content").removeClass("loading");
+            handleSectionLocking();
+            updateStepper();
+            return;
+        }
+
         let compounds = [];
         $('input[name="compound"]:checked').each(function () {
             compounds.push($(this).attr("value"));
@@ -708,6 +778,7 @@ jQuery(document).ready(function ($) {
             butterfly_floor: butterfly_floor,
             surface: surface,
             selected_floor: selected_floor,
+            coupon_code: appliedCouponCode
         };
 
         console.log(dataSet);
@@ -1128,6 +1199,7 @@ jQuery(document).ready(function ($) {
             nos_rooms: $("#num-rooms").val(),
             flooring: $("#mezzanine-floor").is(":checked") ? 1 : 0,
             "butterfly-floor": $("#butterfly-floor").is(":checked") ? 1 : 0,
+            coupon_code: appliedCouponCode
         };
 
         $.ajax({
@@ -1147,6 +1219,7 @@ jQuery(document).ready(function ($) {
     function validateFields() {
         let isValid = true;
         let firstInvalid = null;
+        let isRegionDisabled = false;
 
         // Remove all previous errors
         $('.bpc-input-error').removeClass('bpc-input-error');
@@ -1172,6 +1245,15 @@ jQuery(document).ready(function ($) {
             firstInvalid = firstInvalid || postcode;
             isValid = false;
             console.log('postcode error');
+        } else {
+            let isEnableVal = postcode.attr("data-is-enable");
+            if (isEnableVal === "0" || isEnableVal === 0) {
+                postcode.addClass('bpc-input-error');
+                firstInvalid = firstInvalid || postcode;
+                isValid = false;
+                isRegionDisabled = true;
+                console.log('postcode disabled error');
+            }
         }
 
         // --- date (IMPORTANT: hidden field) ---
@@ -1226,7 +1308,11 @@ jQuery(document).ready(function ($) {
 
         // --- show alert once ---
         if (!isValid) {
-            alert("Gelieve alle verplichte velden in te vullen.");
+            if (isRegionDisabled) {
+                alert("Ingevoerde regio is ongeldig. U kunt geen beton bestellen voor deze regio.");
+            } else {
+                alert("Gelieve alle verplichte velden in te vullen.");
+            }
 
             if (firstInvalid) {
                 firstInvalid.focus();
@@ -1312,7 +1398,7 @@ jQuery(document).ready(function ($) {
      * Handle visual locking of sections until Step 1 is complete
      */
     function handleSectionLocking() {
-        const isVolumeFilled = parseInput($('#cubic-meters').val()) > 0 && $('#postcode-input').val().trim() !== "" && $("#postcode-input").hasClass('selected');
+        const isVolumeFilled = checkIsVolumeFilled();
         
         const sectionIds = [
             '#bpc-section-volume',
@@ -1380,7 +1466,7 @@ jQuery(document).ready(function ($) {
         const $steps = $('.bpc-step');
         let completedCount = 0;
 
-        const isVolumeFilled = parseInput($('#cubic-meters').val()) > 0 && $('#postcode-input').val().trim() !== "" && $("#postcode-input").hasClass('selected');
+        const isVolumeFilled = checkIsVolumeFilled();
         const isToepassingFilled = isVolumeFilled && $('#bpc-section-toepassing').hasClass('is-interacted');
         
         const selectedApp = $('input[name="application"]:checked').val();
@@ -1510,7 +1596,7 @@ jQuery(document).ready(function ($) {
 
     // Highlight (blink) the checkout button when all steps are completed (including Step 6)
     function checkAndHighlightCheckout() {
-        const isVolumeFilled = parseInput($('#cubic-meters').val()) > 0 && $('#postcode-input').val().trim() !== "" && $("#postcode-input").hasClass('selected');
+        const isVolumeFilled = checkIsVolumeFilled();
         const isToepassingFilled = isVolumeFilled && $('#bpc-section-toepassing').hasClass('is-interacted');
         
         const selectedApp = $('input[name="application"]:checked').val();
@@ -1565,7 +1651,108 @@ jQuery(document).ready(function ($) {
         } else {
             $('.bpc-checkout-btn').removeClass('bpc-blink');
         }
+
+        if (stepsCompleted) {
+            $('.bpc-coupon-toggle-container').removeClass('d-none');
+            if (!appliedCouponCode) {
+                $('#bpc-coupon-code').prop('disabled', false);
+                $('#bpc-apply-coupon').prop('disabled', false);
+            }
+        } else {
+            if (!appliedCouponCode) {
+                $('.bpc-coupon-toggle-container').addClass('d-none');
+                $('.bpc-coupon-wrap').addClass('d-none');
+                $('#bpc-coupon-toggle').removeClass('active');
+                $('#bpc-coupon-code').prop('disabled', true).val('');
+                $('#bpc-apply-coupon').prop('disabled', true);
+                $('#bpc-coupon-message').addClass('d-none').html('');
+            }
+        }
     }
+
+    // Handle coupon toggle click
+    $(document).on('click', '#bpc-coupon-toggle', function (e) {
+        e.preventDefault();
+        const $wrap = $('.bpc-coupon-wrap');
+        if ($wrap.hasClass('d-none')) {
+            $wrap.hide().removeClass('d-none').slideDown(300);
+        } else {
+            $wrap.slideUp(300, function () {
+                $wrap.addClass('d-none');
+            });
+        }
+        $(this).toggleClass('active');
+    });
+
+    // Handle Enter key inside coupon input field
+    $(document).on('keypress', '#bpc-coupon-code', function (e) {
+        if (e.which === 13) {
+            e.preventDefault();
+            $('#bpc-apply-coupon').trigger('click');
+        }
+    });
+
+    // Coupon application logic
+    $(document).on('click', '#bpc-apply-coupon', function () {
+        const couponCode = $('#bpc-coupon-code').val().trim();
+        const $msg = $('#bpc-coupon-message');
+
+        if (!couponCode) {
+            $msg.removeClass('d-none success').addClass('error').text('Voer een kortingscode in.');
+            return;
+        }
+
+        // Validate that cubic meters is above 1
+        const val = parseFloat($('#cubic-meters').val().replace(',', '.')) || 0;
+        if (val <= 1) {
+            $msg.removeClass('d-none success').addClass('error').text('Coupon is alleen geldig bij een volume van meer dan 1 m³.');
+            return;
+        }
+
+        $msg.removeClass('d-none error success').addClass('info').text('Controleren...');
+
+        $.ajax({
+            type: 'post',
+            url: betonData.ajax_url,
+            data: {
+                action: 'beton_validate_coupon',
+                coupon_code: couponCode
+            },
+            success: function (response) {
+                if (response.success) {
+                    appliedCouponCode = couponCode;
+                    
+                    trigger_calculator();
+
+                    // Update UI
+                    $('#bpc-coupon-code').prop('disabled', true);
+                    $('#bpc-apply-coupon').prop('disabled', true);
+                    $msg.removeClass('d-none error info').addClass('success').html(
+                        `Kortingscode '<strong>${couponCode}</strong>' toegepast! 1 m³ gratis beton is verrekend. ` +
+                        `<a href="#" id="bpc-remove-coupon" style="color: #991B1B; text-decoration: underline; font-weight: 600; margin-left: 8px;">Verwijderen</a>`
+                    );
+                } else {
+                    $msg.removeClass('d-none success info').addClass('error').text(response.data.message || 'Ongeldige kortingscode.');
+                }
+            },
+            error: function () {
+                $msg.removeClass('d-none success info').addClass('error').text('Er is een fout opgetreden bij het valideren.');
+            }
+        });
+    });
+
+    // Coupon removal logic
+    $(document).on('click', '#bpc-remove-coupon', function (e) {
+        e.preventDefault();
+        if (!appliedCouponCode) return;
+
+        appliedCouponCode = '';
+        $('#bpc-coupon-code').val('').prop('disabled', false);
+        $('#bpc-apply-coupon').prop('disabled', false);
+        $('#bpc-coupon-message').addClass('d-none').html('');
+        
+        trigger_calculator();
+    });
 
     // Stepper click handler to scroll to and focus the clicked step's section
     $(document).on('click', '.bpc-step', function () {
@@ -1625,4 +1812,30 @@ jQuery(document).ready(function ($) {
             $('#cubic-meters').focus();
         }
     });
+
+    // Focus coupon code section on redirect from checkout
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('focus_coupon')) {
+        setTimeout(function() {
+            const $toggleContainer = $('.bpc-coupon-toggle-container');
+            const $toggle = $('#bpc-coupon-toggle');
+            const $wrap = $('.bpc-coupon-wrap');
+            const $input = $('#bpc-coupon-code');
+            
+            if ($toggleContainer.length && !$toggleContainer.hasClass('d-none')) {
+                $('html, body').animate({
+                    scrollTop: $toggleContainer.offset().top - 120
+                }, 600);
+                
+                if (!$toggle.hasClass('active')) {
+                    $toggle.addClass('active');
+                    $wrap.hide().removeClass('d-none').slideDown(300, function() {
+                        $input.focus();
+                    });
+                } else {
+                    $input.focus();
+                }
+            }
+        }, 500);
+    }
 });

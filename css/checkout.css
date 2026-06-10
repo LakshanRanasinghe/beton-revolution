@@ -6,7 +6,7 @@ CHECKOUT PAGE  (prefix: bpc-)
 /* ── Page wrapper ── */
 .bpc-checkout-page {
     min-height: 100vh;
-    padding: 48px 0 80px;
+    padding: 0px 0 80px;
     font-family: 'Public Sans', sans-serif;
 }
 

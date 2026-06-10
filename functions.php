@@ -410,6 +410,30 @@ function beton_calculator($data = null)
 	$city = sanitize_text_field($_POST['city']);
 	$cubic_meters = sanitize_text_field($_POST['cubic_meters']);
 	$area_code = sanitize_text_field($_POST['area_code']);
+
+	// Coupon handling
+	$coupon_code = isset($_POST['coupon_code']) ? sanitize_text_field($_POST['coupon_code']) : '';
+	$is_coupon_valid = false;
+	if (!empty($coupon_code)) {
+		$coupon = new WC_Coupon($coupon_code);
+		if ($coupon->get_id() > 0) {
+			$expiry_date = $coupon->get_date_expires();
+			$usage_limit = $coupon->get_usage_limit();
+			$usage_count = $coupon->get_usage_count();
+
+			$not_expired = !$expiry_date || ($expiry_date->getTimestamp() >= time());
+			$limit_ok = $usage_limit <= 0 || ($usage_count < $usage_limit);
+
+			if ($not_expired && $limit_ok) {
+				$is_coupon_valid = true;
+			}
+		}
+	}
+	$original_cubic_meters = floatval($cubic_meters);
+	if ($is_coupon_valid && $original_cubic_meters > 1) {
+		$cubic_meters = strval($original_cubic_meters - 1);
+	}
+
 	$selected_application = sanitize_text_field($_POST['application']);
 	$selected_compounds = rest_sanitize_array($_POST['compounds']);
 	$selected_release_method = sanitize_text_field($_POST['release_method']);
@@ -427,7 +451,7 @@ function beton_calculator($data = null)
 
 	$sub_total = 0;
 	$response_data_set = [];
-	$response_data_set['cubic_meters_formatted'] = $cubic_meters;
+	$response_data_set['cubic_meters_formatted'] = $original_cubic_meters;
 
 	$price_index = array_search($area_code, array_column(json_decode(json_encode((array) $seller_prices), TRUE), 'area_code'));
 
@@ -1699,6 +1723,9 @@ function concrete_add_to_cart()
 
 	if ($cart_item_key) {
 		WC()->session->set('billing_email', $_POST['user_email']);
+		if (!empty($_POST['coupon_code'])) {
+			WC()->cart->apply_coupon(sanitize_text_field($_POST['coupon_code']));
+		}
 		wp_send_json_success([
 			'message' => 'Product added to cart successfully!',
 			'cart_item_key' => $cart_item_key,
@@ -3561,3 +3588,40 @@ add_action('send_headers', function () {
 	header('X-Frame-Options: SAMEORIGIN');
 	header("Content-Security-Policy: frame-ancestors 'self';");
 });
+
+add_action('wp_ajax_beton_validate_coupon', 'beton_validate_coupon');
+add_action('wp_ajax_nopriv_beton_validate_coupon', 'beton_validate_coupon');
+function beton_validate_coupon()
+{
+	if (empty($_POST['coupon_code'])) {
+		wp_send_json_error(['message' => 'Geen couponcode opgegeven.']);
+	}
+
+	$coupon_code = sanitize_text_field($_POST['coupon_code']);
+	$coupon = new WC_Coupon($coupon_code);
+
+	if ($coupon->get_id() > 0) {
+		// Check expiry
+		$expiry_date = $coupon->get_date_expires();
+		if ($expiry_date && $expiry_date->getTimestamp() < time()) {
+			wp_send_json_error(['message' => 'Deze coupon is verlopen.']);
+		}
+
+		// Check usage limit
+		$usage_limit = $coupon->get_usage_limit();
+		$usage_count = $coupon->get_usage_count();
+		if ($usage_limit > 0 && $usage_count >= $usage_limit) {
+			wp_send_json_error(['message' => 'Deze coupon heeft de gebruikslimiet bereikt.']);
+		}
+
+		wp_send_json_success(['message' => 'Coupon is geldig.']);
+	} else {
+		wp_send_json_error(['message' => 'Ongeldige of onbekende kortingscode.']);
+	}
+}
+
+add_filter('woocommerce_checkout_coupon_message', 'beton_custom_checkout_coupon_message');
+function beton_custom_checkout_coupon_message($message)
+{
+	return 'Heb je een kortingscode? <a href="' . esc_url(home_url('/?focus_coupon=1')) . '" class="coupon-redirect-home-link">' . 'Klik hier om je code in te vullen' . '</a>';
+}
