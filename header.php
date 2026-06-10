@@ -177,7 +177,7 @@
 
 						<div class="d-none d-lg-block ms-lg-4">
 							<a href="<?php echo site_url(); ?>/contact" class="header-cta-btn">
-								<span>Bestel Nu</span>
+								<span>Contact nu</span>
 							</a>
 						</div>
 
@@ -215,7 +215,7 @@
 								?>
 								<div class="mt-auto pb-4">
 									<a href="<?php echo site_url(); ?>/contact" class="header-cta-btn w-100">
-										<span>Bestel Nu</span>
+										<span>Contact nu</span>
 									</a>
 								</div>
 							</div>

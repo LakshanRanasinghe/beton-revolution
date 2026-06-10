@@ -907,11 +907,11 @@ $dateTooltip = get_field('gewenste_leveringsdatum_tooltip', 'option');
                             <div class="summary-content p-4 poppins-400 text-18 text-dark-gray">
                                 <div class="d-flex justify-content-between mb-2">
                                     <span>Beton: <span id="cubic_meters_formatted">0</span> m³</span>
-                                    <span id="beton_price_formatted"><?php //wc_price(0) ?></span>
+                                    <span id="beton_price_formatted"><?php wc_price(0); ?></span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-4">
                                     <span>Brandstoftoeslag:</span>
-                                    <span id="brandstoftoeslag_formatted"><?php //wc_price(0) ?></span>
+                                    <span id="brandstoftoeslag_formatted"><?php wc_price(0); ?></span>
                                 </div>
                                 <hr class="text-light-gray">
                                 <h6 class="text-20 poppins-500 text-custom-black mb-2">Betonsamenstelling</h6>
@@ -984,12 +984,12 @@ $dateTooltip = get_field('gewenste_leveringsdatum_tooltip', 'option');
                                 </div>
                                 <div class="d-flex justify-content-between mb-3">
                                     <span>BTW 21%</span>
-                                    <span id="btw_formatted"><?php //wc_price(0) ?></span>
+                                    <span id="btw_formatted"><?php wc_price(0); ?></span>
                                 </div>
                                 <hr class="text-light-gray">
                                 <div class="d-flex justify-content-between poppins-600 text-20 text-custom-black">
                                     <span>Totaal</span>
-                                    <span id="total_formatted"><?php //wc_price(0) ?></span>
+                                    <span id="total_formatted"><?php wc_price(0); ?></span>
                                 </div>
                             </div>
                             <div class="bpc-summary-footer">

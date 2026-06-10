@@ -896,17 +896,73 @@ p.no-comments {
 }
 
 .popover {
-	border: 2px solid #3fd526 !important;
-	background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #3fd526 0%, #ffffff 100%) repeat scroll 0 0 !important; 
+	--bs-popover-border-color: #009966 !important;
+	--bs-popover-bg: #ffffff !important;
+	--bs-popover-border-radius: 12px !important;
+	--bs-popover-box-shadow: 0 10px 30px rgba(0, 6, 47, 0.08) !important;
+	--bs-popover-header-bg: #F8FAFC !important;
+	--bs-popover-header-color: #040e56 !important;
+	--bs-popover-body-color: #475569 !important;
+	border: 1px solid #009966 !important;
+	background-color: #ffffff !important;
+	border-radius: 12px !important;
+	box-shadow: 0 10px 30px rgba(0, 6, 47, 0.08) !important;
 }
 
 .popover .popover-header {
-	background-color: transparent !important; 
-	border-bottom: 1px solid #3fd526 !important; 
-	font-family: "Poppins", serif;
+	background-color: #F8FAFC !important;
+	color: #040e56 !important;
+	border-bottom: 1px solid #E2E8F0 !important;
+	font-family: 'Public Sans', 'Poppins', sans-serif !important;
+	font-weight: 700 !important;
+	font-size: 15px !important;
+	padding: 12px 16px !important;
+	border-top-left-radius: 11px !important;
+	border-top-right-radius: 11px !important;
 }
 
 .popover .popover-body {
-	background-color: transparent !important; 
-	color: #000000 !important;
+	background-color: transparent !important;
+	color: #475569 !important;
+	font-family: 'Public Sans', 'Poppins', sans-serif !important;
+	font-size: 14px !important;
+	line-height: 1.5 !important;
+	padding: 12px 16px !important;
+}
+
+/* Popover Arrow styling */
+.bs-popover-top > .popover-arrow::before,
+.bs-popover-top > .arrow::before {
+	border-top-color: #009966 !important;
+}
+.bs-popover-top > .popover-arrow::after,
+.bs-popover-top > .arrow::after {
+	border-top-color: #ffffff !important;
+}
+
+.bs-popover-bottom > .popover-arrow::before,
+.bs-popover-bottom > .arrow::before {
+	border-bottom-color: #009966 !important;
+}
+.bs-popover-bottom > .popover-arrow::after,
+.bs-popover-bottom > .arrow::after {
+	border-bottom-color: #F8FAFC !important; /* Matches header background */
+}
+
+.bs-popover-start > .popover-arrow::before,
+.bs-popover-start > .arrow::before {
+	border-left-color: #009966 !important;
+}
+.bs-popover-start > .popover-arrow::after,
+.bs-popover-start > .arrow::after {
+	border-left-color: #ffffff !important;
+}
+
+.bs-popover-end > .popover-arrow::before,
+.bs-popover-end > .arrow::before {
+	border-right-color: #009966 !important;
+}
+.bs-popover-end > .popover-arrow::after,
+.bs-popover-end > .arrow::after {
+	border-right-color: #ffffff !important;
 }

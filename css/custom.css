@@ -822,7 +822,7 @@ a {
     transition: all 0.2s ease;
 }
 
-.beton-contact-form-wrapper input[type="submit"]:hover, .direct-online-offerte-btn:hover{ 
+.beton-contact-form-wrapper input[type="submit"]:hover, .beton-page-content .entry-content .direct-online-offerte-btn:hover{ 
    background-color: #009966;
    color: #fff !important;
 }
@@ -1434,4 +1434,101 @@ span.dayz-loader {
 
 .footer-section {
    padding: 20px;
+}
+
+/* Fix responsiveness for screen widths between 991px and 1200px */
+@media (min-width: 991px) {
+  #masthead .navbar-expand-lg {
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+  }
+  #masthead .navbar-expand-lg .navbar-nav {
+    flex-direction: row !important;
+  }
+  #masthead .navbar-expand-lg .navbar-nav .dropdown-menu {
+    position: absolute !important;
+  }
+  #masthead .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: var(--bs-navbar-nav-link-padding-x) !important;
+    padding-left: var(--bs-navbar-nav-link-padding-x) !important;
+  }
+  #masthead .navbar-expand-lg .navbar-nav-scroll {
+    overflow: visible !important;
+  }
+  #masthead .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto !important;
+  }
+  #masthead .navbar-expand-lg .navbar-toggler {
+    display: none !important;
+  }
+  #masthead .navbar-expand-lg .offcanvas {
+    position: static !important;
+    z-index: auto !important;
+    flex-grow: 1 !important;
+    width: auto !important;
+    height: auto !important;
+    visibility: visible !important;
+    background-color: transparent !important;
+    border: 0 !important;
+    transform: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+  }
+  #masthead .navbar-expand-lg .offcanvas-header {
+    display: none !important;
+  }
+  #masthead .navbar-expand-lg .offcanvas-body {
+    display: flex !important;
+    flex-grow: 0 !important;
+    padding: 0 !important;
+    overflow-y: visible !important;
+  }
+  #masthead .d-lg-none {
+    display: none !important;
+  }
+  #masthead .d-none.d-lg-flex {
+    display: flex !important;
+  }
+  #masthead .d-none.d-lg-block {
+    display: block !important;
+  }
+  #masthead .ms-lg-4 {
+    margin-left: 1.5rem !important;
+  }
+  #masthead .site-branding {
+    width: auto !important;
+    flex: 0 0 auto !important;
+  }
+  #masthead #site-navigation {
+    width: auto !important;
+    flex: 1 1 0% !important;
+  }
+}
+
+@media (min-width: 991px) and (max-width: 1200px) {
+  #masthead .site-branding .custom-logo {
+    max-width: 220px !important;
+  }
+  #masthead .beton-navbar-desktop {
+    gap: 0.75rem !important;
+  }
+  #masthead .beton-navbar-desktop .nav-link {
+    font-size: 15px !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
+  #masthead .header-cta-btn {
+    padding: 8px 16px !important;
+    font-size: 15px !important;
+  }
+  #masthead .ms-lg-4 {
+    margin-left: 0.75rem !important;
+  }
+}
+
+@media screen and (min-width: 520px) and (max-width: 990px) {
+  .beton-mobile-drawer .site-branding .custom-logo {
+    max-width: 180px !important;
+  }
 }

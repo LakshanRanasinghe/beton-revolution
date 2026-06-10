@@ -3418,6 +3418,10 @@ SIDEBAR & SUMMARY BOX
 	color: #009966 !important;
 }
 
+.direct-online-offerte-btn:hover {
+    color: #fff;
+}
+
 /* Custom Input Arrows for Cubic Meters */
 .bpc-step-input-wrap.has-arrows {
     position: relative !important;

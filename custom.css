@@ -1010,3 +1010,9 @@ div#orddd_list_view_select {
 a.beton-popover.text-success {
     color: #3fd526 !important;
 }
+
+@media screen and (min-width: 520px) and (max-width: 990px) {
+  .beton-mobile-drawer .site-branding .custom-logo {
+    max-width: 180px !important;
+  }
+}
