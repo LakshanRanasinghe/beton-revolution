@@ -1304,8 +1304,8 @@ $dateTooltip = get_field('gewenste_leveringsdatum_tooltip', 'option');
         </div>
 
         <div class="bpc-features-actions">
-            <a href="#" class="bpc-features-btn-primary">Neem contact op</a>
-            <a href="#" class="bpc-features-btn-outline">Bestel nu</a>
+            <a href="<?php echo site_url(); ?>/contact/" class="bpc-features-btn-primary">Neem contact op</a>
+            <a href="<?php echo site_url(); ?>/#calculator" class="bpc-features-btn-outline">Bestel nu</a>
         </div>
     </div>
 </section>
