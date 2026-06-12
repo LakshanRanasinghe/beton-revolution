@@ -747,7 +747,7 @@ a {
    width: 100%;
    position: relative;
 }
-.beton-mobile-drawer .nav-link.dropdown-toggle {
+.beton-mobile-drawer .nav-link {
    border-bottom: 1px solid var(--custom-gray-5);
    padding-top: 24px;
    padding-bottom: 24px;
@@ -756,14 +756,16 @@ a {
    font-weight: 500;
    font-style: normal;
    color: black;
+   position: relative;
 }
-.beton-mobile-drawer .nav-link.dropdown-toggle:hover {
+.beton-mobile-drawer .nav-link:hover {
    color: #009966 !important;
 }
 .beton-arrow-menu-icon {
    position: absolute;
-   top: 0;
+   top: 50%;
    right: 0;
+   transform: translateY(-50%);
 }
 .beton-mobile-drawer ul.dropdown-menu .beton-arrow-menu-icon, .beton-mobile-drawer .dropdown-toggle::after, .beton-desktop-menu .beton-arrow-menu-icon{
    display: none;

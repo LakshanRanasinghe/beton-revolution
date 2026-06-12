@@ -960,6 +960,7 @@ function beton_calculator($data = null)
 		$sub_total_net = max(0, $sub_total - $discount_amount);
 		$response_data_set['discount_amount'] = $discount_amount;
 		$response_data_set['discount_amount_formatted'] = '<span style="color: #009966 !important; font-weight: 600;">Korting (1 m³ gratis)</span><span style="color: #009966 !important; font-weight: 600;">-' . wc_price($discount_amount) . '</span>';
+		$response_data_set['sub_total_net_formatted'] = '<span>Subtotaal na korting</span><span>' . wc_price($sub_total_net) . '</span>';
 	}
 
 	$response_data_set['btw'] = ($sub_total_net / 100) * 21;
@@ -2853,6 +2854,14 @@ add_action('rest_api_init', function () {
 		)
 	));
 
+	register_rest_route('db/v1', '/save_postcodes_data', array(
+		array(
+			'methods' => 'POST',
+			'callback' => 'save_postcodes_data',
+			'permission_callback' => 'woocommerce_basic_permissions'
+		)
+	));
+
 });
 
 
@@ -3639,6 +3648,46 @@ function get_beton_unit_price($request)
 		'count' => count($line_items),
 		'raw_meta_count' => count($raw_meta_items),
 		//'raw_meta_items' => $raw_meta_items, // Return raw meta items
+	));
+}
+
+function save_postcodes_data($request){
+	$data = $request->get_json_params();
+	$postcodes = isset($data['postcodes']) ? $data['postcodes'] : (isset($data['data']) ? $data['data'] : array());
+	
+	if (empty($postcodes) || !is_array($postcodes)) {
+		return new WP_Error('no_data', 'No postcode data provided', array('status' => 400));
+	}
+	
+	global $wpdb;
+	$table_name = $wpdb->prefix . 'postcodes';
+	
+	$updated_count = 0;
+	
+	foreach ($postcodes as $postcode) {
+		if (isset($postcode['city_name']) && isset($postcode['is_enable'])) {
+			$city_name = sanitize_text_field($postcode['city_name']);
+			$is_enable = $postcode['is_enable'] ? 1 : 0;
+			
+			$result = $wpdb->update(
+				$table_name,
+				array('is_enable' => $is_enable),
+				array('city_name' => $city_name),
+				array('%d'),
+				array('%s')
+			);
+			
+			if ($result !== false) {
+				$updated_count++;
+			}
+		}
+	}
+	
+	return rest_ensure_response(array(
+		'success' => true,
+		'message' => sprintf('%d postcodes updated successfully.', $updated_count),
+		'updated_count' => $updated_count,
+		'data' => $data,
 	));
 }
 

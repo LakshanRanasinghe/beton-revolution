@@ -427,6 +427,8 @@ get_header();
                                 <span class="poppins-600 text-20 text-custom-black">Subtotaal</span>
                                 <span id="sub_total_formatted"><?php //wc_price(0) ?></span>
                             </div>
+                            <div class="d-flex justify-content-between dynamic-hide mb-3" id="discount_amount_formatted"></div>
+                            <div class="d-flex justify-content-between dynamic-hide mb-3" id="sub_total_net_formatted"></div>
                             <div class="d-flex justify-content-between mb-3">
                                 <span>BTW 21%</span>
                                 <span id="btw_formatted"><?php //wc_price(0) ?></span>

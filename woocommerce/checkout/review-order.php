@@ -370,6 +370,18 @@ defined('ABSPATH') || exit;
 			</div>
 		<?php endforeach; ?>
 
+		<?php 
+		$discount_total = WC()->cart->get_discount_total();
+		if ($discount_total > 0): 
+			$subtotal = WC()->cart->get_subtotal();
+			$subtotal_net = max(0, $subtotal - $discount_total);
+			?>
+			<div class="cart-subtotal-net bpc-totals-row">
+				<div class="bpc-totals-label">Subtotaal na korting</div>
+				<div class="bpc-totals-value"><?php echo wc_price($subtotal_net); ?></div>
+			</div>
+		<?php endif; ?>
+
 		<?php if (wc_tax_enabled() && !WC()->cart->display_prices_including_tax()): ?>
 			<?php if ('itemized' === get_option('woocommerce_tax_total_display')): ?>
 				<?php foreach (WC()->cart->get_tax_totals() as $code => $tax): // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited ?>

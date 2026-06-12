@@ -12,6 +12,7 @@ function beton_postcodes_table_creation()
         `zip` text NOT NULL,
         `city_name` varchar(255) NOT NULL,
         `area_code` int NOT NULL,
+        `is_enable` tinyint(1) NOT NULL DEFAULT 1,
         PRIMARY KEY (id)
     ) $charset_collate;";
 
