@@ -1702,13 +1702,6 @@ jQuery(document).ready(function ($) {
             return;
         }
 
-        // Validate that cubic meters is above 1
-        const val = parseFloat($('#cubic-meters').val().replace(',', '.')) || 0;
-        if (val <= 1) {
-            $msg.removeClass('d-none success').addClass('error').text('Coupon is alleen geldig bij een volume van meer dan 1 m³.');
-            return;
-        }
-
         $msg.removeClass('d-none error success').addClass('info').text('Controleren...');
 
         $.ajax({
