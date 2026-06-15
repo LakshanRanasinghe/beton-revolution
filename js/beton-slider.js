@@ -1,6 +1,9 @@
 jQuery(document).ready(function ($) {
 
     let slider = $('.bpc-custom-slider');
+    if (slider.length === 0) {
+        return;
+    }
 
     let images = slider.find('.slides img').map(function () {
         return $(this).attr('src');

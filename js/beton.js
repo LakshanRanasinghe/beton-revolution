@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
 
-   
+   window.currentCubicMeters = parseFloat((typeof $.cookie !== "undefined" ? $.cookie("selected_cubic_meters") : null) || $("#cubic-meters").val() || 0);
 	window.dataLayer = window.dataLayer || [];
 	
 	$('#quoteButton').on('click', function () {
@@ -85,7 +85,7 @@ jQuery(document).ready(function ($) {
    
 
    //  Jump to second step on reload
-   if ($("#postcode-input").val() !== "" && currentCubicMeters !== "" && currentCubicMeters > 0) {
+   if ($("#postcode-input").length > 0 && $("#postcode-input").val() !== "" && currentCubicMeters !== "" && currentCubicMeters > 0) {
       $(".location-and-quantity-section").removeClass("active").addClass("inactive");
       $(".type-and-kind-section").addClass("active").removeClass("inactive");
    }

@@ -34,7 +34,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-MLVZ7T9');</script>
 <!-- End Google Tag Manager -->
 
-	<meta property="og:image" content="https://www.betonstorten.nl/wp-content/uploads/2025/03/betonstorten-logo-optimized-new.png">
+	<meta property="og:image" content="https://www.mobielebetoncentrale.nl/wp-content/uploads/2025/03/mobielebetoncentrale-logo-optimized-new.png">
 	<meta property="og:image:type" content="image/jpeg">
 	<meta property="og:image:width" content="200">
 	<meta property="og:image:height" content="200">
@@ -72,8 +72,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 									<a href="tel:06-27016082" class="text-white uppercase oswald-600 text-sm-14 letter-spacing-four"><i class="bi bi-phone"></i> 06-27016082</a>
 								</div>
 								<div class="col">
-									<!-- <a href="mailto:info@betonstorten.nl" class="text-white uppercase text-sm oswald-400"><i class="bi bi-envelope"></i> <?php //_e('E-mail', 'beton'); ?>: info@betonstorten.nl</a> -->
-									<a href="mailto:info@betonstorten.nl" class="text-white uppercase text-sm-14 oswald-400 letter-spacing-four"><i class="bi bi-envelope"></i> info@betonstorten.nl</a>
+									<!-- <a href="mailto:info@mobielebetoncentrale.nl" class="text-white uppercase text-sm oswald-400"><i class="bi bi-envelope"></i> <?php //_e('E-mail', 'beton'); ?>: info@mobielebetoncentrale.nl</a> -->
+									<a href="mailto:info@mobielebetoncentrale.nl" class="text-white uppercase text-sm-14 oswald-400 letter-spacing-four"><i class="bi bi-envelope"></i> info@mobielebetoncentrale.nl</a>
 								</div>
 							</div>
 						</div>
@@ -92,11 +92,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 									</a>
 								</div>
 								<div class="col-7 d-flex justify-content-end">
-									<!-- <a href="mailto:info@betonstorten.nl" class="text-white uppercase text-sm-14 oswald-400">
-										<i class="bi bi-envelope"></i> <?php //_e('E-mail', 'beton'); ?>: info@betonstorten.nl
+									<!-- <a href="mailto:info@mobielebetoncentrale.nl" class="text-white uppercase text-sm-14 oswald-400">
+										<i class="bi bi-envelope"></i> <?php //_e('E-mail', 'beton'); ?>: info@mobielebetoncentrale.nl
 									</a> -->
-									<a href="mailto:info@betonstorten.nl" class="text-white uppercase text-sm-14 oswald-400 letter-spacing-four">
-										<i class="bi bi-envelope"></i> info@betonstorten.nl
+									<a href="mailto:info@mobielebetoncentrale.nl" class="text-white uppercase text-sm-14 oswald-400 letter-spacing-four">
+										<i class="bi bi-envelope"></i> info@mobielebetoncentrale.nl
 									</a>
 								</div>
 							</div>

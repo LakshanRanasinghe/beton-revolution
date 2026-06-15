@@ -1,6 +1,11 @@
 jQuery(document).ready(function ($) {
     console.log('beton-revolution.js loaded');
 
+    // Only execute the calculator logic if the calculator is present on the page
+    if ($('#postcode-input').length === 0) {
+        return;
+    }
+
     // Helper function to handle both comma and period decimals
     function parseInput(value) {
         if (!value) return 0; // Return 0 if the field is empty
@@ -12,10 +17,16 @@ jQuery(document).ready(function ($) {
 
     // Helper to check if postcode is filled, selected, and enabled
     function checkIsVolumeFilled() {
-        const isPostcodeEnabled = $('#postcode-input').attr('data-is-enable') !== '0';
+        const $postcode = $('#postcode-input');
+        if ($postcode.length === 0) {
+            return false;
+        }
+        const isPostcodeEnabled = $postcode.attr('data-is-enable') !== '0';
+        const postcodeVal = $postcode.val();
         return parseInput($('#cubic-meters').val()) > 0 && 
-               $('#postcode-input').val().trim() !== "" && 
-               $('#postcode-input').hasClass('selected') && 
+               postcodeVal && 
+               postcodeVal.trim() !== "" && 
+               $postcode.hasClass('selected') && 
                isPostcodeEnabled;
     }
 
@@ -372,7 +383,7 @@ jQuery(document).ready(function ($) {
      *===========================================*/
 
     // Global variable
-    let currentCubicMeters = 0;
+    window.currentCubicMeters = window.currentCubicMeters || 0;
     let appliedCouponCode = "";
     let isProgrammaticVolumeChange = false;
 
@@ -1215,6 +1226,55 @@ jQuery(document).ready(function ($) {
         });
     }
 
+    // Helper to validate email
+    function isValidEmail(pdfEmail) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(pdfEmail);
+    }
+
+    // Send to quotation
+    function send_to_quotation() {
+        let compositions = [];
+        $('input[name="compound"]:checked').each(function () {
+            compositions.push($(this).attr("value"));
+        });
+
+        var dataSet = {
+            action: 'save_quotation',
+            user_email: $("#email").val(),
+            area_code: $.cookie("selected_area_code"),
+            postalcode: $("#postcode-input").val(),
+            cubic_meters: currentCubicMeters,
+            application_product: $('input[name="application"]:checked').val(),
+            composition: compositions,
+            unloading: $('input[name="releaseMethod"]:checked').val(),
+            pump_type: $('input[name="pump-type"]:checked').val(),
+            pumping_distance: $('select[name="mini_pumping_distance"]').val(),
+            boom_pumping_distance: $('select[name="boom_pumping_distance"]').val(),
+            uitvoering: $('input[name="performance"]:checked').val(),
+            "surace-sqm": $('select[name="surface"]').val(),
+            "layer-thickness": $("#layer-thickness").val(),
+            nos_rooms: $("#num-rooms").val(),
+            flooring: $("#mezzanine-floor").is(":checked") ? 1 : 0,
+            "butterfly-floor": $("#butterfly-floor").is(":checked") ? 1 : 0,
+            coupon_code: appliedCouponCode
+        };
+
+        $.ajax({
+            type: "post",
+            url: betonData.ajax_url,
+            data: dataSet,
+            beforeSend: function () {
+                $('.summary-content').addClass('loading');
+            },
+            success: function (response) {
+                if(response.data && response.data.status == 'mail-sent'){
+                    window.location.href = response.data.redirect;
+                }
+            }
+        });
+    }
+
     // Validate fields
     function validateFields() {
         let isValid = true;
@@ -1575,15 +1635,18 @@ jQuery(document).ready(function ($) {
     syncAllInOnePriceChange();
 
     // Watch for changes
-    const allInOnePriceObserver = new MutationObserver(function () {
-        syncAllInOnePriceChange();
-    });
+    const allInFormattedEl = document.getElementById('allIn_formatted');
+    if (allInFormattedEl) {
+        const allInOnePriceObserver = new MutationObserver(function () {
+            syncAllInOnePriceChange();
+        });
 
-    allInOnePriceObserver.observe(document.getElementById('allIn_formatted'), {
-        childList: true,
-        subtree: true,
-        characterData: true
-    });
+        allInOnePriceObserver.observe(allInFormattedEl, {
+            childList: true,
+            subtree: true,
+            characterData: true
+        });
+    }
 
     // Toggle Beton Kuub Calculator Dropdown
     $('.bpc-step-calc-row').on('click', function () {

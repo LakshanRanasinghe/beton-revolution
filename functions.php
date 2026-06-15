@@ -1189,7 +1189,7 @@ function quotation_html($quote_id)
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-		<title>Betonbestellen</title>
+		<title>Mobielebetoncentrale</title>
 		<style>
 			body {
 				font-family: 'Montserrat', sans-serif;
@@ -1300,7 +1300,7 @@ function quotation_html($quote_id)
 									</div>
 									<br>
 									<div>
-										E-mail: info@betonstorten.nl
+										E-mail: info@mobielebetoncentrale.nl
 									</div>
 								</td>
 								<td colspan="2" style="text-align: right;">
@@ -1740,18 +1740,18 @@ function send_quotation_email($data, $email, $quote_id)
 		Wij vertrouwen erop u hiermee een passende aanbieding te doen.
 		<div class=""> </div>
 		<p class="">Dit is een automatisch gegenereerde offerte, mocht u akkoord gaan met onze offerte dan kunt u per e-mail of telefoon contact met ons opnemen om een afspraak in te plannen. U kunt de offerte ook direct via iDeal afrekenen. <a href="' . wc_get_checkout_url() . '?pay-url=' . encrypt_code($quote_id) . '">Klik hier</a></p>
-		<p class=""><a class="" title="https://g.page/r/CcvazzN6aWu0EAI/review" href="https://g.page/r/CcvazzN6aWu0EAI/review">Klik hier om een review te schrijven over uw ervaringen met Betonstorten.nl</a>.</p>
+		<p class=""><a class="" title="https://g.page/r/CcvazzN6aWu0EAI/review" href="https://g.page/r/CcvazzN6aWu0EAI/review">Klik hier om een review te schrijven over uw ervaringen met Mobielebetoncentrale.nl</a>.</p>
 		<p class="">Met vriendelijke groet,</p>
 		<p class="">De medewerkers van <a class="" title="http://BetonBestellen.nl" href="http://betonbestellen.nl/">BetonBestellen.nl</a> BV</p>
-		<p class=""><b class="">E</b> <a class="" title="mailto:info@betonstorten.nl" href="mailto:info@betonstorten.nl">info@betonstorten.nl</a><br class="" /><b class="">T</b> (0166) 606001<br class="" /><b class="">M</b> 06 27016082</p>
+		<p class=""><b class="">E</b> <a class="" title="mailto:info@mobielebetoncentrale.nl" href="mailto:info@mobielebetoncentrale.nl">info@mobielebetoncentrale.nl</a><br class="" /><b class="">T</b> (0166) 606001<br class="" /><b class="">M</b> 06 27016082</p>
 		</div>';
 
 	$content_type = function () {
 		return 'text/html';
 	};
 	add_filter('wp_mail_content_type', $content_type);
-	//$headers[] = 'Cc: info@betonstorten.nl';
-	wp_mail($to, 'Offerte van betonstorten.nl', $html, $headers, $mail_attachment);
+	//$headers[] = 'Cc: info@mobielebetoncentrale.nl';
+	wp_mail($to, 'Offerte van mobielebetoncentrale.nl', $html, $headers, $mail_attachment);
 	remove_filter('wp_mail_content_type', $content_type);
 	$url_r = get_permalink(get_page_by_path('offerte-aanvraag'));
 	$url_r = add_query_arg('quotation', 'sent', $url_r);
@@ -3380,7 +3380,10 @@ function get_structured_acf_options($request)
 		'google_map_api_key' => $all_options['google_map_api_key'] ?? '',
 		'failsafe_email_notifier' => $all_options['failsafe_email_notifier'] ?? '',
 		'beton_product' => $all_options['beton_product'] ?? '',
-		'thank_you_page' => $all_options['thank_you_page'] ?? ''
+		'thank_you_page' => $all_options['thank_you_page'] ?? '',
+		'beton_qty_tooltip' => $all_options['aantal_tooltip'] ?? '',
+		'location_tooltip' => $all_options['locatie_tooltip'] ?? '',
+		'date_selector_tooltip' => $all_options['gewenste_leveringsdatum_tooltip'] ?? '',
 	);
 
 	// Sellers

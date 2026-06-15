@@ -34,7 +34,7 @@
 		esc_html($order->get_billing_first_name())
 	);
 
-	echo '<br>Bedankt voor de bestelling op Betonstorten.nl. Onze planners gaan aan de slag met het verzoek en zullen per e-mail of telefoon contact opnemen om de planning van de betonlevering te bevestigen.';
+	echo '<br>Bedankt voor de bestelling op Mobielebetoncentrale.nl. Onze planners gaan aan de slag met het verzoek en zullen per e-mail of telefoon contact opnemen om de planning van de betonlevering te bevestigen.';
     ?>
 </p>
  

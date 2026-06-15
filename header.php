@@ -40,7 +40,7 @@
 	<!-- End Google Tag Manager -->
 
 	<meta property="og:image"
-		content="https://www.betonstorten.nl/wp-content/uploads/2025/03/betonstorten-logo-optimized-new.png">
+		content="https://www.mobielebetoncentrale.nl/wp-content/uploads/2025/03/mobielebetoncentrale-logo-optimized-new.png">
 	<meta property="og:image:type" content="image/jpeg">
 	<meta property="og:image:width" content="200">
 	<meta property="og:image:height" content="200">
